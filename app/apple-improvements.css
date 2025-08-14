@@ -1,0 +1,783 @@
+/* Apple-Inspired Design Improvements for Agentic Zero Landing Page */
+/* Crafted with the elegance of a fine vessel! ARR! */
+
+/* ============================================
+   APPLE-INSPIRED WHY AGENTIC ZERO SECTION
+   ============================================ */
+.why-section {
+  padding: 120px 0 !important;
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.why-section::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: radial-gradient(circle at 30% 50%, rgba(159, 152, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(249, 115, 22, 0.02) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  animation: subtleFloat 30s ease-in-out infinite !important;
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.why-content {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  gap: 32px !important;
+}
+
+.why-card {
+  position: relative !important;
+  padding: 48px 56px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 24px !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 36px !important;
+  overflow: hidden !important;
+}
+
+.why-card::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  background: linear-gradient(90deg, transparent, rgba(159, 152, 255, 0.2), transparent) !important;
+  border-radius: 24px !important;
+  opacity: 0 !important;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  z-index: -1 !important;
+}
+
+.why-card:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+  border-color: rgba(159, 152, 255, 0.2) !important;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5),
+              0 18px 36px -18px rgba(159, 152, 255, 0.2) !important;
+}
+
+.why-card:hover::after {
+  opacity: 1 !important;
+}
+
+.why-card.featured {
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.08) 0%, rgba(249, 115, 22, 0.04) 100%) !important;
+  border-color: rgba(159, 152, 255, 0.3) !important;
+}
+
+.why-number {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #9f98ff, #ada7ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  width: 72px !important;
+  height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+.why-number::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(159, 152, 255, 0.08) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(159, 152, 255, 0.15) !important;
+  z-index: -1 !important;
+}
+
+.why-text {
+  font-size: 20px !important;
+  line-height: 1.8 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif !important;
+}
+
+.why-text strong {
+  color: white !important;
+  font-weight: 600 !important;
+  background: linear-gradient(90deg, #9f98ff, #f97316) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ============================================
+   APPLE-INSPIRED SPONSORS SECTION
+   ============================================ */
+.sponsors {
+  padding: 120px 0 !important;
+  background: #000000 !important;
+  position: relative !important;
+}
+
+.sponsors::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(ellipse at top, rgba(159, 152, 255, 0.02) 0%, transparent 40%) !important;
+  pointer-events: none !important;
+}
+
+/* Sponsor CTA Section */
+.sponsor-cta {
+  margin-top: 64px !important;
+  text-align: center !important;
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
+  animation-delay: 0.6s !important;
+}
+
+.sponsor-cta-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 16px 32px !important;
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.1), rgba(159, 152, 255, 0.05)) !important;
+  backdrop-filter: blur(30px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
+  border: 1px solid rgba(159, 152, 255, 0.3) !important;
+  border-radius: 980px !important;
+  color: #9f98ff !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.01em !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.sponsor-cta-button::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.2), transparent) !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.sponsor-cta-button:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.15), rgba(159, 152, 255, 0.08)) !important;
+  border-color: rgba(159, 152, 255, 0.5) !important;
+  box-shadow: 0 20px 40px -10px rgba(159, 152, 255, 0.3) !important;
+  color: #ada7ff !important;
+}
+
+.sponsor-cta-button:hover::before {
+  opacity: 1 !important;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sponsors-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 24px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.sponsor-card {
+  position: relative !important;
+  padding: 48px 32px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(30px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 20px !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+.sponsor-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+  opacity: 0 !important;
+  transition: opacity 0.5s ease !important;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-12px) scale(1.02) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(159, 152, 255, 0.15) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(159, 152, 255, 0.1) inset !important;
+}
+
+.sponsor-card:hover::before {
+  opacity: 1 !important;
+}
+
+.sponsor-card img {
+  height: 56px !important;
+  width: auto !important;
+  filter: brightness(0) invert(1) opacity(0.5) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.sponsor-card:hover img {
+  filter: brightness(0) invert(1) opacity(0.9) !important;
+  transform: scale(1.1) !important;
+}
+
+.sponsor-tooltip {
+  position: absolute !important;
+  bottom: calc(100% + 12px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(10px) !important;
+  background: rgba(30, 30, 30, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.sponsor-card:hover .sponsor-tooltip {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+/* ============================================
+   APPLE-INSPIRED SPEAKERS SECTION
+   ============================================ */
+.speakers {
+  padding: 120px 0 !important;
+  background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
+  position: relative !important;
+}
+
+/* Speaker CTA Section */
+.speaker-cta {
+  margin-top: 64px !important;
+  text-align: center !important;
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
+  animation-delay: 0.8s !important;
+}
+
+.speaker-apply-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 16px 32px !important;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.05)) !important;
+  backdrop-filter: blur(30px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
+  border: 1px solid rgba(249, 115, 22, 0.3) !important;
+  border-radius: 980px !important;
+  color: #fb923c !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.01em !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.speaker-apply-button::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), transparent) !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.speaker-apply-button:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(249, 115, 22, 0.08)) !important;
+  border-color: rgba(249, 115, 22, 0.5) !important;
+  box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.3) !important;
+  color: #f97316 !important;
+}
+
+.speaker-apply-button:hover::before {
+  opacity: 1 !important;
+}
+
+.speakers-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  gap: 24px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.speaker-card {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  position: relative !important;
+}
+
+.speaker-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(circle at top left, rgba(159, 152, 255, 0.1), transparent 60%) !important;
+  opacity: 0 !important;
+  transition: opacity 0.6s ease !important;
+  pointer-events: none !important;
+}
+
+.speaker-card:hover {
+  transform: translateY(-16px) scale(1.02) !important;
+  box-shadow: 0 40px 80px -16px rgba(0, 0, 0, 0.6),
+              0 0 0 1px rgba(159, 152, 255, 0.2) !important;
+  border-color: rgba(159, 152, 255, 0.15) !important;
+}
+
+.speaker-card:hover::before {
+  opacity: 1 !important;
+}
+
+.speaker-image-container {
+  position: relative !important;
+  overflow: hidden !important;
+  height: 200px !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)) !important;
+}
+
+.speaker-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  filter: grayscale(20%) !important;
+}
+
+.speaker-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.9) 100%) !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  opacity: 0 !important;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.speaker-card:hover .speaker-image {
+  transform: scale(1.15) !important;
+  filter: grayscale(0%) !important;
+}
+
+.speaker-card:hover .speaker-overlay {
+  opacity: 1 !important;
+}
+
+.speaker-info {
+  padding: 20px !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent) !important;
+}
+
+.speaker-name {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin-bottom: 6px !important;
+  color: white !important;
+  letter-spacing: -0.02em !important;
+}
+
+.speaker-title {
+  color: #9f98ff !important;
+  font-weight: 500 !important;
+  margin-bottom: 2px !important;
+  font-size: 13px !important;
+  letter-spacing: -0.01em !important;
+}
+
+.speaker-company {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+/* ============================================
+   APPLE-INSPIRED EVENT LOCATION SECTION
+   ============================================ */
+.location-section {
+  padding: 140px 0 !important;
+  background: linear-gradient(180deg, #000000 0%, #050505 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.location-section::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(159, 152, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 50%, rgba(249, 115, 22, 0.03) 0%, transparent 40%) !important;
+  pointer-events: none !important;
+}
+
+/* Venue Image Styling - Compact Design */
+.location-venue-image {
+  position: relative !important;
+  width: 100% !important;
+  height: 380px !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.6),
+    0 20px 40px -20px rgba(159, 152, 255, 0.08) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.venue-image {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
+  height: 60% !important;
+  max-width: 90% !important;
+  filter: brightness(0.9) contrast(1.2) !important;
+  opacity: 0.8 !important;
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.location-venue-image::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: 
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.5) 100%),
+    radial-gradient(ellipse at center, transparent 0%, rgba(159, 152, 255, 0.05) 100%) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.location-venue-image::after {
+  content: "La Rural" !important;
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 32px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  z-index: 2 !important;
+}
+
+.location-venue-image:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 
+    0 60px 120px -20px rgba(0, 0, 0, 0.9),
+    0 40px 80px -30px rgba(159, 152, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+.location-venue-image:hover .venue-image {
+  transform: translate(-50%, -50%) scale(1.1) !important;
+  filter: brightness(1) contrast(1.3) !important;
+  opacity: 0.95 !important;
+}
+
+@media (max-width: 968px) {
+  .location-venue-image {
+    height: 400px !important;
+    margin: 0 auto !important;
+  }
+}
+
+.location-venue-image:hover .venue-image {
+  transform: scale(1.05) !important;
+  opacity: 1 !important;
+  filter: brightness(1.2) contrast(1.2) !important;
+}
+
+.location-venue-image::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.4) 100%) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.6s ease !important;
+}
+
+.location-venue-image:hover::after {
+  opacity: 1 !important;
+}
+
+.location-content {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.location-wrapper {
+  display: grid !important;
+  grid-template-columns: 380px 1fr !important;
+  gap: 64px !important;
+  align-items: center !important;
+  margin-top: 64px !important;
+  position: relative !important;
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (max-width: 968px) {
+  .location-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+}
+
+.location-card {
+  position: relative !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.location-info {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Removed badge for cleaner design */
+
+.location-card::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  right: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: conic-gradient(from 180deg at 50% 50%, transparent 0deg, rgba(249, 115, 22, 0.05) 90deg, transparent 180deg) !important;
+  animation: rotate 20s linear infinite !important;
+  opacity: 0 !important;
+  transition: opacity 0.7s ease !important;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.location-card:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5),
+              0 30px 60px -30px rgba(249, 115, 22, 0.15) !important;
+}
+
+.location-card:hover::after {
+  opacity: 1 !important;
+}
+
+.location-card h3 {
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  margin-bottom: 16px !important;
+  color: white !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.2 !important;
+}
+
+.location-card .location-subtitle {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  margin-bottom: 32px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.location-features {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin-bottom: 40px !important;
+}
+
+.location-feature {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.location-feature-icon {
+  color: rgba(249, 115, 22, 0.7) !important;
+  font-size: 16px !important;
+  width: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+.location-feature-text {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 14px !important;
+  letter-spacing: -0.01em !important;
+}
+
+.location-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #f97316 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  letter-spacing: -0.01em !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  position: relative !important;
+  padding-bottom: 2px !important;
+}
+
+.location-link::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 1px !important;
+  background: #f97316 !important;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.location-link:hover {
+  color: #fb923c !important;
+}
+
+.location-link:hover::after {
+  width: 100% !important;
+}
+
+/* ============================================
+   APPLE-INSPIRED SPEAKER FORM SECTION
+   ============================================ */
+.speaker-form-section {
+  padding: 120px 0 !important;
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%) !important;
+  position: relative !important;
+}
+
+.speaker-form-section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(ellipse at bottom, rgba(159, 152, 255, 0.03) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+}
+
+.speaker-form-content {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.speaker-form {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(50px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(50px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 32px !important;
+  padding: 56px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.speaker-form:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Section headers with Apple refinement */
+.section-header {
+  text-align: center !important;
+  margin-bottom: 64px !important;
+}
+
+.section-title {
+  font-size: 56px !important;
+  margin-bottom: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.section-subtitle {
+  font-size: 20px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.5 !important;
+}

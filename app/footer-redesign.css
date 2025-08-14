@@ -1,0 +1,228 @@
+/* ============================================
+   REDESIGNED FOOTER - MATCHING SITE AESTHETIC
+   ============================================ */
+
+.footer {
+  padding: 80px 0 40px !important;
+  background: #000000 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.footer::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100px !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent) !important;
+}
+
+/* Main footer content card */
+.footer-card {
+  max-width: 900px !important;
+  margin: 0 auto 48px !important;
+  padding: 48px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 24px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Gradient orb background */
+.footer-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  right: -30% !important;
+  width: 500px !important;
+  height: 500px !important;
+  background: radial-gradient(circle, rgba(159, 152, 255, 0.03) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+}
+
+/* Footer grid layout */
+.footer-content {
+  position: relative !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr !important;
+  gap: 64px !important;
+  align-items: start !important;
+}
+
+/* Brand section */
+.footer-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.footer-logo {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: white !important;
+  margin: 0 !important;
+}
+
+.footer-logo span:first-child {
+  color: white !important;
+}
+
+.footer-logo span:last-child {
+  background: linear-gradient(135deg, #f97316, #fb923c) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.footer-tagline {
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  line-height: 1.6 !important;
+  max-width: 280px !important;
+}
+
+/* Footer links columns */
+.footer-column h4 {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  margin-bottom: 16px !important;
+  font-weight: 600 !important;
+}
+
+.footer-links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.footer-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  width: fit-content !important;
+}
+
+.footer-link svg {
+  width: 14px !important;
+  height: 14px !important;
+  opacity: 0.7 !important;
+  transition: all 0.3s ease !important;
+}
+
+.footer-link:hover {
+  color: #f97316 !important;
+  transform: translateX(4px) !important;
+}
+
+.footer-link:hover svg {
+  opacity: 1 !important;
+}
+
+/* Social links with hover effects */
+.footer-social {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 24px !important;
+}
+
+.social-icon {
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  text-decoration: none !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.social-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.social-icon:hover {
+  background: rgba(249, 115, 22, 0.1) !important;
+  border-color: rgba(249, 115, 22, 0.2) !important;
+  color: #f97316 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  text-align: center !important;
+  padding-top: 32px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.03) !important;
+  margin-top: 48px !important;
+}
+
+.footer-bottom p {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  margin: 0 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Quick action button */
+.footer-cta {
+  margin-top: 32px !important;
+}
+
+.footer-cta-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px 24px !important;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.05)) !important;
+  border: 1px solid rgba(249, 115, 22, 0.2) !important;
+  border-radius: 100px !important;
+  color: #fb923c !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  letter-spacing: -0.01em !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.footer-cta-button:hover {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(249, 115, 22, 0.08)) !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.3) !important;
+  color: #f97316 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .footer-card {
+    padding: 32px 24px !important;
+  }
+  
+  .footer-social {
+    justify-content: flex-start !important;
+  }
+}
