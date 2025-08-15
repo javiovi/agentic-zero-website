@@ -161,207 +161,10 @@ function SpeakerModal({
   )
 }
 
-// Enhanced Email Form
-function EmailCaptureForm() {
-  const [email, setEmail] = useState("")
-  const [emailError, setEmailError] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      setEmailError("Please enter a valid email address")
-      setIsSubmitting(false)
-      return
-    }
-
-    setEmailError("")
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    console.log("Email submitted:", email)
-    setEmail("")
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
-
-  if (isSubmitted) {
-    return (
-      <div className="email-success">
-        <div className="success-icon">✓</div>
-        <h3>You're on the list!</h3>
-        <p>We'll notify you when tickets become available.</p>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={handleEmailSubmit} className="email-form">
-      <div className="email-input-group">
-        <Input
-          type="email"
-          placeholder="Enter your email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={`email-input ${emailError ? "error" : ""}`}
-          required
-          disabled={isSubmitting}
-        />
-        <Button type="submit" className="email-submit-btn" disabled={isSubmitting}>
-          {isSubmitting ? (
-            <div className="loading-spinner" />
-          ) : (
-            <>
-              Get Updates
-              <ArrowRight size={16} />
-            </>
-          )}
-        </Button>
-      </div>
-      {emailError && <p className="email-error">{emailError}</p>}
-    </form>
-  )
-}
-
-// Speaker Application Form
-function SpeakerApplicationForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    title: "",
-    topic: "",
-    bio: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    console.log("Speaker application submitted:", formData)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    setTimeout(() => setIsSubmitted(false), 4000)
-  }
-
-  if (isSubmitted) {
-    return (
-      <div className="form-success">
-        <div className="success-icon">✓</div>
-        <h3>Application Submitted!</h3>
-        <p>We'll review your application and get back to you soon.</p>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="speaker-form">
-      <div className="form-grid">
-        <div className="form-group">
-          <Input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-            disabled={isSubmitting}
-          />
-        </div>
-        <div className="form-group">
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-            disabled={isSubmitting}
-          />
-        </div>
-        <div className="form-group">
-          <Input
-            type="text"
-            name="company"
-            placeholder="Company/Organization"
-            value={formData.company}
-            onChange={handleInputChange}
-            required
-            disabled={isSubmitting}
-          />
-        </div>
-        <div className="form-group">
-          <Input
-            type="text"
-            name="title"
-            placeholder="Your Title"
-            value={formData.title}
-            onChange={handleInputChange}
-            required
-            disabled={isSubmitting}
-          />
-        </div>
-      </div>
-      <div className="form-group">
-        <Input
-          type="text"
-          name="topic"
-          placeholder="Proposed Talk Topic"
-          value={formData.topic}
-          onChange={handleInputChange}
-          required
-          disabled={isSubmitting}
-        />
-      </div>
-      <div className="form-group">
-        <textarea
-          name="bio"
-          placeholder="Brief bio and talk description (max 500 characters)"
-          value={formData.bio}
-          onChange={handleInputChange}
-          maxLength={500}
-          rows={4}
-          required
-          disabled={isSubmitting}
-          className="form-textarea"
-        />
-      </div>
-      <Button type="submit" className="form-submit-btn" disabled={isSubmitting}>
-        {isSubmitting ? (
-          <div className="loading-spinner" />
-        ) : (
-          <>
-            Submit Application
-            <ArrowRight size={16} />
-          </>
-        )}
-      </Button>
-    </form>
-  )
-}
 
 // FAQ Item Component with Toggle
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer }: { question: string; answer: string | React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -379,7 +182,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </button>
       <div className="faq-answer-wrapper">
         <div className="faq-answer">
-          <p>{answer}</p>
+          {typeof answer === 'string' ? <p>{answer}</p> : answer}
         </div>
       </div>
     </div>
@@ -803,16 +606,78 @@ export default function AgenticZeroLanding() {
 
               <div className="faqs-list">
                 <FAQItem 
-                  question="Sample Question 1 - Waiting for your content"
-                  answer="Sample answer - I'll replace this with your actual FAQ content when you provide it."
+                  question="What is AGENTIC Zero & where is the event happening?"
+                  answer="AGENTIC Zero is a one-day conference about the intersection of AI and web3, focused on open, permissionless rails for autonomous systems. The event will hapen on November 20th, 2025 at La Rural (Palermo), Buenos Aires (same venue than Devconnect)."
                 />
                 <FAQItem 
-                  question="Sample Question 2 - Waiting for your content"
-                  answer="Sample answer - I'll replace this with your actual FAQ content when you provide it."
+                  question="Do I need a Devconnect ticket to enter?"
+                  answer={
+                    <p>
+                      Yes, to be able to attend AGENTIC Zero, you should purchase a{' '}
+                      <a 
+                        href="https://devconnect.org/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: '#f97316', textDecoration: 'underline' }}
+                      >
+                        Devconnect ticket
+                      </a>{' '}
+                      first.
+                    </p>
+                  }
                 />
                 <FAQItem 
-                  question="Sample Question 3 - Waiting for your content"
-                  answer="Sample answer - I'll replace this with your actual FAQ content when you provide it."
+                  question="Who should attend?"
+                  answer="Builders, researchers, founders, and everyone interested in the intersection between AI and web3."
+                />
+                <FAQItem 
+                  question="How do I apply to speak?"
+                  answer={
+                    <p>
+                      If you want to be a speaker, please complete the following{' '}
+                      <a 
+                        href="https://forms.gle/Dnj9tqHttkEcEJWs7"
+                        style={{ color: '#f97316', textDecoration: 'underline' }}
+                      >
+                         speaker form.
+                      </a>
+                    </p>
+                  }
+                />
+                <FAQItem 
+                  question="How do I apply to be a volunteer?"
+                  answer={
+                    <p>
+                      If you want to be a volunteer, please apply at the following{' '}
+                      <a 
+                        href="https://forms.gle/Z3wEcKC35oei1ypaA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: '#f97316', textDecoration: 'underline' }}
+                      >
+                        volunteer form
+                      </a>.
+                    </p>
+                  }
+                />
+                <FAQItem 
+                  question="How can I become a sponsor?"
+                  answer={
+                    <p>
+                      We welcome sponsors who want to back AGENTIC Zero's mission of building open, permissionless infrastructure for AI. To discuss sponsorship opportunities, please{' '}
+                      <a 
+                        href="mailto:info@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"
+                        style={{ color: '#f97316', textDecoration: 'underline' }}
+                      >
+                        email us
+                      </a>{' '}
+                      with your company details and sponsorship interests.
+                    </p>
+                  }
+                />
+                <FAQItem 
+                  question="Will talks be recorded?"
+                  answer="Yes, all main stage talks will be recorded and published on our YouTube channel after the event."
                 />
               </div>
             </div>
@@ -830,7 +695,7 @@ export default function AgenticZeroLanding() {
                     <span>AGENTIC</span> <span>ZERO</span>
                   </h3>
                   <p className="footer-tagline">
-                    Where AI meets Web3. A community-owned event bringing together visionaries shaping the decentralized future.
+                    Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.
                   </p>
                   <div className="footer-social">
                     <a

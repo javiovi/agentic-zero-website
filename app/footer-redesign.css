@@ -213,6 +213,10 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .footer {
+    padding: 64px 0 32px !important;
+  }
+  
   .footer-content {
     grid-template-columns: 1fr !important;
     gap: 40px !important;

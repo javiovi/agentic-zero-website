@@ -10,9 +10,14 @@ import './location-redesign.css'
 import './footer-redesign.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'AGENTIC Zero',
+  description: 'Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.',
+  generator: 'AGENTIC Zero',
+  icons: {
+    icon: '/images/logo.svg',
+    shortcut: '/images/logo.svg',
+    apple: '/images/logo.svg',
+  },
 }
 
 export default function RootLayout({

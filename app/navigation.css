@@ -70,30 +70,6 @@
   background: rgba(159, 152, 255, 0.15);
 }
 
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background: #9f98ff;
-  border-radius: 50%;
-  animation: glow 2s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: translateX(-50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.2);
-  }
-}
-
 /* Special CTA button in nav */
 .nav-cta {
   padding: 10px 20px;
