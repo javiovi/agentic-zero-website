@@ -195,7 +195,7 @@ function FloatingNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'sponsors', 'speakers', 'location', 'faqs']
+      const sections = ['hero', 'location', 'faqs']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -230,18 +230,6 @@ function FloatingNav() {
           onClick={() => scrollToSection('hero')}
         >
           Home
-        </button>
-        <button 
-          className={`nav-link ${activeSection === 'sponsors' ? 'active' : ''}`}
-          onClick={() => scrollToSection('sponsors')}
-        >
-          Sponsors
-        </button>
-        <button 
-          className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
-          onClick={() => scrollToSection('speakers')}
-        >
-          Speakers
         </button>
         <button 
           className={`nav-link ${activeSection === 'location' ? 'active' : ''}`}
@@ -468,8 +456,8 @@ export default function AgenticZeroLanding() {
           </div>
         </section>
 
-        {/* Enhanced Sponsors Section */}
-        <section id="sponsors" className="sponsors">
+        {/* Enhanced Sponsors Section - HIDDEN */}
+        <section id="sponsors" className="sponsors" style={{ display: 'none' }}>
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Sponsors</h2>
@@ -498,8 +486,8 @@ export default function AgenticZeroLanding() {
           </div>
         </section>
 
-        {/* Enhanced Speakers Section */}
-        <section ref={speakersRef} id="speakers" className="speakers">
+        {/* Enhanced Speakers Section - HIDDEN */}
+        <section ref={speakersRef} id="speakers" className="speakers" style={{ display: 'none' }}>
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">
@@ -723,12 +711,6 @@ export default function AgenticZeroLanding() {
                 <div className="footer-column">
                   <h4>Quick Links</h4>
                   <div className="footer-links">
-                    <a href="#sponsors" className="footer-link">
-                      Sponsors
-                    </a>
-                    <a href="#speakers" className="footer-link">
-                      Speakers
-                    </a>
                     <a href="#location" className="footer-link">
                       Venue
                     </a>

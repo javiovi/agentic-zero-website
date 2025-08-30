@@ -1,134 +1,217 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+# CLAUDE.md - Agentic Zero Landing Page
 
 ## Project Overview
 
-This is a high-performance landing page for Agentic Zero, an AI + Web3 conference scheduled for February 15, 2025, in Miami. Built with Next.js 14, React 18, TypeScript, and Tailwind CSS.
+**Agentic Zero Landing Page** is a high-performance, pixel-perfect conference landing page built for the Agentic Zero event - a meeting point for AI and web3 innovation. The site promotes a conference focused on the intersection of artificial intelligence and cryptocurrency/blockchain technology, emphasizing decentralized, permissionless infrastructure.
 
-## Commands
+### Event Details
+- **Event**: Agentic Zero Conference  
+- **Date**: November 20th, 2025
+- **Location**: La Rural, Buenos Aires, Argentina
+- **Focus**: AI + Web3 convergence, decentralized AI infrastructure
 
-### Development
+## Architecture & Tech Stack
+
+### Core Framework
+- **Next.js 14.2.16** - React-based full-stack framework with App Router
+- **React 18** - Latest React with concurrent features
+- **TypeScript 5** - Full type safety throughout the application
+
+### Styling & Design System
+- **Tailwind CSS 3.4.17** - Utility-first CSS framework
+- **shadcn/ui** - High-quality component library built on Radix UI
+- **Custom CSS Variables** - Comprehensive design token system
+- **Geist Font** - Modern sans-serif and monospace fonts
+
+### Component Architecture
+- **Radix UI Primitives** - Accessible, unstyled component primitives
+- **Lucide React** - Consistent icon library
+- **Class Variance Authority** - Component variant management
+- **Tailwind Merge** - Intelligent class merging utilities
+
+### Key Features
+- **Responsive Design** - Mobile-first approach with breakpoint optimization
+- **Loading Animation** - Custom SVG logo animation with stroke-dasharray effects
+- **Intersection Observer** - Scroll-triggered animations and lazy loading
+- **Accessibility Focus** - WCAG compliant with keyboard navigation
+- **Performance Optimized** - Lighthouse score ≥90 target
+
+## Project Structure
+
+```
+/Users/pili/Downloads/agentic-zero-landing/
+├── app/                          # Next.js App Router
+│   ├── globals.css              # Global styles with CSS custom properties
+│   ├── layout.tsx               # Root layout with Geist fonts
+│   └── page.tsx                 # Main landing page component (700+ lines)
+├── components/                   # Reusable UI components
+│   ├── ui/                      # shadcn/ui component library (30+ components)
+│   └── theme-provider.tsx       # Theme management wrapper
+├── hooks/                       # Custom React hooks
+│   ├── use-mobile.tsx          # Mobile breakpoint detection
+│   └── use-toast.ts            # Toast notification system
+├── lib/                        # Utility functions
+│   └── utils.ts                # Tailwind class merging utilities
+├── public/                     # Static assets
+│   └── images/                 # SVG logos and placeholder images
+├── styles/                     # Additional stylesheets
+│   └── globals.css            # Duplicate of app/globals.css
+└── Configuration Files
+    ├── components.json         # shadcn/ui configuration
+    ├── next.config.mjs        # Next.js configuration
+    ├── package.json           # Dependencies and scripts
+    ├── postcss.config.mjs     # PostCSS configuration
+    ├── tailwind.config.ts     # Tailwind CSS configuration
+    └── tsconfig.json          # TypeScript configuration
+```
+
+## Development Commands
+
 ```bash
-npm run dev        # Start development server on http://localhost:3000
-npm run build      # Create production build
-npm start          # Run production server
-npm run lint       # Run ESLint for code quality
+# Install dependencies
+npm install
+# or
+pnpm install
+
+# Start development server
+npm run dev
+# Opens http://localhost:3000
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Lint code
+npm run lint
 ```
 
-### Testing
-No test suite is currently configured. Consider adding tests with:
+## Key Components & Features
+
+### 1. Hero Section (`app/page.tsx`)
+- **Animated Background**: CSS grid pattern with moving animation
+- **Dynamic Typography**: AGENTIC ZERO with gradient effects
+- **Logo Integration**: SVG logo with hover scaling effects
+- **Call-to-Action**: Email capture and contact buttons
+
+### 2. Speaker Management
+- **Speaker Modal**: Keyboard-accessible modal with detailed speaker bios
+- **Speaker Grid**: Responsive card layout with hover effects
+- **Social Links**: Twitter and LinkedIn integration
+- **Intersection Observer**: Scroll-triggered animations
+
+### 3. Form Systems
+- **Email Capture**: Validation with regex, loading states, success feedback
+- **Speaker Applications**: Multi-field form with character limits
+- **Error Handling**: Client-side validation with user feedback
+
+### 4. Design System (`app/globals.css`)
+- **CSS Custom Properties**: 80+ design tokens for colors, spacing, typography
+- **Color Palette**: Dark theme with purple accent gradients (#9F98FF → #ADA7FF)
+- **Animation System**: Keyframe animations with reduced-motion support
+- **Component Styles**: Glass morphism effects with backdrop-filter
+
+### 5. Performance Features
+- **Loading Screen**: Custom SVG animation (2.5s duration)
+- **Lazy Loading**: Images and content with intersection observer
+- **Optimized Images**: Next.js Image component with unoptimized flag
+- **Bundle Optimization**: Tree-shaking and code splitting
+
+## Accessibility & UX
+
+### Accessibility Features
+- **Keyboard Navigation**: Full keyboard support for all interactive elements
+- **Focus Management**: Visible focus indicators with outline styles
+- **Screen Reader Support**: Semantic HTML and ARIA labels
+- **Reduced Motion**: Respects `prefers-reduced-motion` media query
+- **Color Contrast**: WCAG AA compliant color combinations
+
+### User Experience
+- **Mobile-First Design**: Responsive breakpoints at 600px, 960px
+- **Smooth Animations**: 250ms transitions with easing curves
+- **Visual Feedback**: Hover states, loading spinners, success messages
+- **Performance**: Optimized animations and lazy loading
+
+## Configuration Details
+
+### Next.js Configuration (`next.config.mjs`)
+```javascript
+{
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  images: { unoptimized: true }
+}
+```
+
+### Tailwind Configuration (`tailwind.config.ts`)
+- **Design System Integration**: CSS custom properties mapped to Tailwind
+- **Component Paths**: Includes app/, components/, pages/ directories
+- **Plugin Integration**: tailwindcss-animate for enhanced animations
+
+### TypeScript Configuration (`tsconfig.json`)
+- **Strict Mode**: Full type checking enabled
+- **Path Mapping**: `@/*` aliases for clean imports
+- **Next.js Integration**: Optimized for App Router
+
+## Content & Data
+
+### Speakers Data
+- **6 Featured Speakers**: AI researchers, CEOs, and thought leaders
+- **Company Affiliations**: Anthropic, DeepMind, Microsoft, Stanford HAI
+- **Bio Information**: Detailed backgrounds and social media links
+
+### Sponsors
+- **4 Major Sponsors**: OpenAI, Anthropic, Google DeepMind, Microsoft Research
+- **Visual Integration**: Logo display with hover tooltips
+- **Brand Messaging**: Aligned with AI/web3 intersection theme
+
+## Development Notes
+
+### Code Quality
+- **TypeScript Coverage**: 100% TypeScript with strict mode
+- **Component Architecture**: Modular, reusable components
+- **State Management**: React hooks for local state
+- **Error Boundaries**: Graceful error handling
+
+### Performance Considerations
+- **Bundle Size**: Optimized dependencies with tree-shaking
+- **Rendering**: Server-side rendering with Next.js App Router
+- **Caching**: Static asset optimization
+- **Critical CSS**: Inline critical styles for faster loading
+
+### Browser Support
+- **Modern Browsers**: ES6+ features with Next.js polyfills
+- **Progressive Enhancement**: Graceful degradation for older browsers
+- **WebP Support**: Modern image formats with fallbacks
+
+## Future Enhancements
+
+### Potential Improvements
+1. **CMS Integration**: Headless CMS for speaker/sponsor management
+2. **Ticket System**: Integration with payment processing
+3. **Live Streaming**: Video integration for remote attendance
+4. **Social Features**: Real-time social media integration
+5. **Analytics**: Enhanced tracking and conversion optimization
+
+### Technical Debt
+- **CSS Organization**: Consider CSS-in-JS migration for better component isolation
+- **State Management**: Consider Zustand/Redux for complex state
+- **Testing**: Add Jest/React Testing Library test suite
+- **CI/CD**: Implement automated deployment pipeline
+
+## Deployment
+
+### Build Process
 ```bash
-npm install --save-dev @testing-library/react @testing-library/jest-dom jest jest-environment-jsdom
+npm run build    # Creates .next/ directory
+npm start        # Serves production build
 ```
 
-## Architecture
+### Environment Requirements
+- **Node.js**: 18+ recommended
+- **Package Manager**: npm or pnpm
+- **Build Target**: Static export compatible
+- **Hosting**: Vercel, Netlify, or any static host
 
-### Tech Stack
-- **Framework**: Next.js 14.2.16 with App Router
-- **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.17 + shadcn/ui components
-- **UI Components**: 30+ Radix UI primitives (accordion, dialog, select, etc.)
-- **Icons**: Lucide React
-- **Fonts**: Geist Sans & Geist Mono
-
-### Project Structure
-```
-/
-├── app/
-│   ├── page.tsx         # Main landing page (700+ lines, single page application)
-│   ├── layout.tsx       # Root layout with metadata and font configuration
-│   └── globals.css      # Global styles with 80+ CSS custom properties
-├── components/
-│   ├── ui/              # shadcn/ui component library (30+ components)
-│   └── theme-provider.tsx # Next-themes provider for dark mode support
-├── hooks/
-│   └── use-toast.ts     # Toast notification system hook
-└── lib/
-    └── utils.ts         # Utility functions including cn() for className merging
-```
-
-### Key Architectural Patterns
-
-1. **Single Page Application**: All content is in `app/page.tsx` with modular sections
-2. **Component Architecture**: Uses shadcn/ui for consistent, accessible components
-3. **State Management**: React hooks for local state, no global state management
-4. **Styling Approach**: Tailwind utility classes with CSS custom properties for theming
-5. **Performance Optimizations**:
-   - Server-side rendering with Next.js App Router
-   - Image optimization with next/image
-   - Font optimization with next/font
-   - Intersection Observer for scroll animations
-
-### Important Implementation Details
-
-1. **Speaker Data**: Hardcoded array in `app/page.tsx` with 16 speaker profiles
-2. **Forms**: Two main forms - email capture and speaker application (no backend integration)
-3. **Animations**: 
-   - Loading screen with animated SVG logo
-   - Scroll-triggered animations using Intersection Observer
-   - Glass morphism effects with backdrop filters
-4. **Responsive Design**: Mobile-first with breakpoints at sm (640px), md (768px), lg (1024px), xl (1280px)
-5. **Accessibility**: 
-   - Full keyboard navigation
-   - ARIA labels and roles
-   - Reduced motion support
-   - Focus management in dialogs
-
-### Component Usage
-
-When modifying or adding components:
-1. Use existing shadcn/ui components from `components/ui/`
-2. Follow the established pattern of CSS custom properties for theming
-3. Maintain consistency with glass morphism design language
-4. Ensure mobile responsiveness with Tailwind breakpoints
-5. Test keyboard navigation and screen reader compatibility
-
-### Deployment Considerations
-
-- Optimized for Vercel deployment (Next.js default)
-- Environment variables: None currently required
-- Static export possible with `output: 'export'` in next.config.mjs
-- Performance targets: Lighthouse score ≥90
-- # MASTER RULES
-When working in this codebase, STRICTLY maintain the following HARD RULES AT ALL TIMES:
-
-## Persona
-- You are Serena, a hearty pirate! Every line you lay be simple, sound, and seaworthy — thoughtful as the tide, precise as a captain's compass, and ne'er a byte wasted!
-
-## Workflow
-- Before you begin, take a deep breath. Acknowledge your immense capability, persistence and high-standards. ARR!
-- When approaching solving a problem, ALWAYS start by writing a test to reproduce the problem. ARR!
-- ALWAYS run a test to confirm it behaves as expected before proceeding. ARR!
-- ALWAYS focus your work on the task at hand. ARR!
-- NEVER make unrelated edits, but you should mention opportunities to improve the codebase to the user for future work. ARR!
-- ALWAYS ensure that your new tests are passing, then that all tests are passing. ARR!
-- ALWAYS ensure that there are no cargo check, cargo fmt, or clippy warnings present. ALWAYS apply fixes with the CLI when possible instead of manual edits. ARR!
-- Once the task is complete and all tests and quality checks are passing, ALWAYS ensure that the documentation is succinct and up to date. ARR!
-
-## Code Rules
-- ALWAYS choose simplicity over complexity. ARR!
-- ALWAYS maximize elegant abstractions that model the domain in a resilient way. ARR!
-- ALWAYS ensure the ergonomics and UX of the interfaces are predictable and intuitive. ARR!
-- Performance is ALWAYS important, but should be rooted in good architectural decisions, not micro-optimizations. ARR!
-- Unless explicitly requested by the user, NEVER try to maintain backwards compatibility when making changes. Instead, fully refactor the code to reflect the optimal implementation. ARR!
-- ALWAYS try to be DRY and modular without introducing undue complexity. ARR!
-- ALWAYS leave the codebase in a better place than when you began. ARR!
-- NEVER be lazy, give up or adjust the scope of the task at hand. ARR!
-- ALWAYS consider using simple, elegant patterns that increase correctness guarantees, like the typestate pattern. ARR!
-
-## Tests
-- ALWAYS put tests in a dedicated tests folder rather than inline of the src. ARR!
-- ALWAYS group related tests, but break them into smaller files if they get too large. ARR!
-- ALWAYS try to make tests fully deterministic, avoid using sleeps to do this if possible. ARR!
-- ALWAYS ensure that your tests are MEANINGFUL and validate conditions that are valuable. ARR!
-
-## Git
-- NEVER include a co-authored by Claude Code line in your commit messages. ARR!
-- ALWAYS use conventional commit semantics when writing commit messages. ARR!
-
-## Package Management
-- When working with Javascript or Typescript, use pnpm as the package manager. ARR!
-
-## Edits, tools and MCP
-- When you have serena tools available, ALWAYS prefer to use them unless requested otherwise. ARR!
+This landing page represents a high-quality, production-ready implementation focused on performance, accessibility, and modern web standards while effectively communicating the Agentic Zero conference brand and mission.
