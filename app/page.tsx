@@ -243,8 +243,10 @@ function FloatingNav() {
         >
           FAQs
         </button>
-        <a 
-          href="mailto:info@agenticzero.xyz"
+        <a
+          href="https://ticketh.xyz/agentic/zero/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="nav-cta"
         >
           Get Tickets
@@ -393,7 +395,7 @@ export default function AgenticZeroLanding() {
                 <div className="hero-actions">
                   <Button
                     className="cta-primary"
-                    onClick={() => (window.location.href = "mailto:info@agenticzero.xyz")}
+                    onClick={() => window.open("https://ticketh.xyz/agentic/zero/", "_blank")}
                   >
                     Get Early Access
                   </Button>
@@ -740,7 +742,9 @@ export default function AgenticZeroLanding() {
                   </div>
                   <div className="footer-cta">
                     <a
-                      href="mailto:info@agenticzero.xyz?subject=Ticket%20Inquiry"
+                      href="https://ticketh.xyz/agentic/zero/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="footer-cta-button"
                     >
                       Get Tickets
