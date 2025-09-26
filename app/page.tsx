@@ -397,7 +397,7 @@ export default function AgenticZeroLanding() {
                     className="cta-primary"
                     onClick={() => window.open("https://ticketh.xyz/agentic/zero/", "_blank")}
                   >
-                    Get Early Access
+                    Get Tickets
                   </Button>
                 </div>
               </div>
