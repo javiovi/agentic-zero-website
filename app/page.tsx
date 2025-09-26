@@ -480,7 +480,7 @@ export default function AgenticZeroLanding() {
             <div className="sponsor-cta">
               <Button 
                 className="sponsor-cta-button"
-                onClick={() => window.location.href = "mailto:info@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"}
+                onClick={() => window.location.href = "mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"}
               >
                 Become a Sponsor
               </Button>
@@ -656,7 +656,7 @@ export default function AgenticZeroLanding() {
                     <p>
                       We welcome sponsors who want to back AGENTIC Zero's mission of building open, permissionless infrastructure for AI. To discuss sponsorship opportunities, please{' '}
                       <a 
-                        href="mailto:info@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"
+                        href="mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"
                         style={{ color: '#f97316', textDecoration: 'underline' }}
                       >
                         email us
@@ -726,7 +726,7 @@ export default function AgenticZeroLanding() {
                 <div className="footer-column">
                   <h4>Get in Touch</h4>
                   <div className="footer-links">
-                    <a href="mailto:info@agenticzero.xyz" className="footer-link">
+                    <a href="mailto:contact@agenticzero.xyz" className="footer-link">
                       <Mail size={14} />
                       Email Us
                     </a>
