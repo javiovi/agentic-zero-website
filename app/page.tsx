@@ -261,6 +261,7 @@ export default function AgenticZeroLanding() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<any>(null)
   const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
   const [speakersRef, speakersVisible] = useIntersectionObserver({ threshold: 0.1 })
+  const [sponsorsRef, sponsorsVisible] = useIntersectionObserver({ threshold: 0.05 })
 
   useEffect(() => {
     const animationEndTime = 2500
@@ -272,6 +273,10 @@ export default function AgenticZeroLanding() {
     }, totalLoadingTime)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    console.log('Sponsors visible:', sponsorsVisible)
+  }, [sponsorsVisible])
 
   const speakers = [
     {
@@ -330,28 +335,56 @@ export default function AgenticZeroLanding() {
     },
   ]
 
-  const sponsors = [
-    {
-      name: "OpenAI",
-      logo: "/placeholder.svg?height=80&width=160&text=OpenAI",
-      reason: "Pioneering the future of artificial general intelligence",
-    },
-    {
-      name: "Anthropic",
-      logo: "/placeholder.svg?height=80&width=160&text=Anthropic",
-      reason: "Building AI systems that are safe, beneficial, and understandable",
-    },
-    {
-      name: "Google DeepMind",
-      logo: "/placeholder.svg?height=80&width=160&text=DeepMind",
-      reason: "Advancing scientific discovery through AI research",
-    },
-    {
-      name: "Microsoft Research",
-      logo: "/placeholder.svg?height=80&width=160&text=Microsoft",
-      reason: "Empowering every person and organization with AI",
-    },
-  ]
+  const sponsors = {
+    platinum: [
+        {
+        name: "Allora",
+        logo: "/images/logos/allora-white.svg",
+        website: "https://allora.network",
+      },
+      {
+        name: "Cambrian",
+        logo: "/images/logos/cambria-verde.svg",
+        website: "https://www.cambrian.org/",
+      },
+     
+    ],
+    gold: [
+      {
+        name: "Giza",
+        logo: "/images/logos/giza-logo-white.svg",
+        website: "https://gizatech.xyz",
+      },
+       {
+        name: "Recall",
+        logo: "/images/logos/recall-white.svg",
+        website: "https://recall.network",
+      },
+      {
+        name: "Zyfai",
+        logo: "/images/logos/zyfai-white.svg",
+        website: "https://www.zyf.ai/",
+      },
+     
+    ],
+    silver: [
+       {
+        name: "Mimic",
+        logo: "/images/logos/mimic-white.svg",
+        website: "https://mimic.fi",
+      },
+      {
+        name: "v0",
+        logo: "/images/logos/v0-white.svg",
+        website: "https://v0.dev",
+      },
+      {
+        name: "Daedalus",
+        logo: "/images/logos/daedalus.svg",
+        website: "https://daedalus.gg",
+      },
+    ],
+  }
 
   return (
     <>
@@ -385,12 +418,12 @@ export default function AgenticZeroLanding() {
                   <span>November 20th, 2025</span>
                 </a>
                 <h1 className="hero-title">
-                  <span className="title-main">AGENTIC</span>
-                  <span className="title-accent">ZERO</span>
+                  <span className="title-main">Agentic</span>
+                  <span className="title-accent">Zero</span>
                 </h1>
                 <p className="hero-subtitle">
-                  AI is racing ahead. Crypto already rewrote the rules of trust. AGENTIC Zero brings the two together on
-                  neutral, permissionless infrastructure designed for people, not gatekeepers.
+                  Artificial intelligence (AI) is racing ahead. Crypto already rewrote the rules of trust. Agentic Zero brings the two together on
+                  neutral, permissionless infrastructure.
                 </p>
                 <div className="hero-actions">
                   <Button
@@ -413,7 +446,7 @@ export default function AgenticZeroLanding() {
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">
-                Why <span className="gradient-text">AGENTIC Zero</span>?
+                Why <span className="gradient-text">Agentic Zero</span>?
               </h2>
             </div>
             <div className="why-content">
@@ -458,32 +491,102 @@ export default function AgenticZeroLanding() {
           </div>
         </section>
 
-        {/* Enhanced Sponsors Section - HIDDEN */}
-        <section id="sponsors" className="sponsors" style={{ display: 'none' }}>
+        {/* Enhanced Sponsors Section */}
+        <section ref={sponsorsRef} id="sponsors" className="sponsors">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Sponsors</h2>
-              <p className="section-subtitle">Backing AGENTIC Zero</p>
+              <p className="section-subtitle">Backing Agentic Zero</p>
             </div>
 
-            <div className="sponsors-grid">
-              {sponsors.map((sponsor, index) => (
-                <div key={sponsor.name} className="sponsor-card" style={{ animationDelay: `${index * 100}ms` }}>
-                  <img src={sponsor.logo || "/placeholder.svg"} alt={sponsor.name} loading="lazy" />
-                  <div className="sponsor-tooltip">
-                    <p>{sponsor.reason}</p>
-                  </div>
-                </div>
-              ))}
+            {/* Platinum Sponsors */}
+            <div className="sponsors-tier">
+              <div className="sponsors-tier-grid platinum-grid">
+                {sponsors.platinum.map((sponsor, index) => (
+                  <a
+                    key={sponsor.name}
+                    href={sponsor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`sponsor-card sponsor-platinum ${sponsor.name === 'Cambrian' ? 'sponsor-cambrian' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    style={{ animationDelay: `${index * 200}ms` }}
+                  >
+                    <img
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      loading="lazy"
+                      style={{
+                        height: '130px',
+                        width: 'auto',
+                        maxWidth: 'none',
+                        maxHeight: 'none',
+                        minWidth: 'auto',
+                        minHeight: 'auto'
+                      }}
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
-            
-            <div className="sponsor-cta">
-              <Button 
-                className="sponsor-cta-button"
-                onClick={() => window.location.href = "mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"}
-              >
-                Become a Sponsor
-              </Button>
+
+            {/* Gold Sponsors */}
+            <div className="sponsors-tier">
+              <div className="sponsors-tier-grid gold-grid">
+                {sponsors.gold.map((sponsor, index) => (
+                  <a
+                    key={sponsor.name}
+                    href={sponsor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`sponsor-card sponsor-gold ${sponsor.name === 'Giza' ? 'sponsor-giza' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    style={{ animationDelay: `${(sponsors.platinum.length + index) * 200}ms` }}
+                  >
+                    <img
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      loading="lazy"
+                      style={{
+                        height: '75px',
+                        width: 'auto',
+                        maxWidth: 'none',
+                        maxHeight: 'none',
+                        minWidth: 'auto',
+                        minHeight: 'auto'
+                      }}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Silver Sponsors */}
+            <div className="sponsors-tier">
+              <div className="sponsors-tier-grid silver-grid">
+                {sponsors.silver.map((sponsor, index) => (
+                  <a
+                    key={sponsor.name}
+                    href={sponsor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`sponsor-card sponsor-silver ${sponsor.name === 'v0' ? 'sponsor-v0' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    style={{ animationDelay: `${(sponsors.platinum.length + sponsors.gold.length + index) * 200}ms` }}
+                  >
+                    <img
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      loading="lazy"
+                      style={{
+                        height: '55px',
+                        width: 'auto',
+                        maxWidth: 'none',
+                        maxHeight: 'none',
+                        minWidth: 'auto',
+                        minHeight: 'auto'
+                      }}
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -596,14 +699,14 @@ export default function AgenticZeroLanding() {
 
               <div className="faqs-list">
                 <FAQItem 
-                  question="What is AGENTIC Zero & where is the event happening?"
-                  answer="AGENTIC Zero is a one-day conference about the intersection of AI and web3, focused on open, permissionless rails for autonomous systems. The event will hapen on November 20th, 2025 at La Rural (Palermo), Buenos Aires (same venue than Devconnect)."
+                  question="What is Agentic Zero & where is the event happening?"
+                  answer="Agentic Zero is a one-day conference about the intersection of AI and web3, focused on open, permissionless rails for autonomous systems. The event will hapen on November 20th, 2025 at La Rural (Palermo), Buenos Aires (same venue than Devconnect)."
                 />
                 <FAQItem 
                   question="Do I need a Devconnect ticket to enter?"
                   answer={
                     <p>
-                      Yes, to be able to attend AGENTIC Zero, you should purchase a{' '}
+                      Yes, to be able to attend Agentic Zero, you should purchase a{' '}
                       <a 
                         href="https://devconnect.org/" 
                         target="_blank" 
@@ -654,7 +757,7 @@ export default function AgenticZeroLanding() {
                   question="How can I become a sponsor?"
                   answer={
                     <p>
-                      We welcome sponsors who want to back AGENTIC Zero's mission of building open, permissionless infrastructure for AI. To discuss sponsorship opportunities, please{' '}
+                      We welcome sponsors who want to back Agentic Zero's mission of building open, permissionless infrastructure for AI. To discuss sponsorship opportunities, please{' '}
                       <a 
                         href="mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"
                         style={{ color: '#f97316', textDecoration: 'underline' }}
@@ -682,7 +785,7 @@ export default function AgenticZeroLanding() {
                 {/* Brand Column */}
                 <div className="footer-brand">
                   <h3 className="footer-logo">
-                    <span>AGENTIC</span> <span>ZERO</span>
+                    <span>Agentic</span> <span>ZERO</span>
                   </h3>
                   <p className="footer-tagline">
                     Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.

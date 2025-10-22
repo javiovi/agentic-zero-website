@@ -142,7 +142,7 @@
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
-  background: radial-gradient(ellipse at top, rgba(159, 152, 255, 0.02) 0%, transparent 40%) !important;
+  background: radial-gradient(ellipse at top, rgba(159, 152, 255, 0.02) 0%, transparent 50%) !important;
   pointer-events: none !important;
 }
 
@@ -217,50 +217,452 @@
 .sponsor-card {
   position: relative !important;
   padding: 48px 32px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(30px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  border-radius: 20px !important;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 24px !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   text-align: center !important;
-  overflow: hidden !important;
-}
-
-.sponsor-card::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 1px !important;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+  overflow: visible !important;
   opacity: 0 !important;
-  transition: opacity 0.5s ease !important;
+  transform: translateY(40px) scale(0.9) !important;
 }
 
-.sponsor-card:hover {
-  transform: translateY(-12px) scale(1.02) !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  border-color: rgba(159, 152, 255, 0.15) !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-              0 0 0 1px rgba(159, 152, 255, 0.1) inset !important;
-}
-
-.sponsor-card:hover::before {
+/* Futuristic AI entrance animation */
+.sponsor-card.sponsor-animate {
+  animation: sponsorFuturisticEntry 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+  overflow: visible !important;
   opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+@keyframes sponsorFuturisticEntry {
+  0% {
+    opacity: 0 !important;
+    transform: translateY(40px) scale(0.9) !important;
+  }
+  50% {
+    opacity: 0.7 !important;
+  }
+  100% {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
+}
+
+.sponsor-card {
+  position: relative !important;
+  transition: all 0.4s ease !important;
 }
 
 .sponsor-card img {
-  height: 56px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+}
+
+/* Shimmer effect overlay for futuristic feel */
+.sponsor-card::after {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 200% !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(159, 152, 255, 0.2) 50%,
+    transparent
+  ) !important;
+  transform: skewX(-20deg) !important;
+  opacity: 0 !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.sponsor-card.sponsor-animate::after {
+  animation: shimmerSweep 1.5s ease-out 0.4s !important;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+/* Platinum Sponsors - Single glass card container */
+.platinum-grid {
+  position: relative !important;
+  padding: 48px 56px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  border: 1px solid rgba(159, 152, 255, 0.06) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px -8px rgba(159, 152, 255, 0.08) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  gap: 24px !important;
+}
+
+.platinum-grid::before {
+  content: "Powered by" !important;
+  position: absolute !important;
+  top: 16px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(159, 152, 255, 0.55) !important;
+  pointer-events: none !important;
+  text-shadow: 0 0 12px rgba(159, 152, 255, 0.15) !important;
+}
+
+.platinum-grid:hover {
+  border-color: rgba(159, 152, 255, 0.12) !important;
+  box-shadow: 0 12px 48px -12px rgba(159, 152, 255, 0.12),
+              0 20px 40px -10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sponsor-platinum {
+  background: transparent !important;
+  border: none !important;
+  padding: 48px 20px !important;
+}
+
+/* Powered by badge at the end */
+.powered-by-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px 24px !important;
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.08), rgba(159, 152, 255, 0.04)) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border: 1px solid rgba(159, 152, 255, 0.15) !important;
+  border-radius: 980px !important;
+  color: rgba(159, 152, 255, 0.7) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.02em !important;
+  margin: 48px auto 0 !important;
+  text-align: center !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.powered-by-badge:hover {
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.12), rgba(159, 152, 255, 0.06)) !important;
+  border-color: rgba(159, 152, 255, 0.25) !important;
+  color: rgba(159, 152, 255, 0.9) !important;
+  transform: translateY(-2px) !important;
+}
+
+.sponsor-platinum img {
+  height: 185px !important;
   width: auto !important;
-  filter: brightness(0) invert(1) opacity(0.5) !important;
+  max-width: none !important;
+  filter: grayscale(100%) opacity(0.5) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  margin-bottom: -30px;
+  padding-left: 0;
+}
+
+/* Cambrian Logo - Grayscale to green */
+.sponsor-cambrian img {
+  filter: grayscale(100%) opacity(0.8) !important;
+  height: 120px !important;
+}
+
+.sponsor-cambrian:hover img {
+  filter: grayscale(0%) opacity(1) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Gold Sponsors - Glass card container */
+.gold-grid {
+  position: relative !important;
+  padding: 40px 48px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  border: 1px solid rgba(159, 152, 255, 0.06) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px -8px rgba(159, 152, 255, 0.08) !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
+.gold-grid::before {
+  content: "Gold Sponsors" !important;
+  position: absolute !important;
+  top: 14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 215, 0, 0.5) !important;
+  pointer-events: none !important;
+}
+
+.gold-grid:hover {
+  border-color: rgba(159, 152, 255, 0.12) !important;
+  box-shadow: 0 12px 48px -12px rgba(159, 152, 255, 0.12),
+              0 20px 40px -10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sponsor-gold {
+  background: transparent !important;
+  border: none !important;
+  padding: 40px 28px !important;
+}
+
+.sponsor-gold img {
+  height: 70px !important;
+  width: auto !important;
+  max-width: none !important;
+  filter: grayscale(100%) opacity(0.5) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Giza Logo - Larger size for better visibility */
+.sponsor-giza img {
+  height: 75px !important;
+}
+
+/* Silver Sponsors - Glass card container */
+.silver-grid {
+  position: relative !important;
+  padding: 36px 40px !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  border: 1px solid rgba(159, 152, 255, 0.06) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px -8px rgba(159, 152, 255, 0.08) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.silver-grid::before {
+  content: "Silver Sponsors" !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: rgba(192, 192, 192, 0.5) !important;
+  pointer-events: none !important;
+}
+
+.silver-grid:hover {
+  border-color: rgba(159, 152, 255, 0.12) !important;
+  box-shadow: 0 12px 48px -12px rgba(159, 152, 255, 0.12),
+              0 20px 40px -10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.sponsor-silver {
+  background: transparent !important;
+  border: none !important;
+  padding: 36px 24px !important;
+}
+
+.sponsor-silver img {
+  height: 50px !important;
+  width: auto !important;
+  max-width: none !important;
+  filter: grayscale(100%) opacity(0.5) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* v0 Logo - Smaller size since logo is larger */
+.sponsor-v0 img {
+  height: 40px !important;
+}
+
 .sponsor-card:hover img {
-  filter: brightness(0) invert(1) opacity(0.9) !important;
+  filter: grayscale(0%) opacity(1) !important;
   transform: scale(1.1) !important;
+}
+
+/* Mobile Responsive Sizes */
+@media (max-width: 768px) {
+  .sponsors-tier-grid {
+    gap: 10px !important;
+  }
+
+  .platinum-grid {
+    gap: 16px !important;
+    padding: 40px 32px !important;
+  }
+
+  .platinum-grid::before {
+    font-size: 8px !important;
+    top: 14px !important;
+  }
+
+  .gold-grid {
+    gap: 18px !important;
+    padding: 36px 32px !important;
+  }
+
+  .gold-grid::before {
+    font-size: 8px !important;
+    top: 12px !important;
+  }
+
+  .silver-grid {
+    gap: 16px !important;
+    padding: 32px 28px !important;
+  }
+
+  .silver-grid::before {
+    font-size: 8px !important;
+    top: 10px !important;
+  }
+
+  .sponsor-card {
+    padding: 24px 16px !important;
+  }
+
+  .sponsor-platinum {
+    padding: 40px 24px 32px !important;
+  }
+
+  .sponsor-gold {
+    padding: 36px 20px !important;
+  }
+
+  .sponsor-silver {
+    padding: 32px 18px !important;
+  }
+
+  .powered-by-badge {
+    font-size: 11px !important;
+    padding: 10px 20px !important;
+  }
+
+  .sponsor-platinum img {
+    height: 100px !important;
+  }
+
+  .sponsor-cambrian img {
+    height: 90px !important;
+  }
+
+  .sponsor-gold img {
+    height: 55px !important;
+  }
+
+  .sponsor-giza img {
+    height: 60px !important;
+  }
+
+  .sponsor-silver img {
+    height: 40px !important;
+  }
+
+  .sponsor-v0 img {
+    height: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsors-tier-grid {
+    gap: 12px !important;
+  }
+
+  .platinum-grid {
+    gap: 10px !important;
+    padding: 36px 24px !important;
+  }
+
+  .platinum-grid::before {
+    font-size: 7px !important;
+    top: 12px !important;
+  }
+
+  .gold-grid {
+    gap: 10px !important;
+    padding: 32px 24px !important;
+  }
+
+  .gold-grid::before {
+    font-size: 7px !important;
+    top: 10px !important;
+  }
+
+  .silver-grid {
+    gap: 5px !important;
+    padding: 28px 20px !important;
+  }
+
+  .silver-grid::before {
+    font-size: 7px !important;
+    top: 8px !important;
+  }
+
+  .sponsor-card {
+    padding: 16px 12px !important;
+  }
+
+  .sponsor-platinum {
+    padding: 36px 18px 28px !important;
+  }
+
+  .sponsor-gold {
+    padding: 32px 16px !important;
+  }
+
+  .sponsor-silver {
+    padding: 28px 14px !important;
+  }
+
+  .powered-by-badge {
+    font-size: 10px !important;
+    padding: 8px 16px !important;
+    margin-top: 32px !important;
+  }
+
+  .sponsor-platinum img {
+    height: 80px !important;
+  }
+
+  .sponsor-cambrian img {
+    height: 65px !important;
+  }
+
+  .sponsor-gold img {
+    height: 35px !important;
+  }
+
+  .sponsor-giza img {
+    height: 45px !important;
+  }
+
+  .sponsor-silver img {
+    height: 35px !important;
+  }
+
+  .sponsor-v0 img {
+    height: 25px !important;
+  }
 }
 
 .sponsor-tooltip {
@@ -758,7 +1160,7 @@
 /* Section headers with Apple refinement */
 .section-header {
   text-align: center !important;
-  margin-bottom: 64px !important;
+  margin-bottom: 24px !important;
 }
 
 .section-title {
