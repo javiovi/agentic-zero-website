@@ -422,8 +422,7 @@ export default function AgenticZeroLanding() {
                   <span className="title-accent">Zero</span>
                 </h1>
                 <p className="hero-subtitle">
-                  Artificial intelligence (AI) is racing ahead. Crypto already rewrote the rules of trust. Agentic Zero brings the two together on
-                  neutral, permissionless infrastructure.
+                  Artificial intelligence (AI) is racing ahead. Web3 already rewrote the rules of trust. Agentic Zero is a one-day AI x web3 summit focused on open, permissionless rails for agentic systems.
                 </p>
                 <div className="hero-actions">
                   <Button
