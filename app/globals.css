@@ -160,7 +160,7 @@ p {
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
 }
 
 .section-title {
@@ -991,12 +991,12 @@ p {
 
 /* Enhanced Sponsors Section with Tiered Hierarchy */
 .sponsors {
-  padding: var(--space-24) 0;
+  padding: var(--space-8) 0;
   background: var(--az-bg-primary);
 }
 
 .sponsors-tier {
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-4);
 }
 
 .sponsors-tier:last-child {
@@ -1008,27 +1008,27 @@ p {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: var(--space-8);
+  gap: var(--space-4);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .platinum-grid {
-  gap: var(--space-12);
+  gap: var(--space-6);
 }
 
 .gold-grid {
-  gap: var(--space-10);
+  gap: var(--space-5);
 }
 
 .silver-grid {
-  gap: var(--space-8);
+  gap: var(--space-4);
 }
 
 /* Sponsor Cards - No Background */
 .sponsor-card {
   position: relative;
-  padding: 48px 32px;
+  padding: 16px 20px;
   background: transparent;
   backdrop-filter: none;
   border: none;

@@ -494,8 +494,7 @@ export default function AgenticZeroLanding() {
         <section ref={sponsorsRef} id="sponsors" className="sponsors">
           <div className="container">
             <div className="section-header">
-              <h2 className="section-title">Sponsors</h2>
-              <p className="section-subtitle">Backing Agentic Zero</p>
+              <h2 className="section-title">Backing Agentic Zero</h2>
             </div>
 
             {/* Platinum Sponsors */}
@@ -515,7 +514,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '130px',
+                        height: '90px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
@@ -545,7 +544,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '75px',
+                        height: '50px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
@@ -575,7 +574,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '55px',
+                        height: '40px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
