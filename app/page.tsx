@@ -1,5 +1,6 @@
 "use client"
 
+// Main landing page component for Agentic Zero conference
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Mail, Twitter, Linkedin, X, ArrowRight } from "lucide-react"
