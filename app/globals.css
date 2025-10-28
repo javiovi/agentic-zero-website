@@ -1111,7 +1111,6 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  cursor: pointer;
   transition: all var(--transition-normal);
   opacity: 0;
   transform: translateY(30px);
@@ -1123,7 +1122,7 @@ p {
 }
 
 .speaker-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-4px);
   box-shadow: var(--az-shadow-xl);
   border-color: var(--az-accent-primary);
 }
@@ -1131,55 +1130,42 @@ p {
 .speaker-image-container {
   position: relative;
   overflow: hidden;
+  height: 300px;
 }
 
 .speaker-image {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   transition: transform var(--transition-slow);
 }
 
-.speaker-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-}
-
 .speaker-card:hover .speaker-image {
-  transform: scale(1.1);
-}
-
-.speaker-card:hover .speaker-overlay {
-  opacity: 1;
+  transform: scale(1.05);
 }
 
 .speaker-info {
   padding: var(--space-6);
 }
 
-.speaker-name {
+.speaker-name-link {
   font-size: var(--text-xl);
   font-weight: 700;
   margin-bottom: var(--space-2);
   color: var(--az-text-primary);
+  text-decoration: none;
+  display: inline-block;
+  transition: color var(--transition-normal);
 }
 
-.speaker-title {
+.speaker-name-link:hover {
+  color: var(--az-accent-primary);
+  text-decoration: underline;
+}
+
+.speaker-role {
   color: var(--az-accent-primary);
   font-weight: 600;
-  margin-bottom: var(--space-1);
-}
-
-.speaker-company {
-  color: var(--az-text-secondary);
   font-size: var(--text-sm);
 }
 

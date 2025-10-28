@@ -79,89 +79,6 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
   </svg>
 )
 
-// Enhanced Speaker Modal
-function SpeakerModal({
-  speaker,
-  isOpen,
-  onClose,
-}: {
-  speaker: any
-  isOpen: boolean
-  onClose: () => void
-}) {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
-
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
-    }
-
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape)
-    }
-
-    return () => {
-      document.body.style.overflow = "unset"
-      document.removeEventListener("keydown", handleEscape)
-    }
-  }, [isOpen, onClose])
-
-  if (!isOpen) return null
-
-  return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label="Close modal">
-          <X size={24} />
-        </button>
-
-        <div className="modal-body">
-          <div className="modal-header">
-            <img src={speaker.image || "/placeholder.svg"} alt={speaker.name} className="modal-avatar" />
-            <div className="modal-info">
-              <h3 className="modal-name">{speaker.name}</h3>
-              <p className="modal-title">{speaker.title}</p>
-              <p className="modal-company">{speaker.company}</p>
-            </div>
-          </div>
-
-          <div className="modal-bio">
-            <p>{speaker.bio}</p>
-          </div>
-
-          <div className="modal-social">
-            <a
-              href={`https://twitter.com/${speaker.twitter}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label={`${speaker.name} on Twitter`}
-            >
-              <Twitter size={20} />
-              <span>Twitter</span>
-            </a>
-            <a
-              href={`https://linkedin.com/in/${speaker.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label={`${speaker.name} on LinkedIn`}
-            >
-              <Linkedin size={20} />
-              <span>LinkedIn</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-
 
 // FAQ Item Component with Toggle
 function FAQItem({ question, answer }: { question: string; answer: string | React.ReactNode }) {
@@ -195,7 +112,7 @@ function FloatingNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'location', 'faqs']
+      const sections = ['hero', 'speakers', 'location', 'faqs']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -225,19 +142,25 @@ function FloatingNav() {
   return (
     <nav className="nav-container">
       <div className="nav-pill">
-        <button 
+        <button
           className={`nav-link ${activeSection === 'hero' ? 'active' : ''}`}
           onClick={() => scrollToSection('hero')}
         >
           Home
         </button>
-        <button 
+        <button
+          className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
+          onClick={() => scrollToSection('speakers')}
+        >
+          Speakers
+        </button>
+        <button
           className={`nav-link ${activeSection === 'location' ? 'active' : ''}`}
           onClick={() => scrollToSection('location')}
         >
           Location
         </button>
-        <button 
+        <button
           className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
           onClick={() => scrollToSection('faqs')}
         >
@@ -258,7 +181,6 @@ function FloatingNav() {
 
 export default function AgenticZeroLanding() {
   const [isLoading, setIsLoading] = useState(true)
-  const [selectedSpeaker, setSelectedSpeaker] = useState<any>(null)
   const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
   const [speakersRef, speakersVisible] = useIntersectionObserver({ threshold: 0.1 })
   const [sponsorsRef, sponsorsVisible] = useIntersectionObserver({ threshold: 0.05 })
@@ -280,58 +202,40 @@ export default function AgenticZeroLanding() {
 
   const speakers = [
     {
-      name: "Dr. Sarah Chen",
-      title: "AI Safety Researcher",
-      company: "Anthropic",
-      image: "/placeholder.svg?height=400&width=400&text=Dr.+Sarah+Chen",
-      bio: "Dr. Chen leads groundbreaking research in AI alignment and safety protocols. Her work focuses on ensuring artificial intelligence systems remain beneficial and controllable as they become more capable. She has published extensively on value learning and corrigibility in advanced AI systems.",
-      twitter: "sarahchen_ai",
-      linkedin: "sarah-chen-ai",
+      name: "Rahul Kothari",
+      role: "Sr Product at Aztec",
+      image: "/images/speakers/Rahul_Kothari_AZTEC.jpg",
+      link: "https://x.com/omw_to_the_moon",
     },
     {
-      name: "Marcus Rodriguez",
-      title: "Head of AI Research",
-      company: "DeepMind",
-      image: "/placeholder.svg?height=400&width=400&text=Marcus+Rodriguez",
-      bio: "Marcus spearheads DeepMind's efforts in developing artificial general intelligence. His research spans reinforcement learning, neural architecture search, and emergent behaviors in large-scale AI systems. He previously led breakthrough projects in game-playing AI and protein folding prediction.",
-      twitter: "marcusrod_ai",
-      linkedin: "marcus-rodriguez-ai",
+      name: "Nader Dabit",
+      role: "Dir. of Developer Relations at Eigen Labs",
+      image: "/images/speakers/Nader.jpg",
+      link: "https://x.com/dabit3",
     },
     {
-      name: "Dr. Aisha Patel",
-      title: "Founder & CEO",
-      company: "Nexus AI",
-      image: "/placeholder.svg?height=400&width=400&text=Dr.+Aisha+Patel",
-      bio: "Dr. Patel founded Nexus AI to bridge the gap between cutting-edge AI research and real-world applications. Her expertise lies in multi-agent systems and distributed AI architectures. She holds multiple patents in autonomous decision-making systems and has advised governments on AI policy.",
-      twitter: "aisha_nexus",
-      linkedin: "aisha-patel-nexus",
+      name: "Juan Irungaray",
+      role: "Google Cloud Architect",
+      image: "/images/speakers/Juan_Irungaray.jpeg",
+      link: "https://www.linkedin.com/in/juanirungaray/",
     },
     {
-      name: "Prof. James Liu",
-      title: "Director of AI Ethics",
-      company: "Stanford HAI",
-      image: "/placeholder.svg?height=400&width=400&text=Prof.+James+Liu",
-      bio: "Professor Liu directs Stanford's Human-Centered AI Institute's ethics research division. His work examines the societal implications of AI systems and develops frameworks for responsible AI development. He has testified before Congress on AI regulation and co-authored influential papers on algorithmic fairness.",
-      twitter: "jamesliu_ethics",
-      linkedin: "james-liu-stanford",
+      name: "Nicolás Montone",
+      role: "Software Engineer at Vercel",
+      image: "/images/speakers/Nicolas_Montone.jpeg",
+      link: "https://x.com/montonenico",
     },
     {
-      name: "Dr. Elena Vasquez",
-      title: "Quantum AI Researcher",
-      company: "IBM Research",
-      image: "/placeholder.svg?height=400&width=400&text=Dr.+Elena+Vasquez",
-      bio: "Dr. Vasquez pioneers the intersection of quantum computing and artificial intelligence. Her research focuses on quantum machine learning algorithms and their applications in solving complex optimization problems that are intractable for classical computers.",
-      twitter: "elena_quantum",
-      linkedin: "elena-vasquez-quantum",
+      name: "Marco De Rossi",
+      role: "AI Lead at MetaMask",
+      image: "/images/speakers/Marco_De_Rossi.jpg",
+      link: "https://x.com/marco_derossi",
     },
     {
       name: "Alex Thompson",
-      title: "VP of AI Products",
-      company: "Microsoft",
+      role: "VP of AI Products at Microsoft",
       image: "/placeholder.svg?height=400&width=400&text=Alex+Thompson",
-      bio: "Alex leads Microsoft's AI product strategy, overseeing the development of AI-powered tools that enhance productivity for millions of users worldwide. His team focuses on making AI accessible and beneficial for businesses of all sizes.",
-      twitter: "alexthompson_ai",
-      linkedin: "alex-thompson-microsoft",
+      link: "https://twitter.com/alexthompson_ai",
     },
   ]
 
@@ -589,14 +493,13 @@ export default function AgenticZeroLanding() {
           </div>
         </section>
 
-        {/* Enhanced Speakers Section - HIDDEN */}
-        <section ref={speakersRef} id="speakers" className="speakers" style={{ display: 'none' }}>
+        {/* Speakers Section */}
+        <section ref={speakersRef} id="speakers" className="speakers">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">
-                Visionary <span className="gradient-text">Speakers</span>
+                Meet Our <span className="gradient-text">Speakers</span>
               </h2>
-              <p className="section-subtitle">Learn from the minds shaping the future of AI</p>
             </div>
 
             <div className="speakers-grid">
@@ -605,16 +508,6 @@ export default function AgenticZeroLanding() {
                   key={speaker.name}
                   className={`speaker-card ${speakersVisible ? "animate-in" : ""}`}
                   style={{ animationDelay: `${index * 100}ms` }}
-                  onClick={() => setSelectedSpeaker(speaker)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault()
-                      setSelectedSpeaker(speaker)
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`View details for ${speaker.name}`}
                 >
                   <div className="speaker-image-container">
                     <img
@@ -622,27 +515,28 @@ export default function AgenticZeroLanding() {
                       alt={speaker.name}
                       loading="lazy"
                       className="speaker-image"
+                      style={
+                        speaker.name === "Nicolás Montone"
+                          ? { transform: 'scale(1.8)', transformOrigin: 'center 95%' }
+                          : speaker.name === "Nader Dabit"
+                          ? { transform: 'scale(0.9)', transformOrigin: 'center 20%' }
+                          : {}
+                      }
                     />
-                    <div className="speaker-overlay">
-                      <span>View Profile</span>
-                    </div>
                   </div>
                   <div className="speaker-info">
-                    <h3 className="speaker-name">{speaker.name}</h3>
-                    <p className="speaker-title">{speaker.title}</p>
-                    <p className="speaker-company">{speaker.company}</p>
+                    <a
+                      href={speaker.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="speaker-name-link"
+                    >
+                      {speaker.name}
+                    </a>
+                    <p className="speaker-role">{speaker.role}</p>
                   </div>
                 </div>
               ))}
-            </div>
-            
-            <div className="speaker-cta">
-              <Button 
-                className="speaker-apply-button"
-                onClick={() => window.open("https://forms.gle/Dnj9tqHttkEcEJWs7", "_blank")}
-              >
-                Apply to Speak
-              </Button>
             </div>
           </div>
         </section>
@@ -860,8 +754,6 @@ export default function AgenticZeroLanding() {
             </div>
           </div>
         </footer>
-
-        <SpeakerModal speaker={selectedSpeaker} isOpen={!!selectedSpeaker} onClose={() => setSelectedSpeaker(null)} />
       </div>
     </>
   )
