@@ -1028,7 +1028,7 @@ p {
 /* Sponsor Cards - No Background */
 .sponsor-card {
   position: relative;
-  padding: 16px 20px;
+  padding: 10px;
   background: transparent;
   backdrop-filter: none;
   border: none;
@@ -1592,6 +1592,173 @@ p {
   }
 }
 
+/* Agenda Section Styles */
+.agenda-section {
+  padding: var(--space-24) 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(159, 152, 255, 0.05) 100%);
+}
+
+.agenda-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+
+.agenda-item,
+.agenda-break {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--az-surface-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(159, 152, 255, 0.1);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.agenda-item:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(159, 152, 255, 0.15) 100%);
+  border-color: rgba(159, 152, 255, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(159, 152, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.agenda-break {
+  background: rgba(159, 152, 255, 0.05);
+  border-color: rgba(159, 152, 255, 0.15);
+}
+
+.agenda-break:hover {
+  transform: none;
+  background: rgba(159, 152, 255, 0.08);
+}
+
+.agenda-time {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--az-accent-primary);
+  line-height: 1.8;
+}
+
+.agenda-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.agenda-speaker {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--az-text-primary);
+  margin: 0;
+}
+
+.agenda-type {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--az-orange);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.agenda-title {
+  font-size: var(--text-base);
+  color: var(--az-text-secondary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.agenda-participants {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.participant {
+  font-size: var(--text-sm);
+  color: var(--az-text-tertiary);
+  display: inline-block;
+}
+
+.participant:before {
+  content: "→ ";
+  color: var(--az-accent-primary);
+  font-weight: 600;
+  margin-right: var(--space-1);
+}
+
+.agenda-add-calendar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--az-accent-primary);
+  text-decoration: none;
+  border: 1px solid rgba(159, 152, 255, 0.3);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  background: rgba(159, 152, 255, 0.05);
+  width: fit-content;
+}
+
+.agenda-add-calendar:hover {
+  color: var(--az-text-primary);
+  border-color: rgba(159, 152, 255, 0.6);
+  background: rgba(159, 152, 255, 0.1);
+}
+
+.agenda-add-calendar:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Agenda */
+@media (max-width: 768px) {
+  .agenda-item,
+  .agenda-break {
+    grid-template-columns: 100px 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .agenda-time {
+    font-size: var(--text-xs);
+  }
+
+  .agenda-speaker {
+    font-size: var(--text-base);
+  }
+
+  .agenda-title {
+    font-size: var(--text-sm);
+  }
+
+  .participant {
+    font-size: var(--text-xs);
+  }
+}
+
+@media (max-width: 600px) {
+  .agenda-item,
+  .agenda-break {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .agenda-time {
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+}
+
 /* Accessibility & Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -1639,5 +1806,18 @@ p {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* DIN Logo Styling */
+.sponsor-din {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: -80px;
+}
+
+@media (max-width: 1024px) {
+  .sponsor-din {
+    margin-top: 0 !important;
   }
 }
