@@ -348,7 +348,12 @@ export default function AgenticZeroLanding() {
         logo: "/images/logos/cambria-verde.svg",
         website: "https://www.cambrian.org/",
       },
-     
+      {
+        name: "DIN",
+        logo: "/images/logos/DIN_Wordmark_Light.svg",
+        website: "https://www.infura.io/solutions/decentralized-infrastructure-service",
+      },
+
     ],
     gold: [
       {
@@ -507,7 +512,7 @@ export default function AgenticZeroLanding() {
                     href={sponsor.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-platinum ${sponsor.name === 'Cambrian' ? 'sponsor-cambrian' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    className={`sponsor-card sponsor-platinum ${sponsor.name === 'Cambrian' ? 'sponsor-cambrian' : ''} ${sponsor.name === 'DIN' ? 'sponsor-din' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
                     <img
@@ -515,7 +520,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '90px',
+                        height: sponsor.name === 'DIN' ? '110px' : '90px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
@@ -591,7 +596,7 @@ export default function AgenticZeroLanding() {
         </section>
 
         {/* Enhanced Speakers Section - HIDDEN */}
-        <section ref={speakersRef} id="speakers" className="speakers" style={{ display: 'none' }}>
+        {/* <section ref={speakersRef} id="speakers" className="speakers">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">
@@ -636,9 +641,9 @@ export default function AgenticZeroLanding() {
                 </div>
               ))}
             </div>
-            
+
             <div className="speaker-cta">
-              <Button 
+              <Button
                 className="speaker-apply-button"
                 onClick={() => window.open("https://forms.gle/Dnj9tqHttkEcEJWs7", "_blank")}
               >
@@ -646,10 +651,10 @@ export default function AgenticZeroLanding() {
               </Button>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* Event Agenda Section */}
-        <section id="agenda" className="agenda-section">
+        {/* Event Agenda Section - COMMENTED OUT */}
+        {/* <section id="agenda" className="agenda-section">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">
@@ -923,7 +928,7 @@ export default function AgenticZeroLanding() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Event Location Section */}
         <section id="location" className="location-section">

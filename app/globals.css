@@ -1028,7 +1028,7 @@ p {
 /* Sponsor Cards - No Background */
 .sponsor-card {
   position: relative;
-  padding: 16px 20px;
+  padding: 10px;
   background: transparent;
   backdrop-filter: none;
   border: none;
@@ -1627,14 +1627,18 @@ p {
   padding: var(--space-6);
   border-radius: var(--radius-lg);
   background: var(--az-surface-glass);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(159, 152, 255, 0.1);
   transition: all var(--transition-normal);
+  position: relative;
 }
 
 .agenda-item:hover {
-  background: var(--az-surface-glass-hover);
-  border-color: rgba(159, 152, 255, 0.2);
-  transform: translateX(4px);
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(159, 152, 255, 0.15) 100%);
+  border-color: rgba(159, 152, 255, 0.4);
+  box-shadow: 0 20px 25px -5px rgba(159, 152, 255, 0.2);
+  backdrop-filter: blur(20px);
 }
 
 .agenda-break {
@@ -1816,5 +1820,18 @@ p {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* DIN Logo Styling */
+.sponsor-din {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: -80px;
+}
+
+@media (max-width: 1024px) {
+  .sponsor-din {
+    margin-top: 0 !important;
   }
 }
