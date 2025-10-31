@@ -1042,11 +1042,6 @@ p {
   overflow: hidden;
 }
 
-.sponsor-card {
-  position: relative;
-  transition: all 0.4s ease;
-}
-
 .sponsor-card img {
   position: relative;
   z-index: 1;
@@ -1055,6 +1050,7 @@ p {
 /* Hover Effects - Logo */
 .sponsor-card:hover {
   transform: translateY(-8px) scale(1.01);
+  background: transparent;
 }
 
 .sponsor-card img {

@@ -208,36 +208,97 @@ export default function AgenticZeroLanding() {
       image: "/images/speakers/Rahul_Kothari_AZTEC.jpg",
       link: "https://x.com/omw_to_the_moon",
     },
-    {
+    
+     {
       name: "Nader Dabit",
       role: "Dir. of Developer Relations at Eigen Labs",
       image: "/images/speakers/Nader.jpg",
       link: "https://x.com/dabit3",
+    }, 
+    
+    {
+      name: "Ken Ng",
+      role: "Head of Research & Co-Founder, Uniswap Foundation",
+      image: "/images/speakers/Ken.jpg",
+      link: "https://x.com/nkennethk",
     },
     {
       name: "Juan Irungaray",
       role: "Google Cloud Architect",
-      image: "/images/speakers/Juan_Irungaray.jpeg",
+      image: "/images/speakers/juan.jpeg",
+      link: "https://x.com/nick_emmons",
+    },
+
+      {
+      name: "Nick Emmons",
+      role: "Founder & CEO, Allora Labs",
+      image: "/images/speakers/nick-allora.jpg",
       link: "https://www.linkedin.com/in/juanirungaray/",
     },
-    {
-      name: "Nicolás Montone",
-      role: "Software Engineer at Vercel",
-      image: "/images/speakers/Nicolas_Montone.jpeg",
-      link: "https://x.com/montonenico",
+    
+      {
+      name: "Sam Green",
+      role: "Founder & CEO, Cambrian Network",
+      image: "/images/speakers/sam.jpg",
+      link: "https://x.com/0xsamgreen",
     },
-    {
-      name: "Marco De Rossi",
-      role: "AI Lead at MetaMask",
-      image: "/images/speakers/Marco_De_Rossi.jpg",
-      link: "https://x.com/marco_derossi",
+       {
+      name: "Gauthier Vila",
+      role: "Core Contributor & Founder, ZyFAI",
+      image: "/images/speakers/gauthier.jpg",
+      link: "https://x.com/goatv_bk",
     },
-    {
-      name: "Alex Thompson",
-      role: "VP of AI Products at Microsoft",
-      image: "/placeholder.svg?height=400&width=400&text=Alex+Thompson",
-      link: "https://twitter.com/alexthompson_ai",
+        {
+      name: "Renç Korzay",
+      role: "CEO, Giza",
+      image: "/images/speakers/Renc.jpg",
+      link: "https://x.com/renckorzay",
     },
+         {
+      name: "E. G.",
+      role: "Cofounder of Infura & DIN, Consensys",
+      image: "/images/speakers/eg.jpg",
+      link: "",
+    },
+           {
+      name: "Quintus Kilbourn",
+      role: "Cryptoeconomics researcher, Flashbots",
+      image: "/images/speakers/quintus.jpg",
+      link: "https://x.com/0xQuintus",
+    },
+             {
+      name: "Shaw Walters",
+      role: "Founder, Eliza Labs",
+      image: "/images/speakers/shaw.jpg",
+      link: "",
+    }, 
+    
+             {
+      name: "Mooly Sagiv",
+      role: "Chief Scientist,  Certora",
+      image: "/images/speakers/mooly.jpg",
+      link: "https://x.com/SagivMooly",
+    }, 
+     
+    
+    // {
+    //  name: "Nicolás Montone",
+   //   role: "Software Engineer at Vercel",
+   //   image: "/images/speakers/Nicolas_Montone.jpeg",
+   //   link: "https://x.com/montonenico",
+ //   },
+  //  {
+  //    name: "Marco De Rossi",
+  //    role: "AI Lead at MetaMask",
+  //    image: "/images/speakers/Marco_De_Rossi.jpg",
+  //    link: "https://x.com/marco_derossi",
+  //  },
+   // {
+   //   name: "Alex Thompson",
+   //   role: "VP of AI Products at Microsoft",
+  //    image: "/placeholder.svg?height=400&width=400&text=Alex+Thompson",
+   //   link: "https://twitter.com/alexthompson_ai",
+ //   },
   ]
 
   const sponsors = {

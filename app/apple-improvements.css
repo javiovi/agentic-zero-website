@@ -5,7 +5,7 @@
    APPLE-INSPIRED WHY AGENTIC ZERO SECTION
    ============================================ */
 .why-section {
-  padding: 120px 0 !important;
+  padding: 100px 0 !important;
   background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%) !important;
   position: relative !important;
   overflow: hidden !important;
@@ -133,7 +133,7 @@
    APPLE-INSPIRED SPONSORS SECTION
    ============================================ */
 .sponsors {
-  padding: 120px 0 !important;
+  padding: 100px 0 !important;
   background: #000000 !important;
   position: relative !important;
 }
@@ -303,18 +303,19 @@
   }
 }
 
-/* Platinum Sponsors - Single glass card container */
+/* Platinum Sponsors - No container styling */
 .platinum-grid {
   position: relative !important;
-  padding: 48px 56px !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
-  backdrop-filter: blur(16px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-  border: 1px solid rgba(159, 152, 255, 0.06) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 32px -8px rgba(159, 152, 255, 0.08) !important;
+  padding: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   gap: 24px !important;
+  margin-bottom: 60px !important;
 }
 
 .platinum-grid::before {
@@ -333,9 +334,8 @@
 }
 
 .platinum-grid:hover {
-  border-color: rgba(159, 152, 255, 0.12) !important;
-  box-shadow: 0 12px 48px -12px rgba(159, 152, 255, 0.12),
-              0 20px 40px -10px rgba(0, 0, 0, 0.3) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .sponsor-platinum {
@@ -392,23 +392,24 @@
   transform: scale(1.1) !important;
 }
 
-/* Gold Sponsors - Glass card container */
+/* Gold Sponsors - No container styling */
 .gold-grid {
   position: relative !important;
-  padding: 40px 48px !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
-  backdrop-filter: blur(16px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-  border: 1px solid rgba(159, 152, 255, 0.06) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 32px -8px rgba(159, 152, 255, 0.08) !important;
+  padding: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  margin-bottom: 60px !important;
 }
 
 .gold-grid::before {
   content: "Gold Sponsors" !important;
   position: absolute !important;
-  top: 14px !important;
+  top: -40px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   font-size: 9px !important;
@@ -420,9 +421,8 @@
 }
 
 .gold-grid:hover {
-  border-color: rgba(159, 152, 255, 0.12) !important;
-  box-shadow: 0 12px 48px -12px rgba(159, 152, 255, 0.12),
-              0 20px 40px -10px rgba(0, 0, 0, 0.3) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .sponsor-gold {
@@ -444,23 +444,24 @@
   height: 75px !important;
 }
 
-/* Silver Sponsors - Glass card container */
+/* Silver Sponsors - No container styling */
 .silver-grid {
   position: relative !important;
-  padding: 36px 40px !important;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
-  backdrop-filter: blur(16px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-  border: 1px solid rgba(159, 152, 255, 0.06) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 32px -8px rgba(159, 152, 255, 0.08) !important;
+  padding: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  margin-bottom: 60px !important;
 }
 
 .silver-grid::before {
   content: "Silver Sponsors" !important;
   position: absolute !important;
-  top: 12px !important;
+  top: -40px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   font-size: 9px !important;
@@ -472,9 +473,8 @@
 }
 
 .silver-grid:hover {
-  border-color: rgba(159, 152, 255, 0.12) !important;
-  box-shadow: 0 12px 48px -12px rgba(159, 152, 255, 0.12),
-              0 20px 40px -10px rgba(0, 0, 0, 0.3) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .sponsor-silver {
@@ -503,8 +503,29 @@
 
 /* Mobile Responsive Sizes */
 @media (max-width: 768px) {
+  .why-section {
+    padding: 60px 0 !important;
+  }
+
+  .sponsors {
+    padding: 60px 0 !important;
+  }
+
+  .speakers {
+    padding: 60px 0 !important;
+  }
+
+  .location-section {
+    padding: 60px 0 !important;
+  }
+
+  .speaker-form-section {
+    padding: 60px 0 !important;
+  }
+
   .sponsors-tier-grid {
     gap: 10px !important;
+    margin-bottom: 0 !important;
   }
 
   .platinum-grid {
@@ -693,7 +714,7 @@
    APPLE-INSPIRED SPEAKERS SECTION
    ============================================ */
 .speakers {
-  padding: 120px 0 !important;
+  padding: 100px 0 !important;
   background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%) !important;
   position: relative !important;
 }
@@ -753,6 +774,9 @@
   gap: 24px !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
+  margin-top: 50px !important;
+
+
 }
 
 .speaker-card {
@@ -860,7 +884,7 @@
    APPLE-INSPIRED EVENT LOCATION SECTION
    ============================================ */
 .location-section {
-  padding: 140px 0 !important;
+  padding: 100px 0 !important;
   background: linear-gradient(180deg, #000000 0%, #050505 100%) !important;
   position: relative !important;
   overflow: hidden !important;
@@ -1121,7 +1145,7 @@
    APPLE-INSPIRED SPEAKER FORM SECTION
    ============================================ */
 .speaker-form-section {
-  padding: 120px 0 !important;
+  padding: 100px 0 !important;
   background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%) !important;
   position: relative !important;
 }
@@ -1166,6 +1190,7 @@
 .section-title {
   font-size: 56px !important;
   margin-bottom: 16px !important;
+  line-height: 1.2;
   font-weight: 700 !important;
   letter-spacing: -0.03em !important;
   background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%) !important;
