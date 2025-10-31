@@ -258,7 +258,7 @@ export default function AgenticZeroLanding() {
       name: "E. G.",
       role: "Cofounder of Infura & DIN, Consensys",
       image: "/images/speakers/eg.jpg",
-      link: "",
+      link: "https://x.com/egalano",
     },
            {
       name: "Quintus Kilbourn",
