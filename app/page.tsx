@@ -287,18 +287,25 @@ export default function AgenticZeroLanding() {
      image: "/images/speakers/nicolas.jpeg",
       link: "https://x.com/montonenico",
     },
-  //  {
-  //    name: "Marco De Rossi",
-  //    role: "AI Lead at MetaMask",
-  //    image: "/images/speakers/Marco_De_Rossi.jpg",
-  //    link: "https://x.com/marco_derossi",
-  //  },
-   // {
-   //   name: "Alex Thompson",
-   //   role: "VP of AI Products at Microsoft",
-  //    image: "/placeholder.svg?height=400&width=400&text=Alex+Thompson",
-   //   link: "https://twitter.com/alexthompson_ai",
- //   },
+    {
+      name: "Marco De Rossi",
+      role: "AI Lead, MetaMask",
+    image: "/images/speakers/Marco-de-Rossi.jpg",
+      link: "https://x.com/marco_derossi",
+   },
+   {
+      name: "Sharif Elfouly",
+      role: "Smart Contract Engineer, Merit Systems",
+    image: "/images/speakers/sharif.jpg",
+      link: "https://x.com/shafu0x",
+   },
+
+     {
+      name: "Sumeet Chougule",
+      role: "Team Lead, ChaosChain at Nethermind",
+    image: "/images/speakers/sumeet.jpg",
+      link: "https://x.com/_sumeetc",
+   },
   ]
 
   const sponsors = {
