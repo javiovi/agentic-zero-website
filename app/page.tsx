@@ -275,18 +275,18 @@ export default function AgenticZeroLanding() {
     
              {
       name: "Mooly Sagiv",
-      role: "Chief Scientist,  Certora",
+      role: "Chief Scientist, Certora",
       image: "/images/speakers/mooly.jpg",
       link: "https://x.com/SagivMooly",
     }, 
      
     
-    // {
-    //  name: "Nicolás Montone",
-   //   role: "Software Engineer at Vercel",
-   //   image: "/images/speakers/Nicolas_Montone.jpeg",
-   //   link: "https://x.com/montonenico",
- //   },
+     {
+      name: "Nicolás Montone",
+     role: "Software Engineer at Vercel",
+     image: "/images/speakers/nicolas.jpeg",
+      link: "https://x.com/montonenico",
+    },
   //  {
   //    name: "Marco De Rossi",
   //    role: "AI Lead at MetaMask",
@@ -356,6 +356,24 @@ export default function AgenticZeroLanding() {
       },
     ],
   }
+
+  const partners = [
+    {
+      name: "ETH Daily",
+      logo: "/images/logos/ethdaily_logo_bw.png",
+      twitter: "https://x.com/ethdaily?s=21",
+    },
+    {
+      name: "The Rollup",
+      logo: "/images/logos/pfp_transparent.png",
+      twitter: "https://x.com/therollupco?s=21",
+    },
+    {
+      name: "O(n) Club",
+      logo: "/images/logos/O(n) Club-1.svg",
+      twitter: "https://x.com/theonclub?s=21",
+    },
+  ]
 
   return (
     <>
@@ -485,7 +503,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: sponsor.name === 'DIN' ? '110px' : '90px',
+                        height: sponsor.name === 'DIN' ? '50px' : '45px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
@@ -515,7 +533,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '50px',
+                        height: '35px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
@@ -545,7 +563,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '40px',
+                        height: '28px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',
@@ -556,6 +574,35 @@ export default function AgenticZeroLanding() {
                   </a>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Partners Section */}
+        <section id="partners" className="partners">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">Our <span className="gradient-text">Partners</span></h2>
+            </div>
+
+            <div className="partners-grid">
+              {partners.map((partner) => (
+                <a
+                  key={partner.name}
+                  href={partner.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="partner-card"
+                  title={`Follow ${partner.name} on X`}
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    loading="lazy"
+                    className={`partner-logo ${partner.name === "ETH Daily" ? "partner-logo-invert" : ""} ${partner.name === "O(n) Club" ? "partner-logo-large" : ""}`}
+                  />
+                </a>
+              ))}
             </div>
           </div>
         </section>
