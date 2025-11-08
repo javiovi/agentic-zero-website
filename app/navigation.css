@@ -70,6 +70,24 @@
   background: rgba(159, 152, 255, 0.15);
 }
 
+/* Agenda button highlight */
+.nav-agenda {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.25), rgba(159, 152, 255, 0.15));
+  color: #b5aeff;
+  border: 1px solid rgba(159, 152, 255, 0.3);
+  border-radius: 32px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-agenda:hover {
+  background: linear-gradient(135deg, rgba(159, 152, 255, 0.35), rgba(159, 152, 255, 0.25));
+  border-color: rgba(159, 152, 255, 0.5);
+  color: #d4ceff;
+  transform: scale(1.05);
+}
+
 /* Special CTA button in nav */
 .nav-cta {
   padding: 10px 20px;
@@ -86,6 +104,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .nav-cta:hover {
@@ -93,6 +112,12 @@
   border-color: rgba(249, 115, 22, 0.5);
   transform: scale(1.05);
   color: #f97316;
+}
+
+/* Desktop only links */
+.nav-links-desktop {
+  display: flex;
+  gap: 12px;
 }
 
 /* Mobile responsive */
@@ -111,6 +136,8 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .nav-pill::-webkit-scrollbar {
@@ -126,6 +153,11 @@
   .nav-cta {
     padding: 8px 14px;
     font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .nav-links-desktop {
+    display: none;
   }
 }
 

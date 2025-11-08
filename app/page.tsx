@@ -143,31 +143,10 @@ function FloatingNav() {
   return (
     <nav className="nav-container">
       <div className="nav-pill">
-        <button
-          className={`nav-link ${activeSection === 'hero' ? 'active' : ''}`}
-          onClick={() => scrollToSection('hero')}
-        >
-          Home
-        </button>
-        <button
-          className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
-          onClick={() => scrollToSection('speakers')}
-        >
-          Speakers
-        </button>
-        <button
-          className={`nav-link ${activeSection === 'location' ? 'active' : ''}`}
-          onClick={() => scrollToSection('location')}
-        >
-          Location
-        </button>
-        <button
-          className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
-          onClick={() => scrollToSection('faqs')}
-        >
-          FAQs
-        </button>
-        <a
+        <a href="/agenda" className="nav-link nav-agenda">
+          Agenda
+        </a>
+         <a
           href="https://devconnect.org/calendar?event=agenticzero"
           target="_blank"
           rel="noopener noreferrer"
@@ -175,6 +154,28 @@ function FloatingNav() {
         >
           Get Tickets
         </a>
+        <button
+          className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
+          onClick={() => scrollToSection('speakers')}
+        >
+          Speakers
+        </button>
+      
+        <div className="nav-links-desktop">
+          <button
+            className={`nav-link ${activeSection === 'location' ? 'active' : ''}`}
+            onClick={() => scrollToSection('location')}
+          >
+            Location
+          </button>
+          <button
+            className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
+            onClick={() => scrollToSection('faqs')}
+          >
+            FAQs
+          </button>
+        </div>
+        
       </div>
     </nav>
   )
@@ -225,15 +226,15 @@ export default function AgenticZeroLanding() {
     {
       name: "Juan Irungaray",
       role: "Google Cloud Architect",
-      image: "/images/speakers/juan.jpeg",
-      link: "https://x.com/nick_emmons",
+      image: "/images/speakers/juan.jpg",
+      link: "https://www.linkedin.com/in/juanirungaray/",
     },
 
       {
       name: "Nick Emmons",
       role: "Founder & CEO, Allora Labs",
       image: "/images/speakers/nick-allora.jpg",
-      link: "https://www.linkedin.com/in/juanirungaray/",
+      link: "https://x.com/nick_emmons",
     },
     
       {
@@ -306,6 +307,37 @@ export default function AgenticZeroLanding() {
     image: "/images/speakers/sumeet.jpg",
       link: "https://x.com/_sumeetc",
    },
+ {
+      name: "Michael Sena",
+      role: "Co-founder, Recall Labs",
+    image: "/images/speakers/sena-recall.jpg",
+      link: "",
+   },
+ {
+      name: "Jessy",
+      role: "Advisor & Coordinator, Ethereum Foundation dAI",
+    image: "/images/speakers/jessy-eth.jpg",
+      link: "https://x.com/13yearoldvc",
+   },
+ {
+      name: "Stefano Bury",
+      role: "Head of US, Virtuals Protocol",
+    image: "/images/speakers/stefano.jpg",
+      link: "https://x.com/0xbury",
+   },
+    {
+      name: "Artem Kotelskiy",
+      role: "Head of Blockchain Research, cyber•Fund",
+    image: "/images/speakers/artem.jpg",
+      link: "",
+   },
+  {
+      name: "Davide Crapis",
+      role: "AI Lead at Ethereum Foundation · dAI Team",
+    image: "/images/speakers/davide.jpg",
+      link: "https://x.com/DavideCrapis",
+   },
+
   ]
 
   const sponsors = {
@@ -479,7 +511,7 @@ export default function AgenticZeroLanding() {
                   <span className="circle-right"></span>
                 </div>
                 <p className="why-text">
-                  <strong>AGENTIC Zero is the meeting point for everyone working on the future of AI and web3.</strong>
+                  <strong>Agentic Zero is the meeting point for everyone working on the future of AI and web3.</strong>
                 </p>
               </div>
             </div>
@@ -662,283 +694,6 @@ export default function AgenticZeroLanding() {
           </div>
         </section>
 
-        {/* Event Agenda Section - COMMENTED OUT */}
-        {/* <section id="agenda" className="agenda-section">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">
-                Event <span className="gradient-text">Agenda</span>
-              </h2>
-              <p className="section-subtitle">November 20th, 2025 - La Rural, Buenos Aires</p>
-            </div>
-
-            <div className="agenda-timeline">
-              <div className="agenda-item">
-                <div className="agenda-time">10:00 - 10:30</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Marco De Rossi</h4>
-                  <p className="agenda-type">Panel</p>
-                  <p className="agenda-title">ERC-8004 panel</p>
-                  <div className="agenda-participants">
-                    <span className="participant">MetaMask</span>
-                    <span className="participant">Sumeet Chougule (Cha0s, Nethermind)</span>
-                    <span className="participant">Davide Crapis (Ethereum Foundation)</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T10:00:00-03:00')
-                    const endTime = new Date('2025-11-20T10:30:00-03:00')
-                    const eventTitle = 'ERC-8004 panel - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Panel%20by%20Marco%20De%20Rossi&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">10:35 - 10:55</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Sam Green</h4>
-                  <p className="agenda-type">Keynote</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Cambrian Network</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T10:35:00-03:00')
-                    const endTime = new Date('2025-11-20T10:55:00-03:00')
-                    const eventTitle = 'Keynote - Sam Green - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=By%20Sam%20Green%20from%20Cambrian%20Network&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">11:00 - 11:20</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Rahul Kothari</h4>
-                  <p className="agenda-type">Session</p>
-                  <p className="agenda-title">Privacy & AI</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Aztec</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T11:00:00-03:00')
-                    const endTime = new Date('2025-11-20T11:20:00-03:00')
-                    const eventTitle = 'Privacy & AI - Rahul Kothari - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=By%20Rahul%20Kothari%20from%20Aztec&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">11:25 - 11:45</div>
-                <div className="agenda-content">
-                  <p className="agenda-type">Session</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Recall</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T11:25:00-03:00')
-                    const endTime = new Date('2025-11-20T11:45:00-03:00')
-                    const eventTitle = 'Recall - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Recall%20Session&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">11:50 - 12:10</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Nick Emmons</h4>
-                  <p className="agenda-type">Keynote</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Allora Network</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T11:50:00-03:00')
-                    const endTime = new Date('2025-11-20T12:10:00-03:00')
-                    const eventTitle = 'Keynote - Nick Emmons - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=By%20Nick%20Emmons%20from%20Allora%20Network&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">12:15 - 12:35</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Infura</h4>
-                  <p className="agenda-type">Keynote</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Infura</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T12:15:00-03:00')
-                    const endTime = new Date('2025-11-20T12:35:00-03:00')
-                    const eventTitle = 'Keynote - Infura - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Infura%20Keynote&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">12:40 - 13:00</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Nicolás Montone</h4>
-                  <p className="agenda-type">Panel</p>
-                  <p className="agenda-title">Beyond Crypto: Web2, Cloud, Web3 & AI</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Vercel (V0)</span>
-                    <span className="participant">Romain Huet (OpenAI)</span>
-                    <span className="participant">Juan Irungaray (Google)</span>
-                    <span className="participant">Nader Dabit (EigenCloud)</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T12:40:00-03:00')
-                    const endTime = new Date('2025-11-20T13:00:00-03:00')
-                    const eventTitle = 'Panel: Beyond Crypto - Nicolás Montone - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Panel%20with%20OpenAI,%20Google,%20Vercel,%20Eigen&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-break">
-                <div className="agenda-time">13:00 - 14:00</div>
-                <div className="agenda-content">
-                  <p className="agenda-type">Lunch Break</p>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">14:00 - 14:20</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Renç</h4>
-                  <p className="agenda-type">Keynote</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Giza</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T14:00:00-03:00')
-                    const endTime = new Date('2025-11-20T14:20:00-03:00')
-                    const eventTitle = 'Keynote - Renç - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=By%20Renç%20from%20Giza&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">14:25 - 14:45</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Evin</h4>
-                  <p className="agenda-type">Keynote</p>
-                  <p className="agenda-title">How Blockchain Solves AI's Identity Crisis</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Billions Network</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T14:25:00-03:00')
-                    const endTime = new Date('2025-11-20T14:45:00-03:00')
-                    const eventTitle = 'Keynote: AI Identity Crisis - Evin - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=By%20Evin%20from%20Billions%20Network&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">14:50 - 15:10</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Ken</h4>
-                  <p className="agenda-type">Panel</p>
-                  <p className="agenda-title">DeFi as an Agent Playground</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Uniswap Foundation</span>
-                    <span className="participant">Euler</span>
-                    <span className="participant">ZyFAI</span>
-                    <span className="participant">Merlin (Morpho)</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T14:50:00-03:00')
-                    const endTime = new Date('2025-11-20T15:10:00-03:00')
-                    const eventTitle = 'Panel: DeFi as an Agent Playground - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Panel%20with%20Uniswap,%20Euler,%20ZyFAI,%20Morpho&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">15:15 - 15:35</div>
-                <div className="agenda-content">
-                  <p className="agenda-type">Session</p>
-                  <p className="agenda-title">Agentic Frameworks</p>
-                  <div className="agenda-participants">
-                    <span className="participant">ElizaOS</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T15:15:00-03:00')
-                    const endTime = new Date('2025-11-20T15:35:00-03:00')
-                    const eventTitle = 'Agentic Frameworks - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=ElizaOS%20Framework%20Session&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">15:40 - 16:00</div>
-                <div className="agenda-content">
-                  <h4 className="agenda-speaker">Mooly Sagiv</h4>
-                  <p className="agenda-type">Keynote</p>
-                  <p className="agenda-title">Security Keynote</p>
-                  <div className="agenda-participants">
-                    <span className="participant">Certora</span>
-                  </div>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T15:40:00-03:00')
-                    const endTime = new Date('2025-11-20T16:00:00-03:00')
-                    const eventTitle = 'Security Keynote - Mooly Sagiv - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=By%20Mooly%20Sagiv%20from%20Certora&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-
-              <div className="agenda-item">
-                <div className="agenda-time">16:10 - 16:30</div>
-                <div className="agenda-content">
-                  <p className="agenda-type">Closing Remarks</p>
-                  <a href="#" className="agenda-add-calendar" onClick={(e) => {
-                    e.preventDefault()
-                    const startTime = new Date('2025-11-20T16:10:00-03:00')
-                    const endTime = new Date('2025-11-20T16:30:00-03:00')
-                    const eventTitle = 'Closing Remarks - Agentic Zero'
-                    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endTime.toISOString().replace(/[-:]/g, '').split('.')[0]}Z&details=Event%20Closing&location=La%20Rural,%20Buenos%20Aires`
-                    window.open(googleCalendarUrl, '_blank')
-                  }}>+ Add to Calendar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
         {/* Event Location Section */}
         <section id="location" className="location-section">
           <div className="container">
@@ -1075,7 +830,7 @@ export default function AgenticZeroLanding() {
                 {/* Brand Column */}
                 <div className="footer-brand">
                   <h3 className="footer-logo">
-                    <span>Agentic</span> <span>ZERO</span>
+                    <span>Agentic</span> <span>zero</span>
                   </h3>
                   <p className="footer-tagline">
                     Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.

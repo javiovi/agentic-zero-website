@@ -8,6 +8,7 @@ import './faqs.css'
 import './navigation.css'
 import './location-redesign.css'
 import './footer-redesign.css'
+import './agenda.css'
 
 export const metadata: Metadata = {
   title: 'AGENTIC Zero',
