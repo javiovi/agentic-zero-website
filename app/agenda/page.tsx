@@ -96,7 +96,7 @@ export default function AgendaPage() {
                     <span>Agentic</span> <span>Zero</span>
                   </h3>
                   <p className="footer-tagline">
-                    Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.
+                    Where AI meets crypto. A community-owned event bringing together visionaries shaping the decentralized future.
                   </p>
                   <div className="footer-social">
                     <a

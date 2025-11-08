@@ -12,7 +12,7 @@ import './agenda.css'
 
 export const metadata: Metadata = {
   title: 'AGENTIC Zero',
-  description: 'Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.',
+  description: 'Where AI meets crypto. A community-owned event bringing together visionaries shaping the decentralized future.',
   generator: 'AGENTIC Zero',
   icons: {
     icon: '/images/logo.svg',

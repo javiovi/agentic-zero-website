@@ -450,7 +450,7 @@ export default function AgenticZeroLanding() {
                   <span className="title-accent">Zero</span>
                 </h1>
                 <p className="hero-subtitle">
-                  Artificial intelligence (AI) is racing ahead. Web3 already rewrote the rules of trust. Agentic Zero is a one-day AI x web3 summit focused on open, permissionless rails for agentic systems.
+                  Artificial intelligence (AI) is racing ahead. Crypto already rewrote the rules of trust. Agentic Zero is a one-day AI x crypto summit focused on open, permissionless rails for agentic systems.
                 </p>
                 <div className="hero-actions">
                   <Button
@@ -511,7 +511,7 @@ export default function AgenticZeroLanding() {
                   <span className="circle-right"></span>
                 </div>
                 <p className="why-text">
-                  <strong>Agentic Zero is the meeting point for everyone working on the future of AI and web3.</strong>
+                  <strong>Agentic Zero is the meeting point for everyone working on the future of AI and crypto.</strong>
                 </p>
               </div>
             </div>
@@ -743,9 +743,9 @@ export default function AgenticZeroLanding() {
               </div>
 
               <div className="faqs-list">
-                <FAQItem 
+                <FAQItem
                   question="What is Agentic Zero & where is the event happening?"
-                  answer="Agentic Zero is a one-day conference about the intersection of AI and web3, focused on open, permissionless rails for autonomous systems. The event will hapen on November 20th, 2025 at La Rural (Palermo), Buenos Aires (same venue than Devconnect)."
+                  answer="Agentic Zero is a one-day conference about the intersection of AI and crypto, focused on open, permissionless rails for autonomous systems. The event will hapen on November 20th, 2025 at La Rural (Palermo), Buenos Aires (same venue than Devconnect)."
                 />
                 <FAQItem 
                   question="Do I need a Devconnect ticket to enter?"
@@ -764,9 +764,9 @@ export default function AgenticZeroLanding() {
                     </p>
                   }
                 />
-                <FAQItem 
+                <FAQItem
                   question="Who should attend?"
-                  answer="Builders, researchers, founders, and everyone interested in the intersection between AI and web3."
+                  answer="Builders, researchers, founders, and everyone interested in the intersection between AI and crypto."
                 />
                 <FAQItem 
                   question="How do I apply to speak?"
@@ -833,7 +833,7 @@ export default function AgenticZeroLanding() {
                     <span>Agentic</span> <span>zero</span>
                   </h3>
                   <p className="footer-tagline">
-                    Where AI meets web3. A community-owned event bringing together visionaries shaping the decentralized future.
+                    Where AI meets crypto. A community-owned event bringing together visionaries shaping the decentralized future.
                   </p>
                   <div className="footer-social">
                     <a
