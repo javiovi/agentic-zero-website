@@ -830,7 +830,7 @@ export default function AgenticZeroLanding() {
                 {/* Brand Column */}
                 <div className="footer-brand">
                   <h3 className="footer-logo">
-                    <span>Agentic</span> <span>zero</span>
+                    <span>Agentic</span> <span>Zero</span>
                   </h3>
                   <p className="footer-tagline">
                     Where AI meets crypto. A community-owned event bringing together visionaries shaping the decentralized future.
