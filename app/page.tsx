@@ -672,7 +672,7 @@ export default function AgenticZeroLanding() {
                         speaker.name === "Nicolás Montone"
                           ? { transform: 'scale(1.8)', transformOrigin: 'center 95%' }
                           : speaker.name === "Nader Dabit"
-                          ? { transform: 'scale(0.9)', transformOrigin: 'center 20%' }
+                          ? { transform: 'scale(1.2)', transformOrigin: 'center 30%' }
                           : {}
                       }
                     />
