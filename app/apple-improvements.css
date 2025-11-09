@@ -446,11 +446,13 @@
 }
 
 .sponsor-adex img {
-  height: 70px !important;
+  height: 85px !important;
+  filter: grayscale(40%) opacity(0.8) !important;
 }
 
 .sponsor-cyberfund img {
-  height: 70px !important;
+  height: 85px !important;
+  filter: grayscale(40%) opacity(0.8) !important;
 }
 
 /* Silver Sponsors - No container styling */
@@ -605,11 +607,11 @@
   }
 
   .sponsor-adex img {
-    height: 60px !important;
+    height: 75px !important;
   }
 
   .sponsor-cyberfund img {
-    height: 60px !important;
+    height: 75px !important;
   }
 
   .sponsor-silver img {
@@ -703,11 +705,11 @@
   }
 
   .sponsor-adex img {
-    height: 45px !important;
+    height: 55px !important;
   }
 
   .sponsor-cyberfund img {
-    height: 45px !important;
+    height: 55px !important;
   }
 
   .sponsor-silver img {
