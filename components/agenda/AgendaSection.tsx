@@ -35,7 +35,7 @@ const speakersImageMap: Record<string, string> = {
   "Mooly Sagiv": "/images/speakers/mooly.jpg",
   "Nicolás Montone": "/images/speakers/nicolas.jpeg",
   "Marco De Rossi": "/images/speakers/Marco-de-Rossi.jpg",
-  "Sharif Elfouly": "/images/speakers/sharif.jpg",
+  "Shafu": "/images/speakers/sharif.jpg",
   "Shafu": "/images/speakers/sharif.jpg",
   "Sumeet Chougule": "/images/speakers/sumeet.jpg",
   "Jessy EF": "/images/speakers/jessy.jpg",

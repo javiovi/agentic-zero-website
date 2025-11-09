@@ -308,7 +308,7 @@ export default function AgenticZeroLanding() {
       link: "https://x.com/marco_derossi",
    },
    {
-      name: "Sharif Elfouly",
+      name: "Shafu",
       role: "Smart Contract Engineer, Merit Systems",
     image: "/images/speakers/sharif.jpg",
       link: "https://x.com/shafu0x",
