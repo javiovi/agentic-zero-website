@@ -3,7 +3,7 @@
 // Main landing page component for Agentic Zero conference
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { Mail, Twitter, Linkedin, X, ArrowRight } from "lucide-react"
+import { Mail, Twitter, Linkedin, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -859,13 +859,15 @@ export default function AgenticZeroLanding() {
                   </p>
                   <div className="footer-social">
                     <a
-                      href="https://x.com/agenticzero"
+                      href="https://twitter.com/agenticzero"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon"
                       aria-label="X"
                     >
-                      <X />
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16" height="16" fill="currentColor">
+                        <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/>
+                      </svg>
                     </a>
                     <a
                       href="https://linkedin.com/company/agenticzero"
