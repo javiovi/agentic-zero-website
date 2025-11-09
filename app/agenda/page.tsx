@@ -9,21 +9,23 @@ function AgendaNav() {
   return (
     <nav className="nav-container">
       <div className="nav-pill">
-        <a href="/agenda" className="nav-link nav-agenda active">
-          Agenda
-        </a>
-          <a
-          href="https://devconnect.org/calendar?event=agenticzero"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-cta"
-        >
-          Get Tickets
-        </a>
         <a href="/#speakers" className="nav-link">
           Speakers
         </a>
-      
+
+        <a href="/agenda" className="nav-link nav-agenda active nav-mobile-only">
+          Agenda
+        </a>
+
+        <a
+          href="https://devconnect.org/calendar?event=agenticzero"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-cta nav-mobile-only"
+        >
+          Get Tickets
+        </a>
+
         <div className="nav-links-desktop">
           <a href="/#location" className="nav-link">
             Location
@@ -31,8 +33,19 @@ function AgendaNav() {
           <a href="/#faqs" className="nav-link">
             FAQs
           </a>
+          <a href="/agenda" className="nav-link nav-agenda active">
+            Agenda
+          </a>
+
+          <a
+            href="https://devconnect.org/calendar?event=agenticzero"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-cta"
+          >
+            Get Tickets
+          </a>
         </div>
-      
       </div>
     </nav>
   )

@@ -445,14 +445,31 @@
   height: 70px !important;
 }
 
+.sponsor-adex {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .sponsor-adex img {
   height: 85px !important;
-  filter: grayscale(40%) opacity(0.8) !important;
+  width: auto !important;
+  max-width: none !important;
+   filter: grayscale(100%) opacity(1.2) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.sponsor-cyberfund {
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-top: -50px !important;
 }
 
 .sponsor-cyberfund img {
-  height: 85px !important;
-  filter: grayscale(40%) opacity(0.8) !important;
+  height: 120px !important;
+  width: auto !important;
+  max-width: none !important;
+  filter: grayscale(100%) opacity(0.5) !important;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* Silver Sponsors - No container styling */
@@ -611,7 +628,7 @@
   }
 
   .sponsor-cyberfund img {
-    height: 75px !important;
+    height: 120px !important;
   }
 
   .sponsor-silver img {
@@ -709,7 +726,8 @@
   }
 
   .sponsor-cyberfund img {
-    height: 55px !important;
+    height: 75px !important;
+    margin-top: -30px;
   }
 
   .sponsor-silver img {

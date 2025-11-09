@@ -120,6 +120,18 @@
   gap: 12px;
 }
 
+/* Mobile only links */
+.nav-mobile-only {
+  display: flex;
+}
+
+/* Desktop - hide mobile only links */
+@media (min-width: 769px) {
+  .nav-mobile-only {
+    display: none !important;
+  }
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .nav-container {

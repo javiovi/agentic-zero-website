@@ -143,24 +143,26 @@ function FloatingNav() {
   return (
     <nav className="nav-container">
       <div className="nav-pill">
-        <a href="/agenda" className="nav-link nav-agenda">
-          Agenda
-        </a>
-         <a
-          href="https://devconnect.org/calendar?event=agenticzero"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-cta"
-        >
-          Get Tickets
-        </a>
         <button
           className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
           onClick={() => scrollToSection('speakers')}
         >
           Speakers
         </button>
-      
+
+        <a href="/agenda" className="nav-link nav-agenda nav-mobile-only">
+          Agenda
+        </a>
+
+        <a
+          href="https://devconnect.org/calendar?event=agenticzero"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-cta nav-mobile-only"
+        >
+          Get Tickets
+        </a>
+
         <div className="nav-links-desktop">
           <button
             className={`nav-link ${activeSection === 'location' ? 'active' : ''}`}
@@ -174,8 +176,19 @@ function FloatingNav() {
           >
             FAQs
           </button>
+          <a href="/agenda" className="nav-link nav-agenda">
+            Agenda
+          </a>
+
+          <a
+            href="https://devconnect.org/calendar?event=agenticzero"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-cta"
+          >
+            Get Tickets
+          </a>
         </div>
-        
       </div>
     </nav>
   )
@@ -846,13 +859,13 @@ export default function AgenticZeroLanding() {
                   </p>
                   <div className="footer-social">
                     <a
-                      href="https://twitter.com/agenticzero"
+                      href="https://x.com/agenticzero"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon"
-                      aria-label="Twitter"
+                      aria-label="X"
                     >
-                      <Twitter />
+                      <X />
                     </a>
                     <a
                       href="https://linkedin.com/company/agenticzero"
