@@ -136,7 +136,7 @@ const rawAgendaData = [
     startTime: "2025-11-20T14:25:00-03:00",
     endTime: "2025-11-20T14:45:00-03:00",
     type: "keynote",
-    speakers: ["Renc Korzay"],
+    speakers: ["Renç Korzay"],
     organizations: ["Giza"]
   },
   {
