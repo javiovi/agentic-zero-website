@@ -350,6 +350,12 @@ export default function AgenticZeroLanding() {
     image: "/images/speakers/davide.jpg",
       link: "https://x.com/DavideCrapis",
    },
+ {
+      name: "Lukasz Stoczynski",
+      role: "Head of GTM @ Mimic",
+    image: "/images/speakers/Lukaz.jpg",
+      link: "http://x.com/stoczek_eth",
+   },
 
   ]
 
