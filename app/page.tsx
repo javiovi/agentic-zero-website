@@ -375,7 +375,16 @@ export default function AgenticZeroLanding() {
         logo: "/images/logos/zyfai-white.svg",
         website: "https://www.zyf.ai/",
       },
-     
+      {
+        name: "AdEx",
+        logo: "/images/logos/AdEx.svg",
+        website: "https://x.com/AdEx_Network",
+      },
+        {
+        name: "CyberFund",
+        logo: "/images/logos/cyber_logo_transparent_white.svg",
+        website: "https://x.com/cyberfund_?s=21",
+      }, 
     ],
     silver: [
        {
@@ -564,7 +573,7 @@ export default function AgenticZeroLanding() {
                     href={sponsor.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-gold ${sponsor.name === 'Giza' ? 'sponsor-giza' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    className={`sponsor-card sponsor-gold ${sponsor.name === 'Giza' ? 'sponsor-giza' : ''} ${sponsor.name === 'AdEx' ? 'sponsor-adex' : ''} ${sponsor.name === 'CyberFund' ? 'sponsor-cyberfund' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
                     style={{ animationDelay: `${(sponsors.platinum.length + index) * 200}ms` }}
                   >
                     <img

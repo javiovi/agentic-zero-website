@@ -445,6 +445,14 @@
   height: 70px !important;
 }
 
+.sponsor-adex img {
+  height: 70px !important;
+}
+
+.sponsor-cyberfund img {
+  height: 70px !important;
+}
+
 /* Silver Sponsors - No container styling */
 .silver-grid {
   position: relative !important;
@@ -596,6 +604,14 @@
     height: 60px !important;
   }
 
+  .sponsor-adex img {
+    height: 60px !important;
+  }
+
+  .sponsor-cyberfund img {
+    height: 60px !important;
+  }
+
   .sponsor-silver img {
     height: 40px !important;
   }
@@ -683,6 +699,14 @@
   }
 
   .sponsor-giza img {
+    height: 45px !important;
+  }
+
+  .sponsor-adex img {
+    height: 45px !important;
+  }
+
+  .sponsor-cyberfund img {
     height: 45px !important;
   }
 
