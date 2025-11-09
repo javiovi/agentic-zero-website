@@ -28,7 +28,6 @@ const speakersImageMap: Record<string, string> = {
   "Sam Green": "/images/speakers/sam.jpg",
   "Gauthier Vila": "/images/speakers/gauthier.jpg",
   "Renç Korzay": "/images/speakers/Renc.jpg",
-  "Renç Korzay": "/images/speakers/Renc.jpg",
   "E.G. Galano": "/images/speakers/eg.jpg",
   "Quintus Kilbourn": "/images/speakers/quintus.jpg",
   "Shaw Walters": "/images/speakers/shaw.jpg",
@@ -36,7 +35,7 @@ const speakersImageMap: Record<string, string> = {
   "Nicolás Montone": "/images/speakers/nicolas.jpeg",
   "Marco De Rossi": "/images/speakers/Marco-de-Rossi.jpg",
   "Shafu": "/images/speakers/sharif.jpg",
-  "Shafu": "/images/speakers/sharif.jpg",
+
   "Sumeet Chougule": "/images/speakers/sumeet.jpg",
   "Jessy EF": "/images/speakers/jessy.jpg",
 }
