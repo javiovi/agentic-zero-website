@@ -129,7 +129,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Shaw Walters"],
     organizations: ["ElizaOS (Eliza Labs)"],
-    title: "Agentic Frameworks"
+    title: "Babylon - In a world where everything is predicted, what really matters?"
   },
   {
     time: "14:25 - 14:45",
@@ -164,7 +164,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Mooly Sagiv"],
     organizations: ["Certora"],
-    title: ""
+    title: "VeriSafe: Spec-Driven Smart Contract Development Technology"
   },
   {
     time: "16:15 - 16:35",

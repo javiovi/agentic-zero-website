@@ -197,7 +197,7 @@ function FloatingNav() {
 export default function AgenticZeroLanding() {
   const [isLoading, setIsLoading] = useState(true)
   const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
-  const [speakersRef, speakersVisible] = useIntersectionObserver({ threshold: 0.1 })
+  const [speakersRef] = useIntersectionObserver({ threshold: 0.1 })
   const [sponsorsRef, sponsorsVisible] = useIntersectionObserver({ threshold: 0.05 })
 
   useEffect(() => {
@@ -687,8 +687,7 @@ export default function AgenticZeroLanding() {
               {speakers.map((speaker, index) => (
                 <div
                   key={speaker.name}
-                  className={`speaker-card ${speakersVisible ? "animate-in" : ""}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="speaker-card"
                 >
                   <div className="speaker-image-container">
                     <img
@@ -696,13 +695,6 @@ export default function AgenticZeroLanding() {
                       alt={speaker.name}
                       loading="lazy"
                       className="speaker-image"
-                      style={
-                        speaker.name === "Nicolás Montone"
-                          ? { transform: 'scale(1.8)', transformOrigin: 'center 95%' }
-                          : speaker.name === "Nader Dabit"
-                          ? { transform: 'scale(1.2)', transformOrigin: 'center 30%' }
-                          : {}
-                      }
                     />
                   </div>
                   <div className="speaker-info">
