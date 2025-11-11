@@ -9,6 +9,10 @@ function AgendaNav() {
   return (
     <nav className="nav-container">
       <div className="nav-pill">
+        <a href="/" className="nav-link">
+          Home
+        </a>
+
         <a href="/#speakers" className="nav-link">
           Speakers
         </a>

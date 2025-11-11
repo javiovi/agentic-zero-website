@@ -196,7 +196,7 @@ function addToCalendar(session: AgendaSession) {
   const endISO = endTime.toISOString().replace(/[-:]/g, "").split(".")[0]
 
   const details = `${session.type === "panel" ? "Panel" : "Keynote"} at Agentic Zero Conference`
-  const location = "La Rural, Buenos Aires"
+  const location = "La Rural, Av. Sarmiento 2704, C1425 Cdad. Autónoma de Buenos Aires, Argentina"
 
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startISO}Z/${endISO}Z&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`
 
@@ -285,7 +285,7 @@ export function AgendaSection() {
           <h2 className="section-title">
             Agentic Zero <span className="gradient-text">Agenda</span>
           </h2>
-          <p className="section-subtitle">November 20th, 2025 - La Rural, Buenos Aires</p>
+          <p className="section-subtitle">November 20th, 2025 - La Rural, Yellow Pavilion</p>
         </div>
 
         <div className="agenda-container">

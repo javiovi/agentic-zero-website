@@ -143,6 +143,10 @@ function FloatingNav() {
   return (
     <nav className="nav-container">
       <div className="nav-pill">
+        <a href="/" className="nav-link">
+          Home
+        </a>
+
         <button
           className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
           onClick={() => scrollToSection('speakers')}
@@ -471,7 +475,7 @@ export default function AgenticZeroLanding() {
                   title="Add to Google Calendar"
                 >
                   <span>📅</span>
-                  <span>November 20th, 2025</span>
+                  <span>November 20th, 2025 - La Rural, Yellow Pavilion</span>
                 </a>
                 <h1 className="hero-title">
                   <span className="title-main">Agentic</span>
@@ -733,7 +737,7 @@ export default function AgenticZeroLanding() {
                   </p>
                   <div className="location-points">
                     <div className="location-point">Devconnect venue</div>
-                    <div className="location-point">Metro Line D</div>
+                    <div className="location-point">Yellow pavilion</div>
                     <div className="location-point">Palermo district</div>
                   </div>
                   <a
