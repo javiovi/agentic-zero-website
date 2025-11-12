@@ -22,7 +22,7 @@ function AgendaNav() {
         </a>
 
         <a
-          href="https://devconnect.org/calendar?event=agenticzero"
+          href="https://ticketh.xyz/agentic/zero/"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-cta nav-mobile-only"
@@ -42,7 +42,7 @@ function AgendaNav() {
           </a>
 
           <a
-            href="https://devconnect.org/calendar?event=agenticzero"
+            href="https://ticketh.xyz/agentic/zero/"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-cta"
@@ -172,7 +172,7 @@ export default function AgendaPage() {
                   </div>
                   <div className="footer-cta">
                     <a
-                      href="https://devconnect.org/calendar?event=agenticzero"
+                      href="https://ticketh.xyz/agentic/zero/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="footer-cta-button"

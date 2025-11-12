@@ -159,7 +159,7 @@ function FloatingNav() {
         </a>
 
         <a
-          href="https://devconnect.org/calendar?event=agenticzero"
+          href="https://ticketh.xyz/agentic/zero/"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-cta nav-mobile-only"
@@ -185,7 +185,7 @@ function FloatingNav() {
           </a>
 
           <a
-            href="https://devconnect.org/calendar?event=agenticzero"
+            href="https://ticketh.xyz/agentic/zero/"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-cta"
@@ -487,7 +487,7 @@ export default function AgenticZeroLanding() {
                 <div className="hero-actions">
                   <Button
                     className="cta-primary"
-                    onClick={() => window.open("https://devconnect.org/calendar?event=agenticzero", "_blank")}
+                    onClick={() => window.open("https://ticketh.xyz/agentic/zero/", "_blank")}
                   >
                     Get Tickets
                   </Button>
@@ -916,7 +916,7 @@ export default function AgenticZeroLanding() {
                   </div>
                   <div className="footer-cta">
                     <a
-                      href="https://devconnect.org/calendar?event=agenticzero"
+                      href="https://ticketh.xyz/agentic/zero/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="footer-cta-button"
