@@ -1269,3 +1269,99 @@
   letter-spacing: -0.01em !important;
   line-height: 1.5 !important;
 }
+
+/* Hero Badge Mobile Improvements */
+@media (max-width: 600px) {
+  .hero-badge-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1px !important;
+    margin-top: 48px !important;
+    margin-bottom: 14px !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 0;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+  .hero-badge span:first-child {
+    font-size: 20px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-badge span:last-child {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-location-badge {
+    display: block !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 16px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    text-align: left !important;
+  }
+
+  .hero-location-badge span {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+
+  .hero-badge:hover,
+  .hero-location-badge:hover {
+    color: var(--az-accent-primary) !important;
+    transform: translateX(2px) !important;
+  }
+}
+
+/* Hero Badge Desktop - Ensure consistent styling for location badge */
+.hero-badge-divider {
+  display: inline !important;
+  margin: 0 6px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 16px !important;
+}
+
+.hero-location-badge {
+  display: inline !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 16px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  margin-left: 0 !important;
+}
+
+.hero-location-badge span {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.hero-location-badge:hover {
+  color: var(--az-accent-primary) !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 600px) {
+  .hero-badge-divider {
+    display: none !important;
+  }
+}

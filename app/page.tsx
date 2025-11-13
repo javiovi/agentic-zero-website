@@ -467,16 +467,28 @@ export default function AgenticZeroLanding() {
           <div className="hero-content">
             <div className="hero-layout">
               <div className={`hero-text ${heroVisible ? "animate-in" : ""}`}>
-                <a 
-                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AGENTIC+Zero+at+La+Rural&dates=20251120T130000Z/20251120T200000Z&details=Join+us+for+AGENTIC+Zero%2C+where+AI+meets+Web3.+A+full+day+event+bringing+together+visionaries+shaping+the+future.&location=La+Rural%2C+Buenos+Aires%2C+Argentina"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero-badge"
-                  title="Add to Google Calendar"
-                >
-                  <span>📅</span>
-                  <span>November 20th, 2025 - La Rural, Yellow Pavilion</span>
-                </a>
+                <div className="hero-badge-container">
+                  <a
+                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AGENTIC+Zero+at+La+Rural&dates=20251120T130000Z/20251120T200000Z&details=Join+us+for+AGENTIC+Zero%2C+where+AI+meets+Web3.+A+full+day+event+bringing+together+visionaries+shaping+the+future.&location=La+Rural%2C+Buenos+Aires%2C+Argentina"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-badge"
+                    title="Add to Google Calendar"
+                  >
+                    <span>📅</span>
+                    <span>November 20th, 2025</span>
+                  </a>
+                  <span className="hero-badge-divider">-</span>
+                  <a
+                    href="https://maps.app.goo.gl/NKqKSiteNnPwbmTs9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-location-badge"
+                    title="View Location"
+                  >
+                    <span>La Rural, Yellow Pavilion</span>
+                  </a>
+                </div>
                 <h1 className="hero-title">
                   <span className="title-main">Agentic</span>
                   <span className="title-accent">Zero</span>
