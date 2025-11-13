@@ -75,7 +75,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Nick Emmons"],
     organizations: ["Allora Labs"],
-    title: ""
+    title: "Intelligence as a Public Good"
   },
   {
     time: "12:00 - 12:25",
