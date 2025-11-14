@@ -444,6 +444,11 @@ export default function AgenticZeroLanding() {
       logo: "/images/logos/O(n) Club-1.svg",
       twitter: "https://x.com/theonclub?s=21",
     },
+    {
+      name: "ETH Belgrade",
+      logo: "/images/logos/Horizontal - negative - ETH Belgrade 2024 - logo.svg",
+      twitter: "https://x.com/ethbelgrade",
+    },
   ]
 
   return (
@@ -682,7 +687,7 @@ export default function AgenticZeroLanding() {
                     src={partner.logo}
                     alt={partner.name}
                     loading="lazy"
-                    className={`partner-logo ${partner.name === "ETH Daily" ? "partner-logo-invert" : ""} ${partner.name === "O(n) Club" ? "partner-logo-large" : ""}`}
+                    className={`partner-logo ${partner.name === "ETH Daily" ? "partner-logo-invert partner-logo-eth-daily" : ""} ${partner.name === "O(n) Club" ? "partner-logo-large partner-logo-on-club" : ""} ${partner.name === "ETH Belgrade" ? "partner-logo-eth-belgrade" : ""}`}
                   />
                 </a>
               ))}
