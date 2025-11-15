@@ -244,14 +244,14 @@ export default function AgenticZeroLanding() {
       name: "Juan Irungaray",
       role: "Google Cloud Architect",
       image: "/images/speakers/juan.jpg",
-      link: "https://www.linkedin.com/in/juanirungaray/",
+      link: "https://x.com/jirungaray",
     },
 
       {
       name: "Nick Emmons",
       role: "Founder & CEO, Allora Labs",
       image: "/images/speakers/nick-allora.jpg",
-      link: "https://x.com/nick_emmons",
+      link: "https://x.com/nickemmons",
     },
     
       {
@@ -345,7 +345,7 @@ export default function AgenticZeroLanding() {
       name: "Michael Sena",
       role: "Co-founder, Recall Labs",
     image: "/images/speakers/sena-recall.jpg",
-      link: "",
+      link: "https://x.com/dataliquidity?s=21&t=DBEiT8IBjsf5cMwtjj8hpw",
    },
  {
       name: "Jessy",
@@ -369,7 +369,7 @@ export default function AgenticZeroLanding() {
       name: "Artem Kotelskiy",
       role: "Head of Blockchain Research, cyber•Fund",
     image: "/images/speakers/artem.jpg",
-      link: "",
+      link: "https://x.com/artofkot",
    },
   {
       name: "Davide Crapis",
