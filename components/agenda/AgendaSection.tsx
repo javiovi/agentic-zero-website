@@ -54,7 +54,7 @@ const rawAgendaData = [
     organizations: ["MetaMask", "Cha0s & Nethermind", "Ethereum Foundation" , "Flashbots"],
     title: "The Trust Layer in the Agentic Stack: ERC-8004",
     moderator: {
-      name: "Simon",
+      name: "Simon Emanuel Schmid",
       organization: "Developer Relations at ENS"
     }
   },
@@ -108,8 +108,8 @@ const rawAgendaData = [
     startTime: "2025-11-20T12:50:00-03:00",
     endTime: "2025-11-20T13:20:00-03:00",
     type: "panel",
-    speakers: ["Nicolás Montone", "Juan Irungaray", "Nader Dabit"],
-    organizations: ["Vercel (v0)", "Google", "Eigen Labs"],
+    speakers: ["Nicolás Montone", "Juan Irungaray", "Nader Dabit", "Clemens"],
+    organizations: ["Vercel (v0)", "Google", "Eigen Labs", "Infura/DIN"],
     title: "Agents Under the Hood: Building the Agentic Stack",
     moderator: {
       name: "Chris Wessels",

@@ -290,7 +290,12 @@ export default function AgenticZeroLanding() {
       image: "/images/speakers/shaw.jpg",
       link: "",
     }, 
-    
+             {
+      name: "Valentin Mihov",
+      role: " Co-founder of Daedalus Angels & Finexify",
+      image: "/images/speakers/valentin.jpg",
+      link: "https://x.com/valentinmihov",
+    },  
              {
       name: "Mooly Sagiv",
       role: "Chief Scientist, Certora",
@@ -317,14 +322,26 @@ export default function AgenticZeroLanding() {
     image: "/images/speakers/sharif.jpg",
       link: "https://x.com/shafu0x",
    },
-
+ {
+      name: "Chris Wessels",
+      role: "Founder of GraphOps and Summerstone",
+    image: "/images/speakers/chris.jpg",
+      link: "https://x.com/undefinedza",
+   },
      {
       name: "Sumeet Chougule",
       role: "Team Lead, ChaosChain at Nethermind",
     image: "/images/speakers/sumeet.jpg",
       link: "https://x.com/_sumeetc",
    },
- {
+     {
+      name: "Simon Emanuel",
+      role: "Developer Relations at ENS",
+    image: "/images/speakers/simon.png",
+      link: "https://x.com/schmidsi",
+   },
+   
+   {
       name: "Michael Sena",
       role: "Co-founder, Recall Labs",
     image: "/images/speakers/sena-recall.jpg",
@@ -335,6 +352,12 @@ export default function AgenticZeroLanding() {
       role: "Advisor & Coordinator, Ethereum Foundation dAI",
     image: "/images/speakers/jessy-eth.jpg",
       link: "https://x.com/13yearoldvc",
+   },
+    {
+      name: "Clemens",
+      role: "Head of Marketing and AI at DIN",
+    image: "/images/speakers/clemens.jpg",
+      link: "https://x.com/imseelemons",
    },
  {
       name: "Stefano Bury",
