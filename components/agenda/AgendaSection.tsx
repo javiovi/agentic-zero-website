@@ -159,7 +159,11 @@ const rawAgendaData = [
     type: "panel",
     speakers: ["Ken Ng", "Lukasz Stoczynski", "Gauthier Vila", "Stefano Bury"],
     organizations: ["Uniswap Foundation", "Mimic", "ZyFAI", "Virtuals"],
-    title: "DeFi as an Agent Playground"
+    title: "DeFi as an Agent Playground",
+    moderator: {
+      name: "Valentin Mihov",
+      organization: "Co-Founder, Daedalus Angels and Finexify"
+    }
   },
   {
     time: "15:25 - 15:45",
