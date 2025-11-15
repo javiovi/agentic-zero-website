@@ -104,7 +104,7 @@ const rawAgendaData = [
     title: "AgentFi & the AI Revolution"
   },
   {
-    time: "12:50 - 13:20",
+    time: "12:55 - 13:20",
     startTime: "2025-11-20T12:50:00-03:00",
     endTime: "2025-11-20T13:20:00-03:00",
     type: "panel",
