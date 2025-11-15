@@ -16,6 +16,10 @@ interface AgendaSession {
   title?: string
   organizations: string[]
   description?: string
+  moderator?: {
+    name: string
+    organization?: string
+  }
 }
 
 // Speaker images mapping from the main speakers list
@@ -48,7 +52,11 @@ const rawAgendaData = [
     type: "panel",
     speakers: ["Marco De Rossi", "Sumeet Chougule", "Davide Crapis", "Quintus Kilbourn"],
     organizations: ["MetaMask", "Cha0s & Nethermind", "Ethereum Foundation" , "Flashbots"],
-    title: "The Trust Layer in the Agentic Stack: ERC-8004"
+    title: "The Trust Layer in the Agentic Stack: ERC-8004",
+    moderator: {
+      name: "Simon",
+      organization: "Developer Relations at ENS"
+    }
   },
   {
     time: "10:45 - 11:05",
@@ -93,7 +101,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Sam Green"],
     organizations: ["Cambrian Network"],
-    title: ""
+    title: "AgentFi & the AI Revolution"
   },
   {
     time: "12:50 - 13:20",
@@ -102,7 +110,11 @@ const rawAgendaData = [
     type: "panel",
     speakers: ["Nicolás Montone", "Juan Irungaray", "Nader Dabit"],
     organizations: ["Vercel (v0)", "Google", "Eigen Labs"],
-    title: "Agents Under the Hood: Building the Agentic Stack"
+    title: "Agents Under the Hood: Building the Agentic Stack",
+    moderator: {
+      name: "Chris Wessels",
+      organization: "The Graph council and founder of GraphOps and Summerstone"
+    }
   },
   {
     time: "13:25 - 13:55",
@@ -137,7 +149,8 @@ const rawAgendaData = [
     endTime: "2025-11-20T14:45:00-03:00",
     type: "keynote",
     speakers: ["Renç Korzay"],
-    organizations: ["Giza"]
+    organizations: ["Giza"],
+    title: "Intelligent Compression for Finance"
   },
   {
     time: "14:50 - 15:20",
@@ -268,6 +281,16 @@ function AgendaCard({ session, index }: { session: AgendaSession; index: number 
                 )}
               </div>
             ))}
+          </div>
+        )}
+
+        {session.moderator && (
+          <div className="agenda-moderator-container">
+            <span className="agenda-moderator-label">Moderator:</span>
+            <span className="agenda-moderator-name">{session.moderator.name}</span>
+            {session.moderator.organization && (
+              <span className="agenda-moderator-org">{session.moderator.organization}</span>
+            )}
           </div>
         )}
       </div>

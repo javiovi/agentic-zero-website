@@ -235,6 +235,35 @@
   width: fit-content;
 }
 
+/* Moderator */
+.agenda-moderator-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-2);
+  border-top: 1px solid rgba(159, 152, 255, 0.1);
+  margin-top: var(--space-2);
+}
+
+.agenda-moderator-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--az-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agenda-moderator-name {
+  font-size: 0.875rem;
+  color: var(--az-accent-primary);
+  font-weight: 600;
+}
+
+.agenda-moderator-org {
+  font-size: 0.75rem;
+  color: var(--az-text-secondary);
+}
+
 /* Calendar Button */
 .agenda-calendar-btn {
   display: flex;
@@ -453,6 +482,24 @@
 
   .agenda-card--keynote .agenda-org-badge {
     display: inline;
+  }
+
+  .agenda-moderator-container {
+    padding-top: var(--space-1);
+    margin-top: var(--space-1);
+    gap: 4px;
+  }
+
+  .agenda-moderator-label {
+    font-size: 0.65rem;
+  }
+
+  .agenda-moderator-name {
+    font-size: 0.8rem;
+  }
+
+  .agenda-moderator-org {
+    font-size: 0.7rem;
   }
 }
 
