@@ -210,7 +210,7 @@
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
   gap: 24px !important;
-  max-width: 1100px !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
 }
 
@@ -373,19 +373,25 @@
 }
 
 .sponsor-platinum img {
-  height: 160px !important;
+  height: 120px !important;
   width: auto !important;
   max-width: none !important;
-  filter: grayscale(100%) opacity(0.5) !important;
+  filter: grayscale(100%) opacity(0.8) !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  margin-bottom: -30px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   padding-left: 0;
+}
+
+.sponsor-platinum img[alt*="DIN"] {
+  height: 100px !important;
+  margin-top: 90px !important;
 }
 
 /* Cambrian Logo - Grayscale to green */
 .sponsor-cambrian img {
   filter: grayscale(100%) opacity(0.8) !important;
-  height: 120px !important;
+  height: 100px !important;
 }
 
 .sponsor-cambrian:hover img {
@@ -396,7 +402,9 @@
 /* Gold Sponsors - No container styling */
 .gold-grid {
   position: relative !important;
-  padding: 0 100px!important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+  padding: 0 !important;
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -405,6 +413,11 @@
   box-shadow: none !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   margin-bottom: 10px !important;
+  gap: var(--space-10) !important;
+  width: 100% !important;
+  align-items: center !important;
+  margin-bottom: 30px !important;
+  justify-items: center !important;
 }
 
 .gold-grid::before {
@@ -433,44 +446,52 @@
 }
 
 .sponsor-gold img {
-  height: 55px !important;
+  height: 35px !important;
   width: auto !important;
   max-width: none !important;
-  filter: grayscale(100%) opacity(0.5) !important;
+  filter: grayscale(100%) opacity(0.8) !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
 }
 
-/* Giza Logo - Larger size for better visibility */
+/* Giza Logo - Same size as other gold sponsors */
 .sponsor-giza img {
-  height: 70px !important;
+   height: 55px !important;
+}
+
+/* Zyfai Logo - Special size in desktop */
+.sponsor-zyfai img {
+  height: 40px !important;
 }
 
 .sponsor-adex {
+
+  width: 80px !important;
   padding: 0 !important;
   margin: 0 !important;
-  margin-top: -45px !important;
-  margin-left: 100px !important;
 }
 
 .sponsor-adex img {
-  height: 85px !important;
+  height: 65px !important;
   width: auto !important;
   max-width: none !important;
-   filter: grayscale(100%) opacity(1.2) !important;
+  filter: grayscale(100%) opacity(0.9) !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  margin-left: -40px !important;
 }
 
 .sponsor-cyberfund {
   padding: 0 !important;
   margin: 0 !important;
-  margin-top: -50px !important;
 }
 
 .sponsor-cyberfund img {
-  height: 120px !important;
+  height: 75px !important;
   width: auto !important;
   max-width: none !important;
-  filter: grayscale(100%) opacity(0.5) !important;
+  filter: grayscale(100%) opacity(0.8) !important;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
@@ -500,6 +521,7 @@
   text-transform: uppercase !important;
   color: rgba(192, 192, 192, 0.5) !important;
   pointer-events: none !important;
+
 }
 
 .silver-grid:hover {
@@ -514,7 +536,7 @@
 }
 
 .sponsor-silver img {
-  height: 50px !important;
+  height: 40px !important;
   width: auto !important;
   max-width: none !important;
   filter: grayscale(100%) opacity(0.5) !important;
@@ -523,7 +545,7 @@
 
 /* v0 Logo - Smaller size since logo is larger */
 .sponsor-v0 img {
-  height: 40px !important;
+  height: 30px !important;
 }
 
 .sponsor-card:hover img {
@@ -581,6 +603,8 @@
   .silver-grid {
     gap: 16px !important;
     padding: 32px 28px !important;
+    margin-top: 30px!important
+    ;
   }
 
   .silver-grid::before {
@@ -610,7 +634,13 @@
   }
 
   .sponsor-platinum img {
-    height: 100px !important;
+    height: 80px !important;
+    margin-top: 0 !important;
+  }
+
+  .sponsor-platinum img[alt*="DIN"] {
+    height: 70px !important;
+    margin-top: 20px !important;
   }
 
   .sponsor-cambrian img {
@@ -618,25 +648,24 @@
   }
 
   .sponsor-gold img {
-    height: 55px !important;
+    height: 45px !important;
+    margin-top: 20px !important;
   }
 
   .sponsor-giza img {
-    height: 60px !important;
+    height: 45px !important;
   }
-
 
   .sponsor-adex {
    margin: 0 !important;
-    
   }
+
   .sponsor-adex img {
-    height: 75px !important;
-    
+    height: 45px !important;
   }
 
   .sponsor-cyberfund img {
-    height: 120px !important;
+    height: 45px !important;
   }
 
   .sponsor-silver img {
@@ -648,63 +677,239 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Tablet Medium - iPad Air, iPad mini */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Horizontal Scroll for Sponsors */
   .sponsors-tier-grid {
-    gap: 10px !important;
-   
-  }
-
-  .platinum-grid {
-    gap: 10px !important;
-    padding: 0px 24px !important;
-       padding-bottom: 20px !important;
-  }
-
-  .platinum-grid::before {
-    font-size: 10px !important;
-    top: 1px !important;
-      
-  }
-
-  .gold-grid {
-    gap: 10px !important;
-    padding: 0px 24px !important;
-       padding-bottom: 20px !important;
-  }
-
-  .gold-grid::before {
-    font-size: 10px !important;
-    top: 1px !important;
-  }
-
-  .silver-grid {
-    gap: 5px !important;
-    padding: 0px 20px !important;
-  }
-
-  .silver-grid::before {
-    font-size: 10px !important;
-    top: 1px !important;
-   
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 20px 0 !important;
+    margin: 0 -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    gap: 12px !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .sponsor-card {
-    padding: 16px 12px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    width: auto !important;
+    min-width: 100px !important;
   }
 
+  .platinum-grid {
+    padding: 0 !important;
+  }
+
+  .gold-grid {
+    padding: 0 !important;
+  }
+
+  .silver-grid {
+    padding: 0 !important;
+  }
+
+  .sponsor-platinum img {
+    height: 80px !important;
+    margin-top: 0 !important;
+  }
+
+  .sponsor-platinum img[alt*="DIN"] {
+    height: 85px !important;
+    margin-top: 15px !important;
+  }
+
+  .sponsor-cambrian img {
+    height: 80px !important;
+  }
+
+  .sponsor-gold img {
+    height: 35px !important;
+    margin-top: 15px !important;
+  }
+
+  .sponsor-giza img {
+    height: 55px !important;
+  }
+
+  .sponsor-adex img {
+    height: 60px !important;
+    margin-left: 0 !important;
+  }
+
+  .sponsor-cyberfund img {
+    height: 70px !important;
+  }
+
+  .sponsor-silver img {
+    height: 45px !important;
+  }
+
+  .sponsor-v0 img {
+    height: 35px !important;
+  }
+}
+
+/* Carrusel AutoPlay Animation */
+@keyframes autoSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes autoSlideReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Horizontal Scroll for Sponsors in Mobile */
+  .sponsors-tier-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    align-items: center !important;
+    width: 100% !important;
+    position: relative !important;
+    height: auto !important;
+  }
+
+  .platinum-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    align-items: center !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+    animation: autoSlide 25s linear infinite !important;
+  }
+
+  .platinum-grid::before {
+    display: none !important;
+  }
+
+  .sponsors-tier {
+    position: relative !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding-top: 5px !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  .sponsors-tier::before {
+    content: "" !important;
+    display: inline-block !important;
+    position: absolute !important;
+    top: 5px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    font-weight: 600 !important;
+    z-index: 100 !important;
+    height: 15px !important;
+    line-height: 15px !important;
+  }
+
+  .platinum-grid::before {
+    display: none !important;
+  }
+
+  .sponsors-tier:has(.platinum-grid)::before {
+    content: "Powered by" !important;
+    color: #9f98ff !important;
+    font-weight: 300 !important;
+    opacity: 1 !important;
+  }
+
+  .gold-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    padding: 5px 0 !important;
+    align-items: center !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+    animation: autoSlideReverse 30s linear infinite !important;
+  }
+
+  .gold-grid::before {
+    display: none !important;
+  }
+
+  .sponsors-tier:has(.gold-grid)::before {
+    content: "Gold Sponsors" !important;
+    color: #ffd700 !important;
+    font-weight: 300 !important;
+    opacity: 1 !important;
+  }
+
+  .silver-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 5px !important;
+    padding: 5px 0 !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
+    animation: autoSlide 28s linear infinite !important;
+  }
+
+  .silver-grid::before {
+    display: none !important;
+  }
+
+  .sponsors-tier:has(.silver-grid)::before {
+    content: "Silver Sponsors" !important;
+    color: #c0c0c0 !important;
+    font-weight: 300 !important;
+    opacity: 1 !important;
+    
+  }
+
+  .sponsor-card {
+    flex-shrink: 0 !important;
+    padding: 16px 12px !important;
+    width: auto !important;
+    min-width: 80px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+  
+  }
+
+
   .sponsor-platinum {
-    padding: 12px 18px 28px !important;
-    margin-top: 20px;
+    padding: 12px 18px 5px !important;
+    margin-top: 0px;
   }
 
   .sponsor-gold {
     padding: 12px 16px !important;
-      margin-top: 20px !important;
+    margin-top: 0px !important;
   }
 
   .sponsor-silver {
     padding: 12px 14px !important;
-      margin-top: 20px !important;
+    margin-top: 0px !important;
   }
 
   .powered-by-badge {
@@ -731,6 +936,7 @@
 
   .sponsor-adex img {
     height: 55px !important;
+    margin-left: 0 !important;
   }
 
   .sponsor-cyberfund img {
@@ -744,6 +950,49 @@
 
   .sponsor-v0 img {
     height: 25px !important;
+  }
+
+  .partners {
+    width: 100% !important;
+  }
+
+  .partners-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100% !important;
+    padding: 20px 0 !important;
+    gap: 20px !important;
+    animation: none !important;
+    transform: none !important;
+    justify-items: center !important;
+  }
+
+  .partner-logo {
+    width: 100px !important;
+    height: 100px !important;
+    margin-bottom: 20px!important
+    ;
+  }
+
+  .partner-logo-eth-belgrade {
+    width: 140px !important;
+    height: 140px !important;
+    margin-top: -50px !important;
+  }
+
+  .partner-logo-crecimiento {
+    width: 120px !important;
+    height: 120px !important;
+    margin-top: -50px !important;
+  }
+
+  .partner-logo-on-club {
+    margin-top: 15px !important;
+  }
+
+  .partner-logo-eth-daily {
+    width: 85px !important;
+    height: 85px !important;
   }
 }
 

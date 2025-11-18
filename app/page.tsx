@@ -642,7 +642,7 @@ export default function AgenticZeroLanding() {
                     href={sponsor.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-gold ${sponsor.name === 'Giza' ? 'sponsor-giza' : ''} ${sponsor.name === 'AdEx' ? 'sponsor-adex' : ''} ${sponsor.name === 'CyberFund' ? 'sponsor-cyberfund' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    className={`sponsor-card sponsor-gold ${sponsor.name === 'Giza' ? 'sponsor-giza' : ''} ${sponsor.name === 'Zyfai' ? 'sponsor-zyfai' : ''} ${sponsor.name === 'AdEx' ? 'sponsor-adex' : ''} ${sponsor.name === 'CyberFund' ? 'sponsor-cyberfund' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
                     style={{ animationDelay: `${(sponsors.platinum.length + index) * 200}ms` }}
                   >
                     <img
