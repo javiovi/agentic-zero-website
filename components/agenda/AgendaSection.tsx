@@ -172,7 +172,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Michael Sena"],
     organizations: ["Recall"],
-    title: ""
+    title: "How Open Arenas Bring Trust to AI Selection"
   },
   {
     time: "15:50 - 16:10",
