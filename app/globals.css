@@ -1125,19 +1125,7 @@ p {
   margin-bottom: var(--space-8);
 }
 
-.partners-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-20);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
-  flex-wrap: wrap;
-  margin-top: 50px;
 
-
-}
 
 .partner-card {
   display: flex;
@@ -1166,18 +1154,42 @@ p {
 }
 
 .partner-logo-eth-daily {
-  width: 140px !important;
-  height: 140px !important;
+  width: 100px !important;
+  height: 100px !important;
 }
 
 .partner-logo-large {
-  width: 180px !important;
-  height: 180px !important;
+  width: 150px !important;
+  height: 150px !important;
 }
 
 .partner-logo-eth-belgrade {
-  width: 240px !important;
-  height: 240px !important;
+  
+
+  width: 320px !important;
+  height: 320px !important;
+}
+
+.partner-logo-crecimiento {
+
+  width: 380px !important;
+  height: 380px !important;
+}
+
+.partner-logo-rollup {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: var(--space-10);
+  column-gap: var(--space-20);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+
 }
 
 .partner-card:hover .partner-logo {
@@ -1199,8 +1211,8 @@ p {
   }
   .partners-grid {
     gap: 5px;
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .partner-card {
@@ -1214,17 +1226,27 @@ p {
   }
 
   .partner-logo-on-club {
-    margin-top: -50px;
+    margin-top: -30px;
   }
 
   .partner-logo-eth-belgrade {
     width: 180px !important;
     height: 180px !important;
-    margin-top: -100px;
+    margin-top: -80px;
   }
   .partner-logo-eth-daily {
   width: 85px !important;
   height: 85px !important;
+  }
+  .partner-logo-crecimiento {
+  margin-top: -100px;
+  width: 170px !important;
+  height: 170px !important;
+}
+.partner-logo-rollup {
+  width: 100px !important;
+  height: 100px !important;
+  margin-top: -60px;
 }
 
   .sponsor-card {

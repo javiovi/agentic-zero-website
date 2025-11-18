@@ -457,11 +457,7 @@ export default function AgenticZeroLanding() {
       logo: "/images/logos/ethdaily_logo_bw.png",
       twitter: "https://x.com/ethdaily?s=21",
     },
-    {
-      name: "The Rollup",
-      logo: "/images/logos/pfp_transparent.png",
-      twitter: "https://x.com/therollupco?s=21",
-    },
+  
     {
       name: "O(n) Club",
       logo: "/images/logos/O(n) Club-1.svg",
@@ -471,6 +467,16 @@ export default function AgenticZeroLanding() {
       name: "ETH Belgrade",
       logo: "/images/logos/Horizontal - negative - ETH Belgrade 2024 - logo.svg",
       twitter: "https://x.com/ethbelgrade",
+    },
+    {
+      name: "Crecimiento",
+      logo: "/images/logos/Crecimiento-sun-white.png",
+      twitter: "https://crecimiento.build/",
+    },
+     {
+      name: "The Rollup",
+      logo: "/images/logos/pfp_transparent.png",
+      twitter: "https://x.com/therollupco?s=21",
     },
   ]
 
@@ -704,13 +710,13 @@ export default function AgenticZeroLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="partner-card"
-                  title={`Follow ${partner.name} on X`}
+                  title={`Visit ${partner.name}`}
                 >
                   <img
                     src={partner.logo}
                     alt={partner.name}
                     loading="lazy"
-                    className={`partner-logo ${partner.name === "ETH Daily" ? "partner-logo-invert partner-logo-eth-daily" : ""} ${partner.name === "O(n) Club" ? "partner-logo-large partner-logo-on-club" : ""} ${partner.name === "ETH Belgrade" ? "partner-logo-eth-belgrade" : ""}`}
+                    className={`partner-logo ${partner.name === "ETH Daily" ? "partner-logo-invert partner-logo-eth-daily" : ""} ${partner.name === "O(n) Club" ? "partner-logo-large partner-logo-on-club" : ""} ${partner.name === "ETH Belgrade" ? "partner-logo-eth-belgrade" : ""} ${partner.name === "Crecimiento" ? "partner-logo-crecimiento" : ""} ${partner.name === "The Rollup" ? "partner-logo-rollup" : ""}`}
                   />
                 </a>
               ))}
