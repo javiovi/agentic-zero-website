@@ -12,7 +12,7 @@ interface AgendaSession {
     image?: string
     organization?: string
   }>
-  type: "panel" | "keynote" | "break"
+  type: "panel" | "keynote" | "break" | "demo"
   title?: string
   organizations: string[]
   description?: string
@@ -42,6 +42,8 @@ const speakersImageMap: Record<string, string> = {
 
   "Sumeet Chougule": "/images/speakers/sumeet.jpg",
   "Jessy EF": "/images/speakers/jessy.jpg",
+  "Ricky Esclapon": "/images/speakers/Ricky.jpg",
+  "Sandi Fatic": "/images/speakers/Chef Sale.jpg",
 }
 
 const rawAgendaData = [
@@ -126,6 +128,15 @@ const rawAgendaData = [
     title: ""
   },
   {
+    time: "13:45 - 13:55",
+    startTime: "2025-11-20T13:45:00-03:00",
+    endTime: "2025-11-20T13:55:00-03:00",
+    type: "demo",
+    speakers: ["Ricky Esclapon"],
+    organizations: ["Cambrian Network"],
+    title: "Demo: Cambrian ERC-8004 Data Agent"
+  },
+  {
     time: "13:00 - 14:00",
     startTime: "2025-11-20T13:00:00-03:00",
     endTime: "2025-11-20T14:00:00-03:00",
@@ -191,6 +202,15 @@ const rawAgendaData = [
     speakers: ["Jessy EF"],
     organizations: ["Ethereum Foundation"],
     title: "The Game of Genius, x402 and ERC-8004"
+  },
+  {
+    time: "16:40 - 17:00",
+    startTime: "2025-11-20T16:40:00-03:00",
+    endTime: "2025-11-20T17:00:00-03:00",
+    type: "keynote",
+    speakers: ["Sandi Fatic"],
+    organizations: ["Calimero Network"],
+    title: "The Cyberpunk Rebellion: Forging Private Agentic AI"
   }
 ] as const
 
@@ -251,7 +271,7 @@ function AgendaCard({ session, index }: { session: AgendaSession; index: number 
       <div className="agenda-card-time">
         <span className="agenda-time-badge">{session.time}</span>
         <span className="agenda-type-badge">
-          {session.type === "break" ? "Break" : session.type === "panel" ? "Panel" : "Keynote"}
+          {session.type === "break" ? "Break" : session.type === "panel" ? "Panel" : session.type === "demo" ? "Demo" : "Keynote"}
         </span>
       </div>
 

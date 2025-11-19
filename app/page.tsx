@@ -383,6 +383,18 @@ export default function AgenticZeroLanding() {
     image: "/images/speakers/Lukaz.jpg",
       link: "http://x.com/stoczek_eth",
    },
+   {
+      name: "Ricky Esclapon",
+      role: "Data Agent Architect, Cambrian Network",
+    image: "/images/speakers/Ricky.jpg",
+      link: "https://x.com/rickydata42",
+   },
+   {
+      name: "Sandi Fatic",
+      role: "CEO, Calimero Network",
+    image: "/images/speakers/Chef Sale.jpg",
+      link: "https://x.com/chefsale",
+   },
 
   ]
 
