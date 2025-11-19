@@ -495,6 +495,7 @@
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
+
 /* Silver Sponsors - No container styling */
 .silver-grid {
   position: relative !important;
@@ -534,6 +535,7 @@
   border: none !important;
   padding: 36px 24px !important;
 }
+lo 
 
 .sponsor-silver img {
   height: 40px !important;
@@ -950,6 +952,10 @@
 
   .sponsor-v0 img {
     height: 25px !important;
+  }
+
+  .sponsor-calimero img {
+    height: 45px !important;
   }
 
   .partners {

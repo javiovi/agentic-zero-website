@@ -460,6 +460,11 @@ export default function AgenticZeroLanding() {
         logo: "/images/logos/daedalus.svg",
         website: "https://daedalus.gg",
       },
+      {
+        name: "Calimero",
+        logo: "/images/logos/calimero_white.png",
+        website: "https://calimero.network",
+      },
     ],
   }
 
@@ -684,7 +689,7 @@ export default function AgenticZeroLanding() {
                     href={sponsor.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-silver ${sponsor.name === 'v0' ? 'sponsor-v0' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
+                    className={`sponsor-card sponsor-silver ${sponsor.name === 'v0' ? 'sponsor-v0' : ''} ${sponsor.name === 'Calimero' ? 'sponsor-calimero' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
                     style={{ animationDelay: `${(sponsors.platinum.length + sponsors.gold.length + index) * 200}ms` }}
                   >
                     <img
@@ -692,7 +697,7 @@ export default function AgenticZeroLanding() {
                       alt={sponsor.name}
                       loading="lazy"
                       style={{
-                        height: '28px',
+                        height: sponsor.name === 'Calimero' ? '55px' : '28px',
                         width: 'auto',
                         maxWidth: 'none',
                         maxHeight: 'none',

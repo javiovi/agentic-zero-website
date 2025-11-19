@@ -1082,6 +1082,10 @@ p {
   height: 28px !important;
 }
 
+.sponsor-calimero img {
+  height: 50px !important;
+}
+
 /* Hover Effects - Logo */
 .sponsor-card:hover {
   transform: translateY(-8px) scale(1.01);

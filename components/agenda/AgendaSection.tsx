@@ -117,6 +117,14 @@ const rawAgendaData = [
       name: "Chris Wessels",
       organization: "The Graph council and founder of GraphOps and Summerstone"
     }
+  },{
+    time: "13:00 - 14:00",
+    startTime: "2025-11-20T13:00:00-03:00",
+    endTime: "2025-11-20T14:00:00-03:00",
+    type: "break",
+    speakers: [],
+    organizations: [],
+    title: "Lunch Break"
   },
   {
     time: "13:25 - 13:55",
@@ -136,15 +144,7 @@ const rawAgendaData = [
     organizations: ["Cambrian Network"],
     title: "Demo: Cambrian ERC-8004 Data Agent"
   },
-  {
-    time: "13:00 - 14:00",
-    startTime: "2025-11-20T13:00:00-03:00",
-    endTime: "2025-11-20T14:00:00-03:00",
-    type: "break",
-    speakers: [],
-    organizations: [],
-    title: "Lunch Break"
-  },
+
   {
     time: "14:00 - 14:20",
     startTime: "2025-11-20T14:00:00-03:00",
