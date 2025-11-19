@@ -103,7 +103,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Sam Green"],
     organizations: ["Cambrian Network"],
-    title: "AgentFi & the AI Revolution"
+    title: "Agents are the future of finance - Enter the Agentic Revolution"
   },
   {
     time: "12:55 - 13:20",
