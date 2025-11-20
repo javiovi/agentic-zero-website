@@ -133,7 +133,7 @@ const rawAgendaData = [
     type: "keynote",
     speakers: ["Artem Kotelskiy"],
     organizations: ["cyber•Fund"],
-    title: "The role of AI in Cybereconomy"
+    title: "The role oF AI in Cybereconomy"
   },
   {
     time: "13:45 - 13:55",
