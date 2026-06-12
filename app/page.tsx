@@ -289,9 +289,9 @@ export default function AgenticZeroLanding() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const title = document.querySelector('.hero-title')
-      if (title) {
-        setLogoHidden(title.getBoundingClientRect().top <= 70)
+      const badge = document.querySelector('.hero-badge')
+      if (badge) {
+        setLogoHidden(badge.getBoundingClientRect().top <= 64)
       }
     }
     window.addEventListener('scroll', handleScroll)
