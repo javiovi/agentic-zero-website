@@ -126,56 +126,89 @@
   gap: 16px;
 }
 
-/* Mobile only links */
-.nav-mobile-only {
-  display: flex;
+/* Hamburger: hidden on desktop */
+.nav-hamburger {
+  display: none;
 }
 
-/* Desktop - hide mobile only links */
-@media (min-width: 769px) {
-  .nav-mobile-only {
-    display: none !important;
-  }
-}
-
-/* Mobile responsive */
+/* Mobile responsive: hamburger menu */
 @media (max-width: 768px) {
   .nav-container {
-    top: 10px;
-    width: calc(100% - 20px);
-    max-width: none;
-    padding: 0 10px;
+    top: 12px;
+    left: auto;
+    right: 12px;
+    transform: none;
+    animation: none;
+    opacity: 1;
+  }
+
+  .nav-container.nav-hidden {
+    transform: translateY(-16px) !important;
   }
 
   .nav-pill {
-    width: 100%;
-    padding: 10px;
-    gap: 4px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    gap: 5px;
+    width: 46px;
+    height: 46px;
+    padding: 12px;
+    background: rgba(10, 10, 11, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    cursor: pointer;
   }
 
-  .nav-pill::-webkit-scrollbar {
-    display: none;
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
   }
 
-  .nav-link {
-    padding: 12px 18px;
-    font-size: 14px;
-    white-space: nowrap;
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
   }
 
-  .nav-cta {
-    padding: 12px 18px;
-    font-size: 14px;
-    white-space: nowrap;
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
   }
 
-  .nav-links-desktop {
-    display: none;
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    min-width: 200px;
+    padding: 10px;
+    background: rgba(5, 5, 6, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+  }
+
+  .nav-mobile-menu .nav-link {
+    padding: 14px 18px;
+    font-size: 18px;
+    text-align: left;
+    justify-content: flex-start;
   }
 }
 

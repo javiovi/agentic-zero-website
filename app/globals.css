@@ -788,21 +788,10 @@ p {
   cursor: default;
 }
 
-.hero-badge span:first-child {
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  opacity: 0.8;
-}
-
 .hero-badge:hover {
   color: rgba(255, 255, 255, 0.6);
   transform: none;
   text-decoration: none;
-}
-
-.hero-badge:hover span:first-child {
-  opacity: 1;
 }
 
 
@@ -1072,6 +1061,11 @@ p {
   text-align: center;
 }
 
+.hero-badge .hero-badge-short,
+.hero-subtitle-short {
+  display: none;
+}
+
 .az-v2-notify-form {
   display: flex;
   flex-wrap: wrap;
@@ -1187,6 +1181,17 @@ p {
 
 .az-v2-tweet-embed {
   width: 100%;
+}
+
+.az-v2-tweet-mobile {
+  display: none;
+}
+
+.az-v2-tweet-mobile .react-tweet-theme {
+  margin: 0 auto;
+  --tweet-bg-color: rgba(255, 255, 255, 0.03);
+  --tweet-bg-color-hover: rgba(255, 255, 255, 0.06);
+  --tweet-border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .az-v2-tweet-embed .react-tweet-theme {
@@ -1350,35 +1355,60 @@ p {
 
 @media (max-width: 900px) {
   .hero-content {
-    padding: 96px 20px 48px;
+    padding: 56px 28px 104px;
   }
 
   .hero-layout {
     min-height: auto;
   }
 
+  .hero-text {
+    margin-top: 0;
+  }
+
   .hero-title {
-    font-size: clamp(42px, 15vw, 72px);
-    gap: 10px;
+    font-size: clamp(34px, 13vw, 64px);
+    gap: 8px;
   }
 
   .hero-subtitle {
     max-width: 100%;
   }
 
-  .hero-logo {
-    justify-content: center;
-    position: relative;
-    top: auto;
-    right: auto;
-    width: min(100%, 420px);
-    margin: 36px auto 0;
+  .hero-badge .hero-badge-full,
+  .hero-subtitle-full {
+    display: none;
+  }
+
+  .hero-badge .hero-badge-short {
+    display: inline;
+  }
+
+  .hero-subtitle-short {
+    display: block;
+  }
+
+  .az-v2-tweet-rail {
+    display: none;
+  }
+
+  .az-v2-tweet-mobile {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .az-v2-notify-frame {
+    width: 100%;
+    padding: 0 28px;
   }
 
   .az-v2-sponsor-marquee {
     grid-template-columns: 1fr;
     gap: 12px;
-    margin-top: 40px;
+    margin-top: 72px;
   }
 
   .az-v2-marquee-logo {
@@ -1387,18 +1417,22 @@ p {
 
   .az-v2-frame {
     width: calc(100% - 24px);
-    min-height: calc(100vh - 24px);
+    min-height: auto;
     margin: 12px auto;
   }
 
   .az-v2-about-section .az-v2-frame,
   .az-v2-tech-week-section .az-v2-frame {
-    padding: 80px 20px 28px;
+    padding: 72px 24px 28px;
   }
 
   .az-v2-description-card {
-    padding: 22px;
+    padding: 30px 24px;
     max-width: 100%;
+  }
+
+  .az-v2-description-card::before {
+    transform: translate(8px, 8px);
   }
 
   .az-v2-speaker-card {
@@ -1418,7 +1452,7 @@ p {
   }
 
   .az-v2-footer-inner {
-    padding: 28px 20px;
+    padding: 28px 24px;
   }
 
   .az-v2-footer-top {
@@ -1449,6 +1483,26 @@ p {
   .hero-logo {
     right: 0;
     width: min(46vw, 660px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-logo {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: auto;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+  }
+
+  .hero-logo.logo-hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 

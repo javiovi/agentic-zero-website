@@ -168,6 +168,7 @@ function NotifyForm() {
 function FloatingNav() {
   const [activeSection, setActiveSection] = useState('hero')
   const [isHidden, setIsHidden] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -203,6 +204,7 @@ function FloatingNav() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+    setMenuOpen(false)
   }
 
   return (
@@ -219,23 +221,9 @@ function FloatingNav() {
           About
         </button>
 
-        <button
-          className={`nav-link ${activeSection === 'tech-week' ? 'active' : ''} nav-mobile-only`}
-          onClick={() => scrollToSection('tech-week')}
-        >
-          Last Edition
-        </button>
-
-        <button
-          className={`nav-link nav-tickets ${activeSection === 'notify' ? 'active' : ''} nav-mobile-only`}
-          onClick={() => scrollToSection('notify')}
-        >
-          Tickets
-        </button>
-
         <div className="nav-links-desktop">
           <button
-            className={`nav-link ${activeSection === 'tech-week' ? 'active' : ''}`}
+            className={`nav-link nav-last-edition ${activeSection === 'tech-week' ? 'active' : ''}`}
             onClick={() => scrollToSection('tech-week')}
           >
             Last Edition
@@ -254,12 +242,62 @@ function FloatingNav() {
           </button>
         </div>
       </div>
+
+      <button
+        className={`nav-hamburger ${menuOpen ? 'open' : ''}`}
+        aria-label="Menu"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {menuOpen && (
+        <div className="nav-mobile-menu">
+          <button className="nav-link" onClick={() => scrollToSection('hero')}>
+            Home
+          </button>
+          <button
+            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+            onClick={() => scrollToSection('about')}
+          >
+            About
+          </button>
+          <button
+            className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
+            onClick={() => scrollToSection('faqs')}
+          >
+            FAQs
+          </button>
+          <button
+            className={`nav-link nav-tickets ${activeSection === 'notify' ? 'active' : ''}`}
+            onClick={() => scrollToSection('notify')}
+          >
+            Tickets
+          </button>
+        </div>
+      )}
     </nav>
   )
 }
 
 export default function AgenticZeroLanding() {
   const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
+  const [logoHidden, setLogoHidden] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const title = document.querySelector('.hero-title')
+      if (title) {
+        setLogoHidden(title.getBoundingClientRect().top <= 70)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const speakers = [
     {
@@ -619,7 +657,8 @@ export default function AgenticZeroLanding() {
               <div className={`hero-text ${heroVisible ? "animate-in" : ""}`}>
                 <div className="hero-badge-container">
                   <span className="hero-badge">
-                    Second edition coming soon to SF Tech Week 2026
+                    <span className="hero-badge-full">Second edition coming soon to SF Tech Week 2026</span>
+                    <span className="hero-badge-short">SF Tech Week 2026</span>
                   </span>
                 </div>
                 <h1 className="hero-title">
@@ -627,12 +666,15 @@ export default function AgenticZeroLanding() {
                   {" "}
                   <span className="title-accent">Zero</span>
                 </h1>
-                <p className="hero-subtitle">
+                <p className="hero-subtitle hero-subtitle-full">
                   Agents are already transacting, but today's rails weren't built for them. This edition brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
+                </p>
+                <p className="hero-subtitle hero-subtitle-short">
+                  Agents are already transacting, but today's rails weren't built for them. This edition brings together the people building the agentic stack and the systems and institutions around them.
                 </p>
                 <NotifyForm />
               </div>
-              <div className={`hero-logo ${heroVisible ? "animate-in" : ""}`}>
+              <div className={`hero-logo ${heroVisible ? "animate-in" : ""} ${logoHidden ? "logo-hidden" : ""}`}>
                 <img src="/images/logo.svg" alt="Agentic Zero Logo" className="logo-image" />
               </div>
             </div>
@@ -697,6 +739,9 @@ export default function AgenticZeroLanding() {
               <p className="az-v2-section-subtitle">
                 1.8k+ registrations, 13k+ livestream views, 98k+ social media views
               </p>
+            </div>
+            <div className="az-v2-tweet-mobile dark" data-theme="dark">
+              <Tweet id="1991480192737366497" apiUrl="/api/tweet/1991480192737366497" />
             </div>
             <div className="az-v2-tweet-rail" aria-label="Agentic Zero in social media">
               {Array.from({ length: Math.ceil(featuredTweets.length / 2) }, (_, i) =>
