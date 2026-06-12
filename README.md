@@ -18,6 +18,16 @@ npm run build
 npm start
 \`\`\`
 
+## Versioning
+
+This repo keeps the old website preserved in Git while serving only the current production site from `main`.
+
+- v1 snapshot: `v1-agentic-zero-2025`
+- v1 archive branch: `archive/v1-agentic-zero-2025`
+- active production branch: `main`
+
+See [docs/versioning-and-deployment.md](docs/versioning-and-deployment.md) for the full workflow.
+
 ## Features
 
 - Responsive design with mobile-first approach

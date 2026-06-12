@@ -2,13 +2,20 @@
 
 .nav-container {
   position: fixed;
-  top: 20px;
+  top: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   animation: navSlideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 2.8s;
   opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-container.nav-hidden {
+  opacity: 0 !important;
+  transform: translateX(-50%) translateY(-16px) !important;
+  pointer-events: none;
 }
 
 @keyframes navSlideDown {
@@ -23,34 +30,23 @@
 }
 
 .nav-pill {
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 40px;
-  padding: 8px;
+  background: transparent;
+  padding: 11px;
   display: flex;
   align-items: center;
-  gap: 4px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.nav-pill:hover {
-  background: rgba(10, 10, 10, 0.95);
-  border-color: rgba(159, 152, 255, 0.2);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  gap: 5px;
 }
 
 .nav-link {
   position: relative;
-  padding: 10px 20px;
+  padding: 13px 27px;
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  border-radius: 32px;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+  border-radius: 36px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   background: transparent;
@@ -61,23 +57,23 @@
 }
 
 .nav-link:hover {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--az-accent-primary);
+  background: transparent;
 }
 
 .nav-link.active {
-  color: white;
-  background: rgba(159, 152, 255, 0.15);
+  color: var(--az-accent-primary);
+  background: transparent;
 }
 
 /* Agenda button highlight */
 .nav-agenda {
-  padding: 10px 20px;
+  padding: 13px 27px;
   background: linear-gradient(135deg, rgba(159, 152, 255, 0.25), rgba(159, 152, 255, 0.15));
   color: #b5aeff;
   border: 1px solid rgba(159, 152, 255, 0.3);
-  border-radius: 32px;
-  font-weight: 600;
+  border-radius: 36px;
+  font-weight: 400;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -90,14 +86,15 @@
 
 /* Special CTA button in nav */
 .nav-cta {
-  padding: 10px 20px;
+  padding: 13px 27px;
   background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.1));
   color: #fb923c;
   border: 1px solid rgba(249, 115, 22, 0.3);
-  border-radius: 32px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  border-radius: 36px;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   text-decoration: none;
@@ -117,7 +114,7 @@
 /* Desktop only links */
 .nav-links-desktop {
   display: flex;
-  gap: 12px;
+  gap: 16px;
 }
 
 /* Mobile only links */
@@ -143,8 +140,8 @@
 
   .nav-pill {
     width: 100%;
-    padding: 6px;
-    gap: 2px;
+    padding: 10px;
+    gap: 4px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -157,14 +154,14 @@
   }
 
   .nav-link {
-    padding: 8px 14px;
-    font-size: 12px;
+    padding: 12px 18px;
+    font-size: 14px;
     white-space: nowrap;
   }
 
   .nav-cta {
-    padding: 8px 14px;
-    font-size: 12px;
+    padding: 12px 18px;
+    font-size: 14px;
     white-space: nowrap;
   }
 

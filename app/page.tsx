@@ -3,9 +3,7 @@
 // Main landing page component for Agentic Zero conference
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { Mail, Twitter, Linkedin, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Tweet } from "react-tweet"
 
 // Custom hook for intersection observer
 function useIntersectionObserver(options = {}) {
@@ -110,11 +108,19 @@ function FAQItem({ question, answer }: { question: string; answer: string | Reac
 // Floating Navigation Component
 function FloatingNav() {
   const [activeSection, setActiveSection] = useState('hero')
+  const [isHidden, setIsHidden] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'speakers', 'location', 'faqs']
+      const sections = ['hero', 'about', 'tech-week', 'faqs']
       const scrollPosition = window.scrollY + 200
+
+      const badge = document.querySelector('.hero-badge')
+      if (badge) {
+        setIsHidden(badge.getBoundingClientRect().top <= 120)
+      } else {
+        setIsHidden(window.scrollY > 200)
+      }
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -141,38 +147,32 @@ function FloatingNav() {
   }
 
   return (
-    <nav className="nav-container">
+    <nav className={`nav-container ${isHidden ? 'nav-hidden' : ''}`}>
       <div className="nav-pill">
         <a href="/" className="nav-link">
           Home
         </a>
 
         <button
-          className={`nav-link ${activeSection === 'speakers' ? 'active' : ''}`}
-          onClick={() => scrollToSection('speakers')}
+          className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+          onClick={() => scrollToSection('about')}
         >
-          Speakers
+          About
         </button>
 
-        <a href="/agenda" className="nav-link nav-agenda nav-mobile-only">
-          Agenda
-        </a>
-
-        <a
-          href="https://ticketh.xyz/agentic/zero/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-cta nav-mobile-only"
+        <button
+          className={`nav-link ${activeSection === 'tech-week' ? 'active' : ''} nav-mobile-only`}
+          onClick={() => scrollToSection('tech-week')}
         >
-          Get Tickets
-        </a>
+          Last Edition
+        </button>
 
         <div className="nav-links-desktop">
           <button
-            className={`nav-link ${activeSection === 'location' ? 'active' : ''}`}
-            onClick={() => scrollToSection('location')}
+            className={`nav-link ${activeSection === 'tech-week' ? 'active' : ''}`}
+            onClick={() => scrollToSection('tech-week')}
           >
-            Location
+            Last Edition
           </button>
           <button
             className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
@@ -180,18 +180,6 @@ function FloatingNav() {
           >
             FAQs
           </button>
-          <a href="/agenda" className="nav-link nav-agenda">
-            Agenda
-          </a>
-
-          <a
-            href="https://ticketh.xyz/agentic/zero/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-cta"
-          >
-            Get Tickets
-          </a>
         </div>
       </div>
     </nav>
@@ -199,41 +187,21 @@ function FloatingNav() {
 }
 
 export default function AgenticZeroLanding() {
-  const [isLoading, setIsLoading] = useState(true)
   const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
-  const [speakersRef] = useIntersectionObserver({ threshold: 0.1 })
-  const [sponsorsRef, sponsorsVisible] = useIntersectionObserver({ threshold: 0.05 })
-
-  useEffect(() => {
-    const animationEndTime = 2500
-    const fadeOutDuration = 500
-    const totalLoadingTime = animationEndTime + fadeOutDuration
-
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, totalLoadingTime)
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    console.log('Sponsors visible:', sponsorsVisible)
-  }, [sponsorsVisible])
 
   const speakers = [
     {
-      name: "Rahul Kothari",
-      role: "Sr Product at Aztec",
-      image: "/images/speakers/Rahul_Kothari_AZTEC.jpg",
-      link: "https://x.com/omw_to_the_moon",
-    },
-    
-     {
       name: "Nader Dabit",
-      role: "Dir. of Developer Relations at Eigen Labs",
+      role: "Cognition. Prev. Eigen Labs",
       image: "/images/speakers/Nader.jpg",
       link: "https://x.com/dabit3",
-    }, 
-    
+    },
+    {
+      name: "Sam Green",
+      role: "Founder & CEO, Cambrian Network",
+      image: "/images/speakers/sam.jpg",
+      link: "https://x.com/0xsamgreen",
+    },
     {
       name: "Ken Ng",
       role: "Head of Research & Co-Founder, Uniswap Foundation",
@@ -241,161 +209,155 @@ export default function AgenticZeroLanding() {
       link: "https://x.com/nkennethk",
     },
     {
-      name: "Juan Irungaray",
-      role: "Google Cloud Architect",
-      image: "/images/speakers/juan.jpg",
-      link: "https://x.com/jirungaray",
+      name: "Marco De Rossi",
+      role: "AI Lead, MetaMask",
+      image: "/images/speakers/Marco-de-Rossi.jpg",
+      link: "https://x.com/marco_derossi",
     },
-
-      {
-      name: "Nick Emmons",
-      role: "Founder & CEO, Allora Labs",
-      image: "/images/speakers/nick-allora.jpg",
-      link: "https://x.com/nickemmons",
+    {
+      name: "Shaw Walters",
+      role: "Founder, Eliza Labs",
+      image: "/images/speakers/shaw.jpg",
+      link: "",
     },
-    
-      {
-      name: "Sam Green",
-      role: "Founder & CEO, Cambrian Network",
-      image: "/images/speakers/sam.jpg",
-      link: "https://x.com/0xsamgreen",
+    {
+      name: "Nicolás Montone",
+      role: "Software Engineer at Vercel",
+      image: "/images/speakers/nicolas.jpeg",
+      link: "https://x.com/montonenico",
     },
-       {
-      name: "Gauthier Vila",
-      role: "Core Contributor & Founder, ZyFAI",
-      image: "/images/speakers/gauthier.jpg",
-      link: "https://x.com/goatv_bk",
-    },
-        {
-      name: "Renç Korzay",
-      role: "CEO, Giza",
-      image: "/images/speakers/Renc.jpg",
-      link: "https://x.com/renckorzay",
-    },
-         {
+    {
       name: "E. G.",
       role: "Cofounder of Infura & DIN, Consensys",
       image: "/images/speakers/eg.jpg",
       link: "https://x.com/egalano",
     },
-           {
+    {
+      name: "Juan Irungaray",
+      role: "Google Cloud Architect",
+      image: "/images/speakers/juan.jpg",
+      link: "https://x.com/jirungaray",
+    },
+    {
+      name: "Nick Emmons",
+      role: "Founder & CEO, Allora Labs",
+      image: "/images/speakers/nick-allora.jpg",
+      link: "https://x.com/nickemmons",
+    },
+    {
+      name: "Gauthier Vila",
+      role: "Core Contributor & Founder, ZyFAI",
+      image: "/images/speakers/gauthier.jpg",
+      link: "https://x.com/goatv_bk",
+    },
+    {
+      name: "Stefano Bury",
+      role: "Head of US, Virtuals Protocol",
+      image: "/images/speakers/stefano.jpg",
+      link: "https://x.com/0xbury",
+    },
+    {
+      name: "Renç Korzay",
+      role: "CEO, Giza",
+      image: "/images/speakers/Renc.jpg",
+      link: "https://x.com/renckorzay",
+    },
+    {
+      name: "Jessy",
+      role: "Fast. Prev. Ethereum Foundation dAI",
+      image: "/images/speakers/jessy-eth.jpg",
+      link: "https://x.com/13yearoldvc",
+    },
+    {
+      name: "Mooly Sagiv",
+      role: "Chief Scientist, Certora",
+      image: "/images/speakers/mooly.jpg",
+      link: "https://x.com/SagivMooly",
+    },
+    {
+      name: "Rahul Kothari",
+      role: "Ethereum Foundation. Prev. Aztec",
+      image: "/images/speakers/Rahul_Kothari_AZTEC.jpg",
+      link: "https://x.com/omw_to_the_moon",
+    },
+    {
+      name: "Valentin Mihov",
+      role: "Co-founder of Daedalus Angels & Finexify",
+      image: "/images/speakers/valentin.jpg",
+      link: "https://x.com/valentinmihov",
+    },
+    {
+      name: "Davide Crapis",
+      role: "AI Lead at Ethereum Foundation · dAI Team",
+      image: "/images/speakers/davide.jpg",
+      link: "https://x.com/DavideCrapis",
+    },
+    {
+      name: "Artem Kotelskiy",
+      role: "Head of Blockchain Research, cyber•Fund",
+      image: "/images/speakers/artem.jpg",
+      link: "https://x.com/artofkot",
+    },
+    {
+      name: "Shafu",
+      role: "Smart Contract Engineer, Merit Systems",
+      image: "/images/speakers/sharif.jpg",
+      link: "https://x.com/shafu0x",
+    },
+    {
+      name: "Lukasz Stoczynski",
+      role: "Head of GTM @ Mimic",
+      image: "/images/speakers/Lukaz.jpg",
+      link: "http://x.com/stoczek_eth",
+    },
+    {
+      name: "Chris Wessels",
+      role: "Founder of GraphOps and Summerstone",
+      image: "/images/speakers/chris.jpg",
+      link: "https://x.com/undefinedza",
+    },
+    {
+      name: "Sandi Fatic",
+      role: "CEO, Calimero Network",
+      image: "/images/speakers/Chef Sale.jpg",
+      link: "https://x.com/chefsale",
+    },
+    {
+      name: "Ricky Esclapon",
+      role: "Data Agent Architect, Cambrian Network",
+      image: "/images/speakers/Ricky.jpg",
+      link: "https://x.com/rickydata42",
+    },
+    {
       name: "Quintus Kilbourn",
       role: "Cryptoeconomics researcher, Flashbots",
       image: "/images/speakers/quintus.jpg",
       link: "https://x.com/0xQuintus",
     },
-             {
-      name: "Shaw Walters",
-      role: "Founder, Eliza Labs",
-      image: "/images/speakers/shaw.jpg",
-      link: "",
-    }, 
-             {
-      name: "Valentin Mihov",
-      role: " Co-founder of Daedalus Angels & Finexify",
-      image: "/images/speakers/valentin.jpg",
-      link: "https://x.com/valentinmihov",
-    },  
-             {
-      name: "Mooly Sagiv",
-      role: "Chief Scientist, Certora",
-      image: "/images/speakers/mooly.jpg",
-      link: "https://x.com/SagivMooly",
-    }, 
-     
-    
-     {
-      name: "Nicolás Montone",
-     role: "Software Engineer at Vercel",
-     image: "/images/speakers/nicolas.jpeg",
-      link: "https://x.com/montonenico",
-    },
     {
-      name: "Marco De Rossi",
-      role: "AI Lead, MetaMask",
-    image: "/images/speakers/Marco-de-Rossi.jpg",
-      link: "https://x.com/marco_derossi",
-   },
-   {
-      name: "Shafu",
-      role: "Smart Contract Engineer, Merit Systems",
-    image: "/images/speakers/sharif.jpg",
-      link: "https://x.com/shafu0x",
-   },
- {
-      name: "Chris Wessels",
-      role: "Founder of GraphOps and Summerstone",
-    image: "/images/speakers/chris.jpg",
-      link: "https://x.com/undefinedza",
-   },
-     {
-      name: "Sumeet Chougule",
-      role: "Team Lead, ChaosChain at Nethermind",
-    image: "/images/speakers/sumeet.jpg",
-      link: "https://x.com/_sumeetc",
-   },
-     {
-      name: "Simon Emanuel",
-      role: "Developer Relations at ENS",
-    image: "/images/speakers/simon.png",
-      link: "https://x.com/schmidsi",
-   },
-   
-   {
       name: "Michael Sena",
       role: "Co-founder, Recall Labs",
-    image: "/images/speakers/sena-recall.jpg",
+      image: "/images/speakers/sena-recall.jpg",
       link: "https://x.com/dataliquidity?s=21&t=DBEiT8IBjsf5cMwtjj8hpw",
-   },
- {
-      name: "Jessy",
-      role: "Advisor & Coordinator, Ethereum Foundation dAI",
-    image: "/images/speakers/jessy-eth.jpg",
-      link: "https://x.com/13yearoldvc",
-   },
+    },
+    {
+      name: "Sumeet Chougule",
+      role: "Team Lead, ChaosChain at Nethermind",
+      image: "/images/speakers/sumeet.jpg",
+      link: "https://x.com/_sumeetc",
+    },
+    {
+      name: "Simon Emanuel",
+      role: "Developer Relations at ENS",
+      image: "/images/speakers/simon.png",
+      link: "https://x.com/schmidsi",
+    },
     {
       name: "Clemens",
       role: "Head of Marketing and AI at DIN",
-    image: "/images/speakers/clemens.jpg",
+      image: "/images/speakers/clemens.jpg",
       link: "https://x.com/imseelemons",
-   },
- {
-      name: "Stefano Bury",
-      role: "Head of US, Virtuals Protocol",
-    image: "/images/speakers/stefano.jpg",
-      link: "https://x.com/0xbury",
-   },
-    {
-      name: "Artem Kotelskiy",
-      role: "Head of Blockchain Research, cyber•Fund",
-    image: "/images/speakers/artem.jpg",
-      link: "https://x.com/artofkot",
-   },
-  {
-      name: "Davide Crapis",
-      role: "AI Lead at Ethereum Foundation · dAI Team",
-    image: "/images/speakers/davide.jpg",
-      link: "https://x.com/DavideCrapis",
-   },
- {
-      name: "Lukasz Stoczynski",
-      role: "Head of GTM @ Mimic",
-    image: "/images/speakers/Lukaz.jpg",
-      link: "http://x.com/stoczek_eth",
-   },
-   {
-      name: "Ricky Esclapon",
-      role: "Data Agent Architect, Cambrian Network",
-    image: "/images/speakers/Ricky.jpg",
-      link: "https://x.com/rickydata42",
-   },
-   {
-      name: "Sandi Fatic",
-      role: "CEO, Calimero Network",
-    image: "/images/speakers/Chef Sale.jpg",
-      link: "https://x.com/chefsale",
-   },
-
+    },
   ]
 
   const sponsors = {
@@ -468,424 +430,239 @@ export default function AgenticZeroLanding() {
     ],
   }
 
-  const partners = [
+  const allSponsors = [...sponsors.platinum, ...sponsors.gold, ...sponsors.silver]
+  const sponsorLoop = [...allSponsors, ...allSponsors]
+  const featuredSpeakers = speakers
+  const featuredTweets = [
     {
-      name: "ETH Daily",
-      logo: "/images/logos/ethdaily_logo_bw.png",
-      twitter: "https://x.com/ethdaily?s=21",
-    },
-  
-    {
-      name: "O(n) Club",
-      logo: "/images/logos/O(n) Club-1.svg",
-      twitter: "https://x.com/theonclub?s=21",
+      name: "Zyfai",
+      handle: "@Zyfai_",
+      url: "https://x.com/Zyfai_/status/2001013112049459238",
+      text: "Great question from @valentinmihov at @AgenticZero: how do you balance verifiable execution with privacy, so Agents stay protected from manipulation and front-running? At Zyfai, we've solved this by combining ZK proofs with ERC-8004. We call it Verifiable Agents.",
     },
     {
       name: "ETH Belgrade",
-      logo: "/images/logos/Horizontal - negative - ETH Belgrade 2024 - logo.svg",
-      twitter: "https://x.com/ethbelgrade",
+      handle: "@ethbelgrade",
+      url: "https://x.com/ethbelgrade/status/1989692953690853728",
+      text: "Hola! At Devconnect and interested in AI and Ethereum's future? Don't miss the Agentic Zero conference. Tickets in the comment section of the original post below. Grab yours now.",
     },
     {
-      name: "Crecimiento",
-      logo: "/images/logos/Crecimiento-sun-white.png",
-      twitter: "https://crecimiento.build/",
+      name: "Devcon",
+      handle: "@EFDevcon",
+      url: "https://x.com/EFDevcon/status/1991501993500897566",
+      text: "\"We are trying to create some infrastructure that's gonna grow as it comes. The first cases would be about tooling and we'll move on to automation.\" A note from the ERC-8004 panel at AGENTIC Zero.",
     },
-     {
-      name: "The Rollup",
-      logo: "/images/logos/pfp_transparent.png",
-      twitter: "https://x.com/therollupco?s=21",
+    {
+      name: "ancestral_alien",
+      handle: "@ancestral_alien",
+      url: "https://x.com/ancestral_alien/status/1991553478012072049",
+      text: "Builders, researchers, and AI x crypto people came together for a first edition centered on agentic systems, verification, and open coordination.",
+    },
+    {
+      name: "Locastic",
+      handle: "@Locastic",
+      url: "https://x.com/Locastic/status/1992933400827564165",
+      text: "A packed room for conversations at the edge of AI, Ethereum, infrastructure, and what agents need from open networks.",
+    },
+    {
+      name: "Lazar Velev",
+      handle: "@lvelev",
+      url: "https://x.com/lvelev/status/1991507819091435814",
+      text: "Agentic Zero brought together the people thinking about how AI systems will transact, coordinate, and prove what they do.",
+    },
+    {
+      name: "Sam Green",
+      handle: "@0xsamgreen",
+      url: "https://x.com/0xsamgreen/status/1991621809943507139",
+      text: "The first edition made the agent layer feel concrete: standards, tooling, trust, privacy, and infrastructure in one room.",
+    },
+    {
+      name: "satsbased",
+      handle: "@satsbased",
+      url: "https://x.com/satsbased/status/1991982776149536890",
+      text: "Notes from a day of AI x crypto sessions, where agents were treated as systems that need permissionless rails.",
+    },
+    {
+      name: "defirmware",
+      handle: "@defirmware",
+      url: "https://x.com/defirmware/status/1991555213476655554",
+      text: "A first edition focused on where agentic systems meet verifiable execution, autonomous infrastructure, and Ethereum.",
+    },
+    {
+      name: "maxminted",
+      handle: "@maxminted",
+      url: "https://x.com/maxminted/status/1991645106299105601",
+      text: "Agentic Zero put AI agents, crypto rails, and the next coordination layer into one live conversation.",
+    },
+    {
+      name: "Certora",
+      handle: "@Certora",
+      url: "https://x.com/Certora/status/1991600240286425153",
+      text: "Security, verification, and formal reasoning were part of the first edition's core discussion around autonomous systems.",
+    },
+    {
+      name: "ox_shaman",
+      handle: "@ox_shaman",
+      url: "https://x.com/ox_shaman/status/1980601002332954641",
+      text: "Agentic Zero showed up as a meeting point for builders working on the trust layer for AI.",
+    },
+    {
+      name: "Derrek",
+      handle: "@thederrek",
+      url: "https://x.com/thederrek/status/1991574744391639365",
+      text: "Takeaways from a day where AI agents, crypto primitives, and open infrastructure were discussed as one stack.",
+    },
+    {
+      name: "Allora Network",
+      handle: "@AlloraNetwork",
+      url: "https://x.com/AlloraNetwork/status/1992244718076567842",
+      text: "Agentic Zero gathered people building around intelligence networks, agent systems, and decentralized coordination.",
+    },
+    {
+      name: "Lis",
+      handle: "@____Lis__",
+      url: "https://x.com/____Lis__/status/1991852447246016591",
+      text: "A first edition full of conversations about how agents will need open infrastructure to act in the world.",
+    },
+    {
+      name: "DIN",
+      handle: "@DINBuild",
+      url: "https://x.com/DINBuild/status/1991844286665839003",
+      text: "Infrastructure for the agent layer was a recurring theme across the first Agentic Zero edition.",
     },
   ]
 
   return (
     <>
-      {isLoading && (
-        <div className="loading-screen">
-          <LoadingScreenLogoSVG className="loading-logo-svg" />
-        </div>
-      )}
-
-      <div className={`page-container ${isLoading ? "page-hidden" : "fade-in-site"}`}>
+      <div className="page-container az-v2-page fade-in-site">
         <FloatingNav />
-        
-        {/* Enhanced Hero Section */}
-        <header ref={heroRef} id="hero" className="hero">
+
+        <header ref={heroRef} id="hero" className="hero az-v2-viewport">
           <div className="hero-background">
             <div className="hero-gradient"></div>
-            <div className="hero-grid"></div>
           </div>
 
           <div className="hero-content">
             <div className="hero-layout">
               <div className={`hero-text ${heroVisible ? "animate-in" : ""}`}>
                 <div className="hero-badge-container">
-                  <a
-                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AGENTIC+Zero+at+La+Rural&dates=20251120T130000Z/20251120T200000Z&details=Join+us+for+AGENTIC+Zero%2C+where+AI+meets+Web3.+A+full+day+event+bringing+together+visionaries+shaping+the+future.&location=La+Rural%2C+Buenos+Aires%2C+Argentina"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-badge"
-                    title="Add to Google Calendar"
-                  >
-                    <span>📅</span>
-                    <span>November 20th, 2025</span>
-                  </a>
-                  <span className="hero-badge-divider">-</span>
-                  <a
-                    href="https://maps.app.goo.gl/NKqKSiteNnPwbmTs9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-location-badge"
-                    title="View Location"
-                  >
-                    <span>La Rural, Yellow Pavilion</span>
-                  </a>
+                  <span className="hero-badge">
+                    Second edition coming soon to SF Tech Week 2026
+                  </span>
                 </div>
                 <h1 className="hero-title">
                   <span className="title-main">Agentic</span>
+                  {" "}
                   <span className="title-accent">Zero</span>
                 </h1>
                 <p className="hero-subtitle">
-                  Artificial intelligence (AI) is racing ahead. Crypto already rewrote the rules of trust. Agentic Zero is a one-day AI x crypto summit focused on open, permissionless rails for agentic systems.
+                  Agents are already transacting, but today's rails weren't built for them. This edition brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
                 </p>
-                <div className="hero-actions">
-                  <Button
-                    className="cta-primary"
-                    onClick={() => window.open("https://ticketh.xyz/agentic/zero/", "_blank")}
-                  >
-                    Get Tickets
-                  </Button>
-                </div>
               </div>
               <div className={`hero-logo ${heroVisible ? "animate-in" : ""}`}>
                 <img src="/images/logo.svg" alt="Agentic Zero Logo" className="logo-image" />
               </div>
             </div>
+
+            <div className="az-v2-sponsor-marquee" aria-label="2025 supported by">
+              <div className="az-v2-marquee-label">2025 supported by</div>
+              <div className="az-v2-marquee-window">
+                <div className="az-v2-marquee-track">
+                  {sponsorLoop.map((sponsor, index) => (
+                    <span className="az-v2-marquee-logo" key={`${sponsor.name}-${index}`}>
+                      <img src={sponsor.logo} alt={sponsor.name} loading="lazy" />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </header>
 
-        {/* Enhanced Why AGENTIC Zero Section */}
-        <section className="why-section">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">
-                Why <span className="gradient-text">Agentic Zero</span>?
+        <section id="about" className="az-v2-viewport az-v2-about-section">
+          <div className="az-v2-frame">
+            <div className="az-v2-description-card">
+              <h2>
+                Agentic Zero returns,
+                <br />
+                this time in San Francisco.
               </h2>
-            </div>
-            <div className="why-content">
-              <div className="why-card">
-                <div className="why-number">01</div>
-                <div className="why-icon">
-                  <span className="orbit-dot"></span>
-                </div>
-                <p className="why-text">
-                  AI will soon steer value, data, and decision-making at planetary scale. If those systems sit on
-                  centralized stacks, we hand the steering wheel to a handful of corporations.
-                </p>
-              </div>
-              <div className="why-card">
-                <div className="why-number">02</div>
-                <div className="why-icon">
-                  <div className="wave-container">
-                    <span className="wave"></span>
-                    <span className="wave"></span>
-                    <span className="wave"></span>
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                  </div>
-                </div>
-                <p className="why-text">
-                  Crypto gives us another route: verifiable compute, public-good data, and incentives aligned with the
-                  many, not the few.
-                </p>
-              </div>
-              <div className="why-card featured">
-                <div className="why-number">03</div>
-                <div className="why-icon">
-                  <span className="circle-left"></span>
-                  <span className="circle-right"></span>
-                </div>
-                <p className="why-text">
-                  <strong>Agentic Zero is the meeting point for everyone working on the future of AI and crypto.</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Enhanced Sponsors Section */}
-        <section ref={sponsorsRef} id="sponsors" className="sponsors">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Backing Agentic Zero</h2>
+              <p>
+                For its second edition, the one day summit on agentic systems lands during
+                SF Tech Week.
+                <br />
+                The first edition in Buenos Aires drew 1,000+ attendees and 28 speakers
+                across DeFi agents, infrastructure, verifiability, and security, with 13k
+                more watching live.
+              </p>
             </div>
 
-            {/* Platinum Sponsors */}
-            <div className="sponsors-tier">
-              <div className="sponsors-tier-grid platinum-grid">
-                {sponsors.platinum.map((sponsor, index) => (
-                  <a
-                    key={sponsor.name}
-                    href={sponsor.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-platinum ${sponsor.name === 'Cambrian' ? 'sponsor-cambrian' : ''} ${sponsor.name === 'DIN' ? 'sponsor-din' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
-                    style={{ animationDelay: `${index * 200}ms` }}
-                  >
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      loading="lazy"
-                      style={{
-                        height: sponsor.name === 'DIN' ? '50px' : '45px',
-                        width: 'auto',
-                        maxWidth: 'none',
-                        maxHeight: 'none',
-                        minWidth: 'auto',
-                        minHeight: 'auto'
-                      }}
-                    />
-                  </a>
-                ))}
+            <div className="az-v2-speaker-section">
+              <div className="az-v2-section-heading">
+                <span>First edition</span>
+                <h3>Featured Speakers</h3>
               </div>
-            </div>
-
-            {/* Gold Sponsors */}
-            <div className="sponsors-tier">
-              <div className="sponsors-tier-grid gold-grid">
-                {sponsors.gold.map((sponsor, index) => (
-                  <a
-                    key={sponsor.name}
-                    href={sponsor.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-gold ${sponsor.name === 'Giza' ? 'sponsor-giza' : ''} ${sponsor.name === 'Zyfai' ? 'sponsor-zyfai' : ''} ${sponsor.name === 'AdEx' ? 'sponsor-adex' : ''} ${sponsor.name === 'CyberFund' ? 'sponsor-cyberfund' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
-                    style={{ animationDelay: `${(sponsors.platinum.length + index) * 200}ms` }}
-                  >
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      loading="lazy"
-                      style={{
-                        height: '35px',
-                        width: 'auto',
-                        maxWidth: 'none',
-                        maxHeight: 'none',
-                        minWidth: 'auto',
-                        minHeight: 'auto'
-                      }}
-                    />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Silver Sponsors */}
-            <div className="sponsors-tier">
-              <div className="sponsors-tier-grid silver-grid">
-                {sponsors.silver.map((sponsor, index) => (
-                  <a
-                    key={sponsor.name}
-                    href={sponsor.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`sponsor-card sponsor-silver ${sponsor.name === 'v0' ? 'sponsor-v0' : ''} ${sponsor.name === 'Calimero' ? 'sponsor-calimero' : ''} ${sponsorsVisible ? 'sponsor-animate' : ''}`}
-                    style={{ animationDelay: `${(sponsors.platinum.length + sponsors.gold.length + index) * 200}ms` }}
-                  >
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      loading="lazy"
-                      style={{
-                        height: sponsor.name === 'Calimero' ? '55px' : '28px',
-                        width: 'auto',
-                        maxWidth: 'none',
-                        maxHeight: 'none',
-                        minWidth: 'auto',
-                        minHeight: 'auto'
-                      }}
-                    />
-                  </a>
+              <div className="az-v2-speaker-rail" aria-label="Featured speakers from the first edition">
+                {featuredSpeakers.map((speaker) => (
+                  <article className="az-v2-speaker-card" key={speaker.name}>
+                    <img src={speaker.image || "/placeholder.svg"} alt={speaker.name} loading="lazy" />
+                    <div>
+                      <h4>{speaker.name}</h4>
+                      <p>{speaker.role}</p>
+                    </div>
+                  </article>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Partners Section */}
-        <section id="partners" className="partners">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">Our <span className="gradient-text">Partners</span></h2>
+        <section id="tech-week" className="az-v2-viewport az-v2-tech-week-section">
+          <div className="az-v2-frame">
+            <div className="az-v2-section-heading az-v2-section-heading-center">
+              <h2>Agentic Zero in Social Media</h2>
+              <p className="az-v2-section-subtitle">
+                1.8k+ registrations, 13k+ livestream views, 98k+ social media views
+              </p>
             </div>
-
-            <div className="partners-grid">
-              {partners.map((partner) => (
-                <a
-                  key={partner.name}
-                  href={partner.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="partner-card"
-                  title={`Visit ${partner.name}`}
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    loading="lazy"
-                    className={`partner-logo ${partner.name === "ETH Daily" ? "partner-logo-invert partner-logo-eth-daily" : ""} ${partner.name === "O(n) Club" ? "partner-logo-large partner-logo-on-club" : ""} ${partner.name === "ETH Belgrade" ? "partner-logo-eth-belgrade" : ""} ${partner.name === "Crecimiento" ? "partner-logo-crecimiento" : ""} ${partner.name === "The Rollup" ? "partner-logo-rollup" : ""}`}
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Speakers Section */}
-        <section ref={speakersRef} id="speakers" className="speakers">
-          <div className="container">
-            <div className="section-header">
-              <h2 className="section-title">
-                Meet Our <span className="gradient-text">Speakers</span>
-              </h2>
-            </div>
-
-            <div className="speakers-grid">
-              {speakers.map((speaker, index) => (
-                <div
-                  key={speaker.name}
-                  className="speaker-card"
-                >
-                  <div className="speaker-image-container">
-                    <img
-                      src={speaker.image || "/placeholder.svg"}
-                      alt={speaker.name}
-                      loading="lazy"
-                      className="speaker-image"
-                    />
-                  </div>
-                  <div className="speaker-info">
-                    <a
-                      href={speaker.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="speaker-name-link"
-                    >
-                      {speaker.name}
-                    </a>
-                    <p className="speaker-role">{speaker.role}</p>
-                  </div>
+            <div className="az-v2-tweet-rail" aria-label="Agentic Zero in social media">
+              {Array.from({ length: Math.ceil(featuredTweets.length / 2) }, (_, i) =>
+                featuredTweets.slice(i * 2, i * 2 + 2)
+              ).map((pair, i) => (
+                <div className="az-v2-tweet-col" key={i}>
+                  {pair.map((tweet) => (
+                    <div className="az-v2-tweet-embed dark" data-theme="dark" key={tweet.url}>
+                      <Tweet
+                        id={tweet.url.split('/status/')[1]}
+                        apiUrl={`/api/tweet/${tweet.url.split('/status/')[1]}`}
+                      />
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Event Location Section */}
-        <section id="location" className="location-section">
-          <div className="container">
-            <div className="location-content">
-              <div className="location-card">
-                <div className="location-visual-side">
-                  <img 
-                    src="/la-rural-venue.png" 
-                    alt="La Rural" 
-                  />
-                </div>
-                <div className="location-info-side">
-                  <span className="location-label">Event Location</span>
-                  <h3 className="location-title">La Rural, Buenos Aires</h3>
-                  <p className="location-description">
-                    Argentina's premier exhibition center in Palermo
-                  </p>
-                  <div className="location-points">
-                    <div className="location-point">Devconnect venue</div>
-                    <div className="location-point">Yellow pavilion</div>
-                    <div className="location-point">Palermo district</div>
-                  </div>
-                  <a
-                    href="https://maps.app.goo.gl/NKqKSiteNnPwbmTs9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="location-map-link"
-                  >
-                    View on Maps
-                    <ArrowRight size={14} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQs Section */}
-        <section id="faqs" className="faqs-section">
-          <div className="container">
+        <section id="faqs" className="az-v2-viewport faqs-section az-v2-faq-section">
+          <div className="container az-v2-faq-container">
             <div className="faqs-content">
-              <div className="section-header">
-                <h2 className="section-title">
-                  Frequently Asked <span className="gradient-text">Questions</span>
+              <div className="az-v2-section-heading az-v2-section-heading-center">
+                <h2>
+                  Frequently Asked Questions
                 </h2>
-                <p className="section-subtitle">Everything you need to know about AGENTIC Zero</p>
               </div>
 
               <div className="faqs-list">
                 <FAQItem
                   question="What is Agentic Zero & where is the event happening?"
-                  answer="Agentic Zero is a one-day conference about the intersection of AI and crypto, focused on open, permissionless rails for autonomous systems. The event will hapen on November 20th, 2025 at La Rural (Palermo), Buenos Aires (same venue than Devconnect)."
-                />
-                <FAQItem 
-                  question="Do I need a Devconnect ticket to enter?"
-                  answer={
-                    <p>
-                      Yes, to be able to attend Agentic Zero, you should purchase a{' '}
-                      <a 
-                        href="https://devconnect.org/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        style={{ color: '#f97316', textDecoration: 'underline' }}
-                      >
-                        Devconnect ticket
-                      </a>{' '}
-                      first.
-                    </p>
-                  }
+                  answer="Agentic Zero is a one-day conference about the intersection of AI, financial and payment institutions and crypto, focused on autonomous systems. The event will happen during San Francisco Tech Week. More details soon."
                 />
                 <FAQItem
                   question="Who should attend?"
-                  answer="Builders, researchers, founders, and everyone interested in the intersection between AI and crypto."
+                  answer="Founders, AI builders, researchers, investors interested in the intersection between AI and crypto."
                 />
-                <FAQItem 
-                  question="How do I apply to speak?"
-                  answer={
-                    <p>
-                      If you want to be a speaker, please complete the following{' '}
-                      <a 
-                        href="https://forms.gle/Dnj9tqHttkEcEJWs7"
-                        style={{ color: '#f97316', textDecoration: 'underline' }}
-                      >
-                         speaker form.
-                      </a>
-                    </p>
-                  }
-                />
-                <FAQItem 
-                  question="How do I apply to be a volunteer?"
-                  answer={
-                    <p>
-                      If you want to be a volunteer, please apply at the following{' '}
-                      <a 
-                        href="https://forms.gle/Z3wEcKC35oei1ypaA"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: '#f97316', textDecoration: 'underline' }}
-                      >
-                        volunteer form
-                      </a>.
-                    </p>
-                  }
-                />
-                <FAQItem 
+                <FAQItem
                   question="How can I become a sponsor?"
                   answer={
                     <p>
@@ -909,92 +686,43 @@ export default function AgenticZeroLanding() {
           </div>
         </section>
 
-        {/* Redesigned Footer */}
-        <footer id="contact" className="footer">
-          <div className="container">
-            <div className="footer-card">
-              <div className="footer-content">
-                {/* Brand Column */}
-                <div className="footer-brand">
-                  <h3 className="footer-logo">
-                    <span>Agentic</span> <span>Zero</span>
-                  </h3>
-                  <p className="footer-tagline">
-                    Where AI meets crypto. A community-owned event bringing together visionaries shaping the decentralized future.
-                  </p>
-                  <div className="footer-social">
-                    <a
-                      href="https://twitter.com/agenticzero"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon"
-                      aria-label="X"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16" height="16" fill="currentColor">
-                        <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/>
-                      </svg>
-                    </a>
-                    <a
-                      href="https://linkedin.com/company/agenticzero"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin />
-                    </a>
-                  </div>
-                </div>
-
-                {/* Quick Links Column */}
-                <div className="footer-column">
-                  <h4>Quick Links</h4>
-                  <div className="footer-links">
-                    <a href="#location" className="footer-link">
-                      Venue
-                    </a>
-                    <a href="#faqs" className="footer-link">
-                      FAQs
-                    </a>
-                  </div>
-                </div>
-
-                {/* Contact Column */}
-                <div className="footer-column">
-                  <h4>Get in Touch</h4>
-                  <div className="footer-links">
-                    <a href="mailto:contact@agenticzero.xyz" className="footer-link">
-                      <Mail size={14} />
-                      Email Us
-                    </a>
-                    <a
-                      href="https://maps.app.goo.gl/NKqKSiteNnPwbmTs9"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-link"
-                    >
-                      <ArrowRight size={14} />
-                      La Rural, Buenos Aires
-                    </a>
-                  </div>
-                  <div className="footer-cta">
-                    <a
-                      href="https://ticketh.xyz/agentic/zero/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-cta-button"
-                    >
-                      Get Tickets
-                    </a>
-                  </div>
-                </div>
+        <footer className="az-v2-footer">
+          <div className="az-v2-footer-inner">
+            <div className="az-v2-footer-top">
+              <div className="az-v2-footer-brand">
+                <h2>
+                  <span>Agentic</span>{" "}
+                  <span>Zero</span>
+                </h2>
               </div>
-              
-              <div className="footer-bottom">
-                <p>&copy; 2025 Agentic Zero. All rights reserved.</p>
+
+              <div className="az-v2-footer-follow">
+                <span>Follow Our Socials</span>
+                <div className="az-v2-footer-social" aria-label="Social links">
+                <a href="https://x.com/AgenticZero" target="_blank" rel="noopener noreferrer" aria-label="Agentic Zero on X">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true">
+                    <path d="M453.2 112H523.8L369.6 288.2L551 528H409L297.7 382.6L170.5 528H99.8L264.7 339.5L90.8 112H236.4L336.9 244.9L453.2 112ZM428.4 485.8H467.5L215.1 152H173.1L428.4 485.8Z" />
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/agentic-zero-ai" target="_blank" rel="noopener noreferrer" aria-label="Agentic Zero on LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04c-1.85 0-2.14 1.45-2.14 2.95v5.67H9.34V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85c3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12a2.06 2.06 0 0 1 0 4.12ZM7.1 20.45H3.54V9H7.1v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com/@agenticzeroxyz" target="_blank" rel="noopener noreferrer" aria-label="Agentic Zero on YouTube">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z" />
+                  </svg>
+                </a>
+              </div>
               </div>
             </div>
+
+            <p className="az-v2-footer-questions">
+              Questions? Email us at <a href="mailto:contact@agenticzero.xyz">contact@agenticzero.xyz</a>
+            </p>
           </div>
+          <p className="az-v2-footer-bottom">2026 Agentic Zero. All rights reserved.</p>
         </footer>
       </div>
     </>
