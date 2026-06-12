@@ -1054,17 +1054,107 @@ p {
   text-transform: uppercase;
 }
 
+.az-v2-tech-week-section {
+  min-height: auto !important;
+}
+
 .az-v2-tech-week-section .az-v2-frame {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: clamp(40px, 5vw, 72px);
+  min-height: auto;
   padding: clamp(88px, 8vw, 136px) 0 clamp(44px, 5vw, 76px);
   overflow: hidden;
 }
 
 .az-v2-section-heading-center {
   text-align: center;
+}
+
+.az-v2-notify-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  max-width: 480px;
+}
+
+.az-v2-notify-form input {
+  flex: 1 1 240px;
+  padding: 14px 18px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  color: white;
+  font-family: var(--font-mono), monospace;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.az-v2-notify-form input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.az-v2-notify-form input:focus {
+  border-color: var(--az-accent-primary);
+}
+
+.az-v2-notify-form button {
+  padding: 14px 26px;
+  background: #f97316;
+  border: none;
+  border-radius: 12px;
+  color: #050506;
+  font-family: var(--font-mono), monospace;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.az-v2-notify-form button:hover {
+  background: #fb923c;
+}
+
+.az-v2-notify-form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.az-v2-notify-error {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  color: #fb923c;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+.az-v2-notify-success {
+  margin-top: 32px;
+  color: var(--az-accent-primary);
+  font-family: var(--font-mono), monospace;
+  font-size: 16px;
+}
+
+.az-v2-notify-section {
+  padding: clamp(36px, 4.5vw, 70px) 0 clamp(12px, 1.5vw, 24px);
+  background: #050506;
+}
+
+.az-v2-notify-frame {
+  width: min(100% - 48px, 1800px);
+  margin: 0 auto;
+  padding: 0 clamp(32px, 5vw, 64px);
+}
+
+.az-v2-notify-section .az-v2-description-card p {
+  max-width: 100%;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(16px, 1.5vw, 23px);
+  line-height: 1.45;
 }
 
 .az-v2-section-subtitle {
@@ -1138,12 +1228,16 @@ p {
   }
 }
 
+.az-v2-faq-section {
+  min-height: auto !important;
+}
+
 .az-v2-faq-container {
   display: flex;
-  align-items: center;
-  min-height: 100vh;
-  padding-top: 112px;
-  padding-bottom: 48px;
+  align-items: flex-start;
+  min-height: auto;
+  padding-top: clamp(80px, 8vw, 144px);
+  padding-bottom: clamp(80px, 8vw, 144px);
 }
 
 .az-v2-faq-section .faqs-content {
@@ -1198,7 +1292,7 @@ p {
 }
 
 .az-v2-footer-questions {
-  margin: clamp(36px, 5vw, 64px) 0 0;
+  margin: clamp(18px, 2.5vw, 32px) 0 0;
   color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 18px;

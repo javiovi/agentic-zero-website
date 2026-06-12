@@ -66,6 +66,15 @@
   background: transparent;
 }
 
+.nav-link.nav-tickets {
+  color: #f97316;
+}
+
+.nav-link.nav-tickets:hover,
+.nav-link.nav-tickets.active {
+  color: #fb923c;
+}
+
 /* Agenda button highlight */
 .nav-agenda {
   padding: 13px 27px;

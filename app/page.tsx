@@ -105,6 +105,65 @@ function FAQItem({ question, answer }: { question: string; answer: string | Reac
   )
 }
 
+// Email capture form (provider wiring pending; posts to /api/subscribe)
+function NotifyForm() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const honeypotRef = useRef<HTMLInputElement>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error")
+      return
+    }
+    setStatus("loading")
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, company: honeypotRef.current?.value ?? "" }),
+      })
+      setStatus(res.ok ? "success" : "error")
+    } catch {
+      setStatus("error")
+    }
+  }
+
+  if (status === "success") {
+    return <p className="az-v2-notify-success">You're on the list. We'll email you when tickets go live.</p>
+  }
+
+  return (
+    <form className="az-v2-notify-form" onSubmit={handleSubmit}>
+      <input
+        ref={honeypotRef}
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }}
+      />
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value)
+          if (status === "error") setStatus("idle")
+        }}
+        placeholder="your@mail.com"
+        aria-label="Email address"
+        required
+      />
+      <button type="submit" disabled={status === "loading"}>
+        {status === "loading" ? "..." : "Notify me"}
+      </button>
+      {status === "error" && <p className="az-v2-notify-error">Please enter a valid email.</p>}
+    </form>
+  )
+}
+
 // Floating Navigation Component
 function FloatingNav() {
   const [activeSection, setActiveSection] = useState('hero')
@@ -112,7 +171,7 @@ function FloatingNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'tech-week', 'faqs']
+      const sections = ['hero', 'about', 'tech-week', 'notify', 'faqs']
       const scrollPosition = window.scrollY + 200
 
       const badge = document.querySelector('.hero-badge')
@@ -167,6 +226,13 @@ function FloatingNav() {
           Last Edition
         </button>
 
+        <button
+          className={`nav-link nav-tickets ${activeSection === 'notify' ? 'active' : ''} nav-mobile-only`}
+          onClick={() => scrollToSection('notify')}
+        >
+          Tickets
+        </button>
+
         <div className="nav-links-desktop">
           <button
             className={`nav-link ${activeSection === 'tech-week' ? 'active' : ''}`}
@@ -179,6 +245,12 @@ function FloatingNav() {
             onClick={() => scrollToSection('faqs')}
           >
             FAQs
+          </button>
+          <button
+            className={`nav-link nav-tickets ${activeSection === 'notify' ? 'active' : ''}`}
+            onClick={() => scrollToSection('notify')}
+          >
+            Tickets
           </button>
         </div>
       </div>
@@ -558,6 +630,7 @@ export default function AgenticZeroLanding() {
                 <p className="hero-subtitle">
                   Agents are already transacting, but today's rails weren't built for them. This edition brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
                 </p>
+                <NotifyForm />
               </div>
               <div className={`hero-logo ${heroVisible ? "animate-in" : ""}`}>
                 <img src="/images/logo.svg" alt="Agentic Zero Logo" className="logo-image" />
@@ -640,6 +713,16 @@ export default function AgenticZeroLanding() {
                   ))}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="notify" className="az-v2-notify-section">
+          <div className="az-v2-notify-frame">
+            <div className="az-v2-description-card">
+              <h2>Be the first to know</h2>
+              <p>We'll notify you when tickets go live.</p>
+              <NotifyForm />
             </div>
           </div>
         </section>
