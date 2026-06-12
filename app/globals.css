@@ -747,7 +747,7 @@ p {
   z-index: 2;
   width: 100%;
   min-height: 100vh;
-  padding: 132px var(--space-6) 88px;
+  padding: 132px clamp(24px, 4vw, 72px) 88px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1349,6 +1349,13 @@ p {
   right: -3vw;
   width: min(50vw, 740px);
   opacity: 0.9;
+}
+
+@media (max-width: 1600px) {
+  .hero-logo {
+    right: 0;
+    width: min(46vw, 660px);
+  }
 }
 
 .logo-image {
