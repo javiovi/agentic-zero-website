@@ -1180,7 +1180,36 @@ p {
 }
 
 .az-v2-tweet-embed {
+  position: relative;
   width: 100%;
+  height: 550px;
+  overflow: hidden;
+  display: flex;
+  border-radius: 12px;
+}
+
+/* Stretch short tweet cards to fill the fixed height so all bottoms align */
+.az-v2-tweet-embed .react-tweet-theme {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.az-v2-tweet-embed .react-tweet-theme > * {
+  flex: 1 1 auto;
+}
+
+/* Fade clipped content into the card at the bottom edge */
+.az-v2-tweet-embed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background: linear-gradient(to bottom, rgba(13, 14, 18, 0), #0d0e12);
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
 }
 
 .az-v2-tweet-mobile {

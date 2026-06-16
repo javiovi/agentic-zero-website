@@ -302,7 +302,7 @@ export default function AgenticZeroLanding() {
   const speakers = [
     {
       name: "Nader Dabit",
-      role: "Cognition. Prev. Eigen Labs",
+      role: "Cognition, prev. Eigen Labs",
       image: "/images/speakers/Nader.jpg",
       link: "https://x.com/dabit3",
     },
@@ -332,13 +332,13 @@ export default function AgenticZeroLanding() {
     },
     {
       name: "Nicolás Montone",
-      role: "Software Engineer at Vercel",
+      role: "Software Engineer, Vercel",
       image: "/images/speakers/nicolas.jpeg",
       link: "https://x.com/montonenico",
     },
     {
       name: "E. G.",
-      role: "Cofounder of Infura & DIN, Consensys",
+      role: "Co-founder, Infura & DIN (Consensys)",
       image: "/images/speakers/eg.jpg",
       link: "https://x.com/egalano",
     },
@@ -374,7 +374,7 @@ export default function AgenticZeroLanding() {
     },
     {
       name: "Jessy",
-      role: "Fast. Prev. Ethereum Foundation dAI",
+      role: "Fast, prev. Ethereum Foundation dAI",
       image: "/images/speakers/jessy-eth.jpg",
       link: "https://x.com/13yearoldvc",
     },
@@ -386,19 +386,19 @@ export default function AgenticZeroLanding() {
     },
     {
       name: "Rahul Kothari",
-      role: "Ethereum Foundation. Prev. Aztec",
+      role: "Ethereum Foundation, prev. Aztec",
       image: "/images/speakers/Rahul_Kothari_AZTEC.jpg",
       link: "https://x.com/omw_to_the_moon",
     },
     {
       name: "Valentin Mihov",
-      role: "Co-founder of Daedalus Angels & Finexify",
+      role: "Co-founder, Daedalus Angels & Finexify",
       image: "/images/speakers/valentin.jpg",
       link: "https://x.com/valentinmihov",
     },
     {
       name: "Davide Crapis",
-      role: "AI Lead at Ethereum Foundation · dAI Team",
+      role: "AI Lead, Ethereum Foundation (dAI Team)",
       image: "/images/speakers/davide.jpg",
       link: "https://x.com/DavideCrapis",
     },
@@ -416,13 +416,13 @@ export default function AgenticZeroLanding() {
     },
     {
       name: "Lukasz Stoczynski",
-      role: "Head of GTM @ Mimic",
+      role: "Head of GTM, Mimic",
       image: "/images/speakers/Lukaz.jpg",
       link: "http://x.com/stoczek_eth",
     },
     {
       name: "Chris Wessels",
-      role: "Founder of GraphOps and Summerstone",
+      role: "Founder, GraphOps & Summerstone",
       image: "/images/speakers/chris.jpg",
       link: "https://x.com/undefinedza",
     },
@@ -440,7 +440,7 @@ export default function AgenticZeroLanding() {
     },
     {
       name: "Quintus Kilbourn",
-      role: "Cryptoeconomics researcher, Flashbots",
+      role: "Cryptoeconomics Researcher, Flashbots",
       image: "/images/speakers/quintus.jpg",
       link: "https://x.com/0xQuintus",
     },
@@ -452,19 +452,19 @@ export default function AgenticZeroLanding() {
     },
     {
       name: "Sumeet Chougule",
-      role: "Team Lead, ChaosChain at Nethermind",
+      role: "Team Lead, ChaosChain (Nethermind)",
       image: "/images/speakers/sumeet.jpg",
       link: "https://x.com/_sumeetc",
     },
     {
       name: "Simon Emanuel",
-      role: "Developer Relations at ENS",
+      role: "Developer Relations, ENS",
       image: "/images/speakers/simon.png",
       link: "https://x.com/schmidsi",
     },
     {
       name: "Clemens",
-      role: "Head of Marketing and AI at DIN",
+      role: "Head of Marketing & AI, DIN",
       image: "/images/speakers/clemens.jpg",
       link: "https://x.com/imseelemons",
     },
@@ -599,6 +599,18 @@ export default function AgenticZeroLanding() {
       text: "A first edition focused on where agentic systems meet verifiable execution, autonomous infrastructure, and Ethereum.",
     },
     {
+      name: "Aura",
+      handle: "@heyaura",
+      url: "https://x.com/heyaura/status/1991521309734629700",
+      text: "",
+    },
+    {
+      name: "Allora Network",
+      handle: "@AlloraNetwork",
+      url: "https://x.com/AlloraNetwork/status/1991879327701680405",
+      text: "",
+    },
+    {
       name: "maxminted",
       handle: "@maxminted",
       url: "https://x.com/maxminted/status/1991645106299105601",
@@ -640,6 +652,18 @@ export default function AgenticZeroLanding() {
       url: "https://x.com/DINBuild/status/1991844286665839003",
       text: "Infrastructure for the agent layer was a recurring theme across the first Agentic Zero edition.",
     },
+    {
+      name: "agentic zero",
+      handle: "@AgenticZero",
+      url: "https://x.com/AgenticZero/status/1992677341567602762",
+      text: "",
+    },
+    {
+      name: "Devcon",
+      handle: "@EFDevcon",
+      url: "https://x.com/EFDevcon/status/1991504818003910790",
+      text: "",
+    },
   ]
 
   return (
@@ -657,7 +681,7 @@ export default function AgenticZeroLanding() {
               <div className={`hero-text ${heroVisible ? "animate-in" : ""}`}>
                 <div className="hero-badge-container">
                   <span className="hero-badge">
-                    <span className="hero-badge-full">Second edition coming soon to SF Tech Week 2026</span>
+                    <span className="hero-badge-full">Second edition · SF Tech Week 2026</span>
                     <span className="hero-badge-short">SF Tech Week 2026</span>
                   </span>
                 </div>
