@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans, Share_Tech_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import './apple-improvements.css'
 import './faqs.css'
@@ -37,7 +38,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSans.variable} ${shareTechMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="deee2625-4bf0-4c2d-844b-7ee29bd0db7b"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   )
 }

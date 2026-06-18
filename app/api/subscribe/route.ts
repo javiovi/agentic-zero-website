@@ -20,17 +20,36 @@ export async function POST(req: NextRequest) {
 
   const webhookUrl = process.env.SHEETS_WEBHOOK_URL
   if (!webhookUrl) {
-    console.log('[subscribe] SHEETS_WEBHOOK_URL not set, received:', email)
-    return NextResponse.json({ ok: true })
+    console.error('[subscribe] SHEETS_WEBHOOK_URL not set')
+    return NextResponse.json({ error: 'Subscription service is not configured.' }, { status: 503 })
   }
 
   try {
     const res = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, source: 'website' }),
+      body: JSON.stringify({
+        email,
+        source: 'website',
+        submittedAt: new Date().toISOString(),
+      }),
     })
-    if (!res.ok) throw new Error(`Sheets webhook responded ${res.status}`)
+    const text = await res.text()
+    if (!res.ok) {
+      throw new Error(`Sheets webhook responded ${res.status}: ${text.slice(0, 500)}`)
+    }
+    try {
+      const result = JSON.parse(text)
+      if (result?.ok === false) {
+        throw new Error(`Sheets webhook rejected request: ${text.slice(0, 500)}`)
+      }
+    } catch (error) {
+      if (error instanceof SyntaxError) {
+        console.warn('[subscribe] Sheets webhook returned non-JSON response:', text.slice(0, 500))
+      } else {
+        throw error
+      }
+    }
     return NextResponse.json({ ok: true })
   } catch (error) {
     console.error('[subscribe] forward failed:', error)
