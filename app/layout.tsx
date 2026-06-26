@@ -21,13 +21,27 @@ const shareTechMono = Share_Tech_Mono({
 })
 
 export const metadata: Metadata = {
+  // TODO: set to the production domain so the og:image resolves to an absolute URL
+  metadataBase: new URL('https://agenticzero.xyz'),
   title: 'Agentic Zero',
-  description: 'Where AI meets crypto. A community-owned event bringing together visionaries shaping the decentralized future.',
+  description: 'The one-day summit on agentic systems returns for its second edition during SF Tech Week 2026. The people building the agentic stack, in one room.',
   generator: 'Agentic Zero',
   icons: {
     icon: '/images/logo.svg',
     shortcut: '/images/logo.svg',
     apple: '/images/logo.svg',
+  },
+  openGraph: {
+    title: 'Agentic Zero',
+    description: 'The one-day summit on agentic systems returns for its second edition during SF Tech Week 2026. The people building the agentic stack, in one room.',
+    images: ['/Card.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agentic Zero',
+    description: 'The one-day summit on agentic systems returns for its second edition during SF Tech Week 2026. The people building the agentic stack, in one room.',
+    images: ['/Card.png'],
   },
 }
 
