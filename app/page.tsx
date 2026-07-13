@@ -790,7 +790,12 @@ export default function AgenticZeroLanding() {
           <div className="az-v2-notify-frame">
             <div className="az-v2-description-card">
               <h2>Be the first to know</h2>
-              <p>We'll notify you when tickets go live.</p>
+              <p>
+                <strong>October 7 · The Avalon · SF Tech Week</strong>
+                <br />
+                Tickets are coming soon. Join the list for first access, speaker announcements,
+                and program updates.
+              </p>
               <NotifyForm />
             </div>
           </div>
