@@ -814,7 +814,7 @@ export default function AgenticZeroLanding() {
                 />
                 <FAQItem
                   question="When is the event happening?"
-                  answer="Agentic Zero will happen on October 7th during San Francisco Tech Week."
+                  answer="Agentic Zero takes place on October 7 during San Francisco Tech Week."
                 />
                 <FAQItem
                   question="Where is the venue?"
