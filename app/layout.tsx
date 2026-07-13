@@ -21,6 +21,12 @@ const shareTechMono = Share_Tech_Mono({
 })
 
 const siteDescription = 'The one-day summit on agentic finance returns for its second edition on October 7th during SF Tech Week 2026. The people building the agentic stack, in one room.'
+const socialCard = {
+  url: '/agentic-zero-sf-tech-week-2026.png',
+  width: 5760,
+  height: 3240,
+  alt: 'Agentic Zero — Second Edition · SF Tech Week 2026',
+}
 
 export const metadata: Metadata = {
   // TODO: set to the production domain so the og:image resolves to an absolute URL
@@ -36,14 +42,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Agentic Zero',
     description: siteDescription,
-    images: ['/Card.png'],
+    images: [socialCard],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Agentic Zero',
     description: siteDescription,
-    images: ['/Card.png'],
+    images: [socialCard.url],
   },
 }
 
