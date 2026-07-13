@@ -727,8 +727,8 @@ export default function AgenticZeroLanding() {
                 this time in San Francisco.
               </h2>
               <p>
-                For its second edition, the one day summit on agentic systems lands during
-                SF Tech Week.
+                For its second edition, the one day summit on agentic finance lands on
+                October 7th during SF Tech Week.
                 <br />
                 The first edition in Buenos Aires drew 1,000+ attendees and 28 speakers
                 across DeFi agents, infrastructure, verifiability, and security, with 13k
@@ -807,8 +807,44 @@ export default function AgenticZeroLanding() {
 
               <div className="faqs-list">
                 <FAQItem
-                  question="What is Agentic Zero & where is the event happening?"
-                  answer="Agentic Zero is a one-day conference about the intersection of AI, financial and payment institutions and crypto, focused on autonomous systems. The event will happen during San Francisco Tech Week. More details soon."
+                  question="What is Agentic Zero?"
+                  answer="Agentic Zero is a one-day conference about the intersection of AI, financial and payment institutions and crypto, focused on autonomous systems."
+                />
+                <FAQItem
+                  question="When is the event happening?"
+                  answer="Agentic Zero will happen on October 7th during San Francisco Tech Week."
+                />
+                <FAQItem
+                  question="Where is the venue?"
+                  answer={
+                    <p>
+                      Agentic Zero will be hosted at The Avalon.{' '}
+                      <a
+                        href="https://maps.app.goo.gl/qbvyVkT2y282uRNV8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: '#f97316', textDecoration: 'underline' }}
+                      >
+                        See the venue on Google Maps
+                      </a>
+                      .
+                    </p>
+                  }
+                />
+                <FAQItem
+                  question="How can I get tickets?"
+                  answer={
+                    <p>
+                      Tickets will be on sale very soon. Sign up with your email to be notified{' '}
+                      <a
+                        href="#notify"
+                        style={{ color: '#f97316', textDecoration: 'underline' }}
+                      >
+                        here
+                      </a>
+                      .
+                    </p>
+                  }
                 />
                 <FAQItem
                   question="Who should attend?"

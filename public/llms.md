@@ -10,11 +10,12 @@ Public positioning:
 ## 2026 Edition
 
 - Event: Agentic Zero, second edition
-- Timing: SF Tech Week 2026
+- Timing: October 7, 2026, during SF Tech Week
 - Format: One-day summit
-- Location: San Francisco, California
+- Location: The Avalon, San Francisco, California
+- Venue map: https://maps.app.goo.gl/qbvyVkT2y282uRNV8
 - Focus: AI agents, financial infrastructure, payments, crypto rails, verifiability, compliance, and institutions adapting to autonomous systems
-- Status: Ticket launch and 2026 program details are pending
+- Status: Tickets will be on sale soon; email notifications are available on the website
 - Contact: contact@agenticzero.xyz
 
 ## Canonical Links
@@ -298,4 +299,3 @@ Avoid:
 - Vague AI x crypto takes
 - ChatGPT tips
 - Logo-driven posts that do not engage with the technical problems a company cares about
-
