@@ -793,8 +793,7 @@ export default function AgenticZeroLanding() {
               <p>
                 <strong>October 7 · The Avalon · SF Tech Week</strong>
                 <br />
-                Tickets are coming soon. Join the list for first access, speaker announcements,
-                and program updates.
+                Tickets are coming soon. Join the list for first access and program updates.
               </p>
               <NotifyForm />
             </div>
