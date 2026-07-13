@@ -1,0 +1,59 @@
+# Agentic Zero
+
+> Agentic Zero is a summit on agentic finance for the people building AI agents, financial and payment infrastructure, crypto rails, and autonomous systems.
+
+Agentic Zero's second edition takes place on October 7, 2026, during SF Tech Week at The Avalon in San Francisco.
+
+Agents are already transacting, but today's rails were not built for them. Agentic Zero brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
+
+Current event facts:
+
+- Event: Agentic Zero, second edition
+- Date: October 7, 2026
+- Context: San Francisco Tech Week
+- Venue: The Avalon, San Francisco, California
+- Format: One-day summit
+- Focus: AI agents, financial and payment institutions, crypto infrastructure, and autonomous systems
+- Tickets: Coming soon; email notifications are available on the official website
+- Contact: contact@agenticzero.xyz
+
+First-edition proof:
+
+- Location: Buenos Aires, Argentina
+- Attendance: 1,000+ people
+- Speakers: 28
+- Livestream views: 13k+
+- Social media views: 98k+
+- Topics included DeFi agents, infrastructure, verifiability, security, agent trust, discovery, autonomous finance, and the agentic stack
+
+Primary audience:
+
+- Founders and AI builders
+- Agent infrastructure teams
+- Financial and payment infrastructure teams
+- Crypto builders and researchers
+- Institutional operators working with autonomous systems
+- Investors following agentic finance
+
+## Event
+
+- [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket notifications, FAQs, and contact information.
+- [Ticket notifications](https://agenticzero.xyz/#notify): Join the email list for ticket access and program updates.
+- [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
+- [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
+
+## Media and Community
+
+- [X](https://x.com/AgenticZero): Official Agentic Zero account.
+- [LinkedIn](https://www.linkedin.com/company/agentic-zero-ai): Official Agentic Zero company page.
+- [YouTube](https://www.youtube.com/@agenticzeroxyz): Talks and recordings from Agentic Zero.
+- [2026 announcement card](https://agenticzero.xyz/agentic-zero-sf-tech-week-2026.png): Official social-sharing artwork for the second edition.
+
+## Contact
+
+- [Email Agentic Zero](mailto:contact@agenticzero.xyz): General and sponsorship inquiries.
+
+## AI-readable Resources
+
+- [Canonical llms.txt](https://agenticzero.xyz/llms.txt): Concise, current, AI-readable information about Agentic Zero.
+- [Markdown compatibility URL](https://agenticzero.xyz/llms.md): Compatibility alias serving the same canonical content.

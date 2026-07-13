@@ -20,7 +20,7 @@ const shareTechMono = Share_Tech_Mono({
   variable: '--font-mono',
 })
 
-const siteDescription = 'The one-day summit on agentic finance returns for its second edition on October 7th during SF Tech Week 2026. The people building the agentic stack, in one room.'
+const siteDescription = 'The summit on agentic finance returns for its second edition on October 7 during SF Tech Week 2026. The people building the agentic stack, in one room.'
 const socialCard = {
   url: '/agentic-zero-sf-tech-week-2026.png',
   width: 5760,
@@ -29,11 +29,16 @@ const socialCard = {
 }
 
 export const metadata: Metadata = {
-  // TODO: set to the production domain so the og:image resolves to an absolute URL
   metadataBase: new URL('https://agenticzero.xyz'),
   title: 'Agentic Zero',
   description: siteDescription,
   generator: 'Agentic Zero',
+  alternates: {
+    canonical: '/',
+    types: {
+      'text/plain': '/llms.txt',
+    },
+  },
   icons: {
     icon: '/images/logo.svg',
     shortcut: '/images/logo.svg',
@@ -42,6 +47,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Agentic Zero',
     description: siteDescription,
+    url: '/',
+    siteName: 'Agentic Zero',
     images: [socialCard],
     type: 'website',
   },
