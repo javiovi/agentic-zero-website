@@ -727,9 +727,8 @@ export default function AgenticZeroLanding() {
                 this time in San Francisco.
               </h2>
               <p>
-                For its second edition, the summit on agentic finance lands on
-                October 7th during SF Tech Week.
-                The first edition in Buenos Aires drew 1,000+ attendees and 28 speakers
+                The summit on agentic finance lands at SF Tech Week on October 7. Our previous
+                edition in Buenos Aires drew 1,000+ attendees and 28 speakers
                 across DeFi agents, infrastructure, verifiability, and security, with 13k
                 more watching live.
               </p>
