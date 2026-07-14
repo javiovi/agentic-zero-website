@@ -3,8 +3,9 @@ import { NextResponse, type NextRequest } from 'next/server'
 export async function POST(req: NextRequest) {
   let email: unknown
   let company: unknown
+  let source: unknown
   try {
-    ;({ email, company } = await req.json())
+    ;({ email, company, source } = await req.json())
   } catch {
     return NextResponse.json({ error: 'Invalid request.' }, { status: 400 })
   }
@@ -18,6 +19,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid email.' }, { status: 400 })
   }
 
+  // Optional origin tag (e.g. a mailing campaign); falls back to 'website'.
+  const sourceTag =
+    typeof source === 'string' && /^[a-z0-9_-]{1,40}$/i.test(source) ? source : 'website'
+
   const webhookUrl = process.env.SHEETS_WEBHOOK_URL
   if (!webhookUrl) {
     console.error('[subscribe] SHEETS_WEBHOOK_URL not set')
@@ -30,7 +35,7 @@ export async function POST(req: NextRequest) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email,
-        source: 'website',
+        source: sourceTag,
         submittedAt: new Date().toISOString(),
       }),
     })
