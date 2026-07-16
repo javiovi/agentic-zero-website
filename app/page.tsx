@@ -691,10 +691,10 @@ export default function AgenticZeroLanding() {
                   <span className="title-accent">Zero</span>
                 </h1>
                 <p className="hero-subtitle hero-subtitle-full">
-                  Agents are already transacting, but today's rails weren't built for them. This edition brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
+                  Agents are already transacting, but today's payment rails were not built for them. Agentic Zero is where agentic finance meets real markets.
                 </p>
                 <p className="hero-subtitle hero-subtitle-short">
-                  Agents are already transacting, but today's rails weren't built for them. This edition brings together the people building the agentic stack and the systems and institutions around them.
+                  Agents are already transacting, but today's payment rails were not built for them. Agentic Zero is where agentic finance meets real markets.
                 </p>
                 <NotifyForm />
               </div>
@@ -727,8 +727,9 @@ export default function AgenticZeroLanding() {
                 this time in San Francisco.
               </h2>
               <p>
-                The summit on agentic finance lands at SF Tech Week. Our previous edition in
-                Buenos Aires drew 1,000+ attendees and 28 speakers
+                The summit on agentic finance lands at SF Tech Week, bringing together builders
+                of the agentic stack, the systems adapting to it, and the institutions figuring
+                out what comes next. Our previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
                 across DeFi agents, infrastructure, verifiability, and security, with 13k
                 more watching live.
               </p>
@@ -830,8 +831,6 @@ export default function AgenticZeroLanding() {
             <div className="az-v2-description-card">
               <h2>Be the first to know</h2>
               <p>
-                <strong>October 7 · The Avalon · SF Tech Week</strong>
-                <br />
                 Tickets are coming soon. Join the list for first access and program updates.
               </p>
               <NotifyForm />

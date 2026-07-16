@@ -827,7 +827,7 @@ p {
   font-weight: 400;
   line-height: 1.62;
   margin-bottom: 0;
-  max-width: min(640px, 41vw);
+  max-width: min(600px, 38vw);
   color: var(--az-text-secondary);
 }
 
@@ -922,7 +922,7 @@ p {
   border: 1px solid rgba(249, 115, 22, 0.72);
   border-radius: 12px;
   background: #050506;
-  padding: clamp(32px, 3.2vw, 56px);
+  padding: clamp(32px, 3.4vw, 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -967,7 +967,7 @@ p {
 
 .az-v2-description-card p:last-child {
   max-width: 100%;
-  margin-top: 18px;
+  margin-top: 20px;
   color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: clamp(16px, 1.5vw, 23px);
@@ -1016,7 +1016,7 @@ p {
 .az-v2-event-label {
   color: var(--az-accent-primary);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }

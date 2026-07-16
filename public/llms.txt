@@ -4,7 +4,9 @@
 
 Agentic Zero's second edition takes place on October 7, 2026, at The Avalon in San Francisco as part of San Francisco Tech Week by a16z.
 
-Agents are already transacting, but today's rails were not built for them. Agentic Zero brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
+Agents are already transacting, but today's payment rails were not built for them. Agentic Zero is where agentic finance meets real markets.
+
+The summit on agentic finance lands at San Francisco Tech Week by a16z, bringing together builders of the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
 
 Current event facts:
 
