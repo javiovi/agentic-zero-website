@@ -727,11 +727,50 @@ export default function AgenticZeroLanding() {
                 this time in San Francisco.
               </h2>
               <p>
-                The summit on agentic finance lands at SF Tech Week on October 7. Our previous
-                edition in Buenos Aires drew 1,000+ attendees and 28 speakers
+                The summit on agentic finance lands at SF Tech Week. Our previous edition in
+                Buenos Aires drew 1,000+ attendees and 28 speakers
                 across DeFi agents, infrastructure, verifiability, and security, with 13k
                 more watching live.
               </p>
+            </div>
+
+            <div className="az-v2-event-announcement" aria-labelledby="event-details-title">
+              <div className="az-v2-event-panel az-v2-event-panel-edition">
+                <span className="az-v2-event-label">Second edition</span>
+                <h3 id="event-details-title">San Francisco</h3>
+              </div>
+
+              <div className="az-v2-event-panel">
+                <span className="az-v2-event-label">When</span>
+                <div className="az-v2-event-panel-content">
+                  <time className="az-v2-event-date" dateTime="2026-10-07">
+                    October 7
+                    <span>2026</span>
+                  </time>
+                  <p className="az-v2-event-meta">
+                    <a href="https://www.tech-week.com/" target="_blank" rel="noopener noreferrer">
+                      San Francisco Tech Week by a16z
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="az-v2-event-panel">
+                <span className="az-v2-event-label">Where</span>
+                <div className="az-v2-event-panel-content">
+                  <a
+                    className="az-v2-event-venue"
+                    href="https://maps.app.goo.gl/qbvyVkT2y282uRNV8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    The Avalon <span aria-hidden="true">↗</span>
+                  </a>
+                  <address className="az-v2-event-meta">
+                    San Francisco, California
+                  </address>
+                </div>
+              </div>
             </div>
 
             <div className="az-v2-speaker-section">

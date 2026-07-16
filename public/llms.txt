@@ -2,7 +2,7 @@
 
 > Agentic Zero is a summit on agentic finance for the people building AI agents, financial and payment infrastructure, crypto rails, and autonomous systems.
 
-Agentic Zero's second edition takes place on October 7, 2026, during SF Tech Week at The Avalon in San Francisco.
+Agentic Zero's second edition takes place on October 7, 2026, at The Avalon in San Francisco as part of San Francisco Tech Week by a16z.
 
 Agents are already transacting, but today's rails were not built for them. Agentic Zero brings together the people building the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
 
@@ -10,7 +10,7 @@ Current event facts:
 
 - Event: Agentic Zero, second edition
 - Date: October 7, 2026
-- Context: San Francisco Tech Week
+- Context: San Francisco Tech Week by a16z
 - Venue: The Avalon, San Francisco, California
 - Format: One-day summit
 - Focus: AI agents, financial and payment institutions, crypto infrastructure, and autonomous systems
@@ -40,6 +40,7 @@ Primary audience:
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket notifications, FAQs, and contact information.
 - [Ticket notifications](https://agenticzero.xyz/#notify): Join the email list for ticket access and program updates.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
+- [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
 
 ## Media and Community
