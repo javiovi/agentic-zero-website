@@ -743,33 +743,35 @@ export default function AgenticZeroLanding() {
               <div className="az-v2-event-panel">
                 <span className="az-v2-event-label">When</span>
                 <div className="az-v2-event-panel-content">
-                  <time className="az-v2-event-date" dateTime="2026-10-07">
-                    October 7
-                    <span>2026</span>
-                  </time>
                   <p className="az-v2-event-meta">
                     <a href="https://www.tech-week.com/" target="_blank" rel="noopener noreferrer">
                       San Francisco Tech Week by a16z
                     </a>
                   </p>
+                  <time className="az-v2-event-date" dateTime="2026-10-07">
+                    October 7
+                    <span>2026</span>
+                  </time>
                 </div>
               </div>
 
               <div className="az-v2-event-panel">
                 <span className="az-v2-event-label">Where</span>
-                <div className="az-v2-event-panel-content">
-                  <a
-                    className="az-v2-event-venue"
-                    href="https://maps.app.goo.gl/qbvyVkT2y282uRNV8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    The Avalon <span aria-hidden="true">↗</span>
-                  </a>
+                <a
+                  className="az-v2-event-panel-content az-v2-event-location"
+                  href="https://maps.app.goo.gl/qbvyVkT2y282uRNV8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <address className="az-v2-event-meta">
-                    San Francisco, California
+                    1244 Sutter Street, San Francisco
                   </address>
-                </div>
+                  <span className="az-v2-event-venue">
+                    The
+                    <br />
+                    Avalon <span aria-hidden="true">↗</span>
+                  </span>
+                </a>
               </div>
             </div>
 

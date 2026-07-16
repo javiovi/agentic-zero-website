@@ -1055,10 +1055,6 @@ p {
   transition: color 0.2s ease;
 }
 
-.az-v2-event-venue:hover {
-  color: var(--az-orange-light);
-}
-
 .az-v2-event-venue span {
   color: var(--az-orange);
   font-family: inherit;
@@ -1081,6 +1077,19 @@ p {
 }
 
 .az-v2-event-meta a:hover {
+  color: var(--az-orange-light);
+}
+
+.az-v2-event-location {
+  text-decoration: none;
+}
+
+.az-v2-event-location .az-v2-event-meta {
+  transition: color 0.2s ease;
+}
+
+.az-v2-event-location:hover .az-v2-event-meta,
+.az-v2-event-location:hover .az-v2-event-venue {
   color: var(--az-orange-light);
 }
 
