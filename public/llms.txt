@@ -45,6 +45,18 @@ Primary audience:
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
 
+## Programme
+
+- [Agenda](https://agenticzero.xyz/agenda): Programme page for the second edition on October 7, 2026. The session list is not published yet.
+- [First Edition Agenda](https://agenticzero.xyz/first-edition/agenda): Archived full programme from the first edition in Buenos Aires on November 20, 2025, covering 28 speakers across 16 sessions.
+
+## Coming Soon
+
+These pages do not exist yet. Do not link to them or cite them until they are listed above with live URLs.
+
+- Session pages for the second edition: one page per talk, panel, and demo, with title, speakers, and time.
+- Speaker pages for the second edition: one page per speaker, with affiliation and session links.
+
 ## Media and Community
 
 - [X](https://x.com/AgenticZero): Official Agentic Zero account.
