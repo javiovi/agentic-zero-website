@@ -57,7 +57,7 @@ const rawAgendaData = [
     title: "The Trust Layer in the Agentic Stack: ERC-8004",
     moderator: {
       name: "Simon Emanuel Schmid",
-      organization: "Developer Relations at ENS"
+      organization: "ENS"
     }
   },
   {
@@ -115,7 +115,7 @@ const rawAgendaData = [
     title: "Agents Under the Hood: Building the Agentic Stack",
     moderator: {
       name: "Chris Wessels",
-      organization: "The Graph council and founder of GraphOps and Summerstone"
+      organization: "GraphOps"
     }
   },{
     time: "13:00 - 14:00",
@@ -173,7 +173,7 @@ const rawAgendaData = [
     title: "DeFi as an Agent Playground",
     moderator: {
       name: "Valentin Mihov",
-      organization: "Co-Founder, Daedalus Angels and Finexify"
+      organization: "Daedalus Angels"
     }
   },
   {

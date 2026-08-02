@@ -4,6 +4,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { Mail, ArrowRight, Twitter, Linkedin } from "lucide-react"
 import { AgendaSection } from "@/components/agenda/AgendaSection"
+import { FirstEditionJsonLd } from "@/components/first-edition-json-ld"
 
 function AgendaNav() {
   return (
@@ -13,40 +14,30 @@ function AgendaNav() {
           Home
         </a>
 
-        <a href="/#speakers" className="nav-link">
+        <a href="/#about" className="nav-link">
           Speakers
         </a>
 
-        <a href="/agenda" className="nav-link nav-agenda active nav-mobile-only">
-          Agenda
+        <a href="/first-edition/agenda" className="nav-link nav-agenda active nav-mobile-only">
+          First Edition Agenda
         </a>
 
-        <a
-          href="https://ticketh.xyz/agentic/zero/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-cta nav-mobile-only"
-        >
+        <a href="/#notify" className="nav-cta nav-mobile-only">
           Get Tickets
         </a>
 
         <div className="nav-links-desktop">
-          <a href="/#location" className="nav-link">
-            Location
+          <a href="/agenda" className="nav-link">
+            Agenda
           </a>
           <a href="/#faqs" className="nav-link">
             FAQs
           </a>
-          <a href="/agenda" className="nav-link nav-agenda active">
-            Agenda
+          <a href="/first-edition/agenda" className="nav-link nav-agenda active">
+            First Edition Agenda
           </a>
 
-          <a
-            href="https://ticketh.xyz/agentic/zero/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-cta"
-          >
+          <a href="/#notify" className="nav-cta">
             Get Tickets
           </a>
         </div>
@@ -70,6 +61,7 @@ export default function AgendaPage() {
 
   return (
     <>
+      <FirstEditionJsonLd />
       <AgendaNav />
       {isLoading && (
         <div className="loading-container">
@@ -100,6 +92,23 @@ export default function AgendaPage() {
         </div>
       )}
       <div className="main-content">
+        <div className="archive-banner" role="note">
+          <p className="archive-banner-label">Archive</p>
+          <h1 className="archive-banner-title">First Edition Agenda</h1>
+          <p className="archive-banner-body">
+            This is the programme from the first edition of Agentic Zero, held on{" "}
+            <time dateTime="2025-11-20">November 20, 2025</time> at La Rural in Buenos Aires,
+            Argentina. It is kept here as a record of a past event.
+          </p>
+          <p className="archive-banner-body">
+            The second edition takes place on <time dateTime="2026-10-07">October 7, 2026</time> at
+            The Avalon in San Francisco.{" "}
+            <a href="/agenda" className="archive-banner-link">
+              See the current agenda
+            </a>
+            .
+          </p>
+        </div>
         <AgendaSection />
 
         {/* Footer */}
@@ -117,7 +126,7 @@ export default function AgendaPage() {
                   </p>
                   <div className="footer-social">
                     <a
-                      href="https://twitter.com/agenticzero"
+                      href="https://x.com/AgenticZero"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon"
@@ -128,7 +137,7 @@ export default function AgendaPage() {
                       </svg>
                     </a>
                     <a
-                      href="https://linkedin.com/company/agenticzero"
+                      href="https://www.linkedin.com/company/agentic-zero-ai"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-icon"
@@ -171,12 +180,7 @@ export default function AgendaPage() {
                     </a>
                   </div>
                   <div className="footer-cta">
-                    <a
-                      href="https://ticketh.xyz/agentic/zero/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-cta-button"
-                    >
+                    <a href="/#notify" className="footer-cta-button">
                       Get Tickets
                     </a>
                   </div>
