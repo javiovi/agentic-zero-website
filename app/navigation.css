@@ -53,6 +53,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* Labels are single-line. Without this a long label collapses into a
+     stack of words instead of the row staying on one line. */
+  white-space: nowrap;
 }
 
 .nav-link:hover {

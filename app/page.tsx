@@ -4,6 +4,7 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Tweet } from "react-tweet"
+import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
 
@@ -166,124 +167,6 @@ function NotifyForm() {
   )
 }
 
-// Floating Navigation Component
-function FloatingNav() {
-  const [activeSection, setActiveSection] = useState('hero')
-  const [isHidden, setIsHidden] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'about', 'tech-week', 'notify', 'faqs']
-      const scrollPosition = window.scrollY + 200
-
-      const badge = document.querySelector('.hero-badge')
-      if (badge) {
-        setIsHidden(badge.getBoundingClientRect().top <= 120)
-      } else {
-        setIsHidden(window.scrollY > 200)
-      }
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-    setMenuOpen(false)
-  }
-
-  return (
-    <nav className={`nav-container ${isHidden ? 'nav-hidden' : ''}`}>
-      <div className="nav-pill">
-        <a href="/" className="nav-link">
-          Home
-        </a>
-
-        <button
-          className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-          onClick={() => scrollToSection('about')}
-        >
-          About
-        </button>
-
-        <div className="nav-links-desktop">
-          <button
-            className={`nav-link nav-last-edition ${activeSection === 'tech-week' ? 'active' : ''}`}
-            onClick={() => scrollToSection('tech-week')}
-          >
-            Last Edition
-          </button>
-          <button
-            className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
-            onClick={() => scrollToSection('faqs')}
-          >
-            FAQs
-          </button>
-          <button
-            className={`nav-link nav-tickets ${activeSection === 'notify' ? 'active' : ''}`}
-            onClick={() => scrollToSection('notify')}
-          >
-            Tickets
-          </button>
-        </div>
-      </div>
-
-      <button
-        className={`nav-hamburger ${menuOpen ? 'open' : ''}`}
-        aria-label="Menu"
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      {menuOpen && (
-        <div className="nav-mobile-menu">
-          <button className="nav-link" onClick={() => scrollToSection('hero')}>
-            Home
-          </button>
-          <button
-            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-            onClick={() => scrollToSection('about')}
-          >
-            About
-          </button>
-          <button
-            className={`nav-link ${activeSection === 'faqs' ? 'active' : ''}`}
-            onClick={() => scrollToSection('faqs')}
-          >
-            FAQs
-          </button>
-          <button
-            className={`nav-link nav-tickets ${activeSection === 'notify' ? 'active' : ''}`}
-            onClick={() => scrollToSection('notify')}
-          >
-            Tickets
-          </button>
-        </div>
-      )}
-    </nav>
-  )
-}
 
 export default function AgenticZeroLanding() {
   const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
@@ -672,7 +555,7 @@ export default function AgenticZeroLanding() {
     <>
       <EventJsonLd />
       <div className="page-container az-v2-page fade-in-site">
-        <FloatingNav />
+        <SiteNav />
 
         <header ref={heroRef} id="hero" className="hero az-v2-viewport">
           <div className="hero-background">

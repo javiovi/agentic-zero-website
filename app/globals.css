@@ -2881,3 +2881,83 @@ p {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Inner pages (/agenda, /first-edition/agenda)
+ *
+ * The homepage never collides with the fixed nav because its first section is
+ * a full-viewport hero with vertically centred content. Inner pages start at
+ * the top of the document, so they need explicit clearance for it.
+ */
+.az-v2-inner-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #050506;
+  padding-top: clamp(104px, 11vw, 148px);
+}
+
+/* Page intro. No card: plain centred text, matched to the 900px width of the
+   agenda cards below it so the two line up. */
+.az-v2-inner-header {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.az-v2-inner-header p {
+  margin: 20px 0 0;
+  max-width: 68ch;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(16px, 1.5vw, 21px);
+  line-height: 1.5;
+}
+
+.az-v2-inner-header a {
+  color: var(--az-accent-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.az-v2-inner-header a:hover {
+  color: var(--az-accent-secondary);
+}
+
+/* Same treatment as the homepage notify button.
+   Scoped to beat `.az-v2-inner-header a`, which would otherwise colour and
+   underline it like body copy. */
+.az-v2-inner-header a.az-v2-inline-cta,
+.az-v2-inline-cta {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 26px;
+  background: #f97316;
+  border: none;
+  border-radius: 12px;
+  color: #050506;
+  font-family: var(--font-mono), monospace;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.az-v2-inner-header a.az-v2-inline-cta:hover,
+.az-v2-inline-cta:hover {
+  background: #fb923c;
+  color: #050506;
+  text-decoration: none;
+}
+
+/* The archive page's session list sits directly under its intro.
+   It ships its own darker background (--az-bg-primary) and a border-top,
+   which drew a visible seam against the #050506 page. Both are cleared so
+   the page reads as one continuous surface. */
+.az-v2-inner-page .agenda-section {
+  flex: 0 0 auto;
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: 0;
+  background: transparent;
+  border-top: none;
+}

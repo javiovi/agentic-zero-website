@@ -1,6 +1,5 @@
 "use client"
 
-import { Calendar } from "lucide-react"
 import { useRef, useEffect, useState } from "react"
 
 interface AgendaSession {
@@ -224,21 +223,6 @@ const agendaData: AgendaSession[] = rawAgendaData.map(session => ({
   organizations: [...session.organizations]
 }))
 
-function addToCalendar(session: AgendaSession) {
-  const eventTitle = session.title || session.speakers.map(s => s.name).join(", ")
-  const startTime = new Date(session.startTime)
-  const endTime = new Date(session.endTime)
-
-  const startISO = startTime.toISOString().replace(/[-:]/g, "").split(".")[0]
-  const endISO = endTime.toISOString().replace(/[-:]/g, "").split(".")[0]
-
-  const details = `${session.type === "panel" ? "Panel" : "Keynote"} at Agentic Zero Conference`
-  const location = "La Rural, Av. Sarmiento 2704, C1425 Cdad. Autónoma de Buenos Aires, Argentina"
-
-  const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startISO}Z/${endISO}Z&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`
-
-  window.open(googleCalendarUrl, "_blank")
-}
 
 // Individual Agenda Card Component with Intersection Observer
 function AgendaCard({ session, index }: { session: AgendaSession; index: number }) {
@@ -282,17 +266,6 @@ function AgendaCard({ session, index }: { session: AgendaSession; index: number 
               <h3 className="agenda-title">{session.title}</h3>
             )}
           </div>
-
-          {session.type !== "break" && (
-            <button
-              onClick={() => addToCalendar(session)}
-              className="agenda-calendar-btn"
-              aria-label={`Add ${session.title || session.speakers.map(s => s.name).join(", ")} to calendar`}
-            >
-              <Calendar size={16} />
-              <span>Add to Calendar</span>
-            </button>
-          )}
         </div>
 
         {session.speakers.length > 0 && (
@@ -328,13 +301,8 @@ export function AgendaSection() {
   return (
     <section id="agenda" className="agenda-section">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">
-            Agentic Zero <span className="gradient-text">Agenda</span>
-          </h2>
-          <p className="section-subtitle">November 20th, 2025 - La Rural, Yellow Pavilion</p>
-        </div>
-
+        {/* The page title lives in the archive header card on
+            /first-edition/agenda. A second heading here duplicated it. */}
         <div className="agenda-container">
           {talks.map((session, index) => (
             <AgendaCard key={index} session={session} index={index} />
