@@ -36,9 +36,17 @@ export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    if (!isHome) return
-
     const handleScroll = () => {
+      // Inner pages: hide once the page title has scrolled past, so the fixed
+      // nav never sits on top of the body copy.
+      if (!isHome) {
+        const heading = document.querySelector(".az-v2-inner-header .az-v2-section-heading")
+        setIsHidden(
+          heading ? heading.getBoundingClientRect().bottom <= 120 : window.scrollY > 200
+        )
+        return
+      }
+
       const scrollPosition = window.scrollY + 200
 
       const badge = document.querySelector(".hero-badge")

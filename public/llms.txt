@@ -45,6 +45,10 @@ Primary audience:
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
 
+## Positioning
+
+- [What is agentic finance?](https://agenticzero.xyz/what-is-agentic-finance): Definition of agentic finance, why it is emerging now, the four areas the second edition focuses on, and what the first edition covered.
+
 ## Programme
 
 - [Agenda](https://agenticzero.xyz/agenda): Programme page for the second edition on October 7, 2026. The session list is not published yet.
