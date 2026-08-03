@@ -7,6 +7,8 @@ import { Tweet } from "react-tweet"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
+import { FaqJsonLd } from "@/components/faq-json-ld"
+import { FAQS, type Faq } from "@/lib/faq"
 
 // Custom hook for intersection observer
 function useIntersectionObserver(options = {}) {
@@ -83,7 +85,7 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 
 
 // FAQ Item Component with Toggle
-function FAQItem({ question, answer }: { question: string; answer: string | React.ReactNode }) {
+function FAQItem({ question, answer }: Faq) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -101,7 +103,24 @@ function FAQItem({ question, answer }: { question: string; answer: string | Reac
       </button>
       <div className="faq-answer-wrapper">
         <div className="faq-answer">
-          {typeof answer === 'string' ? <p>{answer}</p> : answer}
+          <p>
+            {answer.map((segment, i) =>
+              typeof segment === 'string' ? (
+                segment
+              ) : (
+                <a
+                  key={i}
+                  href={segment.href}
+                  {...(segment.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
+                  style={{ color: '#f97316', textDecoration: 'underline' }}
+                >
+                  {segment.text}
+                </a>
+              )
+            )}
+          </p>
         </div>
       </div>
     </div>
@@ -554,6 +573,7 @@ export default function AgenticZeroLanding() {
   return (
     <>
       <EventJsonLd />
+      <FaqJsonLd />
       <div className="page-container az-v2-page fade-in-site">
         <SiteNav />
 
@@ -738,69 +758,9 @@ export default function AgenticZeroLanding() {
               </div>
 
               <div className="faqs-list">
-                <FAQItem
-                  question="What is Agentic Zero?"
-                  answer="Agentic Zero is a one-day conference about the intersection of AI, financial and payment institutions and crypto, focused on autonomous systems."
-                />
-                <FAQItem
-                  question="When is the event happening?"
-                  answer="Agentic Zero takes place on October 7 during San Francisco Tech Week."
-                />
-                <FAQItem
-                  question="Where is the venue?"
-                  answer={
-                    <p>
-                      Agentic Zero will be hosted at The Avalon.{' '}
-                      <a
-                        href="https://maps.app.goo.gl/qbvyVkT2y282uRNV8"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: '#f97316', textDecoration: 'underline' }}
-                      >
-                        See the venue on Google Maps
-                      </a>
-                      .
-                    </p>
-                  }
-                />
-                <FAQItem
-                  question="How can I get tickets?"
-                  answer={
-                    <p>
-                      Tickets will be on sale very soon. Sign up with your email to be notified{' '}
-                      <a
-                        href="#notify"
-                        style={{ color: '#f97316', textDecoration: 'underline' }}
-                      >
-                        here
-                      </a>
-                      .
-                    </p>
-                  }
-                />
-                <FAQItem
-                  question="Who should attend?"
-                  answer="Founders, AI builders, researchers, investors interested in the intersection between AI and crypto."
-                />
-                <FAQItem
-                  question="How can I become a sponsor?"
-                  answer={
-                    <p>
-                      We welcome sponsors who want to back Agentic Zero's mission of building open, permissionless infrastructure for AI. To discuss sponsorship opportunities, please{' '}
-                      <a 
-                        href="mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero"
-                        style={{ color: '#f97316', textDecoration: 'underline' }}
-                      >
-                        email us
-                      </a>{' '}
-                      with your company details and sponsorship interests.
-                    </p>
-                  }
-                />
-                <FAQItem 
-                  question="Will talks be recorded?"
-                  answer="Yes, all main stage talks will be recorded and published on our YouTube channel after the event."
-                />
+                {FAQS.map((faq) => (
+                  <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+                ))}
               </div>
             </div>
           </div>
