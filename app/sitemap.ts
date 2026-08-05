@@ -1,6 +1,7 @@
 import { readdirSync } from 'fs'
 import { join } from 'path'
 import type { MetadataRoute } from 'next'
+import { SESSIONS } from '@/lib/sessions'
 
 const BASE_URL = 'https://agenticzero.xyz'
 const APP_DIR = join(process.cwd(), 'app')
@@ -44,8 +45,17 @@ function collectRoutes(dir: string, segments: string[] = []): string[] {
   return routes
 }
 
+// Dynamic segments are skipped by the directory walk above, because a folder
+// named [slug] is one route template rather than a page. Their concrete URLs
+// have to be enumerated from the data that generates them.
+function dynamicRoutes(): string[] {
+  return SESSIONS.map((session) => `/first-edition/agenda/${session.slug}`)
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [...new Set([...collectRoutes(APP_DIR), ...STATIC_EXTRAS])].sort()
+  const routes = [
+    ...new Set([...collectRoutes(APP_DIR), ...dynamicRoutes(), ...STATIC_EXTRAS]),
+  ].sort()
 
   return routes.map((route) => ({
     url: route === '/' ? `${BASE_URL}/` : `${BASE_URL}${route}`,
