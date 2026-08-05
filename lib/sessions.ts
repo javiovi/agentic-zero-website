@@ -186,19 +186,15 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Rahul Kothari argued that calls for \"private x402\" skip the actual work of privacy design, which is deciding precisely what to hide and from whom. He expected x402 traffic to run agent-to-company and company-to-agent, with no human wallet involved, and built the talk around what that exposes and what should stay hidden."
+        "text": "Rahul Kothari of Aztec argued that calls for private x402 skip the real work of privacy design: deciding precisely what to hide and from whom. He expected x402 traffic to run agent-to-company and company-to-agent, with no human wallet ever in the loop, and built the talk around what that setup exposes and what ought to stay hidden."
       },
       {
         "type": "paragraph",
-        "text": "He named four things a transaction reveals: the resource being paid, the agent paying, metadata such as token and amount, and the facilitator settling it. He judged the resource and facilitator worth keeping visible, since exposing them supports analytics and lets a reputation system judge facilitators by behaviour. The agent and the metadata were the pieces he wanted hidden, since an agent's identity can expose the user behind it, and metadata such as amount tells outside observers nothing useful. He then split the question by audience: the resource being paid needs to know who it's dealing with to accept payment at all, so hiding the agent from the resource defeats the purpose, while a facilitator arguably only needs to verify and settle, not see who is involved."
+        "text": "He named four things a transaction can reveal: the resource being paid, the agent doing the paying, metadata such as token type and amount, and the facilitator that settles it. He judged the resource and the facilitator safe to keep visible, since exposing them supports analytics and lets a reputation system judge facilitators by their behavior. The agent and the metadata were the two he wanted hidden. An agent's identity can expose the user behind it, and metadata like the amount transferred gives outside observers nothing useful. He then split the question by audience: the resource being paid needs to know who it is dealing with just to accept the payment, so hiding the agent from the resource defeats the purpose, while a facilitator, in his view, only needs to verify and settle, not see who is involved."
       },
       {
         "type": "paragraph",
-        "text": "To structure the trade-offs he offered a spectrum from fully transparent, through anonymity (amounts visible, parties hidden) and confidentiality (parties visible, amounts hidden), to a default-private model with selective disclosure. He used Aztec, where he works, to illustrate default-private with optional public calls, then spent more time on approximating that on a public chain like Base, where he said actual x402 volume already sits. His suggestions there included routing many agents through one shared entry point to blur which user initiated a payment, stealth addresses (which he flagged as weak at scale because of address proliferation), and depositing into privacy pools such as Railgun or an FHE-wrapped token from Zama to obscure a recipient or an amount. Each traded something specific: privacy pools need pre-funded balances, stealth addresses need constant new addresses, and hiding by keeping funds still runs into the latency that fast payments don't want."
-      },
-      {
-        "type": "paragraph",
-        "text": "The value here was refusing the easy version of the question. x402 only works at agent scale if agents can transact without every counterparty and internal strategy becoming public by default, but hiding everything loses the transparency the space was built on. Treating privacy as a per-field, per-audience choice, not a single switch, is the more useful frame for anyone building payment infrastructure for agents now."
+        "text": "To frame the trade-offs, he laid out a spectrum: fully transparent, then anonymity (amounts visible, parties hidden), then confidentiality (parties visible, amounts hidden), then a default-private model with selective disclosure. He used Aztec, where he works, to show what default-private with optional public calls could look like, then spent more time on approximating that on a public chain like Base, which he said is where most actual x402 activity already happens. His suggestions there included routing many agents through one shared entry point to obscure which user triggered a payment, stealth addresses (which he flagged as weak at scale because of address proliferation), and depositing into privacy pools such as Railgun or 0xbow, or wrapping funds in an FHE token from Zama to hide a recipient or an amount. Each option had its own cost: privacy pools require pre-funded balances, stealth addresses require a constant supply of new addresses, and holding funds still to gain privacy runs into the latency that fast payments cannot tolerate."
       }
     ]
   },
@@ -226,23 +222,23 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Nick Emmons argued that machine intelligence had become a private utility owned by a handful of companies, and that this was both a risk to society and an inefficient way to run a market. His answer was a network that aggregates many independent models into a single output performing better than any one of them, which he presented as the mechanism by which intelligence could become a public good rather than a product a few firms sell."
+        "text": "Nick Emmons argued that machine intelligence had become a private utility owned by a handful of companies, and that this was both a risk to society and an inefficient way to run a market. His answer was a network that aggregates many independent models into a single output that performs better than any one of them, which he framed as the mechanism by which intelligence could become a public good rather than a product a few firms sell."
       },
       {
         "type": "paragraph",
-        "text": "His diagnosis was structural rather than moral. Models sit in isolated silos, and there is no way to take three of them and merge the parts each does best. Organisations holding the most compute and data therefore compound their advantage by default, while models published on open platforms, models built by small teams and idle compute on edge devices stay locked out. He described inefficiency at both ends: contributing is expensive, and consuming means surveying the whole field and committing to one model despite constantly changing conditions."
+        "text": "His diagnosis was structural rather than moral. Models sit in isolated silos, and there is no way to take three of them and merge the parts each does best. Organisations holding the most compute and data compound their advantage by default, while models published on open platforms, models built by small teams and idle compute on edge devices stay locked out. He described inefficiency at both ends: contributing is expensive, and consuming means surveying the whole field and committing to one model despite constantly changing conditions."
       },
       {
         "type": "paragraph",
-        "text": "Allora splits the problem into topics, each defined by an objective and a loss function, such as predicting an asset's price hours ahead. Base workers run models against that objective. Forecasting workers do something different: rather than predicting the target, they predict which base worker will perform best under which conditions, learning that one model is stronger in volatile markets and another in calm ones. A third group evaluates results each epoch and reweights accordingly. Emmons showed a topic where the best individual worker reached a log loss of roughly 3.34, his own unverified figure, and said the aggregate, once forecasting was introduced, beat it consistently. That result, not the network, was the claim the talk rested on."
+        "text": "Allora splits the problem into topics, each defined by an objective and a loss function, such as predicting an asset's price hours ahead. Base workers run models against that objective. Forecasting workers do something different: rather than predicting the target, they predict which base worker will perform best under which conditions, learning that one model is stronger in volatile markets and another in calm ones. A third group evaluates results each epoch and reweights accordingly. Emmons showed a topic where the best individual worker reached a log loss of about 3.337, his own unverified figure, and said the aggregate, once forecasting was introduced, beat it consistently."
       },
       {
         "type": "paragraph",
-        "text": "His figures, all self-reported and unverified, were more than 700 million inferences, around 300,000 workers and over 55 topics, with mainnet newly launched. The example he closed on was an agent aggregating ten to twenty US presidential election models, traded on Polymarket with a broadly hedged strategy, returning around 68% annualised over three months."
+        "text": "His figures, all self-reported and unverified, were more than 700 million inferences, around 300,000 workers and over 55 topics, with mainnet recently launched. He closed on a case study: an agent drawing on ten to twenty US presidential election models, trading on Polymarket with a broadly hedged strategy, which he said returned about 68% annualised over three months, another unverified figure."
       },
       {
         "type": "paragraph",
-        "text": "That example is the one worth sitting with. Thin, event-specific markets are exactly where automated settlement already works and informed participants do not show up in sufficient numbers. An agent drawing on aggregated models can be present in a market too small for anyone to staff by hand, which is less about better forecasting than about which markets can exist at all."
+        "text": "Emmons argued the case mattered because prediction markets are inherently thin and event-specific, and that DeFi has generally lacked participants able to trade them accurately without automation. He framed agents drawing on aggregated models as the kind of participant that could operate in markets too narrow to attract dedicated human traders."
       }
     ]
   },
@@ -273,23 +269,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "E.G. Galano argued that agents discovering and paying for MCP APIs are running into a problem web2 already solved twice over: search and curated marketplaces sorted out who to trust for content and goods, and reputable couriers sorted out delivery without anyone needing to trust the brand on the van. His claim was that Infura's decade of scoring RPC endpoint quality translates directly into scoring agents and services, and that this is the near-term, unglamorous work standing between agents and being able to reliably transact."
+        "text": "E.G. Galano argued that agents trying to discover and pay for MCP APIs were running into a problem web2 had already solved twice: search and curated marketplaces settled who to trust for content and goods, and reputable couriers settled delivery without anyone needing to trust the brand on the van. His claim was that Infura's RPC-scoring experience, roughly a decade of it by his own account, carried over directly to scoring agents and services, and that this unglamorous work was what stood between agents and reliable transacting."
       },
       {
         "type": "paragraph",
-        "text": "He traced Infura's own path from a centralized RPC provider, a single point of failure that rivals like Alchemy existed partly to hedge against, toward a decentralized marketplace protocol called Den (Decentralized Infrastructure Network). Den routes requests to independent infrastructure operators, and a watchtower system continuously checks each one for latency, regional hosting and data consistency. Galano said that once his team pointed the same scoring logic at MCP APIs, it extended cleanly, since a custom test can check any service characteristic a consumer cares about."
+        "text": "He traced Infura's path from a centralized RPC provider, once flagged as a single point of failure that reputable providers such as Alchemy helped mitigate, toward a decentralized marketplace protocol he called DIN, the Decentralized Infrastructure Network. DIN routed requests to independent infrastructure operators, and a watchtower-style network continuously checked each one for latency, regional hosting, and data consistency. Once his team pointed that same scoring approach at MCP APIs, Galano said it extended easily, since a custom check could cover any service trait a consumer cared about."
       },
       {
         "type": "paragraph",
-        "text": "Payment runs through x402, letting a caller pay per request in crypto instead of juggling separate credit-card accounts across every RPC or API provider. Staking is handled through an EigenLayer AVS using restaked ETH, so operators secure the network without Infura needing to issue its own token. On top of that sits an onchain SLA: a bond that guarantees a provider's price and availability for a set window, so a consumer isn't just checking that a service exists today but locking in that it stays put."
+        "text": "Payment ran through x402, letting a caller pay per request in crypto rather than managing separate accounts across every RPC or API provider. Staking ran through an EigenLayer AVS using restaked ETH, comparable to Lido's staked ETH by his description, so operators secured the network without Infura issuing its own token. On top of that sat an onchain SLA, a bond guaranteeing a provider's price and availability for a set window."
       },
       {
         "type": "paragraph",
-        "text": "Galano connected this to ERC-8004, the onchain registry effort for agents, noting that Den's service registry and an agent registry were converging on the same problem: how reputation gets attested onchain. In the Q&A, an attendee raised a real gap, crypto wallets don't expire like credit cards but they do run dry, and Galano admitted x402's per-request model handles usage poorly for subscription-style billing, floating unresolved ideas like time-bound access tokens or stake-and-slash instead of prepayment."
-      },
-      {
-        "type": "paragraph",
-        "text": "The underlying case is unglamorous but load-bearing: agentic commerce won't hinge on smarter models so much as on unremarkable infrastructure, discovery, payment, reputation, being solved for machines the way it already was for people."
+        "text": "Galano linked this to ERC-8004, the onchain agent registry effort, saying DIN's service registry and an agent registry were converging on the same underlying problem: how reputation gets attested onchain. In the Q&A, an attendee noted that crypto wallets, unlike credit cards, don't expire but can run dry. Galano agreed x402's per-request design handled subscription-style usage poorly, and floated unresolved ideas such as time-bound access tokens or a stake-and-slash model in place of prepayment."
       }
     ]
   },
@@ -318,23 +310,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Sam Green argued that the real fix for crypto was not AI in the abstract but agents specifically, and that a wider shift he called the agentic revolution would move AI from giving financial advice to actually executing on a user's behalf. He treated crypto as the natural setting for that shift, since programmable money paired with autonomous decision-making is what agentic finance requires, and he backed the claim with a taxonomy of products already live rather than a purely speculative pitch."
+        "text": "Sam Green argued that the real fix for crypto's UX was not AI in the abstract but agents specifically, defining an agent as a program that decided and acted on a user's behalf through a continuous loop of sensing its environment, reasoning, and acting. He framed a coming shift he called the agentic revolution as the moment AI stopped only advising and started executing directly, and treated crypto as the natural setting, since programmable money paired with autonomous decision-making was what agentic finance required. He backed this with a taxonomy of live products, not just a speculative pitch."
       },
       {
         "type": "paragraph",
-        "text": "He built the case historically. Steam power, centralised electricity and the transistor each opened a prior revolution, and each one compounded productivity before laying the ground for the next. He placed the coming agentic era as the fourth in that sequence, and tied its timeline to two compounding curves, Moore's law for compute and a claimed yearly doubling in AI model performance since GPT 3.5 reached mass adoption faster than any consumer product before it."
+        "text": "He built the case historically. Steam power launched the industrial revolution roughly three hundred years ago by his account, centralised electricity started a second revolution about 120 years later, and the transistor opened the information age some 75 years ago; each, he argued, laid the infrastructure for the next. He placed a coming agent era as the fourth in that sequence and claimed, without elaborating, that it would have more impact than the three before it combined. He tied its timing to two compounding trends: computing power under Moore's law, and what he described as a yearly doubling in AI model performance since GPT-3.5, which he said reached mass adoption faster than Instagram had, his own comparison."
       },
       {
         "type": "paragraph",
-        "text": "Green defined an agent by a sense, think, act loop and mapped existing crypto agent products on two axes, autonomy (advice versus direct on-chain action) and intelligence (simple rule-based logic versus AI-driven decisions). Within that map he walked through five segments: agents that trade on prediction and betting markets, agents that manage trading and portfolio decisions, information agents that act as co-pilots rather than executors, agents that provision liquidity across decentralised exchanges, and lending agents that move a user's collateral between protocols to chase yield. He named lending as the segment with the most product-market fit and the largest share of assets under management so far."
+        "text": "Green named this market segment AgentFi and mapped its products on two axes, autonomy (advice versus direct on-chain action) and intelligence (rule-based logic versus AI-driven decisions), then walked through five categories: agents trading on prediction and betting markets, agents managing trading and portfolio decisions, information agents acting as co-pilots rather than executors, agents provisioning liquidity across exchanges, and lending agents that reallocate a user's collateral to chase yield. He named lending as the segment with the strongest product fit and, by his account, the largest share of assets under management so far."
       },
       {
         "type": "paragraph",
-        "text": "On numbers, all of them self-reported and unverified, Green said assets under management in agentic finance were near zero at the start of 2025, reached roughly $20 million by October, and stood around $500 million by the talk, a jump he gave without further support. He also cited stablecoin market cap growing from roughly $20 billion to $300 billion over five years, stablecoin transaction volume overtaking Visa's, and an Ernst & Young survey putting institutional interest in DeFi at 24 percent today, rising to a projected 75 percent within two years."
-      },
-      {
-        "type": "paragraph",
-        "text": "The talk mattered less for any single figure than for the frame it offered: judge agentic finance by whether it changes which markets and actions become possible, not by whether any one model sounds convincing today."
+        "text": "On numbers, all self-reported and unverified, Green said assets under management in agentic finance were near zero at the start of 2025, reached roughly $20 million by October, and stood around $500 million by the day of the talk, a jump he did not explain further. He also cited stablecoin holdings growing from roughly $20 billion to $300 billion over five years, stablecoin transaction volume overtaking Visa's, and an Ernst & Young survey putting institutional interest in DeFi at 24 percent at the time, projected to pass 75 percent within two years."
       }
     ]
   },
@@ -352,7 +340,7 @@ export const SESSIONS: Session[] = [
       },
       {
         "name": "Juan Irungaray",
-        "organisation": "Google",
+        "organisation": "Google Developer Expert",
         "isModerator": false
       },
       {
@@ -361,7 +349,7 @@ export const SESSIONS: Session[] = [
         "isModerator": false
       },
       {
-        "name": "Clemens",
+        "name": "Clemens Wan",
         "organisation": "Infura/DIN",
         "isModerator": false
       },
@@ -386,23 +374,23 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Five builders agreed on what an agentic system needs, an LLM loop plus memory, tools and an environment to run in, but split on whether any of it needs to be decentralised. Nicolás Montone argued that agents simply require trusting whichever model provider sits behind them, the same trust any app already asks for, and that decentralisation mostly earns its place around payments between agents. Nader Dabit and Juan Irungaray leaned the other way: as specialised agents built by different teams start depending on each other, something resembling blockchain-level trust becomes necessary, even though no agent can live inside a contract."
+        "text": "Five panelists agreed a basic call-the-model loop does not make an agentic system, and layered in memory, durable data storage and enough autonomy to act without constant human sign-off, but split over how much of that stack needs to be decentralised. Nicolás Montone argued agents mainly need to trust whichever model provider sits behind them, the same trust any app already asks for, and that decentralisation earns its place mostly around agent-to-agent payments, where he pointed to x402 as the protocol drawing the most investment. Nader Dabit and Juan Irungaray leaned the other way, expecting agents built by separate teams to eventually need something resembling blockchain-level trust between them."
       },
       {
         "type": "paragraph",
-        "text": "Dabit made that case at the mechanism level. Contracts are action-based while agents must run continuously and reach external APIs, so a plain server has none of a contract's auditability. His answer, Eigen's compute product, gives an agent a trusted execution environment holding a wallet key generated inside the runtime, so only the running agent, not its operator, can spend funds sent to it. A companion product targets deterministic, re-executable inference, so a prompt and model can be shown to produce a given output. He called ERC-8004 a useful but unsettled start on reputation."
+        "text": "Montone broke his own stack into four layers: an environment layer where his team ran agents on Vercel's fluid compute, serverless billing that only charges for CPU time actually spent rather than time waiting on a model; a context layer of cacheable, injectable system prompts; an actions layer of tools and MCP; and an application layer where a failed build gets fed back to the agent so it can self-correct."
       },
       {
         "type": "paragraph",
-        "text": "Clemens focused on the layer underneath: agents with wallet or RPC access need hard limits on trade size and exposure, and an abstraction like a phone user never picking a GPS satellite, setting a preference (cheaper, faster, greener) instead. He preferred an approval flow that checks with a human until a workflow proves itself and remembers it, rather than an intrusive prompt every time, alongside attested identity so an agent can prove who it acts for."
+        "text": "Dabit argued a smart contract cannot host an agent, since contracts are action-based while agents run continuously and call external APIs. His answer was Eigen's own compute product, a trusted execution environment that generates a wallet key inside the runtime itself, so funds sent to an agent can only be spent by the running agent, not its operator. He described a companion product built for deterministic, re-executable inference, so a given prompt and model could be shown to reproduce an output, and called ERC-8004 useful for reputation."
       },
       {
         "type": "paragraph",
-        "text": "Montone sketched Vercel's stack in four layers: environment (v0 runs on fluid compute, billing only CPU actually used, not time waiting on a model), context (cacheable, injectable system prompts), actions (tools and MCP), and application, where a failed build is fed back for self-correction. Irungaray described Google's Agent Engine as infrastructure hosting agents built on LangGraph, Hugging Face or Google's own ADK, abstracting away memory and session handling, with ADK sitting between LangGraph and n8n. He named x402 and A2A as protocols still short of consensus."
+        "text": "Clemens Wan focused on limits: an agent with wallet or RPC access needs hard caps on trade size, plus an abstraction like a phone user never picking a GPS satellite, just setting a preference for cheaper, faster or greener. He wanted approval flows that check with a human until a workflow proves itself and gets remembered, rather than an intrusive prompt every time, alongside attested identity so an agent can prove who it acts for."
       },
       {
         "type": "paragraph",
-        "text": "The live disagreement, over where trust sits once agents act with money and each other's outputs, outweighs the acronyms. MCP, A2A, x402 and ERC-8004 all showed up as scaffolding still being poured, a useful check on anyone assuming the stack is finished."
+        "text": "Irungaray described Google's Agent Engine as infrastructure for hosting agents built on LangGraph, Hugging Face or Google's own ADK, handling memory and session management for developers. He placed ADK's level of abstraction between LangGraph and n8n."
       }
     ]
   },
@@ -429,23 +417,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Artem Kotelskiy argued that AI and crypto were pushing capitalism toward what cyber•Fund internally calls a cybernetic economy: a resource allocation system that is self-regulating and, unlike the one we have now, hyperefficient. His case was that human limits, not the market mechanism itself, are what produce capitalism's failures, and that AI removes those limits while crypto supplies the infrastructure for the resulting activity to actually take place."
+        "text": "Artem Kotelskiy, speaking for cyber•Fund, argued that AI and crypto were pushing capitalism toward what the fund internally calls a cybernetic economy: a resource allocation system that is self-regulating and, unlike the one we have now, hyperefficient. His case was that human limits, not the market mechanism itself, produce capitalism's failures, and that AI removes those limits while crypto supplies the infrastructure for the resulting activity to take place."
       },
       {
         "type": "paragraph",
-        "text": "He built the argument in two steps. First, prices work as a signal that adjusts supply and demand, but people executing on that signal are bounded: limited in how much they can research, process, coordinate and act on, which he tied to asset bubbles and principal-agent problems. AI, in his framing, directly extends those bounded capacities, so plugging AI into the existing market mechanism just makes the invisible hand work harder."
+        "text": "He opened with the fund's own record: more than two hundred startups backed across Ethereum, Solana and other networks, by his account. He then built the argument in two steps. First, prices work as a signal that adjusts supply and demand, but the people executing on that signal are bounded, limited in how much they can research, process, coordinate and act on, which he tied to asset bubbles and principal-agent problems. AI, in his framing, extends those bounded capacities directly, so plugging AI into the existing market mechanism just makes the invisible hand work harder."
       },
       {
         "type": "paragraph",
-        "text": "The second step was less conventional. He distinguished markets already programmatically accessible, like public stock exchanges, from markets that are not, such as government procurement or task-based gig work, and used a personal anecdote about ordering party balloons through a chatbot to illustrate the second kind: the agent completed the task but picked poorly, because the underlying market had no structured way to be queried or bid into. His claim was that AI's real function is to instrument these markets, reading a request, extracting the actual intent and constraints, spinning up a temporary auction, finding counterparties, and settling into a contract. He named the missing piece as \"mechanism-aware AI,\" agents that understand they are negotiating economically and know what to disclose, and said this does not yet exist. He also argued agents transacting this way erode the ad-supported attention economy, since agents do not look at banners, and gestured at a machine-to-machine payment rail as the kind of infrastructure this favors, without detailing it further. Blockchains, he said, are a plausible but not guaranteed substrate for the coordination itself."
+        "text": "The second step was less conventional. He distinguished markets already programmatically accessible, like public stock exchanges, from markets that are not, such as government procurement or task-based gig work, and used a personal anecdote about ordering party balloons through a chatbot to illustrate the second kind: the agent completed the task but picked poorly, because the underlying market had no structured way to be queried or bid into. His claim was that AI's real function is to instrument these markets: reading a request, extracting the actual intent and constraints, spinning up a temporary auction, finding counterparties, and settling into a contract. He named the missing piece mechanism-aware AI, agents that understand they are negotiating economically and know what to disclose, and said this does not yet exist. He also argued that agents transacting this way erode the ad-supported attention economy, since agents do not look at banners, and gestured at a machine-to-machine payment rail as the kind of infrastructure this favors, without detailing it further. Blockchains, he said, are a plausible but not guaranteed substrate for the coordination itself."
       },
       {
         "type": "paragraph",
         "text": "He closed on a values point: the cybernetic economy is coming regardless, but the path there is not fixed, and a passive path risks concentrating data and control rather than distributing it."
-      },
-      {
-        "type": "paragraph",
-        "text": "That framing is a useful counterweight to the event's more concrete sessions. It names why \"agents doing DeFi\" or \"agents doing research\" are instances of one larger shift, even though the talk itself stayed at the level of thesis rather than working system."
       }
     ]
   },
@@ -475,19 +459,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Ricky Esclapon walked through a string of experiments Cambrian had run on top of its data agent, Deep 42, which links on-chain contracts to off-chain sources such as GitHub and social data. The throughline was practical rather than theoretical: each step, from wrapping the agent in ERC-8004 to testing trusted execution to building a discovery layer, was framed as a working prototype rather than a finished product, and Esclapon was candid about what still did not hold together across the stack."
+        "text": "Ricky Esclapon walked through a string of experiments Cambrian had run on top of its data agent, Deep 42, which links on-chain contracts to off-chain sources such as GitHub and social data. Each step, wrapping the agent in ERC-8004, testing trusted execution, building a discovery layer, was a working prototype rather than a finished product. Esclapon was candid about what still did not hold together."
       },
       {
         "type": "paragraph",
-        "text": "The first step was making Deep 42 an ERC-8004 agent, which he said depended more on getting the A2A agent card right than on the ERC-8004 wrapping itself, and he credited the agent0 SDK for making that easier. From there Cambrian tried trusted execution environments, running one TE for the agent and one for its MCP server and building a UI to surface the proofs between them. He was upfront that this removed only some trust assumptions, not all of them, and pointed people toward their open-sourced repo and toward a managed cloud compute service he rated highly for standing up TEEs, if a pricier one."
+        "text": "The first step was making Deep 42 an ERC-8004 agent. That depended more on getting the A2A agent card right, he said, than on the ERC-8004 wrapping itself, and he credited an SDK built by Marco De Rossi, which Cambrian had been contributing to, for making it easier. From there Cambrian tried trusted execution environments, running one TE for the agent and one for its MCP server, with a UI to surface the proofs between them. He was upfront that this removed only some trust assumptions, not all of them. He pointed people toward their open-sourced repo, and toward a managed cloud compute service he rated highly for standing up TEEs, if a pricier one."
       },
       {
         "type": "paragraph",
-        "text": "The bulk of the demo covered agent discovery: an API that takes a question, matches it to an agent's A2A skills through a knowledge graph, and returns a ranked, sourced answer along with an execution plan for which agent to call. He showed this running against a query about which agents know about movies, backed by a Google Spanner database chosen for combining Cypher and SQL in one place. Because Spanner is not permissionless and carries no attestation model, Cambrian built its own graph-SQL database instead, one anyone could provision, pay for on-chain, and query with attestations attached, and he showed data being written into it live."
+        "text": "The bulk of the demo covered agent discovery. An API took a question, matched it to an agent's A2A skills through a knowledge graph, and returned a ranked, sourced answer with a confidence score on each source, plus an execution plan for which agent to call. He showed it running against a query about which agents know about movies, backed by a Google Spanner database chosen for combining Cypher and SQL in one place. Spanner is not permissionless and carries no attestation model, so Cambrian built its own graph-SQL database instead, one anyone could provision, pay for on-chain, and query with attestations attached. He showed data being written into it live."
       },
       {
         "type": "paragraph",
-        "text": "The value of the demo was in showing its own seams. Esclapon said plainly that current agent standards do not yet compose cleanly in practice, and that discovery, verifiable data, and permissionless payment are three separate problems Cambrian is stitching together rather than one solved stack, which is a more honest picture of ERC-8004 tooling today than any launch announcement would give."
+        "text": "Esclapon was direct that none of this composed cleanly yet: discovery, verifiable data and permissionless payment were, by his account, three separate problems Cambrian was stitching together rather than a single finished stack."
       }
     ]
   },
@@ -516,23 +500,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Shaw Walters used Babylon, a prediction-market game built on ElizaOS, to make a narrower claim than most agent talks: a registry standard for identity, discovery and reputation was usable now, most LLM trading agents had made no money, and the path to agents that work ran through simulation, not live capital."
+        "text": "Shaw Walters presented Babylon, a prediction-market game built on ElizaOS, as a working demonstration of ERC-8004. He used it to argue a narrower point: by his account most LLM trading agents lose money, so agents should prove themselves in closed simulations before they touch real capital."
       },
       {
         "type": "paragraph",
-        "text": "Babylon grew out of Walters getting banned from X over open-source work tied to Eliza, so he built a parallel feed of AI versions of public figures, wrapped it in a betting layer, and framed it as the first real test of ERC-8004. He described the standard as three things folded together, identity, a discoverable registry of agents and services, and reputation, and compared it to Yelp and Fiverr merged into one directory that agents, not people, populate and query. Multiple teams, naming Near, Hedera and Olas, had converged on wanting the same registry, which he treated as the reason to build on a shared, neutral standard rather than a house version. Babylon signs users into that registry on sign-up. He also described early use of a lightweight standard for agent-to-agent payments, calling it thin and still maturing."
+        "text": "By his account, he had been banned from X over open-source code tied to Eliza that the platform objected to. He said he responded by building his own version of X populated with AI likenesses of public figures, adding a betting layer, and calling the result Babylon. He described ERC-8004 as three things combined, identity, a discoverable registry of agents and services, and reputation, comparing it to a merger of Yelp-style reviews and Fiverr-style hiring that agents populate and query instead of people. He said Near, Hedera and Olas had each been building toward the same kind of registry, which was why his team chose a shared standard with the Ethereum Foundation over a separate house version. Babylon registers each user onto that registry at sign-up. He also described early, thin work on a still-immature standard for agent-to-agent payments."
       },
       {
         "type": "paragraph",
-        "text": "Walters was openly skeptical of current DeFi trading agents, arguing that an LLM wired to an action-caller is not a strategy, that every such agent he had seen had lost money, and that simply holding Bitcoin beat all of them. His alternative was reinforcement learning inside a closed simulation: agents in Babylon trade against the game, every decision and outcome is logged as a trajectory, and a judge model ranks a batch of trajectories best to worst by profit and success rate, a method he called group ranked policy optimization. The reward comes from that judging step rather than hand-coded rules, which he said was noisy but workable given clean data. Agents should prove they can make money in simulation before being trusted with real funds."
+        "text": "Walters argued that wiring an LLM to an action-caller is not a strategy. By his own account, every trading agent he had seen had lost money except one that broke even, and simply holding Bitcoin had outperformed all of them. His alternative was reinforcement learning inside a closed simulation: Babylon logs each agent's reasoning and actions as a trajectory, and a separate judge model ranks batches of those trajectories from best to worst by profit and success rate, a method he called group ranked policy optimization. He said the reward signal this produces is noisy but workable when the underlying data is clean, and that agents should show they can turn a profit in simulation before being trusted with real funds."
       },
       {
         "type": "paragraph",
-        "text": "On infrastructure, he argued against putting model inference on-chain, since replicating LLM compute across every validator does not scale, and described running inference off-chain inside trusted execution environments. Results are checked using the fact that a seeded LLM on identical hardware reproduces deterministically, letting a second machine verify a result without re-running the whole chain."
-      },
-      {
-        "type": "paragraph",
-        "text": "The wider claim underneath it: prediction markets are starting to shape the outcomes they forecast, and Walters wants the registry and verification layer built now, while it is still small."
+        "text": "On infrastructure, he argued against running model inference on-chain, since replicating LLM compute across every validator does not scale, and described running inference off-chain inside trusted execution environments instead. He said large language models are seedable and therefore semi-deterministic: identical seeds and matching hardware should reproduce the same output, though floating-point variation can still introduce small errors across machines. On that basis, he said a result generated on one machine could be checked by re-running it on another with matching hardware, so only a sample of traffic needs verifying rather than every request."
       }
     ]
   },
@@ -560,19 +540,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Renç Korzay argued that DeFi had drifted from its original promise of open access and was now run by a small class of people who know how to read collateral positions and calculate yields. His proposed fix was the financial agent: a persistent, deterministic piece of software that manages capital on behalf of a user according to that user's own stated policies, rather than a one-off bot or script. Giza builds these agents specifically for stablecoins, which he framed as the asset class most in need of this kind of automation."
+        "text": "Renç Korzay of Giza argued that decentralized finance had drifted from its founding promise of open access and was now dominated by people who knew how to read collateral positions and calculate yields. Real democratization of finance, he said, meant giving everyone access to opportunity, not simply handing out a wallet. His proposed fix was the financial agent: persistent software that manages a user's capital continuously against policies the user sets. Giza builds these agents specifically for stablecoins, which he framed as the asset class most in need of the treatment."
       },
       {
         "type": "paragraph",
-        "text": "He defined a financial agent narrowly: it runs continuously, evaluates and reallocates on an ongoing basis, and relies on auditable, traditionally battle-tested financial logic rather than opaque models. To illustrate the problem it solves, he showed how fragmented the stablecoin landscape had become, arguing that no person can track that many tokens and protocols while making fast, high-stakes decisions. Giza's answer collapses that landscape into a single interface: a user deposits capital once, sets preferences such as which collateral or curator to trust, and the agent executes continuously against those preferences."
+        "text": "He described a financial agent as running deterministic, auditable logic rather than opaque models, constantly evaluating and reallocating rather than executing a single script once. To illustrate the problem, he showed how crowded the stablecoin market had become and argued that no person could track that many tokens and protocols while making fast, high-stakes decisions. Giza's answer folds all of that into one interface: a user deposits capital once, sets preferences such as which collateral or curator to trust, and the agent then acts on those preferences around the clock."
       },
       {
         "type": "paragraph",
-        "text": "He gave figures for Giza's own deployment, all self-reported and unverified: agents live for roughly eight months, having moved more than three billion dollars in what he described as real, fee-bearing volume on Base rather than incentivized test activity, and having executed close to a million financial decisions. He said over 65 percent of users customize their agent's policies rather than accept defaults, and that users had seen roughly double the yield of a static or manually managed position. He also cited close to 200 billion dollars in stablecoins sitting idle industry-wide, a gap he attributed to infrastructure lagging behind what automation now makes possible. He closed by naming Ethereum's security, composability and deep liquidity, plus L2 cost and latency improvements, as the reasons Giza builds there."
+        "text": "He gave several figures for Giza's own deployment, all self-reported and unverified: agents had been live for roughly eight months, had moved more than three billion dollars in what he called real, fee-bearing volume on Base rather than incentivized test activity, and had executed close to a million financial decisions. He said, again by his own account, that more than 65 percent of users customized their agent's policies rather than accepting the defaults. He also claimed, without detailing how it was measured, that users on Giza earned roughly double the yield of what he called a static or manually managed position. Separately he cited, self-reported, close to two hundred billion dollars in stablecoins sitting idle industry-wide, a gap he attributed to infrastructure lagging behind the automation now available."
       },
       {
         "type": "paragraph",
-        "text": "The claim worth weighing is less about any one number than the framing itself: that autonomy is being pitched as the route back to DeFi's founding idea of access for everyone, not just those willing to learn its mechanics."
+        "text": "He closed by naming Ethereum's security, composability and deep liquidity, along with falling L2 costs and latency, as his reasons for building there. He described Giza as already serving funds, treasuries, retail users, neobanks and wallet providers, and pointed the audience to Giza's own site to try an agent for themselves."
       }
     ]
   },
@@ -621,7 +601,7 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Four builders were asked how much control over capital AI agents should be given in DeFi, and largely talked each other out of the optimistic answer. All four saw agents as a real efficiency gain in monitoring, execution and interface design, and none would hand them unsupervised control of funds. What emerged was a shared near-term shape: bounded execution, verified data, and a human who remains accountable."
+        "text": "Four builders were asked how much control over capital AI agents should be given in DeFi, and largely talked each other out of the optimistic answer. All four saw agents as a real efficiency gain in monitoring, execution and interface design, and none would hand them unsupervised control of funds. Instead they converged on agents that work inside narrow limits, on data checked before they act, with a person still accountable if something goes wrong."
       },
       {
         "type": "paragraph",
@@ -634,10 +614,6 @@ export const SESSIONS: Session[] = [
       {
         "type": "paragraph",
         "text": "Stefano Bury argued the nearest-term win was interface rather than autonomy, pointing to an agentic front end from the Moonwell team that reads like consumer fintech and barely mentions crypto or AI. He reported, on his own unverified figures, that value flowing through multi-agent systems on Virtuals' commerce protocol had reached roughly $130 million within six weeks and was growing about $10 million a day, while conceding orchestration was still human. His longer-term picture had specialised agents competing for each step, with ERC-8004 supplying the trust scores an orchestrator would use to choose between them."
-      },
-      {
-        "type": "paragraph",
-        "text": "The accountability question the moderator kept returning to is the one that gates adoption. Every guardrail discussed exists to answer it. Agentic finance does not arrive when agents get good enough to act alone; it arrives when someone can say who is responsible when they act wrongly."
       }
     ]
   },
@@ -666,29 +642,25 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Michael Sena argued that benchmarks, the industry's default way of deciding which AI model or agent to trust, had stopped working, and proposed replacing them with open, funded competitions where any model or agent proves itself under real conditions rather than a fixed test."
+        "text": "Michael Sena of Recall argued that benchmarks, the industry's standard way of picking which AI model or agent to trust, had stopped working, and pitched open, funded arenas where any model or agent could prove itself under real conditions instead of a fixed test."
       },
       {
         "type": "paragraph",
-        "text": "His case against benchmarks had three parts. Large labs increasingly trained their models on the benchmark questions themselves, so a model could top the leaderboard and still disappoint in production, a pattern he illustrated with Grok 4. Benchmarks were also run by a small number of operators covering only the most prominent large models, leaving specialized agents, the kind built by individual developers for tasks like crypto trading, entirely outside any reputation system. And the format could not scale: as the number of agents and the range of tasks they attempted kept multiplying, a handful of fixed tests could never keep pace."
+        "text": "His case against benchmarks had three parts. Large labs, he said, increasingly trained their models on the same questions the benchmarks used, so a model could top a leaderboard and still disappoint once deployed, an issue he illustrated with Grok 4. Benchmarks were also run by a handful of operators covering only the most prominent large models, leaving specialized agents, such as the crypto trading tools built by individual developers, without any reputation system at all. And the format could not keep pace, he argued, as the number of agents and the range of tasks they attempted kept multiplying."
       },
       {
         "type": "paragraph",
-        "text": "Recall's alternative let anyone fund an arena, define what success meant for a given skill, and open it to competing models and agents. For an objective skill like trading, results were read directly on-chain against metrics such as Sharpe, Sortino or Calmar ratios rather than raw returns alone. Arenas ran across multiple rounds so a win could be distinguished from luck, with users adding forward-looking curation before statistical significance was reached. Output was a continuously updating on-chain ranking meant to feed reputation registries such as ERC-8004, producing not one master score but a separate score per skill."
+        "text": "Recall's alternative let anyone fund an arena, define what success meant for a chosen skill, and open it to competing models and agents. For an objective skill like trading, results were read on-chain against metrics such as Sharpe, Sortino or Calmar ratios rather than raw returns alone. Arenas ran across multiple rounds so a win could be told apart from luck, with users adding forward-looking curation before statistical significance was reached. Rankings updated continuously and published on-chain, meant to feed registries such as ERC-8004 with a separate score per skill rather than one master number."
       },
       {
         "type": "paragraph",
-        "text": "Sena reported (treat as self-reported and unverified) fifteen arenas run so far, spanning trading, a football play-calling contest, an internal coding arena scored on reviewer comments before merge, and new arenas executing on EigenLayer for verifiable computation alongside Recall's on-chain verified results. Asked in Q&A how rankings avoided rewarding lucky streaks, he described an Elo-style score paired with a separate confidence measure that only rises with repeated competition, so a lower score built over many rounds would outrank a higher one earned in a single appearance."
-      },
-      {
-        "type": "paragraph",
-        "text": "The pitch mattered less for the specific arenas than for what it implied about reputation itself: if trust in an AI system has to be earned skill by skill, in public, over repeated rounds, no single registry or benchmark can just declare it. Verification becomes a continuous, adversarial process rather than a one-time score."
+        "text": "Sena said, by his own unverified account, that Recall had run fifteen arenas so far, mostly DeFi contests such as spot trading on Aerodrome and perpetuals trading on Hyperliquid, testing more than fifty models and upward of a hundred fifty community-built agents across more than a hundred fifty thousand trades. He described arenas expanding beyond DeFi: an NFL play-calling contest predicting coaching decisions, an internal coding arena scored on reviewer comments before a pull request merged, and new arenas running agent execution on Eigen's infrastructure so both the outcome and the execution itself could be verified independently of Recall's own on-chain results. Asked in Q&A how rankings avoided rewarding a lucky streak, he described an Elo-style score paired with a separate confidence measure that only grew with repeated competition, so a lower score built over many rounds would outrank a higher one earned in a single appearance."
       }
     ]
   },
   {
-    "slug": "verisafe-spec-driven-smart-contract-development",
-    "title": "VeriSafe: Spec-Driven Smart Contract Development Technology",
+    "slug": "harnessing-llms-to-generate-secure-code",
+    "title": "Harnessing LLMs to generate secure code",
     "format": "keynote",
     "date": "2025-11-20",
     "edition": "first",
@@ -715,23 +687,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Mooly Sagiv of Certora pushed back on the assumption that language models make smart contract code less secure. He argued the opposite could hold if a model's output was checked against a formal specification rather than trusted on its own, and used the talk, presenting alongside his Certora colleague John Toman, to walk through a tool they built to do that: generate contract code from a spec, verify it against a prover, and feed the prover's failures back to the model until the implementation was provably correct."
+        "text": "Mooly Sagiv opened by challenging a common assumption: that large language models make smart contract code less secure. He argued the opposite could hold if a model's output was checked against a formal specification rather than trusted on its own. Presenting with his Certora colleague John Toman, he introduced an internal tool, previously called VeriSafe and now called Composer, that generated a contract implementation from a spec and used a formal-verification prover to check it, feeding failures back to the model until the code satisfied that spec."
       },
       {
         "type": "paragraph",
-        "text": "He framed the problem first. Contract security already leans on skilled developers plus auditing, fuzzing and formal verification, and bugs still get through. The common prediction was that models would make this worse, producing more buggy code faster. Sagiv's counter was an older idea, starting from a specification rather than from code, paired with a model: the model guessed plausible implementations, and formal verification knew when a guess was wrong."
+        "text": "Sagiv framed the problem first. Contract security already leans on skilled developers plus auditing, fuzzing and formal verification, and bugs still get through. The common prediction was that models would make this worse by producing more buggy code, faster. His counter drew on an older idea, starting from a specification rather than from code, paired with a model: the model proposed implementations, and formal verification caught the ones that were wrong."
       },
       {
         "type": "paragraph",
-        "text": "The mechanism, demonstrated on a contrived liquidity pool where withdrawal fees rose with withdrawal size, ran as a loop. A design document and a formal spec went in alongside an interface, and before writing code the model scanned the documents for requirements the formal rules didn't cover. It generated an implementation, checked by Certora's prover at the bytecode level. A failure produced a counterexample explaining the violation, fed back to the model for another pass. When the demo pool's first implementation blocked one large withdrawal but not the same amount split into many small ones, the team added a spec rule rather than regenerating from scratch, feeding the prior implementation and the model's memory of earlier answers back in so the fix stayed minimal. The model could also flag the spec itself as wrong when a counterexample conflicted with the design intent, proposing a change a human had to approve."
+        "text": "Toman walked through the mechanism on a contrived liquidity pool where withdrawal fees rose with size. A design document and a formal specification went in alongside an interface, and before generating code the model first scanned the documents for requirements the formal rules didn't cover. It produced an implementation, checked by Certora's prover at the bytecode level; a failure returned a counterexample, fed back to the model for another pass. The model could also flag the spec as wrong when a counterexample conflicted with the design intent, and it would then propose a change that a human had to approve."
       },
       {
         "type": "paragraph",
-        "text": "In the Q&A, the team said the loop carried no formal convergence guarantee, only a model prompted to ask for help when stuck, with a person able to interrupt if it didn't. They placed the technique inside an older synthesis idea, generate and check until it holds, with a language model as the proposer."
-      },
-      {
-        "type": "paragraph",
-        "text": "The session mattered less for the specific pool than for the discipline it modeled: a model's output as a draft a checker can reject, not a finished answer. That framing sits under most of the agent trust questions running through the rest of the event."
+        "text": "Their demo's first implementation blocked one large withdrawal but not the same amount split into many small ones, a gap in the spec rather than a prover failure. Instead of restarting, the team added a rule and fed the prior implementation back in to keep the fix minimal. That gap also marked the edge of what the tool actually proved: the final code was checked against the current formal specification, not against every possible flaw, so an incomplete spec could still let a bug through. In the Q&A, the team said the loop itself carried no formal guarantee of converging, only a model prompted to ask for help when stuck, with a person able to interrupt it. They placed the technique inside an older synthesis idea, generate and check until it holds, with a language model as the proposer."
       }
     ]
   },
@@ -784,19 +752,19 @@ export const SESSIONS: Session[] = [
     "body": [
       {
         "type": "paragraph",
-        "text": "Sandi Fatic argued that AI was repeating a pattern he had watched play out with email and money: a technology starts decentralised, gets captured by centralised operators, and has to be won back by people willing to build alternatives. He framed corporate-controlled AI as the next target for that kind of rebellion, and presented Calimero Network's peer-to-peer, local-first infrastructure as one attempt at the counter-system."
+        "text": "Sandi Fatic argued that AI was repeating a pattern he traced through earlier technologies: a system starts decentralized, gets captured by centralized operators, and eventually has to be won back by people willing to build alternatives. He cited email's shift from an open protocol to one defended by encryption, and Bitcoin's origin after the 2008 financial crisis, as earlier rounds of the same fight. He introduced the cypherpunk movement, recommending the novel Neuromancer as a portrait of a future where corporations control both data and thought, and argued that corporate-controlled AI was now the target for the same kind of rebellion. He presented Calimero Network's peer-to-peer, local-first infrastructure as one attempt at a counter-system."
       },
       {
         "type": "paragraph",
-        "text": "His argument rested on a surveillance metaphor before it rested on architecture. He described a prison design where a single watchtower can see every cell but inmates can never tell when they are being watched, and said the uncertainty alone was enough to make people self-censor. He tied that to working inside large tech companies, recalling being told to bring his authentic self to work and a colleague warning him that doing so honestly would get him fired. He also pointed to the gap between the data a user can export from a centralised service and the far larger volume that service actually holds on them, and to European proposals to scan private messages, as evidence that any standing capability to monitor communications eventually gets used."
+        "text": "He grounded that argument in his own career at Facebook, Google, and NEAR Protocol, recalling that he was told early on to bring his true self to work, and that a colleague warned him doing so honestly would get him fired. He used a panopticon, a prison design where a single guard tower can observe every cell but inmates never know when they are being watched, to argue that the uncertainty alone is enough to make people self-censor. He extended that into what he called corporate AI surveillance, pointing to the gap between the data a user can export from a centralized service and the far larger volume it actually holds, and to European proposals to scan private messages, as signs that any standing capability to monitor communication eventually gets used."
       },
       {
         "type": "paragraph",
-        "text": "On the technical side, he described Calimero as a peer-to-peer network rather than a blockchain: data lives on a user's own device, and nodes use a conflict-free replicated data type instead of blockchain consensus, so each participant's local changes broadcast to peers who verify and merge them without a central server. He cited a hackathon project built on this where medical institutions trained a model by exchanging only weight updates, never patient data. On payments, he pointed to the HTTP 402 status code, revived for agent-to-agent micropayments, as a useful building block undermined by running on fully public, traceable rails, arguing it needed private, encrypted settlement using stablecoins or tokens instead."
+        "text": "On Calimero itself, he described a peer-to-peer network rather than a blockchain: data lives on a user's own device, and nodes use a conflict-free replicated data type instead of blockchain consensus, so local changes broadcast to peers who verify and merge them without a central server. He cited a hackathon project built on this where medical institutions trained a model by exchanging only weight updates, never patient data. On payments, he pointed to the HTTP 402 status code, revived for agent-to-agent micropayments, as a useful building block undermined by running on public, traceable rails, and argued it needed private, encrypted settlement using stablecoins or tokens instead."
       },
       {
         "type": "paragraph",
-        "text": "Fatic's framing was closer to polemic than protocol spec, and he said as much: he was arguing for values, not pitching a product. Read past the rebellion language, the concrete claim is narrower and more useful, that agent commerce is being built on payment rails that are cheap and fast but not private by default, and that privacy has to be engineered in rather than assumed. As agents start paying each other for data, compute and inference, which rail they settle on, and who can watch that settlement, becomes a real design question rather than a philosophical one."
+        "text": "He closed by saying the talk was about values rather than product, urging the audience to rejoin the cypherpunk movement and build systems that protect user data instead of selling it."
       }
     ]
   }
