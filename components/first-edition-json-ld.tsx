@@ -1,8 +1,10 @@
 // Schema.org Event markup for the first edition (archive page).
 //
-// Sourced from the site itself: session times come from the agenda data in
-// components/agenda/AgendaSection.tsx, and the venue address is the one that
-// component already uses for its add-to-calendar links.
+// Times are the first and last session of the day, from the session data in
+// lib/sessions.ts, which is generated from the az-growth authoring repo. The
+// venue address came from the original agenda component's add-to-calendar
+// links; that component has since been removed, so this block is now the only
+// record of the street address in this repo.
 //
 // Compound affiliation strings are split into arrays of real organizations,
 // because a combined string asserts an organization that does not exist:
@@ -21,7 +23,7 @@ const firstEdition = {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "Agentic Zero, first edition",
-  "description": "The first edition of Agentic Zero, a one-day summit on agentic systems, held in Buenos Aires. 28 speakers across DeFi agents, infrastructure, verifiability, security, agent trust, discovery, autonomous finance, and the agentic stack.",
+  "description": "The first edition of Agentic Zero, a one-day summit on agentic systems, held in Buenos Aires. 28 speakers across DeFi agents, infrastructure, verifiability, security, agent trust, discovery, agent payments, and the agentic stack.",
   "url": "https://agenticzero.xyz/first-edition/agenda",
   "startDate": "2025-11-20T10:00:00-03:00",
   "endDate": "2025-11-20T17:00:00-03:00",

@@ -2,13 +2,26 @@
 
 ## Project Overview
 
-**Agentic Zero Landing Page** is a high-performance, pixel-perfect conference landing page built for the Agentic Zero event - a meeting point for AI and web3 innovation. The site promotes a conference focused on the intersection of artificial intelligence and cryptocurrency/blockchain technology, emphasizing decentralized, permissionless infrastructure.
+**Agentic Zero Landing Page** is the website for Agentic Zero, a one-day summit on agentic finance: AI agents holding or directing value, making financial decisions, and executing transactions under defined permissions. The site promotes the second edition and archives the first.
 
-### Event Details
-- **Event**: Agentic Zero Conference  
-- **Date**: November 20th, 2025
+### Event Details (second edition, upcoming)
+- **Event**: Agentic Zero, second edition
+- **Date**: 7 October 2026
+- **Location**: The Avalon, 1244 Sutter Street, San Francisco
+- **Context**: during SF Tech Week by a16z
+- **Focus**: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
+
+### First edition (past, archived on the site)
+- **Date**: 20 November 2025
 - **Location**: La Rural, Buenos Aires, Argentina
-- **Focus**: AI + Web3 convergence, decentralized AI infrastructure
+- **Scale**: 28 speakers, over 1,000 attendees, 13,000 livestream viewers
+- Its programme is preserved at `/first-edition/agenda` and must be described in the past tense.
+
+### Copy conventions
+- "Agentic finance" is the primary term. "Agentic economy" is the wider frame.
+- Do not use "autonomous finance". The term is retired.
+- The event is a "summit", not a "conference".
+- Do not name specific protocols, standards or chains in copy. The second edition is aimed at institutions rather than a crypto-native audience.
 
 ## Architecture & Tech Stack
 

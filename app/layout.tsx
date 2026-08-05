@@ -6,7 +6,6 @@ import './apple-improvements.css'
 import './faqs.css'
 import './navigation.css'
 import './footer-redesign.css'
-import './agenda.css'
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],

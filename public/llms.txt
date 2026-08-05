@@ -26,7 +26,7 @@ First-edition proof:
 - Speakers: 28
 - Livestream views: 13k+
 - Social media views: 98k+
-- Topics included DeFi agents, infrastructure, verifiability, security, agent trust, discovery, autonomous finance, and the agentic stack
+- Topics included DeFi agents, infrastructure, verifiability, security, agent trust, discovery, agent payments, and the agentic stack
 
 Primary audience:
 
@@ -52,7 +52,7 @@ Primary audience:
 ## Programme
 
 - [Agenda](https://agenticzero.xyz/agenda): Programme page for the second edition on October 7, 2026. The session list is not published yet.
-- [First Edition Agenda](https://agenticzero.xyz/first-edition/agenda): Archived full programme from the first edition in Buenos Aires on November 20, 2025, covering 28 speakers across 16 sessions.
+- [First Edition Agenda](https://agenticzero.xyz/first-edition/agenda): Archived full programme from the first edition in Buenos Aires on November 20, 2025, covering 28 speakers across 16 sessions in running order. An individual page exists beneath this path for each session, carrying its speakers, a written account of what was said, and the recording where one exists.
 
 ## Coming Soon
 
