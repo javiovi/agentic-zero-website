@@ -10,7 +10,8 @@ export function generateStaticParams() {
   return SESSIONS.map((session) => ({ slug: session.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const session = getSession(params.slug)
   if (!session) return {}
 
@@ -45,7 +46,8 @@ function formatDate(date: string) {
   })
 }
 
-export default function SessionPage({ params }: { params: { slug: string } }) {
+export default async function SessionPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const session = getSession(params.slug)
   if (!session) notFound()
 

@@ -1,10 +1,8 @@
 import { getTweet } from 'react-tweet/api'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function GET(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(_req: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     const tweet = await getTweet(params.id)
     return NextResponse.json(
