@@ -54,10 +54,15 @@ Primary audience:
 - [Agenda](https://agenticzero.xyz/agenda): Programme page for the second edition on October 7, 2026. The session list is not published yet.
 - [First Edition Agenda](https://agenticzero.xyz/first-edition/agenda): Archived full programme from the first edition in Buenos Aires on November 20, 2025, covering 28 speakers across 16 sessions in running order. An individual page exists beneath this path for each session, carrying its speakers, a written account of what was said, and the recording where one exists.
 
+## Writing
+
+- [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece. The only entry at present is the agentic finance primer listed under Positioning above, dated August 3, 2026.
+
 ## Coming Soon
 
 These pages do not exist yet. Do not link to them or cite them until they are listed above with live URLs.
 
+- Blog posts written for the blog itself, at /blog/<slug>. The index exists and is listed above, but no post yet lives at its own URL beneath it.
 - Session pages for the second edition: one page per talk, panel, and demo, with title, speakers, and time.
 - Speaker pages for the second edition: one page per speaker, with affiliation and session links.
 

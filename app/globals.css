@@ -693,10 +693,13 @@ p {
   visibility: hidden;
 }
 
+/* The 2.5s delay here was timed to a loading screen that no longer exists in
+   app/page.tsx. With no backwards fill, the page rendered at full opacity and
+   then dropped to transparent at the 2.5s mark to run the fade, so the
+   animation is gone and only the visible end state remains. */
 .fade-in-site {
   opacity: 1;
   visibility: visible;
-  animation: fadeInSiteAnimation 0.8s ease-in-out 2.5s forwards;
 }
 
 @keyframes fadeInSiteAnimation {
@@ -861,7 +864,9 @@ p {
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 24px;
-  width: min(100%, 1320px);
+  /* Matches .hero-layout so the strip lines up with the hero above it instead
+     of sitting 40px narrower. */
+  width: min(100%, 1360px);
   margin: clamp(120px, 13vw, 200px) auto 0;
   color: rgba(255, 255, 255, 0.58);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -870,9 +875,12 @@ p {
   text-transform: uppercase;
 }
 
+/* The fade used to eat 10% of the window on each side, which on the left added
+   to the 24px grid gap and pushed the first logo well clear of the label. 4%
+   keeps the edges soft without opening that gap. */
 .az-v2-marquee-window {
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 
 .az-v2-marquee-track {
@@ -1408,14 +1416,16 @@ p {
   flex-direction: column;
   width: min(100%, 1800px);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 56px);
+  padding: clamp(24px, 3vw, 36px);
 }
 
+/* Sized to close the page rather than compete with it. The wordmark used to
+   run to 56px, which read as a second headline on shorter pages. */
 .az-v2-footer-brand h2 {
   margin: 0;
   color: white;
   font-family: var(--font-mono), monospace;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(22px, 2vw, 28px);
   font-weight: 400;
   line-height: 1;
 }
@@ -1441,14 +1451,14 @@ p {
 .az-v2-footer-follow span {
   color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .az-v2-footer-questions {
-  margin: clamp(18px, 2.5vw, 32px) 0 0;
+  margin: clamp(14px, 1.8vw, 22px) 0 0;
   color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -1471,8 +1481,8 @@ p {
 .az-v2-footer-social a {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.85);
@@ -1485,8 +1495,8 @@ p {
 }
 
 .az-v2-footer-social svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   fill: currentColor;
 }
 
@@ -1495,7 +1505,7 @@ p {
   margin: 14px auto 0;
   color: rgba(255, 255, 255, 0.42);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 13px;
+  font-size: 9px;
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
@@ -1619,7 +1629,7 @@ p {
   }
 
   .az-v2-footer-inner {
-    padding: 28px 24px;
+    padding: 22px 18px;
   }
 
   .az-v2-footer-top {
@@ -2866,13 +2876,13 @@ p {
 .az-v2-footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
-  margin: 1.5rem 0 0;
+  gap: 1rem;
+  margin: 1.125rem 0 0;
 }
 
 .az-v2-footer-links a {
   color: var(--az-text-secondary);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   text-decoration: none;
 }
 
@@ -3219,5 +3229,96 @@ p {
 
   .session-index-format {
     justify-self: start;
+  }
+}
+
+/* ==========================================================================
+   Blog
+   Index rows mirror .session-index so the two archive-style lists on the site
+   read as one component. The post body itself needs no rules of its own: it
+   sits inside .az-v2-inner-header .az-v2-prose, the same column and rhythm as
+   /what-is-agentic-finance.
+   ========================================================================== */
+/* The bottom margin is breathing room before the footer. With a short list the
+   column does not fill the viewport, so without it the last row and the footer
+   sit almost flush. */
+.post-index {
+  list-style: none;
+  margin: clamp(32px, 4vw, 48px) 0 clamp(72px, 10vw, 140px);
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.post-index li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.post-index a {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding: 22px 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.post-index a:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.post-index-date {
+  font-family: var(--font-mono), monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+.post-index-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.post-index-title {
+  color: var(--az-accent-primary);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.35;
+}
+
+/* Hover shifts to the secondary accent, the same pair used by links inside
+   .az-v2-inner-header, so the row still responds to the cursor. */
+.post-index a:hover .post-index-title {
+  color: var(--az-accent-secondary);
+}
+
+.post-index-excerpt {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.55;
+}
+
+/* Date and reading time, directly under the post title. */
+.post-meta {
+  font-family: var(--font-mono), monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: -8px;
+}
+
+.post-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .post-index a {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }

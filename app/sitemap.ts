@@ -2,6 +2,7 @@ import { readdirSync } from 'fs'
 import { join } from 'path'
 import type { MetadataRoute } from 'next'
 import { SESSIONS } from '@/lib/sessions'
+import { ARTICLES } from '@/lib/blog'
 
 const BASE_URL = 'https://agenticzero.xyz'
 const APP_DIR = join(process.cwd(), 'app')
@@ -49,7 +50,10 @@ function collectRoutes(dir: string, segments: string[] = []): string[] {
 // named [slug] is one route template rather than a page. Their concrete URLs
 // have to be enumerated from the data that generates them.
 function dynamicRoutes(): string[] {
-  return SESSIONS.map((session) => `/first-edition/agenda/${session.slug}`)
+  return [
+    ...SESSIONS.map((session) => `/first-edition/agenda/${session.slug}`),
+    ...ARTICLES.map((post) => `/blog/${post.slug}`),
+  ]
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

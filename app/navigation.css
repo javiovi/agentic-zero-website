@@ -1,13 +1,16 @@
 /* Unique Floating Navigation - Not Your Typical Header! */
 
+/* No entrance animation: the nav is simply present on load. opacity is 1 here
+   because the old navSlideDown keyframes started it at 0 and relied on
+   `forwards` to leave it visible. The transition below is kept for .nav-hidden,
+   which fades the nav out on scroll. */
 .nav-container {
   position: fixed;
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  animation: navSlideDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -15,17 +18,6 @@
   opacity: 0 !important;
   transform: translateX(-50%) translateY(-16px) !important;
   pointer-events: none;
-}
-
-@keyframes navSlideDown {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
 }
 
 .nav-pill {
@@ -140,7 +132,6 @@
     left: auto;
     right: 12px;
     transform: none;
-    animation: none;
     opacity: 1;
   }
 

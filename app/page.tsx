@@ -188,7 +188,6 @@ function NotifyForm() {
 
 
 export default function AgenticZeroLanding() {
-  const [heroRef, heroVisible] = useIntersectionObserver({ threshold: 0.1 })
   const [logoHidden, setLogoHidden] = useState(false)
 
   useEffect(() => {
@@ -577,14 +576,14 @@ export default function AgenticZeroLanding() {
       <div className="page-container az-v2-page fade-in-site">
         <SiteNav />
 
-        <header ref={heroRef} id="hero" className="hero az-v2-viewport">
+        <header id="hero" className="hero az-v2-viewport">
           <div className="hero-background">
             <div className="hero-gradient"></div>
           </div>
 
           <div className="hero-content">
             <div className="hero-layout">
-              <div className={`hero-text ${heroVisible ? "animate-in" : ""}`}>
+              <div className="hero-text">
                 <div className="hero-badge-container">
                   <span className="hero-badge">
                     <span className="hero-badge-full">Second edition · SF Tech Week 2026</span>
@@ -604,7 +603,7 @@ export default function AgenticZeroLanding() {
                 </p>
                 <NotifyForm />
               </div>
-              <div className={`hero-logo ${heroVisible ? "animate-in" : ""} ${logoHidden ? "logo-hidden" : ""}`}>
+              <div className={`hero-logo ${logoHidden ? "logo-hidden" : ""}`}>
                 <img src="/images/logo.svg" alt="Agentic Zero Logo" className="logo-image" />
               </div>
             </div>

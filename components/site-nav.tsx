@@ -26,6 +26,7 @@ const TICKETS: SectionLink = { id: "notify", label: "Tickets", className: "nav-t
 // the footer and from the homepage speaker rail, both labelled
 // "First Edition Agenda".
 const AGENDA: PageLink = { href: "/agenda", label: "Agenda" }
+const BLOG: PageLink = { href: "/blog", label: "Blog" }
 
 export function SiteNav() {
   const pathname = usePathname()
@@ -104,11 +105,12 @@ export function SiteNav() {
     )
   }
 
+  // Child pages count as active too, so a post at /blog/<slug> keeps Blog lit.
   const pageLink = ({ href, label }: PageLink) => (
     <a
       key={href}
       href={href}
-      className={`nav-link ${pathname === href ? "active" : ""}`}
+      className={`nav-link ${pathname === href || pathname.startsWith(`${href}/`) ? "active" : ""}`}
       onClick={() => setMenuOpen(false)}
     >
       {label}
@@ -126,6 +128,7 @@ export function SiteNav() {
 
         <div className="nav-links-desktop">
           {pageLink(AGENDA)}
+          {pageLink(BLOG)}
           {sectionLink(FAQS)}
           {sectionLink(TICKETS)}
         </div>
@@ -149,6 +152,7 @@ export function SiteNav() {
           </a>
           {sectionLink(ABOUT)}
           {pageLink(AGENDA)}
+          {pageLink(BLOG)}
           {sectionLink(FAQS)}
           {sectionLink(TICKETS)}
         </div>
