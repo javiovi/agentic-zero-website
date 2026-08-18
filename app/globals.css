@@ -3475,6 +3475,17 @@ p {
   color: #fb923c;
 }
 
+.ticket-release-price {
+  color: white;
+  font-family: var(--font-mono), monospace;
+  font-size: 26px;
+  letter-spacing: 0;
+}
+
+.ticket-release-current .ticket-release-price {
+  color: #fb923c;
+}
+
 .ticket-release-card .ticket-release-order {
   margin: 52px 0 0;
   color: rgba(255, 255, 255, 0.48);

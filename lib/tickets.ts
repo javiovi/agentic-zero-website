@@ -19,7 +19,7 @@ export type TicketRelease = {
 
 /**
  * Ticket copy, CTAs, and Event structured data read from this shared list.
- * Prices and release dates are intentionally absent until they are public.
+ * Release dates are intentionally absent until they are public.
  */
 export const TICKET_RELEASES: TicketRelease[] = [
   {
@@ -30,6 +30,8 @@ export const TICKET_RELEASES: TicketRelease[] = [
     statusLabel: 'On sale now',
     description: 'Most limited ticket release.',
     availabilityNote: 'Available while its allocation lasts.',
+    price: 49,
+    currency: 'USD',
     href: TICKET_URL,
   },
   {
@@ -40,6 +42,8 @@ export const TICKET_RELEASES: TicketRelease[] = [
     statusLabel: 'Opens next',
     description: 'Limited ticket release.',
     availabilityNote: 'Available while its allocation lasts.',
+    price: 69,
+    currency: 'USD',
   },
   {
     id: 'general',
@@ -49,20 +53,22 @@ export const TICKET_RELEASES: TicketRelease[] = [
     statusLabel: 'Final window',
     description: 'The final ticket release.',
     availabilityNote: 'Available while its allocation lasts.',
+    price: 99,
+    currency: 'USD',
   },
 ]
 
 /**
- * Google Event offers require public price data. Until Partiful exposes it,
- * the Event JSON-LD stays free of incomplete offers rather than guessing.
+ * Google Event offers require public price data. Releases that are not on sale
+ * yet have no CTA of their own, so their offer points at the Partiful page.
  */
 export function ticketOffers() {
   return TICKET_RELEASES.filter(
-    (release) => release.href && release.price !== undefined && release.currency
+    (release) => release.price !== undefined && release.currency
   ).map((release) => ({
     '@type': 'Offer',
     name: `${release.name} ticket`,
-    url: release.href,
+    url: release.href ?? TICKET_URL,
     price: release.price,
     priceCurrency: release.currency,
     availability:

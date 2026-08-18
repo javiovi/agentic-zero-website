@@ -72,6 +72,9 @@ export default function TicketsPage() {
                 >
                   <div className="ticket-release-topline">
                     <span className="ticket-release-status">{release.statusLabel}</span>
+                    {release.price !== undefined ? (
+                      <span className="ticket-release-price">${release.price}</span>
+                    ) : null}
                   </div>
                   <p className="ticket-release-order">{release.order}</p>
                   <h3>{release.name}</h3>
