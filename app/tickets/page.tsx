@@ -6,7 +6,7 @@ import { TICKET_RELEASES, TICKET_URL } from '@/lib/tickets'
 
 const title = 'Agentic Zero tickets | Early Bird tickets are live'
 const description =
-  'Early Bird tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.'
+  'Early Bird tickets are live at $49 for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z. General Admission is $69 and Final Release is $99.'
 
 export const metadata: Metadata = {
   title,
