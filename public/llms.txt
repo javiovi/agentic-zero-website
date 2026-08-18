@@ -17,7 +17,7 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Tickets: Early Bird tickets are on sale now through the official Partiful page
-- Ticket releases: Early Bird, Advance, then General; each release is available while its allocation lasts
+- Ticket releases: Early Bird at $49, General Admission at $69, then Final Release at $99; each release is available while its allocation lasts
 - Contact: contact@agenticzero.xyz
 
 First-edition proof:
@@ -60,7 +60,7 @@ Primary audience:
 ## Writing
 
 - [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece.
-- [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets, the Early Bird, Advance, and General release sequence, and practical details for October 7, 2026. Published August 18, 2026.
+- [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets, the Early Bird, General Admission, and Final Release sequence, and practical details for October 7, 2026. Published August 18, 2026.
 - [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Published August 17, 2026.
 
 ## Coming Soon
