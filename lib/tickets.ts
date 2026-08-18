@@ -5,7 +5,6 @@ export type TicketReleaseStatus = 'on-sale' | 'upcoming'
 export type TicketRelease = {
   id: string
   name: string
-  order: string
   status: TicketReleaseStatus
   statusLabel: string
   description: string
@@ -25,7 +24,6 @@ export const TICKET_RELEASES: TicketRelease[] = [
   {
     id: 'early-bird',
     name: 'Early Bird',
-    order: 'First release',
     status: 'on-sale',
     statusLabel: 'On sale now',
     description: 'Most limited ticket release.',
@@ -35,9 +33,8 @@ export const TICKET_RELEASES: TicketRelease[] = [
     href: TICKET_URL,
   },
   {
-    id: 'advance',
-    name: 'Advance',
-    order: 'Second release',
+    id: 'general-admission',
+    name: 'General Admission',
     status: 'upcoming',
     statusLabel: 'Opens next',
     description: 'Limited ticket release.',
@@ -46,9 +43,8 @@ export const TICKET_RELEASES: TicketRelease[] = [
     currency: 'USD',
   },
   {
-    id: 'general',
-    name: 'General',
-    order: 'Final release',
+    id: 'final-release',
+    name: 'Final Release',
     status: 'upcoming',
     statusLabel: 'Final window',
     description: 'The final ticket release.',

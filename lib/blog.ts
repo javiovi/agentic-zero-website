@@ -50,7 +50,7 @@ export const POSTS: BlogPost[] = [
       {
         type: 'paragraph',
         content: [
-          'Early Bird tickets for Agentic Zero are now available. This is the first and most limited of three sequential ticket releases. Once the Early Bird allocation closes, the Advance release opens, followed by General as the final public ticket window before the summit.',
+          'Early Bird tickets for Agentic Zero are now available. This is the first and most limited of three sequential ticket releases. Once the Early Bird allocation closes, General Admission opens, followed by Final Release as the last public ticket window before the summit.',
         ],
       },
       {
@@ -72,7 +72,7 @@ export const POSTS: BlogPost[] = [
       {
         type: 'paragraph',
         content: [
-          'Tickets will move through Early Bird, Advance, and General. Early Bird is on sale now. Advance opens after the first allocation closes. General is the final release and remains subject to capacity.',
+          'Tickets will move through Early Bird, General Admission, and Final Release. Early Bird is on sale now. General Admission opens after the first allocation closes. Final Release is the last window and remains subject to capacity.',
         ],
       },
       { type: 'heading', text: 'When and where Agentic Zero takes place' },

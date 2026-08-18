@@ -29,7 +29,7 @@ const AGENDA: PageLink = { href: "/agenda", label: "Agenda" }
 const BLOG: PageLink = { href: "/blog", label: "Blog" }
 const TICKETS: PageLink = {
   href: TICKET_URL,
-  label: "Tickets",
+  label: "Get Tickets",
   className: "nav-tickets",
   external: true,
 }

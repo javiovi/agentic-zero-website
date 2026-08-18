@@ -3486,17 +3486,8 @@ p {
   color: #fb923c;
 }
 
-.ticket-release-card .ticket-release-order {
-  margin: 52px 0 0;
-  color: rgba(255, 255, 255, 0.48);
-  font-family: var(--font-mono), monospace;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .ticket-release-card h3 {
-  margin: 9px 0 0;
+  margin: 52px 0 0;
   color: white;
   font-family: var(--font-mono), monospace;
   font-size: clamp(25px, 2.5vw, 34px);
@@ -3504,7 +3495,7 @@ p {
   line-height: 1.1;
 }
 
-.ticket-release-card > p:not(.ticket-release-order) {
+.ticket-release-card > p {
   margin: 18px 0 0;
   color: rgba(255, 255, 255, 0.62);
   font-size: 16px;
@@ -3520,7 +3511,7 @@ p {
   align-self: flex-start;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 18px;
   padding: 13px 18px;
   background: #f97316;
   border-radius: 10px;

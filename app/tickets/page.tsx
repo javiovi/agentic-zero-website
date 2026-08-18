@@ -76,7 +76,6 @@ export default function TicketsPage() {
                       <span className="ticket-release-price">${release.price}</span>
                     ) : null}
                   </div>
-                  <p className="ticket-release-order">{release.order}</p>
                   <h3>{release.name}</h3>
                   <p>{release.description}</p>
                   <p className="ticket-release-availability">{release.availabilityNote}</p>
@@ -114,7 +113,7 @@ export default function TicketsPage() {
                 <h3>How to get tickets</h3>
                 <p>
                   Use the official Partiful page to reserve a ticket. Early Bird is the current
-                  release; Advance and General follow after earlier allocations close.
+                  release; General Admission and Final Release follow after earlier allocations close.
                 </p>
               </div>
               <div>
