@@ -8,13 +8,13 @@
 // "summit" not "conference", no specific protocols, standards or chains named,
 // and the first edition is always described in the past tense.
 
-export type BlogInline = string | { text: string; href: string }
+export type BlogInline = string | { text: string; href: string; external?: boolean }
 
 export type BlogBlock =
   | { type: 'heading'; text: string }
   | { type: 'subheading'; text: string }
   | { type: 'paragraph'; content: BlogInline[] }
-  | { type: 'cta'; text: string; label: string; href: string }
+  | { type: 'cta'; title: string; text: string; label: string; href: string; external?: boolean }
 
 export type BlogPost = {
   slug: string
@@ -33,6 +33,90 @@ export type BlogPost = {
 }
 
 export const POSTS: BlogPost[] = [
+  {
+    slug: 'tickets-are-live-agentic-zero-2026',
+    title: 'Tickets are live for Agentic Zero at SF Tech Week 2026',
+    description:
+      'Early Bird tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.',
+    date: '2026-08-18',
+    body: [
+      {
+        type: 'paragraph',
+        content: [
+          'Tickets are live for Agentic Zero, the one-day summit on agentic finance, AI agents, payment infrastructure, and onchain transactions. The second edition takes place on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.',
+        ],
+      },
+      { type: 'heading', text: 'Tickets are live for Agentic Zero' },
+      {
+        type: 'paragraph',
+        content: [
+          'Early Bird tickets for Agentic Zero are now available. This is the first and most limited of three sequential ticket releases. Once the Early Bird allocation closes, the Advance release opens, followed by General as the final public ticket window before the summit.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        content: [
+          'The release structure gives people who already know they want to attend the earliest opportunity to reserve a place. Every release remains subject to availability.',
+        ],
+      },
+      { type: 'heading', text: 'How to get tickets' },
+      {
+        type: 'paragraph',
+        content: [
+          'Here is how to get tickets for Agentic Zero: visit the ',
+          { text: 'official Partiful page', href: 'https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F', external: true },
+          ', review the current release, and complete the registration there. Partiful is the source of truth for the live price and remaining availability.',
+        ],
+      },
+      { type: 'heading', text: 'Three ticket releases' },
+      {
+        type: 'paragraph',
+        content: [
+          'Tickets will move through Early Bird, Advance, and General. Early Bird is on sale now. Advance opens after the first allocation closes. General is the final release and remains subject to capacity.',
+        ],
+      },
+      { type: 'heading', text: 'When and where Agentic Zero takes place' },
+      {
+        type: 'paragraph',
+        content: [
+          'Agentic Zero takes place on Wednesday, October 7, 2026, at The Avalon, 1244 Sutter Street, San Francisco. The summit is part of SF Tech Week by a16z. The current ',
+          { text: 'agenda page', href: '/agenda' },
+          ' will be updated as sessions are announced.',
+        ],
+      },
+      { type: 'heading', text: 'Who should attend' },
+      {
+        type: 'paragraph',
+        content: [
+          'Agentic Zero is for founders and AI builders, agent-infrastructure teams, payment and financial-infrastructure teams, researchers, institutional operators, and investors following agentic finance. It is also relevant to people working in risk, compliance, security, and policy who need to understand how agents move from recommendations to financial action.',
+        ],
+      },
+      { type: 'heading', text: 'What your ticket includes' },
+      {
+        type: 'paragraph',
+        content: [
+          'A ticket provides admission to the one-day, in-person summit at The Avalon. The program will bring technical, financial, security, research, and institutional perspectives into the same room.',
+        ],
+      },
+      { type: 'heading', text: 'About Agentic Zero' },
+      {
+        type: 'paragraph',
+        content: [
+          'Agentic Zero focuses on the systems in which AI agents can hold or direct value: the permissions, payment rails, settlement infrastructure, safeguards, and institutional requirements that determine whether those systems can operate in real markets. ',
+          { text: 'Learn more about the second edition', href: '/blog/what-is-agentic-zero' },
+          ' and its focus on agentic finance.',
+        ],
+      },
+      {
+        type: 'cta',
+        title: 'Early Bird tickets are live',
+        text: 'Book through the official Partiful page while the first allocation is available.',
+        label: 'GET TICKETS',
+        href: 'https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F',
+        external: true,
+      },
+    ],
+  },
   {
     slug: 'what-is-agentic-zero',
     title: 'What is Agentic Zero? The agentic finance summit returns',

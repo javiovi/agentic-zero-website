@@ -9,6 +9,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
 import { FaqJsonLd } from "@/components/faq-json-ld"
 import { FAQS, type Faq } from "@/lib/faq"
+import { TICKET_URL } from "@/lib/tickets"
 
 // Custom hook for intersection observer
 function useIntersectionObserver(options = {}) {
@@ -153,7 +154,7 @@ function NotifyForm() {
   }
 
   if (status === "success") {
-    return <p className="az-v2-notify-success">You're on the list. We'll email you when tickets go live.</p>
+    return <p className="az-v2-notify-success">You're on the list. We'll send you Agentic Zero programme updates.</p>
   }
 
   return (
@@ -179,7 +180,7 @@ function NotifyForm() {
         required
       />
       <button type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "..." : "Notify me"}
+        {status === "loading" ? "..." : "GET UPDATES"}
       </button>
       {status === "error" && <p className="az-v2-notify-error">Please enter a valid email.</p>}
     </form>
@@ -601,7 +602,19 @@ export default function AgenticZeroLanding() {
                 <p className="hero-subtitle hero-subtitle-short">
                   Agents are already transacting, but today's payment rails were not built for them. Agentic Zero is where agentic finance meets real markets.
                 </p>
-                <NotifyForm />
+                <div className="az-v2-hero-ticket-actions">
+                  <a
+                    href={TICKET_URL}
+                    className="az-v2-inline-cta az-v2-hero-ticket-cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GET TICKETS
+                  </a>
+                  <a href="/tickets" className="az-v2-hero-ticket-details">
+                    Ticket details
+                  </a>
+                </div>
               </div>
               <div className={`hero-logo ${logoHidden ? "logo-hidden" : ""}`}>
                 <img src="/images/logo.svg" alt="Agentic Zero Logo" className="logo-image" />
@@ -633,12 +646,12 @@ export default function AgenticZeroLanding() {
               </h2>
               <p>
                 The summit on agentic finance lands at SF Tech Week, bringing together builders
-                of the agentic stack, the systems adapting to it, and the institutions figuring
-                out what comes next. Our previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
+                of the agentic stack and the institutions figuring out what comes next. Our
+                previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
                 across DeFi, infrastructure, and security, with 13k
                 more watching live.{' '}
                 <a href="/blog/what-is-agentic-zero">
-                  Learn more about the second edition of Agentic Zero.
+                  Learn more about the second edition.
                 </a>
               </p>
             </div>
@@ -741,10 +754,7 @@ export default function AgenticZeroLanding() {
         <section id="notify" className="az-v2-notify-section">
           <div className="az-v2-notify-frame">
             <div className="az-v2-description-card">
-              <h2>Be the first to know</h2>
-              <p>
-                Tickets are coming soon. Join the list for first access and program updates.
-              </p>
+              <h2>Stay updated on Agentic Zero</h2>
               <NotifyForm />
             </div>
           </div>

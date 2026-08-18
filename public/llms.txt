@@ -6,7 +6,7 @@ Agentic Zero's second edition takes place on October 7, 2026, at The Avalon in S
 
 Agents are already transacting, but today's payment rails were not built for them. Agentic Zero is where agentic finance meets real markets.
 
-The summit on agentic finance lands at San Francisco Tech Week by a16z, bringing together builders of the agentic stack, the systems adapting to it, and the institutions figuring out what comes next.
+The summit on agentic finance lands at San Francisco Tech Week by a16z, bringing together builders of the agentic stack and the institutions figuring out what comes next.
 
 Current event facts:
 
@@ -16,7 +16,8 @@ Current event facts:
 - Venue: The Avalon, 1244 Sutter Street, San Francisco
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
-- Tickets: Coming soon; email notifications are available on the official website
+- Tickets: Early Bird tickets are on sale now through the official Partiful page
+- Ticket releases: Early Bird, Advance, then General; each release is available while its allocation lasts
 - Contact: contact@agenticzero.xyz
 
 First-edition proof:
@@ -26,7 +27,7 @@ First-edition proof:
 - Speakers: 28
 - Livestream views: 13k+
 - Social media views: 98k+
-- Topics included DeFi agents, infrastructure, verifiability, security, agent trust, discovery, agent payments, and the agentic stack
+- Topics included DeFi, infrastructure, security, agent trust, discovery, agent payments, and the agentic stack
 
 Primary audience:
 
@@ -39,8 +40,10 @@ Primary audience:
 
 ## Event
 
-- [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket notifications, FAQs, and contact information.
-- [Ticket notifications](https://agenticzero.xyz/#notify): Join the email list for ticket access and program updates.
+- [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
+- [Tickets](https://agenticzero.xyz/tickets): Official ticket details, the three ticket releases, and the current purchase link.
+- [Official Partiful checkout](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Purchase tickets from the current release.
+- [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
@@ -57,6 +60,7 @@ Primary audience:
 ## Writing
 
 - [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece.
+- [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets, the Early Bird, Advance, and General release sequence, and practical details for October 7, 2026. Published August 18, 2026.
 - [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Published August 17, 2026.
 
 ## Coming Soon

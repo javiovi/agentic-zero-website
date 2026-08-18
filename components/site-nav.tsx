@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
+import { TICKET_URL } from "@/lib/tickets"
 
 // The single navigation for the whole site.
 //
-// Section links (About, FAQs, Tickets) live on the homepage only. On the
+// Section links (About and FAQs) live on the homepage only. On the
 // homepage they smooth-scroll and track the active section. On any other page
 // they are plain links back to the homepage anchor, because those IDs do not
 // exist there.
@@ -13,20 +14,25 @@ import { usePathname } from "next/navigation"
 // There is deliberately no "mobile only" variant. Below 768px navigation.css
 // hides .nav-pill entirely and the hamburger menu takes over, so a second set
 // of links inside the pill would only ever render on desktop.
-const SCROLL_SECTIONS = ["hero", "about", "tech-week", "notify", "faqs"]
+const SCROLL_SECTIONS = ["hero", "about", "tech-week", "faqs"]
 
 type SectionLink = { id: string; label: string; className?: string }
-type PageLink = { href: string; label: string }
+type PageLink = { href: string; label: string; className?: string; external?: boolean }
 
 const ABOUT: SectionLink = { id: "about", label: "About" }
 const FAQS: SectionLink = { id: "faqs", label: "FAQs" }
-const TICKETS: SectionLink = { id: "notify", label: "Tickets", className: "nav-tickets" }
 
 // /first-edition/agenda is deliberately not in the nav. It is reachable from
 // the footer and from the homepage speaker rail, both labelled
 // "First Edition Agenda".
 const AGENDA: PageLink = { href: "/agenda", label: "Agenda" }
 const BLOG: PageLink = { href: "/blog", label: "Blog" }
+const TICKETS: PageLink = {
+  href: TICKET_URL,
+  label: "Tickets",
+  className: "nav-tickets",
+  external: true,
+}
 
 export function SiteNav() {
   const pathname = usePathname()
@@ -106,12 +112,15 @@ export function SiteNav() {
   }
 
   // Child pages count as active too, so a post at /blog/<slug> keeps Blog lit.
-  const pageLink = ({ href, label }: PageLink) => (
+  const pageLink = ({ href, label, className, external }: PageLink) => (
     <a
       key={href}
       href={href}
-      className={`nav-link ${pathname === href || pathname.startsWith(`${href}/`) ? "active" : ""}`}
+      className={`nav-link ${className ?? ""} ${
+        !external && (pathname === href || pathname.startsWith(`${href}/`)) ? "active" : ""
+      }`.trim()}
       onClick={() => setMenuOpen(false)}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {label}
     </a>
@@ -130,7 +139,7 @@ export function SiteNav() {
           {pageLink(AGENDA)}
           {pageLink(BLOG)}
           {sectionLink(FAQS)}
-          {sectionLink(TICKETS)}
+          {pageLink(TICKETS)}
         </div>
       </div>
 
@@ -154,7 +163,7 @@ export function SiteNav() {
           {pageLink(AGENDA)}
           {pageLink(BLOG)}
           {sectionLink(FAQS)}
-          {sectionLink(TICKETS)}
+          {pageLink(TICKETS)}
         </div>
       )}
     </nav>

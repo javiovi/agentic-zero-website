@@ -64,7 +64,11 @@ function inlineContent(content: BlogInline[]) {
     typeof part === 'string' ? (
       part
     ) : (
-      <a href={part.href} key={`${part.href}-${index}`}>
+      <a
+        href={part.href}
+        key={`${part.href}-${index}`}
+        {...(part.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {part.text}
       </a>
     )
@@ -137,9 +141,16 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
             if (block.type === 'subheading') return <h3 key={i}>{block.text}</h3>
             if (block.type === 'cta') {
               return (
-                <aside className="post-cta" key={i}>
+                <aside className="post-cta az-v2-description-card" key={i}>
+                  <h2>{block.title}</h2>
                   <p>{block.text}</p>
-                  <a href={block.href} className="az-v2-inline-cta">
+                  <a
+                    href={block.href}
+                    className="az-v2-inline-cta"
+                    {...(block.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                  >
                     {block.label}
                   </a>
                 </aside>

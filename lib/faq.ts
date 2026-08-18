@@ -9,6 +9,8 @@
 // an anchor in the accordion and as its own text in the schema, with no second
 // copy of the wording anywhere.
 
+import { TICKET_URL } from "@/lib/tickets"
+
 export type FaqAnswerSegment = string | { text: string; href: string; external?: boolean }
 
 export interface Faq {
@@ -46,9 +48,11 @@ export const FAQS: Faq[] = [
   {
     question: "How can I get tickets?",
     answer: [
-      "Tickets are not on sale yet. ",
-      { text: "Join the list", href: "#notify" },
-      " and we will email you when they go on sale.",
+      "Early Bird tickets are on sale now through the ",
+      { text: "official Partiful page", href: TICKET_URL, external: true },
+      ". See the ",
+      { text: "ticket details", href: "/tickets" },
+      ".",
     ],
   },
   {

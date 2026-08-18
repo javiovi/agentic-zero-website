@@ -77,10 +77,10 @@ export default function AgenticFinancePage() {
             Google Cloud, and Vercel.
           </p>
 
-          <p>Sign up to be notified when tickets for the second edition go on sale.</p>
+          <p>Early Bird tickets for the second edition are live now.</p>
 
-          <a href="/#notify" className="az-v2-inline-cta">
-            Join the list
+          <a href="/tickets" className="az-v2-inline-cta">
+            View tickets
           </a>
         </article>
         <SiteFooter />
