@@ -635,10 +635,10 @@ export default function AgenticZeroLanding() {
                 The summit on agentic finance lands at SF Tech Week, bringing together builders
                 of the agentic stack, the systems adapting to it, and the institutions figuring
                 out what comes next. Our previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
-                across DeFi agents, infrastructure, verifiability, and security, with 13k
+                across DeFi, infrastructure, and security, with 13k
                 more watching live.{' '}
                 <a href="/blog/what-is-agentic-zero">
-                  Read what Agentic Zero is and why the summit exists.
+                  Learn more about the second edition of Agentic Zero.
                 </a>
               </p>
             </div>

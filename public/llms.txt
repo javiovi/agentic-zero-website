@@ -57,7 +57,7 @@ Primary audience:
 ## Writing
 
 - [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece.
-- [What is Agentic Zero?](https://agenticzero.xyz/blog/what-is-agentic-zero): Brand definition and guide to the one-day agentic finance summit returning during SF Tech Week 2026, published August 17, 2026.
+- [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Published August 17, 2026.
 
 ## Coming Soon
 
