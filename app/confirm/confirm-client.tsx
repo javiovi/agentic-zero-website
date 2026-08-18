@@ -36,13 +36,13 @@ export default function ConfirmClient() {
     >
       <div className="az-v2-notify-frame">
         <div className="az-v2-description-card">
-          <h2>Be the first to know</h2>
+          <h2>Programme updates</h2>
           {status === "loading" && (
             <p className="az-v2-notify-success">Adding you to the list...</p>
           )}
           {status === "success" && (
             <p className="az-v2-notify-success">
-              You're on the list. We'll email you when tickets go live.
+              You're on the list. We'll send you Agentic Zero programme updates.
             </p>
           )}
           {(status === "invalid" || status === "error") && (

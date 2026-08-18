@@ -1,10 +1,13 @@
-// Schema.org Event markup for the second edition (homepage).
+import { ticketOffers } from '@/lib/tickets'
+
+// Schema.org Event markup for the second edition.
 //
 // Every field below is sourced from content already published on the site.
 // Deliberately omitted because the site does not state them:
 //   endDate    — the site says "one-day summit" but publishes no start/end times
-//   offers     — tickets are "coming soon", no price or purchase URL exists
 //   postalCode — the published address stops at "1244 Sutter Street, San Francisco"
+const offers = ticketOffers()
+
 const secondEdition = {
   "@context": "https://schema.org",
   "@type": "Event",
@@ -44,13 +47,21 @@ const secondEdition = {
     name: "San Francisco Tech Week by a16z",
     url: "https://www.tech-week.com/",
   },
+  ...(offers.length ? { offers } : {}),
+}
+
+function safeJsonLd(value: unknown) {
+  return JSON.stringify(value)
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
 }
 
 export function EventJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(secondEdition) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(secondEdition) }}
     />
   )
 }
