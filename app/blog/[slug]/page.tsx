@@ -130,8 +130,6 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
 
           <p className="post-meta">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
-            <span aria-hidden="true"> · </span>
-            <span>{post.readingTime}</span>
           </p>
 
           {post.body.map((block, i) => {
