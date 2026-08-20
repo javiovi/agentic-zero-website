@@ -61,9 +61,9 @@ Primary audience:
 
 - [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece.
 - [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets, the Early Bird, General Admission, and Final Release sequence, and practical details for October 7, 2026. Published August 18, 2026.
-- [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Published August 17, 2026.
+- [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Includes a section on sponsoring Agentic Zero and how to enquire. Published August 17, 2026.
 
-## Coming Soon
+## Not yet published
 
 These pages do not exist yet. Do not link to them or cite them until they are listed above with live URLs.
 
