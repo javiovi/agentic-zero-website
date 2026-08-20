@@ -206,6 +206,32 @@ export const POSTS: BlogPost[] = [
           'Attendees do not need to share one forecast about adoption. The useful common ground is a need to understand what is already possible, what remains unresolved, and what responsible deployment demands.',
         ],
       },
+      { type: 'heading', text: 'Sponsoring Agentic Zero' },
+      {
+        type: 'paragraph',
+        content: [
+          'Agentic Zero welcomes sponsors and partners working at the intersection of AI agents, payment infrastructure, onchain finance, security, and institutional adoption.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        content: [
+          'Sponsors reach a focused audience of founders, AI builders, agent-infrastructure teams, payment and financial-infrastructure teams, researchers, institutional operators, and investors following agentic finance.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        content: [
+          'The first edition in Buenos Aires drew 1,000+ registrations, 28 speakers, 13k+ livestream views, and 98k+ social media views. The second edition takes place on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.',
+        ],
+      },
+      {
+        type: 'cta',
+        title: 'Sponsor the second edition',
+        text: 'Email contact@agenticzero.xyz with your company, goals, and the audience you want to reach.',
+        label: 'CONTACT US ABOUT SPONSORSHIP',
+        href: 'mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20Agentic%20Zero',
+      },
     ],
   },
   {
