@@ -1,5 +1,9 @@
 import { NextResponse, type NextFetchEvent, type NextRequest } from 'next/server'
 import dns from 'node:dns'
+import {
+  appendNegotiationVary,
+  preferredRepresentation,
+} from '@/lib/content-negotiation'
 
 /**
  * Logs AI crawler hits so we can tell training crawls apart from live,
@@ -219,7 +223,35 @@ function clientIp(request: NextRequest): string {
 }
 
 export function proxy(request: NextRequest, event: NextFetchEvent) {
-  const response = NextResponse.next()
+  let response: NextResponse
+
+  if (request.nextUrl.pathname === '/') {
+    const accept = request.headers.get('accept')
+    const representation = preferredRepresentation(accept)
+
+    if (representation === 'text/markdown') {
+      const markdownUrl = request.nextUrl.clone()
+      markdownUrl.pathname = '/api/markdown'
+      response = NextResponse.rewrite(markdownUrl)
+    } else if (representation === null && accept) {
+      response = new NextResponse(
+        'Not Acceptable\n\nThis resource is available as:\n- text/html\n- text/markdown\n',
+        {
+          status: 406,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store',
+          },
+        }
+      )
+    } else {
+      response = NextResponse.next()
+    }
+
+    appendNegotiationVary(response.headers)
+  } else {
+    response = NextResponse.next()
+  }
 
   const userAgent = request.headers.get('user-agent') ?? ''
   const bucket = classify(userAgent)

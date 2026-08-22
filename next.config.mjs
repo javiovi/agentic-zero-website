@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  outputFileTracingIncludes: {
+    '*': ['./public/llms.txt'],
+  },
   async rewrites() {
     return [
       {
@@ -20,10 +23,25 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/',
+        headers: [
+          {
+            key: 'Vary',
+            value:
+              'rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept, Accept-Encoding',
+          },
+          {
+            key: 'Link',
+            value: '<https://agenticzero.xyz/llms.txt>; rel="alternate"; type="text/plain"',
+          },
+        ],
+      },
+      {
         source: '/llms.txt',
         headers: [
           { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
           { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Vary', value: 'Accept, Accept-Encoding' },
         ],
       },
       {
@@ -31,6 +49,7 @@ const nextConfig = {
         headers: [
           { key: 'Content-Type', value: 'text/markdown; charset=utf-8' },
           { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Vary', value: 'Accept, Accept-Encoding' },
         ],
       },
     ]

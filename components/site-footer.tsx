@@ -37,6 +37,9 @@ export function SiteFooter() {
           <a href="/blog/what-is-agentic-zero">What is Agentic Zero?</a>
           <a href="/agenda">Agenda 2026</a>
           <a href="/first-edition/agenda">Agenda 2025</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy">Privacy</a>
         </p>
 
         <p className="az-v2-footer-questions">

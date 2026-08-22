@@ -31,16 +31,7 @@ const secondEdition = {
     },
   },
   organizer: {
-    "@type": "Organization",
-    name: "Agentic Zero",
-    url: "https://agenticzero.xyz",
-    email: "contact@agenticzero.xyz",
-    // agenticzero.com is deliberately absent: it is not under our control.
-    sameAs: [
-      "https://x.com/AgenticZero",
-      "https://www.linkedin.com/company/agentic-zero-ai",
-      "https://www.youtube.com/@agenticzeroxyz",
-    ],
+    "@id": "https://agenticzero.xyz/#organization",
   },
   superEvent: {
     "@type": "Event",
