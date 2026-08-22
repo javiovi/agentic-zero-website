@@ -49,12 +49,29 @@ assert.match(missing.headers.get('content-type') ?? '', /^text\/markdown/)
 assert.match(missingBody, /sitemap\.xml/)
 assert.match(missingBody, /llms\.txt/)
 
-for (const path of ['/about', '/contact', '/privacy']) {
+const about = await request('/about', 'text/html')
+assert.equal(about.status, 308)
+assert.equal(about.headers.get('location'), '/blog/what-is-agentic-zero')
+
+for (const path of ['/contact', '/privacy']) {
   const response = await request(path, 'text/html')
   const body = await response.text()
   assert.equal(response.status, 200, `${path} did not return 200`)
   assert.ok(visibleText(body).length >= 500, `${path} has under 500 text characters`)
 }
+
+const contact = await request('/contact', 'text/html')
+const contactBody = await contact.text()
+assert.match(contactBody, /href="https:\/\/partiful\.com\/e\/6vkA8cTvPI7tTb3NtV2F"/)
+assert.match(contactBody, /homepage, tickets page, agenda, FAQ, and llms\.txt/)
+assert.match(contactBody, /<p>If the published pages do not answer your question, email us\.<\/p>/)
+
+const privacy = await request('/privacy', 'text/html')
+const privacyBody = await privacy.text()
+assert.match(privacyBody, /Umami analytics/)
+assert.match(privacyBody, /DNS verification/)
+assert.match(privacyBody, /does not sell personal information/)
+assert.match(privacyBody, /August 21, 2026/)
 
 const llms = await request('/llms.txt')
 assert.equal(llms.status, 200)
@@ -73,9 +90,11 @@ assert.match(await robots.text(), /Sitemap: https:\/\/agenticzero\.xyz\/sitemap\
 const sitemap = await request('/sitemap.xml')
 const sitemapBody = await sitemap.text()
 assert.equal(sitemap.status, 200)
-for (const path of ['/about', '/contact', '/privacy', '/llms.txt']) {
+for (const path of ['/contact', '/privacy', '/llms.txt']) {
   assert.match(sitemapBody, new RegExp(`<loc>https://agenticzero\\.xyz${path.replace('.', '\\.')}<\\/loc>`))
 }
+assert.doesNotMatch(sitemapBody, /<loc>https:\/\/agenticzero\.xyz\/about<\/loc>/)
+assert.match(sitemapBody, /<loc>https:\/\/agenticzero\.xyz\/blog\/what-is-agentic-zero<\/loc>/)
 
 const publicUrls = [...sitemapBody.matchAll(/<loc>https:\/\/agenticzero\.xyz(.*?)<\/loc>/g)]
   .map((match) => match[1] || '/')

@@ -10,7 +10,8 @@ const APP_DIR = join(process.cwd(), 'app')
 // Route segments never published in the sitemap.
 // api      — not a page, and disallowed in robots.ts
 // confirm  — post-signup landing, reached by link from an email, not by search
-const EXCLUDED_SEGMENTS = new Set(['api', 'confirm'])
+// about    — permanent redirect to the canonical What is Agentic Zero article
+const EXCLUDED_SEGMENTS = new Set(['api', 'confirm', 'about'])
 
 // Public files that are not App Router routes and so cannot be discovered by
 // walking the app directory.

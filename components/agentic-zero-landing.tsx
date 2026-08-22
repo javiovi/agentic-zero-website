@@ -1,36 +1,13 @@
-"use client"
-
-// Interactive landing page rendered inside the server-owned homepage route.
-import type React from "react"
-import { useState, useEffect, useRef } from "react"
+// Server-rendered structure and content for the Agentic Zero homepage.
 import { Tweet } from "react-tweet"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
 import { FaqJsonLd } from "@/components/faq-json-ld"
 import { OrganizationJsonLd } from "@/components/organization-json-ld"
-import { FAQS, type Faq } from "@/lib/faq"
+import { FAQS } from "@/lib/faq"
 import { TICKET_URL } from "@/lib/tickets"
-
-// Custom hook for intersection observer
-function useIntersectionObserver(options = {}) {
-  const [isIntersecting, setIsIntersecting] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting)
-    }, options)
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [options])
-
-  return [ref, isIntersecting] as const
-}
+import { FAQItem, HeroLogo, NotifyForm } from "@/components/homepage-interactions"
 
 // Loading screen logo component (unchanged as requested)
 const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
@@ -86,124 +63,7 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 )
 
 
-// FAQ Item Component with Toggle
-function FAQItem({ question, answer }: Faq) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <div className={`faq-item ${isOpen ? 'faq-open' : ''}`}>
-      <button
-        className="faq-question"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-      >
-        <span>{question}</span>
-        <div className="faq-icon">
-          <span className="faq-icon-horizontal"></span>
-          <span className="faq-icon-vertical"></span>
-        </div>
-      </button>
-      <div className="faq-answer-wrapper">
-        <div className="faq-answer">
-          <p>
-            {answer.map((segment, i) =>
-              typeof segment === 'string' ? (
-                segment
-              ) : (
-                <a
-                  key={i}
-                  href={segment.href}
-                  {...(segment.external
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
-                  style={{ color: '#f97316', textDecoration: 'underline' }}
-                >
-                  {segment.text}
-                </a>
-              )
-            )}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// Email capture form (provider wiring pending; posts to /api/subscribe)
-function NotifyForm() {
-  const [email, setEmail] = useState("")
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
-  const honeypotRef = useRef<HTMLInputElement>(null)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setStatus("error")
-      return
-    }
-    setStatus("loading")
-    try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, company: honeypotRef.current?.value ?? "" }),
-      })
-      setStatus(res.ok ? "success" : "error")
-    } catch {
-      setStatus("error")
-    }
-  }
-
-  if (status === "success") {
-    return <p className="az-v2-notify-success">You're on the list. We'll send you Agentic Zero programme updates.</p>
-  }
-
-  return (
-    <form className="az-v2-notify-form" onSubmit={handleSubmit}>
-      <input
-        ref={honeypotRef}
-        type="text"
-        name="company"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }}
-      />
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value)
-          if (status === "error") setStatus("idle")
-        }}
-        placeholder="your@mail.com"
-        aria-label="Email address"
-        required
-      />
-      <button type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "..." : "GET UPDATES"}
-      </button>
-      {status === "error" && <p className="az-v2-notify-error">Please enter a valid email.</p>}
-    </form>
-  )
-}
-
-
 export default function AgenticZeroLanding() {
-  const [logoHidden, setLogoHidden] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const badge = document.querySelector('.hero-badge')
-      if (badge) {
-        setLogoHidden(badge.getBoundingClientRect().top <= 64)
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const speakers = [
     {
       name: "Nader Dabit",
@@ -618,9 +478,7 @@ export default function AgenticZeroLanding() {
                   </a>
                 </div>
               </div>
-              <div className={`hero-logo ${logoHidden ? "logo-hidden" : ""}`}>
-                <img src="/images/logo.svg" alt="Agentic Zero Logo" className="logo-image" />
-              </div>
+              <HeroLogo />
             </div>
 
             <div className="az-v2-sponsor-marquee" aria-label="2025 supported by">
