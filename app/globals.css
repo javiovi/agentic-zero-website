@@ -886,9 +886,17 @@ p {
 .az-v2-marquee-track {
   display: flex;
   align-items: center;
-  gap: 48px;
   width: max-content;
   animation: azSponsorLoop 34s linear infinite;
+  will-change: transform;
+}
+
+.az-v2-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 48px;
+  padding-right: 48px;
 }
 
 .az-v2-marquee-logo {
@@ -918,7 +926,7 @@ p {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-33.333333%);
   }
 }
 

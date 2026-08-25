@@ -264,7 +264,6 @@ export default function AgenticZeroLanding() {
     },
   ]
 
-  const sponsorLoop = [...sponsors, ...sponsors]
   const featuredSpeakers = speakers
   const featuredTweets = [
     {
@@ -437,22 +436,31 @@ export default function AgenticZeroLanding() {
               <div className="az-v2-marquee-label">2026 supported by</div>
               <div className="az-v2-marquee-window">
                 <div className="az-v2-marquee-track">
-                  {sponsorLoop.map((sponsor, index) => (
-                    <a
-                      className="az-v2-marquee-logo"
-                      href={sponsor.website}
-                      target="_blank"
-                      rel="noreferrer"
-                      key={`${sponsor.name}-${index}`}
-                      aria-label={`Visit ${sponsor.name}`}
+                  {[0, 1, 2].map((groupIndex) => (
+                    <div
+                      className="az-v2-marquee-group"
+                      aria-hidden={groupIndex > 0 ? true : undefined}
+                      key={groupIndex}
                     >
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className={sponsor.className}
-                        loading="lazy"
-                      />
-                    </a>
+                      {sponsors.map((sponsor) => (
+                        <a
+                          className="az-v2-marquee-logo"
+                          href={sponsor.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          tabIndex={groupIndex > 0 ? -1 : undefined}
+                          key={`${groupIndex}-${sponsor.name}`}
+                          aria-label={`Visit ${sponsor.name}`}
+                        >
+                          <img
+                            src={sponsor.logo}
+                            alt={sponsor.name}
+                            className={sponsor.className}
+                            loading="eager"
+                          />
+                        </a>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </div>
