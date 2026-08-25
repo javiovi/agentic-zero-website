@@ -80,7 +80,6 @@ export default function AgenticZeroLanding() {
       name: "Calimero",
       logo: "/images/logos/calimero_white.png",
       website: "https://calimero.network/",
-      className: "az-v2-logo-calimero",
     },
     {
       name: "Solana Foundation",
@@ -96,6 +95,7 @@ export default function AgenticZeroLanding() {
       name: "Sentient",
       logo: "/images/logos/sentient-product-primary.svg",
       website: "https://www.sentient.xyz/",
+      className: "az-v2-logo-sentient",
     },
   ]
 

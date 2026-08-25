@@ -907,18 +907,17 @@ p {
 }
 
 .az-v2-marquee-logo img {
-  max-width: 200px;
-  max-height: 30px;
+  max-width: 250px;
+  max-height: 38px;
   width: auto;
-  height: 30px;
+  height: 38px;
   object-fit: contain;
   filter: none;
   opacity: 1;
 }
 
-.az-v2-marquee-logo img.az-v2-logo-calimero {
-  max-height: 38px;
-  height: 38px;
+.az-v2-marquee-logo img.az-v2-logo-sentient {
+  height: 33px;
 }
 
 @keyframes azSponsorLoop {
