@@ -16,6 +16,7 @@ Current event facts:
 - Venue: The Avalon, 1244 Sutter Street, San Francisco
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
+- Confirmed 2026 sponsors: Cambrian, Calimero, Solana Foundation, Franklin Templeton, and Sentient
 - Tickets: Early Bird tickets are on sale now through the official Partiful page
 - Ticket releases: Early Bird at $49, General Admission at $69, then Final Release at $99; each release is available while its allocation lasts
 - Contact: contact@agenticzero.xyz
@@ -65,6 +66,14 @@ How agents should retrieve and use this site:
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
+
+## Confirmed 2026 Sponsors
+
+- [Cambrian](https://www.cambrian.org/)
+- [Calimero](https://calimero.network/)
+- [Solana Foundation](https://solana.org/)
+- [Franklin Templeton](https://www.franklintempleton.com/)
+- [Sentient](https://www.sentient.xyz/)
 
 ## Positioning
 

@@ -33,6 +33,33 @@ const secondEdition = {
   organizer: {
     "@id": "https://agenticzero.xyz/#organization",
   },
+  sponsor: [
+    {
+      "@type": "Organization",
+      name: "Cambrian",
+      url: "https://www.cambrian.org/",
+    },
+    {
+      "@type": "Organization",
+      name: "Calimero",
+      url: "https://calimero.network/",
+    },
+    {
+      "@type": "Organization",
+      name: "Solana Foundation",
+      url: "https://solana.org/",
+    },
+    {
+      "@type": "Organization",
+      name: "Franklin Templeton",
+      url: "https://www.franklintempleton.com/",
+    },
+    {
+      "@type": "Organization",
+      name: "Sentient",
+      url: "https://www.sentient.xyz/",
+    },
+  ],
   superEvent: {
     "@type": "Event",
     name: "San Francisco Tech Week by a16z",
