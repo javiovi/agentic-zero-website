@@ -1159,6 +1159,13 @@ p {
   border-radius: 12px;
   overflow: hidden;
   background: #151515;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.az-v2-speaker-card:hover {
+  border-color: #f97316;
 }
 
 .az-v2-speaker-card img {
@@ -1192,6 +1199,29 @@ p {
   font-size: 14px;
   line-height: 1.35;
   text-transform: uppercase;
+}
+
+.az-v2-speaker-silhouette {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #0f0f10;
+}
+
+.az-v2-speaker-card-pending {
+  border-color: rgba(249, 115, 22, 0.28);
+}
+
+.az-v2-speaker-card-pending div {
+  border-top-color: rgba(249, 115, 22, 0.28);
+}
+
+.az-v2-speaker-card-pending h4 {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.az-v2-speaker-card-pending p {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .az-v2-tech-week-section {
@@ -2921,12 +2951,19 @@ p {
   font-size: 0.875rem;
 }
 
-/* Footer link row */
+/* Footer link rows */
 .az-v2-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 1.125rem 0 0;
+}
+
+.az-v2-footer-link-row {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 1.125rem 0 0;
 }
 
 .az-v2-footer-links a {
@@ -3616,5 +3653,75 @@ p {
 
   .tickets-practical-grid {
     gap: 34px;
+  }
+}
+
+/* Complete first-edition speaker archive (/speakers/2025). */
+.first-edition-speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.az-v2-inner-header .first-edition-speaker-card {
+  overflow: hidden;
+  border: 1px solid rgba(249, 115, 22, 0.45);
+  border-radius: 10px;
+  background: #101011;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.az-v2-inner-header a.first-edition-speaker-card:hover {
+  border-color: #f97316;
+  color: inherit;
+  text-decoration: none;
+}
+
+.first-edition-speaker-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.first-edition-speaker-card > div {
+  padding: 14px;
+  border-top: 1px solid rgba(249, 115, 22, 0.45);
+}
+
+.az-v2-prose .first-edition-speaker-card h3 {
+  margin: 0;
+  color: white;
+  font-family: var(--font-mono), monospace;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.az-v2-inner-header .first-edition-speaker-card p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  .first-edition-speaker-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .first-edition-speaker-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 440px) {
+  .first-edition-speaker-grid {
+    grid-template-columns: 1fr;
   }
 }

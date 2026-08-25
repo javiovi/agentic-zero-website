@@ -8,6 +8,12 @@ import { OrganizationJsonLd } from "@/components/organization-json-ld"
 import { FAQS } from "@/lib/faq"
 import { TICKET_URL } from "@/lib/tickets"
 import { FAQItem, HeroLogo, NotifyForm } from "@/components/homepage-interactions"
+import { SpeakerSilhouette } from "@/components/speaker-placeholder"
+import {
+  SPEAKERS_2026,
+  UNANNOUNCED_SPEAKER_SLOTS,
+  speakerDisplayRole,
+} from "@/lib/speakers"
 
 // Loading screen logo component (unchanged as requested)
 const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
@@ -64,177 +70,6 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 
 
 export default function AgenticZeroLanding() {
-  const speakers = [
-    {
-      name: "Nader Dabit",
-      role: "Cognition, prev. Eigen Labs",
-      image: "/images/speakers/Nader.jpg",
-      link: "https://x.com/dabit3",
-    },
-    {
-      name: "Sam Green",
-      role: "Founder & CEO, Cambrian Network",
-      image: "/images/speakers/sam.jpg",
-      link: "https://x.com/0xsamgreen",
-    },
-    {
-      name: "Ken Ng",
-      role: "Head of Research & Co-Founder, Uniswap Foundation",
-      image: "/images/speakers/Ken.jpg",
-      link: "https://x.com/nkennethk",
-    },
-    {
-      name: "Marco De Rossi",
-      role: "AI Lead, MetaMask",
-      image: "/images/speakers/Marco-de-Rossi.jpg",
-      link: "https://x.com/marco_derossi",
-    },
-    {
-      name: "Shaw Walters",
-      role: "Founder, Eliza Labs",
-      image: "/images/speakers/shaw.jpg",
-      link: "",
-    },
-    {
-      name: "Nicolás Montone",
-      role: "Software Engineer, Vercel",
-      image: "/images/speakers/nicolas.jpeg",
-      link: "https://x.com/montonenico",
-    },
-    {
-      name: "E. G.",
-      role: "Co-founder, Infura & DIN (Consensys)",
-      image: "/images/speakers/eg.jpg",
-      link: "https://x.com/egalano",
-    },
-    {
-      name: "Juan Irungaray",
-      role: "Google Cloud Architect",
-      image: "/images/speakers/juan.jpg",
-      link: "https://x.com/jirungaray",
-    },
-    {
-      name: "Nick Emmons",
-      role: "Founder & CEO, Allora Labs",
-      image: "/images/speakers/nick-allora.jpg",
-      link: "https://x.com/nickemmons",
-    },
-    {
-      name: "Gauthier Vila",
-      role: "Core Contributor & Founder, ZyFAI",
-      image: "/images/speakers/gauthier.jpg",
-      link: "https://x.com/goatv_bk",
-    },
-    {
-      name: "Stefano Bury",
-      role: "Head of US, Virtuals Protocol",
-      image: "/images/speakers/stefano.jpg",
-      link: "https://x.com/0xbury",
-    },
-    {
-      name: "Renç Korzay",
-      role: "CEO, Giza",
-      image: "/images/speakers/Renc.jpg",
-      link: "https://x.com/renckorzay",
-    },
-    {
-      name: "Jessy",
-      role: "Fast, prev. Ethereum Foundation dAI",
-      image: "/images/speakers/jessy-eth.jpg",
-      link: "https://x.com/13yearoldvc",
-    },
-    {
-      name: "Mooly Sagiv",
-      role: "Chief Scientist, Certora",
-      image: "/images/speakers/mooly.jpg",
-      link: "https://x.com/SagivMooly",
-    },
-    {
-      name: "Rahul Kothari",
-      role: "Ethereum Foundation, prev. Aztec",
-      image: "/images/speakers/Rahul_Kothari_AZTEC.jpg",
-      link: "https://x.com/omw_to_the_moon",
-    },
-    {
-      name: "Valentin Mihov",
-      role: "Co-founder, Daedalus Angels & Finexify",
-      image: "/images/speakers/valentin.jpg",
-      link: "https://x.com/valentinmihov",
-    },
-    {
-      name: "Davide Crapis",
-      role: "AI Lead, Ethereum Foundation (dAI Team)",
-      image: "/images/speakers/davide.jpg",
-      link: "https://x.com/DavideCrapis",
-    },
-    {
-      name: "Artem Kotelskiy",
-      role: "Head of Blockchain Research, cyber•Fund",
-      image: "/images/speakers/artem.jpg",
-      link: "https://x.com/artofkot",
-    },
-    {
-      name: "Shafu",
-      role: "Smart Contract Engineer, Merit Systems",
-      image: "/images/speakers/sharif.jpg",
-      link: "https://x.com/shafu0x",
-    },
-    {
-      name: "Lukasz Stoczynski",
-      role: "Head of GTM, Mimic",
-      image: "/images/speakers/Lukaz.jpg",
-      link: "http://x.com/stoczek_eth",
-    },
-    {
-      name: "Chris Wessels",
-      role: "Founder, GraphOps & Summerstone",
-      image: "/images/speakers/chris.jpg",
-      link: "https://x.com/undefinedza",
-    },
-    {
-      name: "Sandi Fatic",
-      role: "CEO, Calimero Network",
-      image: "/images/speakers/Chef Sale.jpg",
-      link: "https://x.com/chefsale",
-    },
-    {
-      name: "Ricky Esclapon",
-      role: "Data Agent Architect, Cambrian Network",
-      image: "/images/speakers/Ricky.jpg",
-      link: "https://x.com/rickydata42",
-    },
-    {
-      name: "Quintus Kilbourn",
-      role: "Cryptoeconomics Researcher, Flashbots",
-      image: "/images/speakers/quintus.jpg",
-      link: "https://x.com/0xQuintus",
-    },
-    {
-      name: "Michael Sena",
-      role: "Co-founder, Recall Labs",
-      image: "/images/speakers/sena-recall.jpg",
-      link: "https://x.com/dataliquidity?s=21&t=DBEiT8IBjsf5cMwtjj8hpw",
-    },
-    {
-      name: "Sumeet Chougule",
-      role: "Team Lead, ChaosChain (Nethermind)",
-      image: "/images/speakers/sumeet.jpg",
-      link: "https://x.com/_sumeetc",
-    },
-    {
-      name: "Simon Emanuel Schmid",
-      role: "Developer Relations, ENS",
-      image: "/images/speakers/simon.png",
-      link: "https://x.com/schmidsi",
-    },
-    {
-      name: "Clemens",
-      role: "Head of Marketing & AI, DIN",
-      image: "/images/speakers/clemens.jpg",
-      link: "https://x.com/imseelemons",
-    },
-  ]
-
   const sponsors = [
     {
       name: "Cambrian",
@@ -264,7 +99,7 @@ export default function AgenticZeroLanding() {
     },
   ]
 
-  const featuredSpeakers = speakers
+  const featuredSpeakers = SPEAKERS_2026
   const featuredTweets = [
     {
       name: "Zyfai",
@@ -529,25 +364,44 @@ export default function AgenticZeroLanding() {
               </div>
             </div>
 
-            <div className="az-v2-speaker-section">
+            <div id="speakers" className="az-v2-speaker-section">
               <div className="az-v2-section-heading">
-                <span>First edition</span>
-                <h3>Featured Speakers</h3>
+                <span>Second edition</span>
+                <h3>Speakers</h3>
               </div>
-              <div className="az-v2-speaker-rail" aria-label="Featured speakers from the first edition">
+              <div className="az-v2-speaker-rail" aria-label="Speakers at Agentic Zero 2026">
                 {featuredSpeakers.map((speaker) => (
-                  <article className="az-v2-speaker-card" key={speaker.name}>
-                    <img src={speaker.image || "/placeholder.svg"} alt={speaker.name} loading="lazy" />
+                  <a
+                    className="az-v2-speaker-card"
+                    href={speaker.profileUrl}
+                    key={speaker.slug}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${speaker.name} on X`}
+                  >
+                    <img src={speaker.image} alt={speaker.alt} loading="lazy" />
                     <div>
                       <h4>{speaker.name}</h4>
-                      <p>{speaker.role}</p>
+                      <p>{speakerDisplayRole(speaker)}</p>
                     </div>
-                  </article>
+                  </a>
+                ))}
+
+                {Array.from({ length: UNANNOUNCED_SPEAKER_SLOTS }).map((_, index) => (
+                  <div
+                    className="az-v2-speaker-card az-v2-speaker-card-pending"
+                    key={`pending-${index}`}
+                  >
+                    <SpeakerSilhouette className="az-v2-speaker-silhouette" />
+                    <div>
+                      <h4>To be announced</h4>
+                      <p>Coming soon</p>
+                    </div>
+                  </div>
                 ))}
               </div>
               <p className="az-v2-speaker-rail-link">
-                <a href="/first-edition/agenda">First Edition Agenda</a>
-                <span>Buenos Aires, November 2025 · 28 speakers</span>
+                <span>More speakers will be announced soon</span>
               </p>
             </div>
           </div>

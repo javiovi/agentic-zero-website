@@ -33,13 +33,18 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="az-v2-footer-links">
-          <a href="/blog/what-is-agentic-zero">What is Agentic Zero?</a>
-          <a href="/agenda">Agenda 2026</a>
-          <a href="/first-edition/agenda">Agenda 2025</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy</a>
-        </p>
+        <nav className="az-v2-footer-links" aria-label="Footer navigation">
+          <div className="az-v2-footer-link-row">
+            <a href="/blog/what-is-agentic-zero">What is Agentic Zero?</a>
+            <a href="/agenda">Agenda 2026</a>
+          </div>
+          <div className="az-v2-footer-link-row">
+            <a href="/speakers/2025">Speakers 2025</a>
+            <a href="/first-edition/agenda">Agenda 2025</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+          </div>
+        </nav>
 
         <p className="az-v2-footer-questions">
           Questions? Email us at <a href="mailto:contact@agenticzero.xyz">contact@agenticzero.xyz</a>

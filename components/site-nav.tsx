@@ -22,9 +22,9 @@ type PageLink = { href: string; label: string; className?: string; external?: bo
 const ABOUT: SectionLink = { id: "about", label: "About" }
 const FAQS: SectionLink = { id: "faqs", label: "FAQs" }
 
-// /first-edition/agenda is deliberately not in the nav. It is reachable from
-// the footer and from the homepage speaker rail, both labelled
-// "First Edition Agenda".
+// The current speaker lineup lives on the homepage. The first-edition speaker
+// and agenda archives remain reachable from the footer rather than the primary
+// navigation.
 const AGENDA: PageLink = { href: "/agenda", label: "Agenda" }
 const BLOG: PageLink = { href: "/blog", label: "Blog" }
 const TICKETS: PageLink = {

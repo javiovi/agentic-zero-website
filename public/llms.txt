@@ -17,6 +17,7 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian, Calimero, Solana Foundation, Franklin Templeton, and Sentient
+- Announced 2026 speakers: Shaw Walters, Sam Green, and Kevin Leffew
 - Tickets: Early Bird tickets are on sale now through the official Partiful page
 - Ticket releases: Early Bird at $49, General Admission at $69, then Final Release at $99; each release is available while its allocation lasts
 - Contact: contact@agenticzero.xyz
@@ -82,6 +83,7 @@ How agents should retrieve and use this site:
 ## Programme
 
 - [Agenda](https://agenticzero.xyz/agenda): Programme page for the second edition on October 7, 2026. The session list is not published yet.
+- [First Edition Speakers](https://agenticzero.xyz/speakers/2025): Complete 28-speaker lineup from the first edition in Buenos Aires on November 20, 2025.
 - [First Edition Agenda](https://agenticzero.xyz/first-edition/agenda): Archived full programme from the first edition in Buenos Aires on November 20, 2025, covering 28 speakers across 16 sessions in running order. An individual page exists beneath this path for each session, carrying its speakers, a written account of what was said, and the recording where one exists.
 
 ## Writing
@@ -95,7 +97,7 @@ How agents should retrieve and use this site:
 These pages do not exist yet. Do not link to them or cite them until they are listed above with live URLs.
 
 - Session pages for the second edition: one page per talk, panel, and demo, with title, speakers, and time.
-- Speaker pages for the second edition: one page per speaker, with affiliation and session links.
+- A speakers page for the second edition: the announced 2026 lineup is currently listed on the homepage only.
 
 ## Media and Community
 

@@ -1,4 +1,5 @@
 import { ticketOffers } from '@/lib/tickets'
+import { SPEAKERS_2026 } from '@/lib/speakers'
 
 // Schema.org Event markup for the second edition.
 //
@@ -65,6 +66,19 @@ const secondEdition = {
     name: "San Francisco Tech Week by a16z",
     url: "https://www.tech-week.com/",
   },
+  performer: SPEAKERS_2026.map((speaker) => ({
+    "@type": "Person",
+    "@id": speaker.profileUrl,
+    name: speaker.name,
+    url: speaker.profileUrl,
+    image: `https://agenticzero.xyz${speaker.image}`,
+    jobTitle: speaker.role,
+    affiliation: {
+      "@type": "Organization",
+      name: speaker.company,
+    },
+    sameAs: [speaker.profileUrl],
+  })),
   ...(offers.length ? { offers } : {}),
 }
 
