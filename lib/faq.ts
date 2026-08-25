@@ -64,7 +64,7 @@ export const FAQS: Faq[] = [
   {
     question: "How can I become a sponsor?",
     answer: [
-      "We welcome sponsors who want to back Agentic Zero's mission of pushing forward discussions at the intersection of AI and finance. To join our 2026 sponsors, including Cambrian Network and Solana Foundation, ",
+      "We welcome sponsors who want to back Agentic Zero's mission of pushing forward discussions at the intersection of AI and finance. To join our 2026 sponsors, including Solana Foundation, ",
       {
         text: "email us",
         href: "mailto:contact@agenticzero.xyz?subject=Sponsorship%20Inquiry%20-%20AGENTIC%20Zero",

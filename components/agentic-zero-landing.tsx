@@ -8,12 +8,6 @@ import { OrganizationJsonLd } from "@/components/organization-json-ld"
 import { FAQS } from "@/lib/faq"
 import { TICKET_URL } from "@/lib/tickets"
 import { FAQItem, HeroLogo, NotifyForm } from "@/components/homepage-interactions"
-import { SpeakerSilhouette } from "@/components/speaker-placeholder"
-import {
-  SPEAKERS_2026,
-  UNANNOUNCED_SPEAKER_SLOTS,
-  speakerDisplayRole,
-} from "@/lib/speakers"
 
 // Loading screen logo component (unchanged as requested)
 const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
@@ -72,11 +66,6 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 export default function AgenticZeroLanding() {
   const sponsors = [
     {
-      name: "Cambrian",
-      logo: "/images/logos/cambrian-primary.svg",
-      website: "https://www.cambrian.org/",
-    },
-    {
       name: "Calimero",
       logo: "/images/logos/calimero_white.png",
       website: "https://calimero.network/",
@@ -86,20 +75,8 @@ export default function AgenticZeroLanding() {
       logo: "/images/logos/solana-foundation-primary.svg",
       website: "https://solana.org/",
     },
-    {
-      name: "Franklin Templeton",
-      logo: "/images/logos/franklin-templeton-neg-0119.png",
-      website: "https://www.franklintempleton.com/",
-    },
-    {
-      name: "Sentient",
-      logo: "/images/logos/sentient-product-primary.svg",
-      website: "https://www.sentient.xyz/",
-      className: "az-v2-logo-sentient",
-    },
   ]
 
-  const featuredSpeakers = SPEAKERS_2026
   const featuredTweets = [
     {
       name: "Zyfai",
@@ -271,32 +248,29 @@ export default function AgenticZeroLanding() {
               <div className="az-v2-marquee-label">2026 supported by</div>
               <div className="az-v2-marquee-window">
                 <div className="az-v2-marquee-track">
-                  {[0, 1, 2].map((groupIndex) => (
-                    <div
-                      className="az-v2-marquee-group"
-                      aria-hidden={groupIndex > 0 ? true : undefined}
-                      key={groupIndex}
-                    >
-                      {sponsors.map((sponsor) => (
-                        <a
-                          className="az-v2-marquee-logo"
-                          href={sponsor.website}
-                          target="_blank"
-                          rel="noreferrer"
-                          tabIndex={groupIndex > 0 ? -1 : undefined}
-                          key={`${groupIndex}-${sponsor.name}`}
-                          aria-label={`Visit ${sponsor.name}`}
-                        >
-                          <img
-                            src={sponsor.logo}
-                            alt={sponsor.name}
-                            className={sponsor.className}
-                            loading="eager"
-                          />
-                        </a>
-                      ))}
-                    </div>
-                  ))}
+                  {Array.from({ length: 4 }, (_, index) => {
+                    const sponsor = sponsors[index % sponsors.length]
+
+                    return (
+                      <a
+                        className="az-v2-marquee-logo"
+                        href={sponsor.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        tabIndex={index >= sponsors.length ? -1 : undefined}
+                        key={`${index}-${sponsor.name}`}
+                        aria-label={index < sponsors.length ? `Visit ${sponsor.name}` : undefined}
+                        aria-hidden={index >= sponsors.length ? true : undefined}
+                        style={{ animationDelay: `${index * -6}s` }}
+                      >
+                        <img
+                          src={sponsor.logo}
+                          alt={index < sponsors.length ? sponsor.name : ""}
+                          loading="eager"
+                        />
+                      </a>
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -364,46 +338,6 @@ export default function AgenticZeroLanding() {
               </div>
             </div>
 
-            <div id="speakers" className="az-v2-speaker-section">
-              <div className="az-v2-section-heading">
-                <span>Second edition</span>
-                <h3>Speakers</h3>
-              </div>
-              <div className="az-v2-speaker-rail" aria-label="Speakers at Agentic Zero 2026">
-                {featuredSpeakers.map((speaker) => (
-                  <a
-                    className="az-v2-speaker-card"
-                    href={speaker.profileUrl}
-                    key={speaker.slug}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${speaker.name} on X`}
-                  >
-                    <img src={speaker.image} alt={speaker.alt} loading="lazy" />
-                    <div>
-                      <h4>{speaker.name}</h4>
-                      <p>{speakerDisplayRole(speaker)}</p>
-                    </div>
-                  </a>
-                ))}
-
-                {Array.from({ length: UNANNOUNCED_SPEAKER_SLOTS }).map((_, index) => (
-                  <div
-                    className="az-v2-speaker-card az-v2-speaker-card-pending"
-                    key={`pending-${index}`}
-                  >
-                    <SpeakerSilhouette className="az-v2-speaker-silhouette" />
-                    <div>
-                      <h4>To be announced</h4>
-                      <p>Coming soon</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="az-v2-speaker-rail-link">
-                <span>More speakers will be announced soon</span>
-              </p>
-            </div>
           </div>
         </section>
 

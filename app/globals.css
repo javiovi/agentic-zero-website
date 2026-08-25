@@ -875,35 +875,31 @@ p {
   text-transform: uppercase;
 }
 
-/* The fade used to eat 10% of the window on each side, which on the left added
-   to the 24px grid gap and pushed the first logo well clear of the label. 4%
-   keeps the edges soft without opening that gap. */
 .az-v2-marquee-window {
+  --az-logo-slot-width: clamp(150px, 18vw, 250px);
+  position: relative;
+  height: 38px;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 
 .az-v2-marquee-track {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  animation: azSponsorLoop 34s linear infinite;
-  will-change: transform;
-}
-
-.az-v2-marquee-group {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 48px;
-  padding-right: 48px;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .az-v2-marquee-logo {
-  display: inline-flex;
+  position: absolute;
+  top: 0;
+  left: calc(100% - var(--az-logo-slot-width));
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 108px;
+  width: var(--az-logo-slot-width);
+  height: 38px;
+  opacity: 0;
+  animation: azSponsorLoop 24s linear infinite;
+  will-change: left, opacity;
 }
 
 .az-v2-marquee-logo img {
@@ -921,11 +917,19 @@ p {
 }
 
 @keyframes azSponsorLoop {
-  from {
-    transform: translateX(0);
+  0% {
+    left: calc(100% - var(--az-logo-slot-width));
+    opacity: 0;
   }
-  to {
-    transform: translateX(-33.333333%);
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    left: 0;
+    opacity: 0;
   }
 }
 
