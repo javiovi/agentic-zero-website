@@ -235,78 +235,36 @@ export default function AgenticZeroLanding() {
     },
   ]
 
-  const sponsors = {
-    platinum: [
-        {
-        name: "Allora",
-        logo: "/images/logos/allora-white.svg",
-        website: "https://allora.network",
-      },
-      {
-        name: "Cambrian",
-        logo: "/images/logos/cambria-verde.svg",
-        website: "https://www.cambrian.org/",
-      },
-      {
-        name: "DIN",
-        logo: "/images/logos/DIN_Wordmark_Light.svg",
-        website: "https://www.infura.io/solutions/decentralized-infrastructure-service",
-      },
+  const sponsors = [
+    {
+      name: "Cambrian",
+      logo: "/images/logos/cambrian-primary.svg",
+      website: "https://www.cambrian.org/",
+    },
+    {
+      name: "Calimero",
+      logo: "/images/logos/calimero_white.png",
+      website: "https://calimero.network/",
+      className: "az-v2-logo-calimero",
+    },
+    {
+      name: "Solana Foundation",
+      logo: "/images/logos/solana-foundation-primary.svg",
+      website: "https://solana.org/",
+    },
+    {
+      name: "Franklin Templeton",
+      logo: "/images/logos/franklin-templeton-neg-0119.png",
+      website: "https://www.franklintempleton.com/",
+    },
+    {
+      name: "Sentient",
+      logo: "/images/logos/sentient-product-primary.svg",
+      website: "https://www.sentient.xyz/",
+    },
+  ]
 
-    ],
-    gold: [
-      {
-        name: "Giza",
-        logo: "/images/logos/giza-logo-white.svg",
-        website: "https://gizatech.xyz",
-      },
-       {
-        name: "Recall",
-        logo: "/images/logos/recall-white.svg",
-        website: "https://recall.network",
-      },
-      {
-        name: "Zyfai",
-        logo: "/images/logos/zyfai-white.svg",
-        website: "https://www.zyf.ai/",
-      },
-      {
-        name: "AdEx",
-        logo: "/images/logos/AdEx.svg",
-        website: "https://x.com/AdEx_Network",
-      },
-        {
-        name: "CyberFund",
-        logo: "/images/logos/cyber_logo_transparent_white.svg",
-        website: "https://x.com/cyberfund_?s=21",
-      },
-    ],
-    silver: [
-       {
-        name: "Mimic",
-        logo: "/images/logos/mimic-white.svg",
-        website: "https://mimic.fi",
-      },
-      {
-        name: "v0",
-        logo: "/images/logos/v0-white.svg",
-        website: "https://v0.dev",
-      },
-      {
-        name: "Daedalus",
-        logo: "/images/logos/daedalus.svg",
-        website: "https://daedalus.gg",
-      },
-      {
-        name: "Calimero",
-        logo: "/images/logos/calimero_white.png",
-        website: "https://calimero.network",
-      },
-    ],
-  }
-
-  const allSponsors = [...sponsors.platinum, ...sponsors.gold, ...sponsors.silver]
-  const sponsorLoop = [...allSponsors, ...allSponsors]
+  const sponsorLoop = [...sponsors, ...sponsors]
   const featuredSpeakers = speakers
   const featuredTweets = [
     {
@@ -350,12 +308,6 @@ export default function AgenticZeroLanding() {
       handle: "@0xsamgreen",
       url: "https://x.com/0xsamgreen/status/1991621809943507139",
       text: "The first edition made the agent layer feel concrete: standards, tooling, trust, privacy, and infrastructure in one room.",
-    },
-    {
-      name: "satsbased",
-      handle: "@satsbased",
-      url: "https://x.com/satsbased/status/1991982776149536890",
-      text: "Notes from a day of AI x crypto sessions, where agents were treated as systems that need permissionless rails.",
     },
     {
       name: "defirmware",
@@ -481,14 +433,26 @@ export default function AgenticZeroLanding() {
               <HeroLogo />
             </div>
 
-            <div className="az-v2-sponsor-marquee" aria-label="2025 supported by">
-              <div className="az-v2-marquee-label">2025 supported by</div>
+            <div className="az-v2-sponsor-marquee" aria-label="2026 supported by">
+              <div className="az-v2-marquee-label">2026 supported by</div>
               <div className="az-v2-marquee-window">
                 <div className="az-v2-marquee-track">
                   {sponsorLoop.map((sponsor, index) => (
-                    <span className="az-v2-marquee-logo" key={`${sponsor.name}-${index}`}>
-                      <img src={sponsor.logo} alt={sponsor.name} loading="lazy" />
-                    </span>
+                    <a
+                      className="az-v2-marquee-logo"
+                      href={sponsor.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      key={`${sponsor.name}-${index}`}
+                      aria-label={`Visit ${sponsor.name}`}
+                    >
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className={sponsor.className}
+                        loading="lazy"
+                      />
+                    </a>
                   ))}
                 </div>
               </div>

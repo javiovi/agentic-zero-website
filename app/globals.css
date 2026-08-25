@@ -899,12 +899,18 @@ p {
 }
 
 .az-v2-marquee-logo img {
-  max-width: 118px;
+  max-width: 200px;
   max-height: 30px;
   width: auto;
-  height: auto;
+  height: 30px;
+  object-fit: contain;
   filter: none;
   opacity: 1;
+}
+
+.az-v2-marquee-logo img.az-v2-logo-calimero {
+  max-height: 38px;
+  height: 38px;
 }
 
 @keyframes azSponsorLoop {
