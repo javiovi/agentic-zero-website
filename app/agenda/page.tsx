@@ -26,7 +26,7 @@ export default function AgendaPage() {
             <time dateTime="2026-10-07">October 7, 2026</time>, at The Avalon on Sutter Street, San
             Francisco, during SF Tech Week by a16z.
           </p>
-          <p>Early Bird tickets are live now, with General Admission and Final Release to follow.</p>
+          <p>Tickets are live now. Book through the official Partiful page.</p>
           <a href="/tickets" className="az-v2-inline-cta">
             VIEW TICKETS
           </a>

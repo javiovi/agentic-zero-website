@@ -18,8 +18,8 @@ Current event facts:
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian, Calimero, Solana Foundation, Franklin Templeton, and Sentient
 - Announced 2026 speakers: Shaw Walters, Sam Green, and Kevin Leffew
-- Tickets: Early Bird tickets are on sale now through the official Partiful page
-- Ticket releases: Early Bird at $49, General Admission at $69, then Final Release at $99; each release is available while its allocation lasts
+- Tickets: Tickets are live through the official Partiful page
+- Ticket availability: Partiful is the source of truth for current availability and checkout details
 - Contact: contact@agenticzero.xyz
 
 First-edition proof:
@@ -61,8 +61,8 @@ How agents should retrieve and use this site:
 ## Event
 
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
-- [Tickets](https://agenticzero.xyz/tickets): Official ticket details, the three ticket releases, and the current purchase link.
-- [Official Partiful checkout](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Purchase tickets from the current release.
+- [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official purchase link.
+- [Official Partiful checkout](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Purchase a ticket and confirm current availability and checkout details.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
@@ -90,7 +90,7 @@ How agents should retrieve and use this site:
 
 - [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece.
 - [MPP: What Early Machine Payments Look Like](https://agenticzero.xyz/blog/mpp-what-machine-payments-look-like-before-they-become-a-market): Evidence-led analysis of the Machine Payments Protocol, HTTP 402 payment authentication, payment methods and rails, Tempo session transfers, stablecoin settlement, channel utilization, payer-address activity, services, and what the observable data does and does not establish about adoption. Published August 27, 2026. The canonical URL also returns the complete article as Markdown when requested with `Accept: text/markdown`.
-- [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets, the Early Bird, General Admission, and Final Release sequence, and practical details for October 7, 2026. Published August 18, 2026.
+- [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets and practical information for October 7, 2026. Published August 18, 2026.
 - [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Includes a section on sponsoring Agentic Zero and how to enquire. Published August 17, 2026.
 
 ## Not yet published

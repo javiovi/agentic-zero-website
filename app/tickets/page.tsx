@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { EventJsonLd } from '@/components/event-json-ld'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
-import { TICKET_RELEASES, TICKET_URL } from '@/lib/tickets'
+import { TICKET_URL } from '@/lib/tickets'
 
-const title = 'Agentic Zero tickets | Early Bird tickets are live'
+const title = 'Agentic Zero tickets | Tickets are live'
 const description =
-  'Early Bird tickets are live at $49 for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z. General Admission is $69 and Final Release is $99.'
+  'Tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z. Book through Partiful.'
 
 export const metadata: Metadata = {
   title,
@@ -49,45 +49,18 @@ export default function TicketsPage() {
             <p>Second edition · October 7, 2026</p>
           </header>
 
-          <section className="tickets-releases" aria-labelledby="ticket-releases-title">
-            <div className="tickets-section-heading">
-              <h2 id="ticket-releases-title">Tickets are live</h2>
-              <p>
-                Use Partiful to purchase your Agentic Zero ticket. Tickets will be released in
-                three stages through our{' '}
-                <a href={TICKET_URL} target="_blank" rel="noopener noreferrer">
-                  official Partiful page
-                </a>
-                .
-              </p>
-            </div>
-
-            <ol className="ticket-release-grid">
-              {TICKET_RELEASES.map((release) => (
-                <li
-                  className={`ticket-release-card ${
-                    release.status === 'on-sale' ? 'ticket-release-current' : ''
-                  }`}
-                  key={release.id}
-                >
-                  <div className="ticket-release-topline">
-                    <span className="ticket-release-status">{release.statusLabel}</span>
-                    {release.price !== undefined ? (
-                      <span className="ticket-release-price">${release.price}</span>
-                    ) : null}
-                  </div>
-                  <h3>{release.name}</h3>
-                  <p>{release.description}</p>
-                  <p className="ticket-release-availability">{release.availabilityNote}</p>
-                  {release.href ? (
-                    <a href={release.href} target="_blank" rel="noopener noreferrer">
-                      GET TICKETS
-                    </a>
-                  ) : null}
-                </li>
-              ))}
-            </ol>
-          </section>
+          <aside className="tickets-final-cta az-v2-description-card">
+            <h2>Tickets are live</h2>
+            <p>Book through the official Partiful page.</p>
+            <a
+              href={TICKET_URL}
+              className="az-v2-inline-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GET TICKETS
+            </a>
+          </aside>
 
           <section className="tickets-practical az-v2-prose" aria-labelledby="ticket-details-title">
             <h2 id="ticket-details-title">Ticket details</h2>
@@ -112,8 +85,8 @@ export default function TicketsPage() {
               <div>
                 <h3>How to get tickets</h3>
                 <p>
-                  Use the official Partiful page to reserve a ticket. Early Bird is the current
-                  release; General Admission and Final Release follow after earlier allocations close.
+                  Use the official Partiful page to reserve a ticket and confirm the current price
+                  and availability.
                 </p>
               </div>
               <div>
@@ -127,18 +100,6 @@ export default function TicketsPage() {
             </div>
           </section>
 
-          <aside className="tickets-final-cta az-v2-description-card">
-            <h2>Early Bird tickets are live</h2>
-            <p>Book through the official Partiful page while the first allocation is available.</p>
-            <a
-              href={TICKET_URL}
-              className="az-v2-inline-cta"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GET TICKETS
-            </a>
-          </aside>
         </main>
         <SiteFooter />
       </div>

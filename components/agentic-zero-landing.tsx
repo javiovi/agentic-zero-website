@@ -287,10 +287,11 @@ export default function AgenticZeroLanding() {
               </h2>
               <p>
                 The summit on agentic finance lands at SF Tech Week, bringing together builders
-                of the agentic stack and the institutions figuring out what comes next. Our
-                previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
-                across DeFi, infrastructure, and security, with 13k
-                more watching live.{' '}
+                of the agentic stack and the institutions figuring out what comes next.{' '}
+                <span className="az-v2-mobile-cut">
+                  Our previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
+                  across DeFi, infrastructure, and security, with 13k more watching live.{' '}
+                </span>
                 <a href="/blog/what-is-agentic-zero">
                   Learn more about the second edition.
                 </a>
@@ -350,7 +351,7 @@ export default function AgenticZeroLanding() {
               </p>
             </div>
             <div className="az-v2-tweet-mobile dark" data-theme="dark">
-              <Tweet id="1991480192737366497" apiUrl="/api/tweet/1991480192737366497" />
+              <Tweet id="2092277067677311310" apiUrl="/api/tweet/2092277067677311310" />
             </div>
             <div className="az-v2-tweet-rail" aria-label="Agentic Zero in social media">
               {Array.from({ length: Math.ceil(featuredTweets.length / 2) }, (_, i) =>

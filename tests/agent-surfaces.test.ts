@@ -122,6 +122,19 @@ describe('agent-facing content', () => {
     expect(body).toContain('## When to use Agentic Zero')
     expect(body).toContain('MPP: What Early Machine Payments Look Like')
     expect(body).toContain('Accept: text/markdown')
+    expect(body).not.toContain('Early Bird')
+    expect(body).not.toContain('General Admission')
+    expect(body).not.toContain('Final Release')
+    expect(body).not.toContain('$49')
+  })
+
+  it('leaves changing ticket price and availability to Partiful', async () => {
+    const ticketSource = await readFile('lib/tickets.ts', 'utf8')
+    const eventJsonLd = await readFile('components/event-json-ld.tsx', 'utf8')
+
+    expect(ticketSource).toContain('partiful.com')
+    expect(ticketSource).not.toContain('price')
+    expect(eventJsonLd).not.toContain('offers')
   })
 
   it('restores Vary: Accept at Vercel after Next renders the HTML page', async () => {

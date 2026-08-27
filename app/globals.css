@@ -1651,8 +1651,37 @@ p {
     margin-top: 72px;
   }
 
+  .az-v2-marquee-window {
+    height: auto;
+    overflow: visible;
+  }
+
+  .az-v2-marquee-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 20px;
+    height: auto;
+  }
+
   .az-v2-marquee-logo {
-    min-width: 100px;
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: 32px;
+    opacity: 1;
+    animation: none;
+    will-change: auto;
+  }
+
+  .az-v2-marquee-logo:nth-child(n + 3) {
+    display: none;
+  }
+
+  .az-v2-marquee-logo img {
+    max-width: 100%;
+    max-height: 32px;
+    height: 32px;
   }
 
   .az-v2-frame {
@@ -1669,6 +1698,14 @@ p {
   .az-v2-description-card {
     padding: 30px 24px;
     max-width: 100%;
+  }
+
+  .az-v2-description-card p:last-child {
+    font-size: 18px;
+  }
+
+  .az-v2-mobile-cut {
+    display: none;
   }
 
   .az-v2-description-card::before {
@@ -3548,8 +3585,7 @@ p {
 
 /* ==========================================================================
    Tickets
-   Three sequential release cards make the sale state explicit without
-   inventing prices or artificial countdowns.
+   Ticket information and direct Partiful calls to action.
    ========================================================================== */
 .tickets-main {
   max-width: 1120px;
@@ -3559,15 +3595,6 @@ p {
   max-width: 820px;
 }
 
-.tickets-releases {
-  margin-top: clamp(80px, 10vw, 136px);
-}
-
-.tickets-section-heading {
-  max-width: 720px;
-}
-
-.tickets-section-heading h2,
 .tickets-final-cta h2 {
   margin: 0;
   color: white;
@@ -3578,120 +3605,9 @@ p {
   text-transform: uppercase;
 }
 
-.tickets-section-heading > p:last-child {
-  margin-top: 18px;
-  max-width: 60ch;
-  font-size: clamp(16px, 1.5vw, 20px);
-}
-
-.ticket-release-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin: 40px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.ticket-release-card {
-  display: flex;
-  container-type: inline-size;
-  min-height: 360px;
-  flex-direction: column;
-  padding: clamp(24px, 3vw, 34px);
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 16px;
-}
-
-.ticket-release-card.ticket-release-current {
-  background: linear-gradient(150deg, rgba(249, 115, 22, 0.12), rgba(255, 255, 255, 0.025) 60%);
-  border-color: rgba(249, 115, 22, 0.7);
-}
-
-.ticket-release-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  color: rgba(255, 255, 255, 0.38);
-  font-family: var(--font-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ticket-release-status {
-  padding: 6px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.62);
-}
-
-.ticket-release-current .ticket-release-status {
-  border-color: rgba(249, 115, 22, 0.6);
-  color: #fb923c;
-}
-
-.ticket-release-price {
-  color: white;
-  font-family: var(--font-mono), monospace;
-  font-size: 26px;
-  letter-spacing: 0;
-}
-
-.ticket-release-current .ticket-release-price {
-  color: #fb923c;
-}
-
-.ticket-release-card h3 {
-  margin: 52px 0 0;
-  color: white;
-  font-family: var(--font-mono), monospace;
-  /* Sized against the card, not the viewport: the longest release name has to
-     stay on one line, and the card stops growing at 348px. */
-  font-size: clamp(19px, 2.4vw, 30px);
-  font-size: min(34px, 10.2cqw);
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.ticket-release-card > p {
-  margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-.ticket-release-card > p.ticket-release-availability {
-  margin-top: 8px;
-}
-
-.ticket-release-card > a {
-  display: inline-flex;
-  align-self: flex-start;
-  align-items: center;
-  justify-content: center;
-  margin-top: 18px;
-  padding: 13px 18px;
-  background: #f97316;
-  border-radius: 10px;
-  color: #050506;
-  font-family: var(--font-mono), monospace;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.ticket-release-card > a:hover {
-  background: #fb923c;
-  color: #050506;
-  text-decoration: none;
-}
-
 .tickets-practical {
   margin-top: clamp(80px, 10vw, 136px);
+  margin-bottom: clamp(80px, 10vw, 136px);
 }
 
 .tickets-practical > h2 {
@@ -3718,7 +3634,7 @@ p {
 
 .tickets-final-cta.az-v2-description-card {
   max-width: 100%;
-  margin: clamp(80px, 10vw, 136px) 0 clamp(64px, 8vw, 112px);
+  margin: clamp(80px, 10vw, 136px) 0 0;
   background: #050506;
   border-color: rgba(249, 115, 22, 0.72);
   border-radius: 12px;
@@ -3748,13 +3664,8 @@ p {
 }
 
 @media (max-width: 760px) {
-  .ticket-release-grid,
   .tickets-practical-grid {
     grid-template-columns: 1fr;
-  }
-
-  .ticket-release-card {
-    min-height: 310px;
   }
 
   .tickets-practical-grid {

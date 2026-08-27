@@ -81,7 +81,7 @@ export const POSTS: BlogPost[] = [
     slug: 'tickets-are-live-agentic-zero-2026',
     title: 'Tickets are live for Agentic Zero at SF Tech Week 2026',
     description:
-      'Early Bird tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.',
+      'Tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.',
     date: '2026-08-18',
     body: [
       {
@@ -94,13 +94,13 @@ export const POSTS: BlogPost[] = [
       {
         type: 'paragraph',
         content: [
-          'Early Bird tickets for Agentic Zero are now available. This is the first and most limited of three sequential ticket releases. Once the Early Bird allocation closes, General Admission opens, followed by Final Release as the last public ticket window before the summit.',
+          'Tickets for Agentic Zero are now available through the official Partiful page.',
         ],
       },
       {
         type: 'paragraph',
         content: [
-          'The release structure gives people who already know they want to attend the earliest opportunity to reserve a place. Every release remains subject to availability.',
+          'Partiful is the source of truth for the current price and availability.',
         ],
       },
       { type: 'heading', text: 'How to get tickets' },
@@ -109,14 +109,14 @@ export const POSTS: BlogPost[] = [
         content: [
           'Here is how to get tickets for Agentic Zero: visit the ',
           { text: 'official Partiful page', href: 'https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F', external: true },
-          ', review the current release, and complete the registration there. Partiful is the source of truth for the live price and remaining availability.',
+          ', review the current ticket details, and complete the registration there. Partiful is the source of truth for availability and checkout details.',
         ],
       },
-      { type: 'heading', text: 'Three ticket releases' },
+      { type: 'heading', text: 'Ticket details' },
       {
         type: 'paragraph',
         content: [
-          'Tickets will move through Early Bird, General Admission, and Final Release. Early Bird is on sale now. General Admission opens after the first allocation closes. Final Release is the last window and remains subject to capacity.',
+          'Check the official Partiful page for current availability and checkout details.',
         ],
       },
       { type: 'heading', text: 'When and where Agentic Zero takes place' },
@@ -153,8 +153,8 @@ export const POSTS: BlogPost[] = [
       },
       {
         type: 'cta',
-        title: 'Early Bird tickets are live',
-        text: 'Book through the official Partiful page while the first allocation is available.',
+        title: 'Tickets are live',
+        text: 'Book through the official Partiful page.',
         label: 'GET TICKETS',
         href: 'https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F',
         external: true,

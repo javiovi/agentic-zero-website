@@ -1,4 +1,3 @@
-import { ticketOffers } from '@/lib/tickets'
 import { SPEAKERS_2026 } from '@/lib/speakers'
 
 // Schema.org Event markup for the second edition.
@@ -7,8 +6,6 @@ import { SPEAKERS_2026 } from '@/lib/speakers'
 // Deliberately omitted because the site does not state them:
 //   endDate    — the site says "one-day summit" but publishes no start/end times
 //   postalCode — the published address stops at "1244 Sutter Street, San Francisco"
-const offers = ticketOffers()
-
 const secondEdition = {
   "@context": "https://schema.org",
   "@type": "Event",
@@ -79,7 +76,6 @@ const secondEdition = {
     },
     sameAs: [speaker.profileUrl],
   })),
-  ...(offers.length ? { offers } : {}),
 }
 
 function safeJsonLd(value: unknown) {

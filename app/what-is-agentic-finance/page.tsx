@@ -77,7 +77,7 @@ export default function AgenticFinancePage() {
             Google Cloud, and Vercel.
           </p>
 
-          <p>Early Bird tickets for the second edition are live now.</p>
+          <p>Tickets for the second edition are live now.</p>
 
           <a href="/tickets" className="az-v2-inline-cta">
             View tickets
