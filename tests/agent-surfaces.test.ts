@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { agenticZeroOrganization } from '@/components/organization-json-ld'
 import { GET as getNotFound, NOT_FOUND_MARKDOWN } from '@/app/[...notFound]/route'
 import { GET as getMarkdown } from '@/app/api/markdown/route'
+import { GET as getBlogMarkdown } from '@/app/api/markdown/[slug]/route'
 import {
   CONTACT_PARAGRAPHS,
   PRIVACY_PARAGRAPHS,
@@ -28,6 +29,28 @@ describe('agent-facing content', () => {
     expect(response.headers.get('Vary')).toContain('Accept')
     expect(body).toContain('## When to use Agentic Zero')
     expect(body).toContain('Accept: text/markdown')
+  })
+
+  it('serves complete blog articles as negotiated Markdown', async () => {
+    const response = await getBlogMarkdown(
+      new Request('https://agenticzero.xyz/api/markdown/mpp'),
+      {
+        params: Promise.resolve({
+          slug: 'mpp-what-machine-payments-look-like-before-they-become-a-market',
+        }),
+      }
+    )
+    const body = await response.text()
+
+    expect(response.status).toBe(200)
+    expect(response.headers.get('Content-Type')).toBe('text/markdown; charset=utf-8')
+    expect(response.headers.get('Content-Location')).toBe(
+      '/blog/mpp-what-machine-payments-look-like-before-they-become-a-market'
+    )
+    expect(body).toContain('# MPP: What Early Machine Payments Look Like')
+    expect(body).toContain('| Asset | Session transfers | Native payee value | Share of session transfers |')
+    expect(body).toContain('Why this matters for agentic finance')
+    expect(body).not.toMatch(/\blegs?\b/i)
   })
 
   it('returns a real Markdown 404 with recovery links', async () => {
@@ -97,14 +120,22 @@ describe('agent-facing content', () => {
   it('keeps llms.txt as the same when-to-use source tested by the route', async () => {
     const body = await readFile('public/llms.txt', 'utf8')
     expect(body).toContain('## When to use Agentic Zero')
+    expect(body).toContain('MPP: What Early Machine Payments Look Like')
+    expect(body).toContain('Accept: text/markdown')
   })
 
   it('restores Vary: Accept at Vercel after Next renders the HTML page', async () => {
     const config = JSON.parse(await readFile('vercel.json', 'utf8'))
     const root = config.headers.find((entry: { source: string }) => entry.source === '/')
     const vary = root.headers.find((header: { key: string }) => header.key === 'Vary')
+    const blog = config.headers.find(
+      (entry: { source: string }) => entry.source === '/blog/(.*)'
+    )
+    const blogVary = blog.headers.find((header: { key: string }) => header.key === 'Vary')
 
     expect(vary.value).toContain('Accept')
     expect(vary.value).toContain('Accept-Encoding')
+    expect(blogVary.value).toContain('Accept')
+    expect(blogVary.value).toContain('Accept-Encoding')
   })
 })

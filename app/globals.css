@@ -3395,6 +3395,109 @@ p {
   margin-top: -8px;
 }
 
+.post-list {
+  list-style: disc outside;
+  margin: 28px 0 0;
+  padding-left: 1.4em;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(16px, 1.5vw, 21px);
+  line-height: 1.55;
+}
+
+.post-list li::marker {
+  color: var(--az-accent-primary);
+}
+
+.post-list li + li {
+  margin-top: 20px;
+}
+
+.post-list ul {
+  list-style: circle outside;
+  margin-top: 12px;
+  padding-left: 1.4em;
+}
+
+.post-page strong {
+  color: var(--az-accent-primary);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.post-page h3 {
+  color: white;
+  font-size: clamp(22px, 2vw, 28px);
+}
+
+.post-page h4 {
+  margin: clamp(22px, 2.5vw, 34px) 0 0;
+  color: white;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 600;
+}
+
+.post-page code {
+  padding: 0.12em 0.34em;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--az-accent-primary);
+  font-family: var(--font-mono), monospace;
+  font-size: 1em;
+}
+
+.post-code {
+  overflow-x: auto;
+  margin: 28px 0 0;
+  padding: 24px;
+  border: 1px solid rgba(159, 152, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+}
+
+.post-code code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+}
+
+.post-table-wrap {
+  overflow-x: auto;
+  margin: clamp(32px, 4vw, 44px) 0;
+}
+
+.post-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.post-table th,
+.post-table td {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-table th {
+  color: white;
+  font-family: var(--font-mono), monospace;
+  font-weight: 500;
+}
+
+.post-divider {
+  margin: clamp(48px, 6vw, 72px) 0 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 .post-cta.az-v2-description-card {
   max-width: 100%;
   margin-top: clamp(48px, 6vw, 72px);

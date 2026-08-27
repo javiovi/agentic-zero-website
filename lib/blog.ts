@@ -8,12 +8,26 @@
 // "summit" not "conference", no specific protocols, standards or chains named,
 // and the first edition is always described in the past tense.
 
-export type BlogInline = string | { text: string; href: string; external?: boolean }
+import { MPP_POST_BODY } from './mpp-post'
+
+export type BlogInline =
+  | string
+  | { text: string; href: string; external?: boolean; strongLink?: boolean }
+  | { text: string; strong: true }
+  | { text: string; code: true }
+  | { text: string; emphasis: true }
+
+export type BlogListItem = BlogInline[] | { content: BlogInline[]; children: BlogListItem[] }
 
 export type BlogBlock =
   | { type: 'heading'; text: string }
   | { type: 'subheading'; text: string }
-  | { type: 'paragraph'; content: BlogInline[] }
+  | { type: 'minorHeading'; text: string }
+  | { type: 'paragraph'; content: BlogInline[]; accentStrong?: boolean }
+  | { type: 'list'; items: BlogListItem[]; accentStrong?: boolean }
+  | { type: 'code'; content: string }
+  | { type: 'table'; headers: BlogInline[][]; rows: BlogInline[][][]; accentStrong?: boolean }
+  | { type: 'divider' }
   | { type: 'cta'; title: string; text: string; label: string; href: string; external?: boolean }
 
 export type BlogPost = {
@@ -23,6 +37,11 @@ export type BlogPost = {
   description: string
   /** ISO date. Drives ordering and the <time> element. */
   date: string
+  /** ISO date for substantive revisions. Defaults to date when omitted. */
+  updated?: string
+  section?: string
+  keywords?: string[]
+  about?: { name: string; url?: string }[]
   /**
    * Set only for entries that live elsewhere on the site. The index links
    * straight there and no /blog/<slug> page is generated, so the page keeps a
@@ -33,6 +52,31 @@ export type BlogPost = {
 }
 
 export const POSTS: BlogPost[] = [
+  {
+    slug: 'mpp-what-machine-payments-look-like-before-they-become-a-market',
+    title: 'MPP: What Early Machine Payments Look Like',
+    description:
+      'MPP is an early, measurable piece of machine payments infrastructure—and a useful case study in what the current evidence can and cannot prove.',
+    date: '2026-08-27',
+    updated: '2026-08-27',
+    section: 'Agentic payments',
+    keywords: [
+      'Machine Payments Protocol',
+      'MPP',
+      'machine payments',
+      'agentic finance',
+      'HTTP 402',
+      'Tempo',
+      'Stripe',
+      'stablecoin payments',
+    ],
+    about: [
+      { name: 'Machine Payments Protocol (MPP)' },
+      { name: 'agentic finance', url: 'https://agenticzero.xyz/what-is-agentic-finance' },
+      { name: 'HTTP 402 Payment Required' },
+    ],
+    body: MPP_POST_BODY,
+  },
   {
     slug: 'tickets-are-live-agentic-zero-2026',
     title: 'Tickets are live for Agentic Zero at SF Tech Week 2026',

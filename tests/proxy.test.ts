@@ -42,3 +42,32 @@ describe('homepage content negotiation', () => {
     expect(await response.text()).toContain('text/markdown')
   })
 })
+
+describe('blog article content negotiation', () => {
+  const article =
+    'https://agenticzero.xyz/blog/mpp-what-machine-payments-look-like-before-they-become-a-market'
+
+  it('rewrites a Markdown request to the article Markdown representation', () => {
+    const request = new NextRequest(article, {
+      headers: { Accept: 'text/markdown' },
+    })
+    const response = proxy(request, event)
+
+    expect(isRewrite(response)).toBe(true)
+    expect(getRewrittenUrl(response)).toBe(
+      'https://agenticzero.xyz/api/markdown/mpp-what-machine-payments-look-like-before-they-become-a-market'
+    )
+    expect(response.headers.get('Vary')).toContain('Accept')
+  })
+
+  it('keeps browser requests on the canonical article URL', () => {
+    const request = new NextRequest(article, {
+      headers: { Accept: 'text/html' },
+    })
+    const response = proxy(request, event)
+
+    expect(isRewrite(response)).toBe(false)
+    expect(response.headers.get('x-middleware-next')).toBe('1')
+    expect(response.headers.get('Vary')).toContain('Accept')
+  })
+})

@@ -2,7 +2,14 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
-import { ARTICLES, getPost, type BlogInline, type BlogPost } from '@/lib/blog'
+import {
+  ARTICLES,
+  getPost,
+  type BlogInline,
+  type BlogListItem,
+  type BlogPost,
+} from '@/lib/blog'
+import { blogPostWordCount } from '@/lib/blog-markdown'
 
 const SITE_URL = 'https://agenticzero.xyz'
 const ARTICLE_IMAGE = `${SITE_URL}/agentic-zero-sf-tech-week-2026.png`
@@ -24,7 +31,12 @@ export async function generateMetadata(props: {
   return {
     title: post.title,
     description: post.description,
-    alternates: { canonical },
+    keywords: post.keywords,
+    alternates: {
+      canonical,
+      types: { 'text/markdown': canonical },
+    },
+    robots: { index: true, follow: true },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -32,6 +44,9 @@ export async function generateMetadata(props: {
       siteName: 'Agentic Zero',
       type: 'article',
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
+      section: post.section,
+      tags: post.keywords,
       images: [
         {
           url: ARTICLE_IMAGE,
@@ -59,19 +74,38 @@ function formatDate(date: string) {
   })
 }
 
-function inlineContent(content: BlogInline[]) {
-  return content.map((part, index) =>
-    typeof part === 'string' ? (
-      part
-    ) : (
+function inlineContent(content: BlogInline[], accentStrong = false) {
+  return content.map((part, index) => {
+    if (typeof part === 'string') return part
+    if ('strong' in part) {
+      return accentStrong ? <strong key={index}>{part.text}</strong> : part.text
+    }
+    if ('code' in part) return <code key={index}>{part.text}</code>
+    if ('emphasis' in part) return <em key={index}>{part.text}</em>
+
+    return (
       <a
         href={part.href}
         key={`${part.href}-${index}`}
         {...(part.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
-        {part.text}
+        {part.strongLink ? <strong>{part.text}</strong> : part.text}
       </a>
     )
+  })
+}
+
+function listItem(item: BlogListItem, key: number, accentStrong: boolean) {
+  const content = Array.isArray(item) ? item : item.content
+  const children = Array.isArray(item) ? undefined : item.children
+
+  return (
+    <li key={key}>
+      {inlineContent(content, accentStrong)}
+      {children ? (
+        <ul>{children.map((child, childIndex) => listItem(child, childIndex, accentStrong))}</ul>
+      ) : null}
+    </li>
   )
 }
 
@@ -84,12 +118,27 @@ function blogPosting(post: BlogPost) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    dateModified: post.updated ?? post.date,
+    inLanguage: 'en',
+    articleSection: post.section,
+    keywords: post.keywords,
+    wordCount: blogPostWordCount(post),
     url: canonical,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': canonical,
     },
     image: ARTICLE_IMAGE,
+    isPartOf: {
+      '@type': 'Blog',
+      name: 'Agentic Zero Blog',
+      url: `${SITE_URL}/blog`,
+    },
+    about: post.about?.map((topic) => ({
+      '@type': 'Thing',
+      name: topic.name,
+      ...(topic.url ? { url: topic.url } : {}),
+    })),
     author: {
       '@type': 'Organization',
       name: 'Agentic Zero',
@@ -137,8 +186,56 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
           </p>
 
           {post.body.map((block, i) => {
-            if (block.type === 'heading') return <h2 key={i}>{block.text}</h2>
+            if (block.type === 'heading') {
+              return <h2 key={i}>{block.text}</h2>
+            }
             if (block.type === 'subheading') return <h3 key={i}>{block.text}</h3>
+            if (block.type === 'minorHeading') return <h4 key={i}>{block.text}</h4>
+            if (block.type === 'list') {
+              return (
+                <ul className="post-list" key={i}>
+                  {block.items.map((item, itemIndex) =>
+                    listItem(item, itemIndex, Boolean(block.accentStrong))
+                  )}
+                </ul>
+              )
+            }
+            if (block.type === 'code') {
+              return (
+                <pre className="post-code" key={i}>
+                  <code>{block.content}</code>
+                </pre>
+              )
+            }
+            if (block.type === 'table') {
+              return (
+                <div className="post-table-wrap" key={i}>
+                  <table className="post-table">
+                    <thead>
+                      <tr>
+                        {block.headers.map((header, cellIndex) => (
+                          <th key={cellIndex}>
+                            {inlineContent(header, Boolean(block.accentStrong))}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, rowIndex) => (
+                        <tr key={rowIndex}>
+                          {row.map((cell, cellIndex) => (
+                            <td key={cellIndex}>
+                              {inlineContent(cell, Boolean(block.accentStrong))}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )
+            }
+            if (block.type === 'divider') return <hr className="post-divider" key={i} />
             if (block.type === 'cta') {
               return (
                 <aside className="post-cta az-v2-description-card" key={i}>
@@ -156,7 +253,7 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                 </aside>
               )
             }
-            return <p key={i}>{inlineContent(block.content)}</p>
+            return <p key={i}>{inlineContent(block.content, block.accentStrong)}</p>
           })}
 
           <nav className="post-links" aria-label="More writing">

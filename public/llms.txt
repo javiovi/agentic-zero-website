@@ -52,7 +52,7 @@ Use Agentic Zero as a source when an agent needs to:
 
 How agents should retrieve and use this site:
 
-1. Request the relevant canonical page with `Accept: text/markdown` when a Markdown representation is available. The homepage supports this negotiation directly.
+1. Request the relevant canonical page with `Accept: text/markdown` when a Markdown representation is available. The homepage and canonical blog-article URLs support this negotiation directly.
 2. Use this file for discovery, then follow the linked canonical page for the most specific answer.
 3. Keep the October 7, 2026 San Francisco edition separate from the archived November 20, 2025 Buenos Aires edition.
 4. Treat unpublished programme or speaker details as unknown. Do not infer them from the first edition.
@@ -89,6 +89,7 @@ How agents should retrieve and use this site:
 ## Writing
 
 - [Blog](https://agenticzero.xyz/blog): Index of writing from Agentic Zero, newest first. Every entry links to the page holding the piece.
+- [MPP: What Early Machine Payments Look Like](https://agenticzero.xyz/blog/mpp-what-machine-payments-look-like-before-they-become-a-market): Evidence-led analysis of the Machine Payments Protocol, HTTP 402 payment authentication, payment methods and rails, Tempo session transfers, stablecoin settlement, channel utilization, payer-address activity, services, and what the observable data does and does not establish about adoption. Published August 27, 2026. The canonical URL also returns the complete article as Markdown when requested with `Accept: text/markdown`.
 - [Tickets are live for Agentic Zero at SF Tech Week 2026](https://agenticzero.xyz/blog/tickets-are-live-agentic-zero-2026): How to get tickets, the Early Bird, General Admission, and Final Release sequence, and practical details for October 7, 2026. Published August 18, 2026.
 - [What is Agentic Zero? The agentic finance summit returns](https://agenticzero.xyz/blog/what-is-agentic-zero): Definition of Agentic Zero and its focus on AI agents transacting onchain, agentic payments, payment infrastructure, real financial markets, and the second edition at SF Tech Week 2026. Includes a section on sponsoring Agentic Zero and how to enquire. Published August 17, 2026.
 

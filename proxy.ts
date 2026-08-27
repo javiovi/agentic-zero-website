@@ -4,6 +4,7 @@ import {
   appendNegotiationVary,
   preferredRepresentation,
 } from '@/lib/content-negotiation'
+import { getPost } from '@/lib/blog'
 
 /**
  * Logs AI crawler hits so we can tell training crawls apart from live,
@@ -224,14 +225,20 @@ function clientIp(request: NextRequest): string {
 
 export function proxy(request: NextRequest, event: NextFetchEvent) {
   let response: NextResponse
+  const pathname = request.nextUrl.pathname
+  const blogMatch = pathname.match(/^\/blog\/([^/]+)$/)
+  const blogPost = blogMatch ? getPost(blogMatch[1]) : undefined
+  const negotiatesContent = pathname === '/' || Boolean(blogPost)
 
-  if (request.nextUrl.pathname === '/') {
+  if (negotiatesContent) {
     const accept = request.headers.get('accept')
     const representation = preferredRepresentation(accept)
 
     if (representation === 'text/markdown') {
       const markdownUrl = request.nextUrl.clone()
-      markdownUrl.pathname = '/api/markdown'
+      markdownUrl.pathname = blogPost
+        ? `/api/markdown/${blogPost.slug}`
+        : '/api/markdown'
       response = NextResponse.rewrite(markdownUrl)
     } else if (representation === null && accept) {
       response = new NextResponse(

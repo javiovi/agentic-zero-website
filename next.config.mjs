@@ -37,6 +37,16 @@ const nextConfig = {
         ],
       },
       {
+        source: '/blog/:slug',
+        headers: [
+          {
+            key: 'Vary',
+            value:
+              'rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept, Accept-Encoding',
+          },
+        ],
+      },
+      {
         source: '/llms.txt',
         headers: [
           { key: 'Content-Type', value: 'text/plain; charset=utf-8' },

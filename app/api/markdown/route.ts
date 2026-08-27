@@ -9,6 +9,8 @@ export async function GET() {
       'Content-Type': 'text/markdown; charset=utf-8',
       'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=86400',
       'Vary': 'Accept, Accept-Encoding',
+      'Access-Control-Allow-Origin': '*',
+      'Content-Language': 'en',
       'Content-Location': '/',
       'Link': '<https://agenticzero.xyz/llms.txt>; rel="alternate"; type="text/plain"',
     },
