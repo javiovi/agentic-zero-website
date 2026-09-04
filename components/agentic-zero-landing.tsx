@@ -75,6 +75,11 @@ export default function AgenticZeroLanding() {
       logo: "/images/logos/solana-foundation-primary.svg",
       website: "https://solana.org/",
     },
+    {
+      name: "QuickNode",
+      logo: "/images/logos/quicknode-logo-white.svg",
+      website: "https://www.quicknode.com/",
+    },
   ]
 
   const featuredTweets = [
@@ -248,7 +253,7 @@ export default function AgenticZeroLanding() {
               <div className="az-v2-marquee-label">2026 supported by</div>
               <div className="az-v2-marquee-window">
                 <div className="az-v2-marquee-track">
-                  {Array.from({ length: 4 }, (_, index) => {
+                  {Array.from({ length: sponsors.length * 4 }, (_, index) => {
                     const sponsor = sponsors[index % sponsors.length]
 
                     return (
@@ -261,11 +266,11 @@ export default function AgenticZeroLanding() {
                         key={`${index}-${sponsor.name}`}
                         aria-label={index < sponsors.length ? `Visit ${sponsor.name}` : undefined}
                         aria-hidden={index >= sponsors.length ? true : undefined}
-                        style={{ animationDelay: `${index * -6}s` }}
                       >
                         <img
                           src={sponsor.logo}
                           alt={index < sponsors.length ? sponsor.name : ""}
+                          className={sponsor.name === "QuickNode" ? "az-v2-logo-quicknode" : undefined}
                           loading="eager"
                         />
                       </a>

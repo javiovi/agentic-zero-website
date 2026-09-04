@@ -876,30 +876,37 @@ p {
 }
 
 .az-v2-marquee-window {
-  --az-logo-slot-width: clamp(150px, 18vw, 250px);
+  --az-sponsor-cycle-width: 693px;
   position: relative;
   height: 38px;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
 .az-v2-marquee-track {
   position: relative;
-  width: 100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: max-content;
+  padding-left: 100%;
+  animation:
+    azSponsorIntro 24s linear 0s 1 forwards,
+    azSponsorLoop 16s linear 24s infinite;
+  will-change: left;
   height: 100%;
 }
 
 .az-v2-marquee-logo {
-  position: absolute;
-  top: 0;
-  left: calc(100% - var(--az-logo-slot-width));
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: var(--az-logo-slot-width);
+  width: auto;
   height: 38px;
-  opacity: 0;
-  animation: azSponsorLoop 24s linear infinite;
-  will-change: left, opacity;
+  opacity: 1;
 }
 
 .az-v2-marquee-logo img {
@@ -916,20 +923,25 @@ p {
   height: 33px;
 }
 
-@keyframes azSponsorLoop {
-  0% {
-    left: calc(100% - var(--az-logo-slot-width));
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  100% {
+.az-v2-marquee-logo img.az-v2-logo-quicknode {
+  height: 30px;
+}
+
+@keyframes azSponsorIntro {
+  from {
     left: 0;
-    opacity: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes azSponsorLoop {
+  from {
+    left: -100%;
+  }
+  to {
+    left: calc(-100% - var(--az-sponsor-cycle-width));
   }
 }
 
@@ -1654,14 +1666,21 @@ p {
   .az-v2-marquee-window {
     height: auto;
     overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .az-v2-marquee-track {
+    left: auto;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
-    gap: 20px;
+    gap: 50px;
+    width: 100%;
     height: auto;
+    padding-left: 0;
+    animation: none;
+    will-change: auto;
   }
 
   .az-v2-marquee-logo {
@@ -1674,7 +1693,7 @@ p {
     will-change: auto;
   }
 
-  .az-v2-marquee-logo:nth-child(n + 3) {
+  .az-v2-marquee-logo:nth-child(n + 4) {
     display: none;
   }
 
