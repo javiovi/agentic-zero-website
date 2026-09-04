@@ -876,7 +876,7 @@ p {
 }
 
 .az-v2-marquee-window {
-  --az-sponsor-cycle-width: 693px;
+  --az-sponsor-cycle-width: 884.21875px;
   position: relative;
   height: 38px;
   overflow: hidden;
@@ -892,9 +892,7 @@ p {
   gap: 50px;
   width: max-content;
   padding-left: 100%;
-  animation:
-    azSponsorIntro 24s linear 0s 1 forwards,
-    azSponsorLoop 16s linear 24s infinite;
+  animation: azSponsorLoop 16s linear -8s infinite;
   will-change: left;
   height: 100%;
 }
@@ -925,15 +923,6 @@ p {
 
 .az-v2-marquee-logo img.az-v2-logo-quicknode {
   height: 30px;
-}
-
-@keyframes azSponsorIntro {
-  from {
-    left: 0;
-  }
-  to {
-    left: -100%;
-  }
 }
 
 @keyframes azSponsorLoop {
@@ -1673,7 +1662,7 @@ p {
   .az-v2-marquee-track {
     left: auto;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     gap: 50px;
     width: 100%;
@@ -1693,7 +1682,7 @@ p {
     will-change: auto;
   }
 
-  .az-v2-marquee-logo:nth-child(n + 4) {
+  .az-v2-marquee-logo:nth-child(n + 5) {
     display: none;
   }
 

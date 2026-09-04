@@ -13,7 +13,7 @@ const secondEdition = {
   description:
     "The summit on agentic finance returns for its second edition on October 7 during SF Tech Week 2026. The people building the agentic stack, in one room.",
   url: "https://agenticzero.xyz/",
-  image: "https://agenticzero.xyz/agentic-zero-sf-tech-week-2026.png",
+  image: "https://agenticzero.xyz/agentic-zero-sf-tech-week-2026-sponsors.png",
   startDate: "2026-10-07",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
@@ -34,8 +34,8 @@ const secondEdition = {
   sponsor: [
     {
       "@type": "Organization",
-      name: "Cambrian",
-      url: "https://www.cambrian.org/",
+      name: "Cambrian Network",
+      url: "https://cambrian.org/",
     },
     {
       "@type": "Organization",
@@ -49,13 +49,8 @@ const secondEdition = {
     },
     {
       "@type": "Organization",
-      name: "Franklin Templeton",
-      url: "https://www.franklintempleton.com/",
-    },
-    {
-      "@type": "Organization",
-      name: "Sentient",
-      url: "https://www.sentient.xyz/",
+      name: "QuickNode",
+      url: "https://www.quicknode.com/",
     },
   ],
   superEvent: {

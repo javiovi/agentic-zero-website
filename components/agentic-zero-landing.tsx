@@ -80,6 +80,11 @@ export default function AgenticZeroLanding() {
       logo: "/images/logos/quicknode-logo-white.svg",
       website: "https://www.quicknode.com/",
     },
+    {
+      name: "Cambrian Network",
+      logo: "/images/logos/cambrian_green.png",
+      website: "https://cambrian.org/",
+    },
   ]
 
   const featuredTweets = [
