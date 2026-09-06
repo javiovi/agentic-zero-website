@@ -876,7 +876,7 @@ p {
 }
 
 .az-v2-marquee-window {
-  --az-sponsor-cycle-width: 884.21875px;
+  --az-sponsor-cycle-width: 776.4296875px;
   position: relative;
   height: 38px;
   overflow: hidden;
@@ -921,8 +921,9 @@ p {
   height: 33px;
 }
 
+.az-v2-marquee-logo img.az-v2-logo-solana,
 .az-v2-marquee-logo img.az-v2-logo-quicknode {
-  height: 30px;
+  height: 24px;
 }
 
 @keyframes azSponsorLoop {
@@ -1690,6 +1691,11 @@ p {
     max-width: 100%;
     max-height: 32px;
     height: 32px;
+  }
+
+  .az-v2-marquee-logo img.az-v2-logo-solana,
+  .az-v2-marquee-logo img.az-v2-logo-quicknode {
+    height: 20px;
   }
 
   .az-v2-frame {

@@ -71,9 +71,9 @@ export default function AgenticZeroLanding() {
       website: "https://calimero.network/",
     },
     {
-      name: "Solana Foundation",
-      logo: "/images/logos/solana-foundation-primary.svg",
-      website: "https://solana.org/",
+      name: "Solana",
+      logo: "/images/logos/solana.png",
+      website: "https://solana.com/",
     },
     {
       name: "QuickNode",
@@ -275,7 +275,7 @@ export default function AgenticZeroLanding() {
                         <img
                           src={sponsor.logo}
                           alt={index < sponsors.length ? sponsor.name : ""}
-                          className={sponsor.name === "QuickNode" ? "az-v2-logo-quicknode" : undefined}
+                          className={sponsor.name === "QuickNode" ? "az-v2-logo-quicknode" : sponsor.name === "Solana" ? "az-v2-logo-solana" : undefined}
                           loading="eager"
                         />
                       </a>

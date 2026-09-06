@@ -14,7 +14,7 @@ import { blogPostWordCount } from '@/lib/blog-markdown'
 const SITE_URL = 'https://agenticzero.xyz'
 const ARTICLE_IMAGE = `${SITE_URL}/agentic-zero-sf-tech-week-2026-sponsors.png`
 const ARTICLE_IMAGE_ALT =
-  'Agentic Zero — Second Edition · SF Tech Week 2026, supported by Solana Foundation, Calimero, Cambrian Network, and QuickNode'
+  'Agentic Zero — Second Edition · SF Tech Week 2026, supported by Solana, Calimero, Cambrian Network, and QuickNode'
 
 // Every slug is known at build time, so each post page is static.
 export function generateStaticParams() {

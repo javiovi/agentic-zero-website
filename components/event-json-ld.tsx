@@ -44,8 +44,8 @@ const secondEdition = {
     },
     {
       "@type": "Organization",
-      name: "Solana Foundation",
-      url: "https://solana.org/",
+      name: "Solana",
+      url: "https://solana.com/",
     },
     {
       "@type": "Organization",

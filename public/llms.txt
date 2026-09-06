@@ -16,7 +16,7 @@ Current event facts:
 - Venue: The Avalon, 1244 Sutter Street, San Francisco
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
-- Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana Foundation, and QuickNode
+- Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, and QuickNode
 - Announced 2026 speakers: Shaw Walters, Sam Green, and Kevin Leffew
 - Tickets: Tickets are live through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and checkout details
@@ -72,7 +72,7 @@ How agents should retrieve and use this site:
 
 - [Cambrian Network](https://cambrian.org/)
 - [Calimero](https://calimero.network/)
-- [Solana Foundation](https://solana.org/)
+- [Solana](https://solana.com/)
 - [QuickNode](https://www.quicknode.com/)
 
 ## Positioning
