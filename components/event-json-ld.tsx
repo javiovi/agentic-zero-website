@@ -52,6 +52,11 @@ const secondEdition = {
       name: "QuickNode",
       url: "https://www.quicknode.com/",
     },
+    {
+      "@type": "Organization",
+      name: "Belo",
+      url: "https://www.belo.app/",
+    },
   ],
   superEvent: {
     "@type": "Event",

@@ -85,6 +85,11 @@ export default function AgenticZeroLanding() {
       logo: "/images/logos/cambrian_green.png",
       website: "https://cambrian.org/",
     },
+    {
+      name: "Belo",
+      logo: "/images/logos/belo-color.png",
+      website: "https://www.belo.app/",
+    },
   ]
 
   const featuredTweets = [
@@ -263,7 +268,7 @@ export default function AgenticZeroLanding() {
 
                     return (
                       <a
-                        className="az-v2-marquee-logo"
+                        className={`az-v2-marquee-logo${sponsor.name === "Belo" ? " az-v2-marquee-logo-belo" : ""}`}
                         href={sponsor.website}
                         target="_blank"
                         rel="noreferrer"
