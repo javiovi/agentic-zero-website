@@ -4,9 +4,9 @@ import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
 import { TICKET_URL } from '@/lib/tickets'
 
-const title = 'Agentic Zero tickets | Tickets are live'
+const title = 'Agentic Zero tickets | Registration open'
 const description =
-  'Tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z. Book through Partiful.'
+  'Tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z. Register through Partiful.'
 
 export const metadata: Metadata = {
   title,
@@ -55,15 +55,15 @@ export default function TicketsPage() {
           </header>
 
           <aside className="tickets-final-cta az-v2-description-card">
-            <h2>Tickets are live</h2>
-            <p>Book through the official Partiful page.</p>
+            <h2>Registration open</h2>
+            <p>Admission is free. Register through the official Partiful page.</p>
             <a
               href={TICKET_URL}
               className="az-v2-inline-cta"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GET TICKETS
+              REGISTER
             </a>
           </aside>
 
@@ -90,8 +90,7 @@ export default function TicketsPage() {
               <div>
                 <h3>How to get tickets</h3>
                 <p>
-                  Use the official Partiful page to reserve a ticket and confirm the current price
-                  and availability.
+                  Register through the official Partiful page and check current availability.
                 </p>
               </div>
               <div>

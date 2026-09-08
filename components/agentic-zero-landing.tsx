@@ -249,7 +249,7 @@ export default function AgenticZeroLanding() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GET TICKETS
+                    REGISTER
                   </a>
                   <a href="/tickets" className="az-v2-hero-ticket-details">
                     Ticket details
@@ -366,7 +366,7 @@ export default function AgenticZeroLanding() {
               </p>
             </div>
             <div className="az-v2-tweet-mobile dark" data-theme="dark">
-              <Tweet id="2092277067677311310" apiUrl="/api/tweet/2092277067677311310" />
+              <Tweet id="2001013112049459238" apiUrl="/api/tweet/2001013112049459238" />
             </div>
             <div className="az-v2-tweet-rail" aria-label="Agentic Zero in social media">
               {Array.from({ length: Math.ceil(featuredTweets.length / 2) }, (_, i) =>

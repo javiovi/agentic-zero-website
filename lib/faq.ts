@@ -48,7 +48,7 @@ export const FAQS: Faq[] = [
   {
     question: "How can I get tickets?",
     answer: [
-      "Tickets are on sale now through the ",
+      "Admission is free. Register through the ",
       { text: "official Partiful page", href: TICKET_URL, external: true },
       ". See the ",
       { text: "ticket details", href: "/tickets" },

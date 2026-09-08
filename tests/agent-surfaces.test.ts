@@ -99,7 +99,7 @@ describe('agent-facing content', () => {
     expect(privacy).toContain('Umami analytics')
     expect(privacy).toContain('DNS verification')
     expect(privacy).toContain('does not sell personal information')
-    expect(privacy).toContain('August 21, 2026')
+    expect(privacy).toContain('September 8, 2026')
   })
 
   it('publishes a canonical, contactable Organization identity', () => {
@@ -128,13 +128,14 @@ describe('agent-facing content', () => {
     expect(body).not.toContain('$49')
   })
 
-  it('leaves changing ticket price and availability to Partiful', async () => {
+  it('marks admission as free without introducing ticket offers', async () => {
     const ticketSource = await readFile('lib/tickets.ts', 'utf8')
     const eventJsonLd = await readFile('components/event-json-ld.tsx', 'utf8')
 
     expect(ticketSource).toContain('partiful.com')
     expect(ticketSource).not.toContain('price')
     expect(eventJsonLd).not.toContain('offers')
+    expect(eventJsonLd).toContain('isAccessibleForFree: true')
   })
 
   it('restores Vary: Accept at Vercel after Next renders the HTML page', async () => {

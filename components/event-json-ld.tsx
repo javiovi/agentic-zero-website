@@ -15,6 +15,7 @@ const secondEdition = {
   url: "https://agenticzero.xyz/",
   image: "https://agenticzero.xyz/agentic-zero-sf-tech-week-2026-sponsors.png",
   startDate: "2026-10-07",
+  isAccessibleForFree: true,
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {

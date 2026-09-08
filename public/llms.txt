@@ -18,8 +18,8 @@ Current event facts:
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, and Belo
 - Announced 2026 speakers: Shaw Walters, Sam Green, and Kevin Leffew
-- Tickets: Tickets are live through the official Partiful page
-- Ticket availability: Partiful is the source of truth for current availability and checkout details
+- Tickets: Admission is free. Register through the official Partiful page
+- Ticket availability: Partiful is the source of truth for current availability and registration details
 - Contact: contact@agenticzero.xyz
 
 First-edition proof:
@@ -61,8 +61,8 @@ How agents should retrieve and use this site:
 ## Event
 
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
-- [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official purchase link.
-- [Official Partiful checkout](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Purchase a ticket and confirm current availability and checkout details.
+- [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
+- [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.

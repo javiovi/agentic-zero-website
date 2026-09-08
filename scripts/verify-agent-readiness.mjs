@@ -99,8 +99,8 @@ for (const path of ['/contact', '/privacy']) {
 const tickets = await request('/tickets', 'text/html')
 const ticketsBody = await tickets.text()
 assert.equal(tickets.status, 200)
-assert.match(ticketsBody, /Tickets are live/)
-assert.match(ticketsBody, /Book through the official Partiful page/)
+assert.match(ticketsBody, /Registration open/)
+assert.match(ticketsBody, /Admission is free\. Register through the official Partiful page/)
 assert.doesNotMatch(ticketsBody, /\$49/)
 assert.doesNotMatch(ticketsBody, /Early Bird/)
 assert.doesNotMatch(ticketsBody, /General Admission/)
@@ -119,7 +119,7 @@ const privacyBody = await privacy.text()
 assert.match(privacyBody, /Umami analytics/)
 assert.match(privacyBody, /DNS verification/)
 assert.match(privacyBody, /does not sell personal information/)
-assert.match(privacyBody, /August 21, 2026/)
+assert.match(privacyBody, /September 8, 2026/)
 
 const llms = await request('/llms.txt')
 assert.equal(llms.status, 200)
@@ -176,5 +176,37 @@ assert.equal(blogPosting?.articleSection, 'Agentic payments')
 assert.ok(blogPosting?.wordCount > 1000)
 assert.ok(blogPosting?.keywords.includes('Machine Payments Protocol'))
 assert.ok(blogPosting?.about.some((topic) => topic.name === 'agentic finance'))
+
+// Ticket messaging must agree across visible HTML, metadata, schema, and Markdown.
+const staleTicketLanguage = /current price|on sale|early bird|general admission|final release|purchas(?:e|es)|checkout|buy tickets|\$(?:49|69|99)\b/i
+const ticketArticlePath = '/blog/tickets-are-live-agentic-zero-2026'
+for (const [path, accept] of [
+  [ticketArticlePath, 'text/html'],
+  [ticketArticlePath, 'text/markdown'],
+]) {
+  const response = await request(path, accept)
+  const body = await response.text()
+  assert.equal(response.status, 200)
+  assert.match(body, /Admission is free/)
+  assert.doesNotMatch(body, staleTicketLanguage, `${path} (${accept}) has stale ticket copy`)
+  if (accept === 'text/html') {
+    const blocks = [...body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]))
+    const article = blocks.find((block) => block['@type'] === 'BlogPosting')
+    assert.equal(article?.datePublished, '2026-08-18')
+    assert.equal(article?.dateModified, '2026-09-08')
+  }
+}
+for (const [name, body] of Object.entries({ homepage: html, tickets: ticketsBody, contact: contactBody, privacy: privacyBody, llms: llmsBody, markdown })) {
+  assert.doesNotMatch(body, staleTicketLanguage, `${name} has stale ticket copy`)
+}
+assert.match(llmsBody, /Admission is free/)
+assert.match(markdown, /Admission is free/)
+assert.doesNotMatch(html, /2092277067677311310/)
+const event = jsonLdBlocks.find((block) => block['@type'] === 'Event')
+assert.equal(event?.isAccessibleForFree, true)
+assert.equal(event?.offers, undefined)
+const faq = jsonLdBlocks.find((block) => block['@type'] === 'FAQPage')
+assert.match(faq?.mainEntity.find((item) => item.name === 'How can I get tickets?')?.acceptedAnswer.text ?? '', /Admission is free/)
 
 console.log('Agent-readiness endpoint verification passed.')

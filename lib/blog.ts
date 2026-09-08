@@ -83,6 +83,7 @@ export const POSTS: BlogPost[] = [
     description:
       'Tickets are live for Agentic Zero on October 7, 2026, at The Avalon in San Francisco during SF Tech Week by a16z.',
     date: '2026-08-18',
+    updated: '2026-09-08',
     body: [
       {
         type: 'paragraph',
@@ -100,7 +101,7 @@ export const POSTS: BlogPost[] = [
       {
         type: 'paragraph',
         content: [
-          'Partiful is the source of truth for the current price and availability.',
+          'Admission is free. Register through the official Partiful page.',
         ],
       },
       { type: 'heading', text: 'How to get tickets' },
@@ -109,14 +110,14 @@ export const POSTS: BlogPost[] = [
         content: [
           'Here is how to get tickets for Agentic Zero: visit the ',
           { text: 'official Partiful page', href: 'https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F', external: true },
-          ', review the current ticket details, and complete the registration there. Partiful is the source of truth for availability and checkout details.',
+          ', review the current ticket details, and complete the registration there. Partiful is the source of truth for availability and registration details.',
         ],
       },
       { type: 'heading', text: 'Ticket details' },
       {
         type: 'paragraph',
         content: [
-          'Check the official Partiful page for current availability and checkout details.',
+          'Check the official Partiful page for current availability and registration details.',
         ],
       },
       { type: 'heading', text: 'When and where Agentic Zero takes place' },
@@ -154,8 +155,8 @@ export const POSTS: BlogPost[] = [
       {
         type: 'cta',
         title: 'Tickets are live',
-        text: 'Book through the official Partiful page.',
-        label: 'GET TICKETS',
+        text: 'Register through the official Partiful page.',
+        label: 'REGISTER',
         href: 'https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F',
         external: true,
       },
