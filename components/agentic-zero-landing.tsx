@@ -1,5 +1,6 @@
 // Server-rendered structure and content for the Agentic Zero homepage.
 import { Tweet } from "react-tweet"
+import { SPONSORS_2026, PARTNERS_2026, MEDIA_PARTNER_2026 } from "@/lib/partners"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
@@ -8,6 +9,13 @@ import { OrganizationJsonLd } from "@/components/organization-json-ld"
 import { FAQS } from "@/lib/faq"
 import { TICKET_URL } from "@/lib/tickets"
 import { FAQItem, HeroLogo, NotifyForm } from "@/components/homepage-interactions"
+
+import { SpeakerSilhouette } from "@/components/speaker-placeholder"
+import {
+  PUBLIC_SPEAKERS_2026,
+  UNANNOUNCED_SPEAKER_SLOTS,
+  speakerDisplayRole,
+} from "@/lib/speakers"
 
 // Loading screen logo component (unchanged as requested)
 const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
@@ -64,34 +72,9 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 
 
 export default function AgenticZeroLanding() {
-  const sponsors = [
-    {
-      name: "Calimero",
-      logo: "/images/logos/calimero_white.png",
-      website: "https://calimero.network/",
-    },
-    {
-      name: "Solana",
-      logo: "/images/logos/solana.png",
-      website: "https://solana.com/",
-    },
-    {
-      name: "QuickNode",
-      logo: "/images/logos/quicknode-logo-white.svg",
-      website: "https://www.quicknode.com/",
-    },
-    {
-      name: "Cambrian Network",
-      logo: "/images/logos/cambrian_green.png",
-      website: "https://cambrian.org/",
-    },
-    {
-      name: "Belo",
-      logo: "/images/logos/belo-color.png",
-      website: "https://www.belo.app/",
-    },
-  ]
-
+  const sponsors = SPONSORS_2026
+  const partners = PARTNERS_2026
+  const featuredSpeakers = PUBLIC_SPEAKERS_2026
   const featuredTweets = [
     {
       name: "Zyfai",
@@ -353,8 +336,93 @@ export default function AgenticZeroLanding() {
                 </a>
               </div>
             </div>
+            <div id="speakers" className="az-v2-speaker-section">
+              <div className="az-v2-section-heading">
+                <span>Second edition</span>
+                <h3>Speakers</h3>
+              </div>
+              <div className="az-v2-speaker-rail" aria-label="Speakers at Agentic Zero 2026">
+                {featuredSpeakers.map((speaker) => (
+                  <a
+                    className="az-v2-speaker-card"
+                    href={speaker.profileUrl}
+                    key={speaker.slug}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${speaker.name}'s profile`}
+                  >
+                    <img src={speaker.image} alt={speaker.alt} loading="lazy" />
+                    <div>
+                      <h4>{speaker.name}</h4>
+                      <p>{speakerDisplayRole(speaker)}</p>
+                    </div>
+                  </a>
+                ))}
 
+                {Array.from({ length: UNANNOUNCED_SPEAKER_SLOTS }).map((_, index) => (
+                  <div
+                    className="az-v2-speaker-card az-v2-speaker-card-pending"
+                    key={`pending-${index}`}
+                  >
+                    <SpeakerSilhouette className="az-v2-speaker-silhouette" />
+                    <div>
+                      <h4>To be announced</h4>
+                      <p>Coming soon</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="az-v2-speaker-rail-link">
+                <span>More speakers will be announced soon</span>
+              </p>
+            </div>
           </div>
+        </section>
+
+        <section id="partners" className="az-v2-partners-section" aria-labelledby="partners-title">
+          <div>
+            <div className="az-v2-section-heading az-v2-section-heading-center">
+              <h2 id="partners-title">Partners</h2>
+            </div>
+            <div className="az-v2-sponsor-grid">
+              {partners.map((sponsor) => (
+                <a
+                  className={`az-v2-sponsor-grid-logo${sponsor.name === "Belo" ? " az-v2-sponsor-grid-belo" : ""}`}
+                  href={sponsor.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={sponsor.name}
+                  aria-label={`Visit ${sponsor.name}`}
+                >
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className={sponsor.name === "QuickNode" || sponsor.name === "Solana" ? "az-v2-sponsor-grid-wide" : undefined}
+                    loading="lazy"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+          <section id="media-partner" className="az-v2-media-partner-section" aria-labelledby="media-partner-title">
+            <h2 id="media-partner-title">Media Partner</h2>
+            <a
+              className="az-v2-media-partner-link"
+              href={MEDIA_PARTNER_2026.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${MEDIA_PARTNER_2026.name}`}
+            >
+              <img
+                src={MEDIA_PARTNER_2026.logo}
+                alt=""
+                width={80}
+                height={80}
+                loading="lazy"
+              />
+              <span>{MEDIA_PARTNER_2026.name}</span>
+            </a>
+          </section>
         </section>
 
         <section id="tech-week" className="az-v2-viewport az-v2-tech-week-section">

@@ -209,4 +209,40 @@ assert.equal(event?.offers, undefined)
 const faq = jsonLdBlocks.find((block) => block['@type'] === 'FAQPage')
 assert.match(faq?.mainEntity.find((item) => item.name === 'How can I get tickets?')?.acceptedAnswer.text ?? '', /Admission is free/)
 
+// Public speaker cards, event schema, and all Markdown entry points must agree.
+const speakerSection = html.slice(html.indexOf('id="speakers"'), html.indexOf('id="partners"'))
+assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
+const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
+  .map((match) => match[1])
+assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
+assert.equal(cardLinks.length, 6)
+for (const speaker of event.performer) {
+  assert.ok(visibleText(speakerSection).includes(speaker.name), `missing visible speaker ${speaker.name}`)
+  assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${speaker.jobTitle}, ${speaker.affiliation.name}.`))
+  assert.deepEqual(speaker.sameAs, [speaker.url])
+  assert.equal(new URL(speaker.url).hostname, 'x.com')
+  assert.equal((await request(new URL(speaker.image).pathname)).status, 200, `missing photo for ${speaker.name}`)
+}
+for (const hidden of ['Shaw Walters', 'Kevin Leffew']) {
+  assert.ok(!visibleText(speakerSection).includes(hidden))
+  assert.ok(!event.performer.some((speaker) => speaker.name === hidden))
+  assert.ok(!llmsBody.includes(hidden))
+}
+assert.equal(markdown, llmsBody)
+assert.match(html, /<link rel="alternate" type="text\/markdown" href="https:\/\/agenticzero\.xyz\/?"/)
+const partnerSection = html.slice(html.indexOf('id="partners"'), html.indexOf('id="tech-week"'))
+for (const sponsor of event.sponsor) {
+  assert.ok(partnerSection.includes(`href="${sponsor.url}"`))
+  assert.ok(llmsBody.includes(`[${sponsor.name}](${sponsor.url})`))
+  assert.equal((await request(new URL(sponsor.logo).pathname)).status, 200)
+}
+assert.equal(event.sponsor.length, 5)
+assert.ok(!event.sponsor.some((sponsor) => sponsor.name === 'ETH Daily'))
+assert.equal(event.contributor.roleName, 'Media Partner')
+assert.equal(event.contributor.contributor.name, 'ETH Daily')
+assert.equal(event.contributor.contributor.url, 'https://ethdaily.io')
+assert.ok(partnerSection.includes('href="https://ethdaily.io"'))
+assert.ok(llmsBody.includes('[ETH Daily](https://ethdaily.io)'))
+assert.equal((await request(new URL(event.contributor.contributor.logo).pathname)).status, 200)
+
 console.log('Agent-readiness endpoint verification passed.')

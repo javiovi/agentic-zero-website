@@ -1,4 +1,5 @@
-import { SPEAKERS_2026 } from '@/lib/speakers'
+import { PUBLIC_SPEAKERS_2026 } from '@/lib/speakers'
+import { SPONSORS_2026, MEDIA_PARTNER_2026 } from '@/lib/partners'
 
 // Schema.org Event markup for the second edition.
 //
@@ -32,44 +33,34 @@ const secondEdition = {
   organizer: {
     "@id": "https://agenticzero.xyz/#organization",
   },
-  sponsor: [
-    {
+  sponsor: SPONSORS_2026.map((sponsor) => ({
+    "@type": "Organization",
+    name: sponsor.name,
+    url: sponsor.website,
+    logo: `https://agenticzero.xyz${sponsor.logo}`,
+  })),
+  contributor: {
+    "@type": "Role",
+    roleName: "Media Partner",
+    contributor: {
       "@type": "Organization",
-      name: "Cambrian Network",
-      url: "https://cambrian.org/",
+      name: MEDIA_PARTNER_2026.name,
+      url: MEDIA_PARTNER_2026.website,
+      logo: `https://agenticzero.xyz${MEDIA_PARTNER_2026.logo}`,
+      sameAs: [MEDIA_PARTNER_2026.profileUrl],
     },
-    {
-      "@type": "Organization",
-      name: "Calimero",
-      url: "https://calimero.network/",
-    },
-    {
-      "@type": "Organization",
-      name: "Solana",
-      url: "https://solana.com/",
-    },
-    {
-      "@type": "Organization",
-      name: "QuickNode",
-      url: "https://www.quicknode.com/",
-    },
-    {
-      "@type": "Organization",
-      name: "Belo",
-      url: "https://www.belo.app/",
-    },
-  ],
+  },
   superEvent: {
     "@type": "Event",
     name: "San Francisco Tech Week by a16z",
     url: "https://www.tech-week.com/",
   },
-  performer: SPEAKERS_2026.map((speaker) => ({
+  performer: PUBLIC_SPEAKERS_2026.map((speaker) => ({
     "@type": "Person",
     "@id": speaker.profileUrl,
     name: speaker.name,
     url: speaker.profileUrl,
-    image: `https://agenticzero.xyz${speaker.image}`,
+    image: new URL(speaker.image, "https://agenticzero.xyz").href,
     jobTitle: speaker.role,
     affiliation: {
       "@type": "Organization",

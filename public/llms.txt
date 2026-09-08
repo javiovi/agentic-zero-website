@@ -17,7 +17,8 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, and Belo
-- Announced 2026 speakers: Shaw Walters, Sam Green, and Kevin Leffew
+- Announced 2026 speakers: Sam Green, Brad Holden, Sandi Fatic, Chandler Fang, Gianluca Minoprio, and Kevin Jones
+- 2026 media partner: ETH Daily (https://ethdaily.io)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
 - Contact: contact@agenticzero.xyz
@@ -63,18 +64,37 @@ How agents should retrieve and use this site:
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
 - [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
 - [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
+- [2026 speakers](https://agenticzero.xyz/#speakers): Current announced lineup with names, roles, affiliations, and X profiles.
+- [2026 partners](https://agenticzero.xyz/#partners): Current sponsors and media partner.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
 
-## Confirmed 2026 Sponsors
+## Announced 2026 Speakers
 
-- [Cambrian Network](https://cambrian.org/)
-- [Calimero](https://calimero.network/)
+- [Sam Green](https://x.com/0xsamgreen): Founder & CEO, Cambrian Network.
+- [Brad Holden](https://x.com/bholden): Managing Partner, PL Capital.
+- [Sandi Fatic](https://x.com/chefsale): CEO, Calimero Network.
+- [Chandler Fang](https://x.com/chandler_agi): Founder, t54 Labs.
+- [Gianluca Minoprio](https://x.com/gminoprio): Head of Growth, Daimo.
+- [Kevin Jones](https://x.com/DevSecOpz): Founder and CEO, 1Claw.
+
+More speakers will be announced. Session assignments and times are not yet published.
+
+## 2026 Partners
+
+### Sponsors
+
 - [Solana](https://solana.com/)
-- [QuickNode](https://www.quicknode.com/)
 - [Belo](https://www.belo.app/)
+- [Calimero](https://calimero.network/)
+- [QuickNode](https://www.quicknode.com/)
+- [Cambrian Network](https://cambrian.org/)
+
+### Media Partner
+
+- [ETH Daily](https://ethdaily.io): Media partner for the second edition. [X profile](https://x.com/ethdaily).
 
 ## Positioning
 

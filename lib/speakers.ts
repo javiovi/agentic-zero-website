@@ -6,6 +6,7 @@ export type Speaker2026 = {
   image: string
   alt: string
   profileUrl: string
+  published?: boolean
 }
 
 export type FirstEditionSpeaker = {
@@ -19,15 +20,6 @@ export type FirstEditionSpeaker = {
 // Company affiliations are not treated as confirmed session topics.
 export const SPEAKERS_2026: Speaker2026[] = [
   {
-    slug: 'shaw-walters',
-    name: 'Shaw Walters',
-    role: 'Founder',
-    company: 'Eliza Labs',
-    image: '/images/speakers/shaw.jpg',
-    alt: 'Shaw Walters',
-    profileUrl: 'https://x.com/shawmakesmagic',
-  },
-  {
     slug: 'sam-green',
     name: 'Sam Green',
     role: 'Founder & CEO',
@@ -37,7 +29,63 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/0xsamgreen',
   },
   {
+    slug: 'brad-holden',
+    name: 'Brad Holden',
+    role: 'Managing Partner',
+    company: 'PL Capital',
+    image: '/images/speakers/brad-holden.jpeg',
+    alt: 'Brad Holden',
+    profileUrl: 'https://x.com/bholden',
+  },
+  {
+    slug: 'sandi-fatic',
+    name: 'Sandi Fatic',
+    role: 'CEO',
+    company: 'Calimero Network',
+    image: '/images/speakers/Chef Sale.jpg',
+    alt: 'Sandi Fatic',
+    profileUrl: 'https://x.com/chefsale',
+  },
+  {
+    slug: 'chandler-fang',
+    name: 'Chandler Fang',
+    role: 'Founder',
+    company: 't54 Labs',
+    image: '/images/speakers/chandler-fang.jpeg',
+    alt: 'Chandler Fang',
+    profileUrl: 'https://x.com/chandler_agi',
+  },
+  {
+    slug: 'gianluca-minoprio',
+    name: 'Gianluca Minoprio',
+    role: 'Head of Growth',
+    company: 'Daimo',
+    image: '/images/speakers/gianluca-m-daimo.jpg',
+    alt: 'Gianluca Minoprio',
+    profileUrl: 'https://x.com/gminoprio',
+  },
+  {
+    slug: 'shaw-walters',
+    published: false,
+    name: 'Shaw Walters',
+    role: 'Founder',
+    company: 'Eliza Labs',
+    image: '/images/speakers/shaw.jpg',
+    alt: 'Shaw Walters',
+    profileUrl: 'https://x.com/shawmakesmagic',
+  },
+  {
+    slug: 'kevin-jones',
+    name: 'Kevin Jones',
+    role: 'Founder and CEO',
+    company: '1Claw',
+    image: '/images/speakers/kevin-jones.jpg',
+    alt: 'Kevin Jones',
+    profileUrl: 'https://x.com/DevSecOpz',
+  },
+  {
     slug: 'kevin-leffew',
+    published: false,
     name: 'Kevin Leffew',
     role: 'AI GTM',
     company: 'Coinbase Developer Platform',
@@ -46,6 +94,9 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/kleffew94',
   },
 ]
+
+// Use the same published lineup for visible cards and machine-readable event facts.
+export const PUBLIC_SPEAKERS_2026 = SPEAKERS_2026.filter((speaker) => speaker.published !== false)
 
 // Anonymous teaser cards are visual only and never emitted as Person metadata.
 export const UNANNOUNCED_SPEAKER_SLOTS = 2

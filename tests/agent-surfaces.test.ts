@@ -9,6 +9,8 @@ import {
   PRIVACY_PARAGRAPHS,
 } from '@/lib/trust-content'
 import AboutPage from '@/app/about/page'
+import { PUBLIC_SPEAKERS_2026, SPEAKERS_2026, speakerDisplayRole } from '@/lib/speakers'
+import { SPONSORS_2026, MEDIA_PARTNER_2026 } from '@/lib/partners'
 
 describe('agent-facing content', () => {
   it('keeps homepage structure and the H1 in a Server Component', async () => {
@@ -126,6 +128,38 @@ describe('agent-facing content', () => {
     expect(body).not.toContain('General Admission')
     expect(body).not.toContain('Final Release')
     expect(body).not.toContain('$49')
+  })
+
+  it('keeps the LLM lineup aligned with the published speakers and hides unpublished records', async () => {
+    const response = await getMarkdown()
+    const body = await response.text()
+    const section = body.split('## Announced 2026 Speakers')[1].split('## 2026 Partners')[0]
+    const links = [...section.matchAll(/^- \[([^\]]+)\]\(([^)]+)\)/gm)]
+
+    expect(links.map((match) => [match[1], match[2]])).toEqual(
+      PUBLIC_SPEAKERS_2026.map((speaker) => [speaker.name, speaker.profileUrl])
+    )
+    for (const speaker of PUBLIC_SPEAKERS_2026) {
+      expect(section).toContain(speakerDisplayRole(speaker))
+    }
+    for (const speaker of SPEAKERS_2026.filter((speaker) => speaker.published === false)) {
+      expect(body).not.toContain(speaker.name)
+      expect(body).not.toContain(speaker.profileUrl)
+    }
+  })
+
+  it('lists sponsors and the media partner separately with their current destinations', async () => {
+    const body = await (await getMarkdown()).text()
+    const partners = body.split('## 2026 Partners')[1].split('## Positioning')[0]
+    const [sponsors, media] = partners.split('### Media Partner')
+
+    for (const sponsor of SPONSORS_2026) {
+      expect(sponsors).toContain(`[${sponsor.name}](${sponsor.website})`)
+    }
+    expect(sponsors).not.toContain(MEDIA_PARTNER_2026.name)
+    expect(media).toContain(`[${MEDIA_PARTNER_2026.name}](${MEDIA_PARTNER_2026.website})`)
+    expect(body).toContain('https://agenticzero.xyz/#speakers')
+    expect(body).toContain('https://agenticzero.xyz/#partners')
   })
 
   it('marks admission as free without introducing ticket offers', async () => {
