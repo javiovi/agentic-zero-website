@@ -66,7 +66,6 @@ export const SPEAKERS_2026: Speaker2026[] = [
   },
   {
     slug: 'shaw-walters',
-    published: false,
     name: 'Shaw Walters',
     role: 'Founder',
     company: 'Eliza Labs',
@@ -82,6 +81,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     image: '/images/speakers/kevin-jones.jpg',
     alt: 'Kevin Jones',
     profileUrl: 'https://x.com/DevSecOpz',
+  },
+  {
+    slug: 'nicolas-montone',
+    name: 'Nicolás Montone',
+    role: 'Software Engineer',
+    company: 'Vercel',
+    image: '/images/speakers/nicolas.jpeg',
+    alt: 'Nicolás Montone',
+    profileUrl: 'https://x.com/montonenico',
   },
   {
     slug: 'kevin-leffew',

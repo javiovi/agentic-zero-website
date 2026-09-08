@@ -215,7 +215,7 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 6)
+assert.equal(cardLinks.length, 8)
 for (const speaker of event.performer) {
   assert.ok(visibleText(speakerSection).includes(speaker.name), `missing visible speaker ${speaker.name}`)
   assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${speaker.jobTitle}, ${speaker.affiliation.name}.`))
@@ -223,7 +223,7 @@ for (const speaker of event.performer) {
   assert.equal(new URL(speaker.url).hostname, 'x.com')
   assert.equal((await request(new URL(speaker.image).pathname)).status, 200, `missing photo for ${speaker.name}`)
 }
-for (const hidden of ['Shaw Walters', 'Kevin Leffew']) {
+for (const hidden of ['Kevin Leffew']) {
   assert.ok(!visibleText(speakerSection).includes(hidden))
   assert.ok(!event.performer.some((speaker) => speaker.name === hidden))
   assert.ok(!llmsBody.includes(hidden))

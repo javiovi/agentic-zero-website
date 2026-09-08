@@ -17,7 +17,7 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, and Belo
-- Announced 2026 speakers: Sam Green, Brad Holden, Sandi Fatic, Chandler Fang, Gianluca Minoprio, and Kevin Jones
+- Announced 2026 speakers: Sam Green, Brad Holden, Sandi Fatic, Chandler Fang, Gianluca Minoprio, Shaw Walters, Kevin Jones, and Nicolás Montone
 - 2026 media partner: ETH Daily (https://ethdaily.io)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
@@ -78,7 +78,9 @@ How agents should retrieve and use this site:
 - [Sandi Fatic](https://x.com/chefsale): CEO, Calimero Network.
 - [Chandler Fang](https://x.com/chandler_agi): Founder, t54 Labs.
 - [Gianluca Minoprio](https://x.com/gminoprio): Head of Growth, Daimo.
+- [Shaw Walters](https://x.com/shawmakesmagic): Founder, Eliza Labs.
 - [Kevin Jones](https://x.com/DevSecOpz): Founder and CEO, 1Claw.
+- [Nicolás Montone](https://x.com/montonenico): Software Engineer, Vercel.
 
 More speakers will be announced. Session assignments and times are not yet published.
 
