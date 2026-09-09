@@ -38,15 +38,6 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/bholden',
   },
   {
-    slug: 'sandi-fatic',
-    name: 'Sandi Fatic',
-    role: 'CEO',
-    company: 'Calimero Network',
-    image: '/images/speakers/Chef Sale.jpg',
-    alt: 'Sandi Fatic',
-    profileUrl: 'https://x.com/chefsale',
-  },
-  {
     slug: 'chandler-fang',
     name: 'Chandler Fang',
     role: 'Founder',
@@ -56,13 +47,13 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/chandler_agi',
   },
   {
-    slug: 'gianluca-minoprio',
-    name: 'Gianluca Minoprio',
-    role: 'Head of Growth',
-    company: 'Daimo',
-    image: '/images/speakers/gianluca-m-daimo.jpg',
-    alt: 'Gianluca Minoprio',
-    profileUrl: 'https://x.com/gminoprio',
+    slug: 'nicolas-montone',
+    name: 'Nicolás Montone',
+    role: 'Software Engineer',
+    company: 'Vercel',
+    image: '/images/speakers/nicolas.jpeg',
+    alt: 'Nicolás Montone',
+    profileUrl: 'https://x.com/montonenico',
   },
   {
     slug: 'shaw-walters',
@@ -83,13 +74,22 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/DevSecOpz',
   },
   {
-    slug: 'nicolas-montone',
-    name: 'Nicolás Montone',
-    role: 'Software Engineer',
-    company: 'Vercel',
-    image: '/images/speakers/nicolas.jpeg',
-    alt: 'Nicolás Montone',
-    profileUrl: 'https://x.com/montonenico',
+    slug: 'gianluca-minoprio',
+    name: 'Gianluca Minoprio',
+    role: 'Head of Growth',
+    company: 'Daimo',
+    image: '/images/speakers/gianluca-m-daimo.jpg',
+    alt: 'Gianluca Minoprio',
+    profileUrl: 'https://x.com/gminoprio',
+  },
+  {
+    slug: 'sandi-fatic',
+    name: 'Sandi Fatic',
+    role: 'CEO',
+    company: 'Calimero Network',
+    image: '/images/speakers/Chef Sale.jpg',
+    alt: 'Sandi Fatic',
+    profileUrl: 'https://x.com/chefsale',
   },
   {
     slug: 'kevin-leffew',
@@ -105,9 +105,6 @@ export const SPEAKERS_2026: Speaker2026[] = [
 
 // Use the same published lineup for visible cards and machine-readable event facts.
 export const PUBLIC_SPEAKERS_2026 = SPEAKERS_2026.filter((speaker) => speaker.published !== false)
-
-// Anonymous teaser cards are visual only and never emitted as Person metadata.
-export const UNANNOUNCED_SPEAKER_SLOTS = 2
 
 export const FIRST_EDITION_SPEAKERS: FirstEditionSpeaker[] = [
   {

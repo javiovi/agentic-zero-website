@@ -20,11 +20,10 @@ type SectionLink = { id: string; label: string; className?: string }
 type PageLink = { href: string; label: string; className?: string; external?: boolean }
 
 const ABOUT: SectionLink = { id: "about", label: "About" }
+const SPEAKERS: PageLink = { href: "/speakers", label: "Speakers" }
 const FAQS: SectionLink = { id: "faqs", label: "FAQs" }
 
-// The current speaker lineup lives on the homepage. The first-edition speaker
-// and agenda archives remain reachable from the footer rather than the primary
-// navigation.
+// The first-edition archives remain reachable from the footer.
 const AGENDA: PageLink = { href: "/agenda", label: "Agenda" }
 const BLOG: PageLink = { href: "/blog", label: "Blog" }
 const TICKETS: PageLink = {
@@ -66,8 +65,9 @@ export function SiteNav() {
       for (const section of SCROLL_SECTIONS) {
         const element = document.getElementById(section)
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          const bounds = element.getBoundingClientRect()
+          const sectionTop = bounds.top + window.scrollY
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + bounds.height) {
             setActiveSection(section)
             break
           }
@@ -136,6 +136,7 @@ export function SiteNav() {
         {sectionLink(ABOUT)}
 
         <div className="nav-links-desktop">
+          {pageLink(SPEAKERS)}
           {pageLink(AGENDA)}
           {pageLink(BLOG)}
           {sectionLink(FAQS)}
@@ -160,6 +161,7 @@ export function SiteNav() {
             Home
           </a>
           {sectionLink(ABOUT)}
+          {pageLink(SPEAKERS)}
           {pageLink(AGENDA)}
           {pageLink(BLOG)}
           {sectionLink(FAQS)}

@@ -1,4 +1,4 @@
-import { PUBLIC_SPEAKERS_2026 } from '@/lib/speakers'
+import { speakerEntities } from '@/lib/speaker-json-ld'
 import { SPONSORS_2026, MEDIA_PARTNER_2026 } from '@/lib/partners'
 
 // Schema.org Event markup for the second edition.
@@ -10,11 +10,18 @@ import { SPONSORS_2026, MEDIA_PARTNER_2026 } from '@/lib/partners'
 const secondEdition = {
   "@context": "https://schema.org",
   "@type": "Event",
+  "@id": "https://agenticzero.xyz/#event-2026",
   name: "Agentic Zero",
   description:
     "The summit on agentic finance returns for its second edition on October 7 during SF Tech Week 2026. The people building the agentic stack, in one room.",
   url: "https://agenticzero.xyz/",
   image: "https://agenticzero.xyz/agentic-zero-sf-tech-week-2026-sponsors.png",
+  subjectOf: {
+    "@type": "CollectionPage",
+    "@id": "https://agenticzero.xyz/speakers#webpage",
+    url: "https://agenticzero.xyz/speakers",
+    name: "Agentic Zero second edition speakers",
+  },
   startDate: "2026-10-07",
   isAccessibleForFree: true,
   eventStatus: "https://schema.org/EventScheduled",
@@ -55,19 +62,7 @@ const secondEdition = {
     name: "San Francisco Tech Week by a16z",
     url: "https://www.tech-week.com/",
   },
-  performer: PUBLIC_SPEAKERS_2026.map((speaker) => ({
-    "@type": "Person",
-    "@id": speaker.profileUrl,
-    name: speaker.name,
-    url: speaker.profileUrl,
-    image: new URL(speaker.image, "https://agenticzero.xyz").href,
-    jobTitle: speaker.role,
-    affiliation: {
-      "@type": "Organization",
-      name: speaker.company,
-    },
-    sameAs: [speaker.profileUrl],
-  })),
+  performer: speakerEntities,
 }
 
 function safeJsonLd(value: unknown) {

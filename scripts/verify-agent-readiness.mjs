@@ -216,6 +216,28 @@ const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
 assert.equal(cardLinks.length, 8)
+
+// The dedicated page must describe the same current lineup as the homepage.
+const speakersResponse = await request('/speakers')
+assert.equal(speakersResponse.status, 200)
+const speakersBody = await speakersResponse.text()
+assert.match(speakersBody, /<link rel="canonical" href="https:\/\/agenticzero\.xyz\/speakers"/)
+assert.match(speakersBody, /More speakers to be announced soon\./)
+const speakersBlocks = [...speakersBody.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+  .map((match) => JSON.parse(match[1]))
+const speakersPage = speakersBlocks.find((block) => block['@type'] === 'CollectionPage')
+assert.equal(speakersPage?.url, 'https://agenticzero.xyz/speakers')
+assert.equal(speakersPage?.about['@id'], event['@id'])
+assert.equal(event.subjectOf['@id'], speakersPage['@id'])
+assert.equal(speakersPage.mainEntity.numberOfItems, cardLinks.length)
+assert.deepEqual(speakersPage.mainEntity.itemListElement.map((entry) => entry.item), event.performer)
+assert.deepEqual(speakersPage.mainEntity.itemListElement.map((entry) => entry.position), cardLinks.map((_, index) => index + 1))
+const dedicatedCardLinks = [...speakersBody.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
+  .map((match) => match[1])
+assert.deepEqual(dedicatedCardLinks, cardLinks)
+assert.match(llmsBody, /https:\/\/agenticzero\.xyz\/speakers\)/)
+assert.doesNotMatch(llmsBody, /lineup is currently listed on the homepage only/)
+
 for (const speaker of event.performer) {
   assert.ok(visibleText(speakerSection).includes(speaker.name), `missing visible speaker ${speaker.name}`)
   assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${speaker.jobTitle}, ${speaker.affiliation.name}.`))

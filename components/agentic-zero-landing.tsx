@@ -10,12 +10,7 @@ import { FAQS } from "@/lib/faq"
 import { TICKET_URL } from "@/lib/tickets"
 import { FAQItem, HeroLogo, NotifyForm } from "@/components/homepage-interactions"
 
-import { SpeakerSilhouette } from "@/components/speaker-placeholder"
-import {
-  PUBLIC_SPEAKERS_2026,
-  UNANNOUNCED_SPEAKER_SLOTS,
-  speakerDisplayRole,
-} from "@/lib/speakers"
+import { SpeakerGrid } from "@/components/speaker-grid"
 
 // Loading screen logo component (unchanged as requested)
 const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
@@ -74,7 +69,6 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 export default function AgenticZeroLanding() {
   const sponsors = SPONSORS_2026
   const partners = PARTNERS_2026
-  const featuredSpeakers = PUBLIC_SPEAKERS_2026
   const featuredTweets = [
     {
       name: "Zyfai",
@@ -290,8 +284,8 @@ export default function AgenticZeroLanding() {
                   Our previous edition in Buenos Aires drew 1,000+ attendees and 28 speakers
                   across DeFi, infrastructure, and security, with 13k more watching live.{' '}
                 </span>
-                <a href="/blog/what-is-agentic-zero">
-                  Learn more about the second edition.
+                <a href={TICKET_URL} target="_blank" rel="noopener noreferrer">
+                  Register for Agentic Zero.
                 </a>
               </p>
             </div>
@@ -341,39 +335,9 @@ export default function AgenticZeroLanding() {
                 <span>Second edition</span>
                 <h3>Speakers</h3>
               </div>
-              <div className="az-v2-speaker-rail" aria-label="Speakers at Agentic Zero 2026">
-                {featuredSpeakers.map((speaker) => (
-                  <a
-                    className="az-v2-speaker-card"
-                    href={speaker.profileUrl}
-                    key={speaker.slug}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${speaker.name}'s profile`}
-                  >
-                    <img src={speaker.image} alt={speaker.alt} loading="lazy" />
-                    <div>
-                      <h4>{speaker.name}</h4>
-                      <p>{speakerDisplayRole(speaker)}</p>
-                    </div>
-                  </a>
-                ))}
-
-                {Array.from({ length: UNANNOUNCED_SPEAKER_SLOTS }).map((_, index) => (
-                  <div
-                    className="az-v2-speaker-card az-v2-speaker-card-pending"
-                    key={`pending-${index}`}
-                  >
-                    <SpeakerSilhouette className="az-v2-speaker-silhouette" />
-                    <div>
-                      <h4>To be announced</h4>
-                      <p>Coming soon</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <SpeakerGrid />
               <p className="az-v2-speaker-rail-link">
-                <span>More speakers will be announced soon</span>
+                <span>More speakers to be announced soon.</span>
               </p>
             </div>
           </div>
@@ -382,7 +346,7 @@ export default function AgenticZeroLanding() {
         <section id="partners" className="az-v2-partners-section" aria-labelledby="partners-title">
           <div>
             <div className="az-v2-section-heading az-v2-section-heading-center">
-              <h2 id="partners-title">Partners</h2>
+              <h2 id="partners-title">Sponsors</h2>
             </div>
             <div className="az-v2-sponsor-grid">
               {partners.map((sponsor) => (
