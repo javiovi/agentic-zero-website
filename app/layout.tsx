@@ -21,10 +21,10 @@ const shareTechMono = Share_Tech_Mono({
 
 const siteDescription = 'The summit on agentic finance returns for its second edition on October 7 during SF Tech Week 2026. The people building the agentic stack, in one room.'
 const socialCard = {
-  url: '/agentic-zero-sf-tech-week-2026-sponsors.png',
+  url: '/agentic-zero-sf-tech-week-2026.png',
   width: 5760,
   height: 3240,
-  alt: 'Agentic Zero — Second Edition · SF Tech Week 2026, supported by Solana, Calimero, Cambrian Network, and QuickNode',
+  alt: 'Agentic Zero — Second Edition · SF Tech Week 2026',
 }
 
 export const metadata: Metadata = {

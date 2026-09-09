@@ -379,12 +379,11 @@ export default function AgenticZeroLanding() {
             >
               <img
                 src={MEDIA_PARTNER_2026.logo}
-                alt=""
-                width={80}
-                height={80}
+                alt={MEDIA_PARTNER_2026.name}
+                width={968}
+                height={359}
                 loading="lazy"
               />
-              <span>{MEDIA_PARTNER_2026.name}</span>
             </a>
           </section>
         </section>

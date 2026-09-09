@@ -5,11 +5,34 @@ import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { SpeakerGrid } from "@/components/speaker-grid"
 
+const title = "Speakers | Agentic Zero"
+const description =
+  "Meet the nine announced speakers for Agentic Zero, including Manuel Beaudroit of Belo. October 7, 2026, at The Avalon during SF Tech Week."
+const socialImage = {
+  url: "/agentic-zero-sf-tech-week-2026.png",
+  width: 5760,
+  height: 3240,
+  alt: "Agentic Zero — Second Edition · SF Tech Week 2026",
+}
+
 export const metadata: Metadata = {
-  title: "Speakers | Agentic Zero",
-  description:
-    "Meet the speakers for the second edition of Agentic Zero, October 7, 2026, at The Avalon in San Francisco. More speakers to be announced soon.",
+  title,
+  description,
   alternates: { canonical: "/speakers" },
+  openGraph: {
+    title,
+    description,
+    url: "/speakers",
+    siteName: "Agentic Zero",
+    type: "website",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [socialImage],
+  },
 }
 
 export default function SpeakersPage() {

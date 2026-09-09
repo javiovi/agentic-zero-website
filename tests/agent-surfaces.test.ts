@@ -158,7 +158,7 @@ describe('agent-facing content', () => {
     }
     expect(sponsors).not.toContain(MEDIA_PARTNER_2026.name)
     expect(media).toContain(`[${MEDIA_PARTNER_2026.name}](${MEDIA_PARTNER_2026.website})`)
-    expect(body).toContain('https://agenticzero.xyz/#speakers')
+    expect(body).toContain('https://agenticzero.xyz/speakers')
     expect(body).toContain('https://agenticzero.xyz/#partners')
   })
 

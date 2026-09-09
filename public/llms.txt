@@ -16,8 +16,8 @@ Current event facts:
 - Venue: The Avalon, 1244 Sutter Street, San Francisco
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
-- Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, and Belo
-- Announced 2026 speakers: Sam Green, Brad Holden, Chandler Fang, Nicolás Montone, Shaw Walters, Kevin Jones, Gianluca Minoprio, and Sandi Fatic
+- Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, Belo, and RZLT
+- Announced 2026 speakers: Sam Green, Brad Holden, Manuel Beaudroit, Chandler Fang, Nicolás Montone, Shaw Walters, Kevin Jones, Gianluca Minoprio, and Sandi Fatic
 - 2026 media partner: ETH Daily (https://ethdaily.io)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
@@ -64,7 +64,7 @@ How agents should retrieve and use this site:
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
 - [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
 - [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
-- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the eight announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
+- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the nine announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
 - [2026 sponsors and media partner](https://agenticzero.xyz/#partners): Current sponsors and ETH Daily as media partner, listed separately.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
@@ -77,6 +77,7 @@ The [second-edition Speakers page](https://agenticzero.xyz/speakers) is the cano
 
 - [Sam Green](https://x.com/0xsamgreen): Founder & CEO, Cambrian Network.
 - [Brad Holden](https://x.com/bholden): Managing Partner, PL Capital.
+- [Manuel Beaudroit](https://x.com/mbeaudroit): Co-founder & CEO, Belo.
 - [Chandler Fang](https://x.com/chandler_agi): Founder, t54 Labs.
 - [Nicolás Montone](https://x.com/montonenico): Software Engineer, Vercel.
 - [Shaw Walters](https://x.com/shawmakesmagic): Founder, Eliza Labs.
@@ -95,6 +96,7 @@ More speakers to be announced soon. Session assignments and times are not yet pu
 - [Calimero](https://calimero.network/)
 - [QuickNode](https://www.quicknode.com/)
 - [Cambrian Network](https://cambrian.org/)
+- [RZLT](https://www.rzlt.io/)
 
 ### Media Partner
 
@@ -128,7 +130,7 @@ These pages do not exist yet. Do not link to them or cite them until they are li
 - [X](https://x.com/AgenticZero): Official Agentic Zero account.
 - [LinkedIn](https://www.linkedin.com/company/agentic-zero-ai): Official Agentic Zero company page.
 - [YouTube](https://www.youtube.com/@agenticzeroxyz): Talks and recordings from Agentic Zero.
-- [2026 announcement card](https://agenticzero.xyz/agentic-zero-sf-tech-week-2026-sponsors.png): Official social-sharing artwork for the second edition.
+- [2026 announcement card](https://agenticzero.xyz/agentic-zero-sf-tech-week-2026.png): Official social-sharing artwork for the second edition.
 
 ## Contact
 

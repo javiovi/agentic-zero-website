@@ -215,7 +215,8 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 8)
+assert.equal(cardLinks.length, 9)
+assert.equal(event.performer[2].name, 'Manuel Beaudroit')
 
 // The dedicated page must describe the same current lineup as the homepage.
 const speakersResponse = await request('/speakers')
@@ -258,7 +259,8 @@ for (const sponsor of event.sponsor) {
   assert.ok(llmsBody.includes(`[${sponsor.name}](${sponsor.url})`))
   assert.equal((await request(new URL(sponsor.logo).pathname)).status, 200)
 }
-assert.equal(event.sponsor.length, 5)
+assert.equal(event.sponsor.length, 6)
+assert.equal(event.sponsor.find((sponsor) => sponsor.name === 'RZLT')?.url, 'https://www.rzlt.io/')
 assert.ok(!event.sponsor.some((sponsor) => sponsor.name === 'ETH Daily'))
 assert.equal(event.contributor.roleName, 'Media Partner')
 assert.equal(event.contributor.contributor.name, 'ETH Daily')
@@ -267,4 +269,22 @@ assert.ok(partnerSection.includes('href="https://ethdaily.io"'))
 assert.ok(llmsBody.includes('[ETH Daily](https://ethdaily.io)'))
 assert.equal((await request(new URL(event.contributor.contributor.logo).pathname)).status, 200)
 
+// The approved lineup order and current portraits must also survive the release.
+const llmsSpeakers = llmsBody.split('## Announced 2026 Speakers')[1].split('## 2026 Partners')[0]
+assert.deepEqual(
+  [...llmsSpeakers.matchAll(/^- \[([^\]]+)\]\(([^)]+)\)/gm)].map((match) => match[2]),
+  cardLinks
+)
+assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
+assert.equal(event.performer[2].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
+assert.equal(event.contributor.contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
+assert.match(llmsBody, /nine announced speakers/)
+assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
+assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
+assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)
+for (const body of [html, speakersBody, ticketsBody, mppArticleHtml, llmsBody]) {
+  assert.ok(body.includes('/agentic-zero-sf-tech-week-2026.png'))
+  assert.ok(!body.includes('/agentic-zero-sf-tech-week-2026-sponsors.png'))
+}
+assert.match(sitemapBody, /<loc>https:\/\/agenticzero\.xyz\/speakers<\/loc>/)
 console.log('Agent-readiness endpoint verification passed.')

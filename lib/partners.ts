@@ -25,15 +25,20 @@ export const SPONSORS_2026 = [
     logo: "/images/logos/belo-color.png",
     website: "https://www.belo.app/",
   },
+  {
+    name: "RZLT",
+    logo: "/images/logos/RZLT.svg",
+    website: "https://www.rzlt.io/",
+  },
 ]
 
-export const PARTNERS_2026 = ["Solana", "Belo", "Calimero", "QuickNode", "Cambrian Network"].map(
+export const PARTNERS_2026 = ["Solana", "Belo", "Calimero", "QuickNode", "Cambrian Network", "RZLT"].map(
   (name) => SPONSORS_2026.find((sponsor) => sponsor.name === name)!
 )
 
 export const MEDIA_PARTNER_2026 = {
   name: 'ETH Daily',
   website: 'https://ethdaily.io',
-  logo: '/images/logos/ethdaily_logo_bw.png',
+  logo: '/images/logos/ethdaily-wordmark.png',
   profileUrl: 'https://x.com/ethdaily',
 }

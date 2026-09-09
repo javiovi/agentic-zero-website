@@ -15,7 +15,7 @@ const secondEdition = {
   description:
     "The summit on agentic finance returns for its second edition on October 7 during SF Tech Week 2026. The people building the agentic stack, in one room.",
   url: "https://agenticzero.xyz/",
-  image: "https://agenticzero.xyz/agentic-zero-sf-tech-week-2026-sponsors.png",
+  image: "https://agenticzero.xyz/agentic-zero-sf-tech-week-2026.png",
   subjectOf: {
     "@type": "CollectionPage",
     "@id": "https://agenticzero.xyz/speakers#webpage",

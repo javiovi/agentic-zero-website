@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/agentic-zero-sf-tech-week-2026-sponsors.png',
+        url: '/agentic-zero-sf-tech-week-2026.png',
         width: 5760,
         height: 3240,
-        alt: 'Agentic Zero — Second Edition · SF Tech Week 2026, supported by Solana, Calimero, Cambrian Network, and QuickNode',
+        alt: 'Agentic Zero — Second Edition · SF Tech Week 2026',
       },
     ],
   },
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: '/agentic-zero-sf-tech-week-2026-sponsors.png',
-        alt: 'Agentic Zero — Second Edition · SF Tech Week 2026, supported by Solana, Calimero, Cambrian Network, and QuickNode',
+        url: '/agentic-zero-sf-tech-week-2026.png',
+        alt: 'Agentic Zero — Second Edition · SF Tech Week 2026',
       },
     ],
   },
