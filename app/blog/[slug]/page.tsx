@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { connection } from 'next/server'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import {
@@ -15,11 +16,6 @@ const SITE_URL = 'https://agenticzero.xyz'
 const ARTICLE_IMAGE = `${SITE_URL}/agentic-zero-sf-tech-week-2026.png`
 const ARTICLE_IMAGE_ALT =
   'Agentic Zero — Second Edition · SF Tech Week 2026'
-
-// Every slug is known at build time, so each post page is static.
-export function generateStaticParams() {
-  return ARTICLES.map((post) => ({ slug: post.slug }))
-}
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>
@@ -162,6 +158,9 @@ function safeJsonLd(value: unknown) {
 }
 
 export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
+  // Next/Vercel can overwrite Vary on HTML. Keep this negotiated representation
+  // out of shared caches so a cache cannot reuse it for a Markdown request.
+  await connection()
   const params = await props.params
   const post = getPost(params.slug)
   if (!post) notFound()

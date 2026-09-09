@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 
 const baseUrl = process.env.AGENT_READINESS_BASE_URL ?? 'http://127.0.0.1:3000'
-const isLocalBase = ['localhost', '127.0.0.1', '::1'].includes(new URL(baseUrl).hostname)
 const mppArticlePath =
   '/blog/mpp-what-machine-payments-look-like-before-they-become-a-market'
 
@@ -60,9 +59,11 @@ const mppArticle = await request(mppArticlePath, 'text/html')
 const mppArticleHtml = await mppArticle.text()
 assert.equal(mppArticle.status, 200)
 assert.match(mppArticle.headers.get('content-type') ?? '', /^text\/html/)
-if (!isLocalBase) {
-  assert.match(mppArticle.headers.get('vary') ?? '', /(?:^|,)\s*Accept(?:,|$)/i)
-}
+assert.ok(
+  /(?:^|,)\s*Accept(?:,|$)/i.test(mppArticle.headers.get('vary') ?? '') ||
+    /(?:no-store|private)/i.test(mppArticle.headers.get('cache-control') ?? ''),
+  'Blog HTML must vary on Accept or be excluded from shared caches'
+)
 assert.match(mppArticleHtml, /<title>MPP: What Early Machine Payments Look Like<\/title>/)
 assert.match(
   mppArticleHtml,
