@@ -1,14 +1,15 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import type { Metadata } from 'next'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
 import { CONTACT_PARAGRAPHS } from '@/lib/trust-content'
 import { TICKET_URL } from '@/lib/tickets'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Contact | Agentic Zero',
   description: 'Official contact information for Agentic Zero.',
-  alternates: { canonical: '/contact' },
-}
+  path: '/contact',
+})
 
 export default function ContactPage() {
   const partifulLabel = 'Partiful page'

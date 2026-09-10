@@ -1,13 +1,14 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import type { Metadata } from 'next'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
 import { PRIVACY_PARAGRAPHS } from '@/lib/trust-content'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Privacy | Agentic Zero',
   description: 'How the Agentic Zero website handles email signups, analytics, and crawler logs.',
-  alternates: { canonical: '/privacy' },
-}
+  path: '/privacy',
+})
 
 export default function PrivacyPage() {
   return (

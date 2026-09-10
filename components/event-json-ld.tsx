@@ -1,5 +1,5 @@
 import { speakerEntities } from '@/lib/speaker-json-ld'
-import { SPONSORS_2026, MEDIA_PARTNER_2026 } from '@/lib/partners'
+import { SPONSORS_2026, MEDIA_PARTNERS_2026 } from '@/lib/partners'
 
 // Schema.org Event markup for the second edition.
 //
@@ -46,17 +46,17 @@ const secondEdition = {
     url: sponsor.website,
     logo: `https://agenticzero.xyz${sponsor.logo}`,
   })),
-  contributor: {
+  contributor: MEDIA_PARTNERS_2026.map((partner) => ({
     "@type": "Role",
     roleName: "Media Partner",
     contributor: {
       "@type": "Organization",
-      name: MEDIA_PARTNER_2026.name,
-      url: MEDIA_PARTNER_2026.website,
-      logo: `https://agenticzero.xyz${MEDIA_PARTNER_2026.logo}`,
-      sameAs: [MEDIA_PARTNER_2026.profileUrl],
+      name: partner.name,
+      url: partner.website,
+      logo: `https://agenticzero.xyz${partner.logo}`,
+      ...('profileUrl' in partner ? { sameAs: [partner.profileUrl] } : {}),
     },
-  },
+  })),
   superEvent: {
     "@type": "Event",
     name: "San Francisco Tech Week by a16z",

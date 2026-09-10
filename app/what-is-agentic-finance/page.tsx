@@ -1,13 +1,13 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import type { Metadata } from "next"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "What is agentic finance? | Agentic Zero",
-  description:
-    "In agentic finance, AI agents hold or direct value, make financial decisions, and execute transactions under defined permissions.",
-  alternates: { canonical: "/what-is-agentic-finance" },
-}
+  description: "In agentic finance, AI agents hold or direct value, make financial decisions, and execute transactions under defined permissions.",
+  path: '/what-is-agentic-finance',
+})
 
 export default function AgenticFinancePage() {
   return (

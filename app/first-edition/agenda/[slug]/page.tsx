@@ -1,3 +1,4 @@
+import { FIRST_EDITION_SOCIAL_IMAGE, pageMetadata } from '@/lib/page-metadata'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { SiteNav } from '@/components/site-nav'
@@ -18,11 +19,17 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const speakers = session.speakers.map((s) => s.name).join(', ')
   const summary = session.body.find((block) => block.type === 'paragraph')?.text ?? ''
 
-  return {
+  const metadata = pageMetadata({
     title: `${session.title} | Agentic Zero first edition`,
     description: summary.slice(0, 200),
-    alternates: { canonical: `/first-edition/agenda/${session.slug}` },
+    path: `/first-edition/agenda/${session.slug}`,
+    image: FIRST_EDITION_SOCIAL_IMAGE,
+  })
+
+  return {
+    ...metadata,
     openGraph: {
+      ...metadata.openGraph,
       title: session.title,
       description: `${session.format} with ${speakers}. Agentic Zero first edition, Buenos Aires, 20 November 2025.`,
       type: 'article',

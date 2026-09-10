@@ -153,9 +153,44 @@ assert.match(sitemapBody, /<loc>https:\/\/agenticzero\.xyz\/blog\/what-is-agenti
 
 const publicUrls = [...sitemapBody.matchAll(/<loc>https:\/\/agenticzero\.xyz(.*?)<\/loc>/g)]
   .map((match) => match[1] || '/')
+function metaContent(body, name) {
+  const tags = [...body.matchAll(/<meta\b[^>]*>/g)].map((match) => match[0])
+  const tag = tags.find((tag) => tag.includes(`name="${name}"`) || tag.includes(`property="${name}"`))
+  return tag?.match(/content="([^"]*)"/)?.[1]
+}
+
 for (const path of publicUrls) {
   const response = await request(path)
+  const body = await response.text()
   assert.equal(response.status, 200, `sitemap endpoint ${path} did not return 200`)
+  if (!response.headers.get('content-type')?.startsWith('text/html')) continue
+
+  // A child page must not inherit the homepage's social identity.
+  const canonical = body.match(/<link rel="canonical" href="([^"]+)"/)?.[1]
+  assert.equal(new URL(canonical).href, new URL(path, 'https://agenticzero.xyz').href, `${path}: canonical`)
+  assert.equal(new URL(metaContent(body, 'og:url')).href, new URL(path, 'https://agenticzero.xyz').href, `${path}: og:url`)
+  assert.ok(metaContent(body, 'description'), `${path}: missing description`)
+  for (const name of ['og:title', 'twitter:title']) {
+    const title = metaContent(body, name)
+    assert.ok(title, `${path}: missing ${name}`)
+    if (path !== '/') assert.notEqual(title, 'Agentic Zero', `${path}: inherited homepage ${name}`)
+  }
+  assert.doesNotMatch(metaContent(body, 'robots') ?? '', /noindex|nofollow/i, `${path}: robots meta blocks crawlers`)
+  assert.doesNotMatch(response.headers.get('x-robots-tag') ?? '', /noindex|nofollow/i, `${path}: robots header blocks crawlers`)
+  for (const block of body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    assert.doesNotThrow(() => JSON.parse(block[1]), `${path}: malformed JSON-LD`)
+  }
+  if (path.startsWith('/first-edition/')) {
+    assert.equal(new URL(metaContent(body, 'og:image')).pathname, '/Card.png', `${path}: wrong edition artwork`)
+    assert.equal(new URL(metaContent(body, 'twitter:image')).pathname, '/Card.png', `${path}: wrong edition Twitter artwork`)
+  }
+  if (path.startsWith('/blog/')) {
+    const md = await request(path, 'text/markdown')
+    assert.equal(md.status, 200, `${path}: Markdown status`)
+    assert.match(md.headers.get('content-type') ?? '', /^text\/markdown/)
+    assert.match(md.headers.get('vary') ?? '', /(?:^|,)\s*Accept(?:,|$)/i)
+    assert.equal(md.headers.get('content-location'), path)
+  }
 }
 
 const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
@@ -216,8 +251,13 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 9)
+assert.equal(cardLinks.length, 10)
 assert.equal(event.performer[2].name, 'Manuel Beaudroit')
+const mac = event.performer.find((speaker) => speaker.name === 'Mac')
+assert.equal(mac?.url, 'https://x.com/asyncmac')
+assert.equal(mac?.jobTitle, 'Technical Lead')
+assert.equal(mac?.affiliation.name, 'vAPI Network')
+assert.equal(mac?.image, 'https://agenticzero.xyz/images/speakers/mac.jpeg')
 
 // The dedicated page must describe the same current lineup as the homepage.
 const speakersResponse = await request('/speakers')
@@ -262,13 +302,20 @@ for (const sponsor of event.sponsor) {
 }
 assert.equal(event.sponsor.length, 6)
 assert.equal(event.sponsor.find((sponsor) => sponsor.name === 'RZLT')?.url, 'https://www.rzlt.io/')
-assert.ok(!event.sponsor.some((sponsor) => sponsor.name === 'ETH Daily'))
-assert.equal(event.contributor.roleName, 'Media Partner')
-assert.equal(event.contributor.contributor.name, 'ETH Daily')
-assert.equal(event.contributor.contributor.url, 'https://ethdaily.io')
-assert.ok(partnerSection.includes('href="https://ethdaily.io"'))
-assert.ok(llmsBody.includes('[ETH Daily](https://ethdaily.io)'))
-assert.equal((await request(new URL(event.contributor.contributor.logo).pathname)).status, 200)
+assert.equal(event.contributor.length, 2)
+for (const [index, [name, url]] of [
+  ['ETH Daily', 'https://ethdaily.io'],
+  ['UGLY TALK', 'https://uglytalk.com/'],
+].entries()) {
+  assert.ok(!event.sponsor.some((sponsor) => sponsor.name === name))
+  const role = event.contributor[index]
+  assert.equal(role.roleName, 'Media Partner')
+  assert.equal(role.contributor.name, name)
+  assert.equal(role.contributor.url, url)
+  assert.ok(partnerSection.includes(`href="${url}"`))
+  assert.ok(llmsBody.includes(`[${name}](${url})`))
+  assert.equal((await request(new URL(role.contributor.logo).pathname)).status, 200)
+}
 
 // The approved lineup order and current portraits must also survive the release.
 const llmsSpeakers = llmsBody.split('## Announced 2026 Speakers')[1].split('## 2026 Partners')[0]
@@ -278,8 +325,8 @@ assert.deepEqual(
 )
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
 assert.equal(event.performer[2].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
-assert.equal(event.contributor.contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /nine announced speakers/)
+assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
+assert.match(llmsBody, /ten announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)

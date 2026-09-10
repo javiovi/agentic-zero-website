@@ -1,14 +1,14 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import type { Metadata } from 'next'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { POSTS_BY_DATE } from '@/lib/blog'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Blog | Agentic Zero',
-  description:
-    'The latest on Agentic Zero, the one-day summit where agentic finance meets real markets. Read about our upcoming event and why we are making it.',
-  alternates: { canonical: '/blog' },
-}
+  description: 'The latest on Agentic Zero, the one-day summit where agentic finance meets real markets. Read about our upcoming event and why we are making it.',
+  path: '/blog',
+})
 
 function formatDate(date: string) {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString('en-GB', {

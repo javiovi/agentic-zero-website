@@ -1,6 +1,6 @@
 // Server-rendered structure and content for the Agentic Zero homepage.
 import { Tweet } from "react-tweet"
-import { SPONSORS_2026, PARTNERS_2026, MEDIA_PARTNER_2026 } from "@/lib/partners"
+import { SPONSORS_2026, PARTNERS_2026, MEDIA_PARTNERS_2026 } from "@/lib/partners"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
@@ -369,22 +369,27 @@ export default function AgenticZeroLanding() {
             </div>
           </div>
           <section id="media-partner" className="az-v2-media-partner-section" aria-labelledby="media-partner-title">
-            <h2 id="media-partner-title">Media Partner</h2>
-            <a
-              className="az-v2-media-partner-link"
-              href={MEDIA_PARTNER_2026.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Visit ${MEDIA_PARTNER_2026.name}`}
-            >
-              <img
-                src={MEDIA_PARTNER_2026.logo}
-                alt={MEDIA_PARTNER_2026.name}
-                width={968}
-                height={359}
-                loading="lazy"
-              />
-            </a>
+            <h2 id="media-partner-title">Media Partners</h2>
+            <div className="az-v2-media-partner-logos">
+              {MEDIA_PARTNERS_2026.map((partner) => (
+                <a
+                  key={partner.name}
+                  className={`az-v2-media-partner-link${partner.name === "UGLY TALK" ? " az-v2-media-partner-ugly-talk" : ""}`}
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${partner.name}`}
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={partner.name === "UGLY TALK" ? 2000 : 968}
+                    height={partner.name === "UGLY TALK" ? 2000 : 359}
+                    loading="lazy"
+                  />
+                </a>
+              ))}
+            </div>
           </section>
         </section>
 

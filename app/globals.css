@@ -923,6 +923,19 @@ p {
   padding: clamp(64px, 7vw, 88px) 0 0;
 }
 
+.az-v2-media-partner-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px 50px;
+}
+
+.az-v2-partners-section .az-v2-media-partner-link.az-v2-media-partner-ugly-talk img {
+  width: 144px;
+  filter: none;
+}
+
 .az-v2-partners-section .az-v2-media-partner-link {
   gap: 14px;
   font-size: 22px;
@@ -934,6 +947,21 @@ p {
 }
 
 @media (max-width: 600px) {
+  .az-v2-media-partner-logos {
+    display: grid;
+    grid-template-columns: minmax(0, 170fr) minmax(0, 122fr);
+    width: min(100%, 342px);
+    gap: 24px;
+  }
+
+  .az-v2-partners-section .az-v2-media-partner-link {
+    min-width: 0;
+  }
+
+  .az-v2-partners-section .az-v2-media-partner-link.az-v2-media-partner-ugly-talk img {
+    width: 122px;
+  }
+
   .az-v2-partners-section .az-v2-media-partner-link {
     gap: 12px;
     font-size: 20px;

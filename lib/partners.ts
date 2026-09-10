@@ -42,3 +42,12 @@ export const MEDIA_PARTNER_2026 = {
   logo: '/images/logos/ethdaily-wordmark.png',
   profileUrl: 'https://x.com/ethdaily',
 }
+
+export const MEDIA_PARTNERS_2026 = [
+  MEDIA_PARTNER_2026,
+  {
+    name: 'UGLY TALK',
+    website: 'https://uglytalk.com/',
+    logo: '/images/logos/ugly-talk-white.svg',
+  },
+]

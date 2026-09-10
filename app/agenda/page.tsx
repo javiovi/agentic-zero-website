@@ -1,14 +1,14 @@
+import { pageMetadata } from '@/lib/page-metadata'
 import type { Metadata } from "next"
 import { EventJsonLd } from "@/components/event-json-ld"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Agenda | Agentic Zero",
-  description:
-    "The programme for the second edition of Agentic Zero, October 7 2026 at The Avalon in San Francisco, during SF Tech Week by a16z.",
-  alternates: { canonical: "/agenda" },
-}
+  description: "The programme for the second edition of Agentic Zero, October 7 2026 at The Avalon in San Francisco, during SF Tech Week by a16z.",
+  path: '/agenda',
+})
 
 export default function AgendaPage() {
   return (

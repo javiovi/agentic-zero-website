@@ -10,7 +10,7 @@ import {
 } from '@/lib/trust-content'
 import AboutPage from '@/app/about/page'
 import { PUBLIC_SPEAKERS_2026, SPEAKERS_2026, speakerDisplayRole } from '@/lib/speakers'
-import { SPONSORS_2026, MEDIA_PARTNER_2026 } from '@/lib/partners'
+import { SPONSORS_2026, MEDIA_PARTNERS_2026 } from '@/lib/partners'
 
 describe('agent-facing content', () => {
   it('keeps homepage structure and the H1 in a Server Component', async () => {
@@ -151,13 +151,15 @@ describe('agent-facing content', () => {
   it('lists sponsors and the media partner separately with their current destinations', async () => {
     const body = await (await getMarkdown()).text()
     const partners = body.split('## 2026 Partners')[1].split('## Positioning')[0]
-    const [sponsors, media] = partners.split('### Media Partner')
+    const [sponsors, media] = partners.split('### Media Partners')
 
     for (const sponsor of SPONSORS_2026) {
       expect(sponsors).toContain(`[${sponsor.name}](${sponsor.website})`)
     }
-    expect(sponsors).not.toContain(MEDIA_PARTNER_2026.name)
-    expect(media).toContain(`[${MEDIA_PARTNER_2026.name}](${MEDIA_PARTNER_2026.website})`)
+    for (const partner of MEDIA_PARTNERS_2026) {
+      expect(sponsors).not.toContain(partner.name)
+      expect(media).toContain(`[${partner.name}](${partner.website})`)
+    }
     expect(body).toContain('https://agenticzero.xyz/speakers')
     expect(body).toContain('https://agenticzero.xyz/#partners')
   })

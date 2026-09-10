@@ -16,7 +16,7 @@ export function SpeakerGrid() {
             src={speaker.image}
             alt={speaker.alt}
             loading="lazy"
-            style={speaker.slug === "brad-holden" ? { objectPosition: "50% 20%" } : undefined}
+            style={speaker.slug === "brad-holden" ? { objectPosition: "50% 20%" } : speaker.slug === "mac" ? { objectPosition: "50% 0%" } : undefined}
           />
           <div>
             <h4>{speaker.name}</h4>

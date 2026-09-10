@@ -101,6 +101,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/chefsale',
   },
   {
+    slug: 'mac',
+    name: 'Mac',
+    role: 'Technical Lead',
+    company: 'vAPI Network',
+    image: '/images/speakers/mac.jpeg',
+    alt: 'Mac',
+    profileUrl: 'https://x.com/asyncmac',
+  },
+  {
     slug: 'kevin-leffew',
     published: false,
     name: 'Kevin Leffew',

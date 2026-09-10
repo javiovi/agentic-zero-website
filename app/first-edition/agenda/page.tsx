@@ -1,15 +1,16 @@
+import { pageMetadata, FIRST_EDITION_SOCIAL_IMAGE } from '@/lib/page-metadata'
 import type { Metadata } from 'next'
 import { SiteNav } from '@/components/site-nav'
 import { SiteFooter } from '@/components/site-footer'
 import { FirstEditionJsonLd } from '@/components/first-edition-json-ld'
 import { SESSIONS } from '@/lib/sessions'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'First Edition Agenda | Agentic Zero',
-  description:
-    'The full programme from the first edition of Agentic Zero, held on 20 November 2025 at La Rural in Buenos Aires. 16 talks, panels and demos, each with its own page.',
-  alternates: { canonical: '/first-edition/agenda' },
-}
+  description: 'The full programme from the first edition of Agentic Zero, held on 20 November 2025 at La Rural in Buenos Aires. 16 talks, panels and demos, each with its own page.',
+  path: '/first-edition/agenda',
+  image: FIRST_EDITION_SOCIAL_IMAGE,
+})
 
 const FORMAT_LABEL: Record<string, string> = {
   keynote: 'Keynote',
