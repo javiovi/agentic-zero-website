@@ -251,7 +251,13 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 11)
+assert.equal(cardLinks.length, 12)
+assert.deepEqual(event.performer.map((speaker) => speaker.name), ['Sam Green', 'Rishin Sharma', 'Manuel Beaudroit', 'Chandler Fang', 'Nicolás Montone', 'Shaw Walters', 'Kevin Jones', 'Brad Holden', 'Mac', 'Sandi Fatic', 'Michael Dressler', 'Gianluca Minoprio'])
+const rishin = event.performer[1]
+assert.equal(rishin.url, 'https://x.com/_rishinsharma')
+assert.equal(rishin.jobTitle, 'AI Lead')
+assert.equal(rishin.affiliation.name, 'Solana Foundation')
+assert.equal(rishin.image, 'https://agenticzero.xyz/images/speakers/rishin-sharma.jpeg')
 const speakerSummary = llmsBody.match(/^- Announced 2026 speakers and companies: (.+)$/m)?.[1]
 assert.ok(speakerSummary, 'llms.txt must summarize the current speakers and companies')
 assert.deepEqual(
@@ -345,7 +351,7 @@ assert.deepEqual(
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
 assert.equal(event.performer[2].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
 assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /eleven announced speakers/)
+assert.match(llmsBody, /twelve announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)
