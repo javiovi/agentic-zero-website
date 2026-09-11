@@ -891,6 +891,11 @@ p {
   height: var(--sponsor-logo-height);
 }
 
+/* Center a final unpaired sponsor in the three-column grid. */
+.az-v2-sponsor-grid-logo:last-child:nth-child(3n + 1) {
+  grid-column: 3 / span 2;
+}
+
 .az-v2-sponsor-grid-logo img {
   display: block;
   width: auto;
@@ -998,7 +1003,7 @@ p {
 }
 
 .az-v2-marquee-window {
-  --az-sponsor-cycle-width: 996.1875px;
+  --az-sponsor-cycle-width: 1248px;
   position: relative;
   height: 38px;
   overflow: hidden;

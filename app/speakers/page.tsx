@@ -7,7 +7,7 @@ import { SpeakerGrid } from "@/components/speaker-grid"
 
 const title = "Speakers | Agentic Zero"
 const description =
-  "Meet the ten announced speakers for Agentic Zero, including Manuel Beaudroit of Belo. October 7, 2026, at The Avalon during SF Tech Week."
+  "Meet the eleven announced speakers for Agentic Zero, including Manuel Beaudroit of Belo. October 7, 2026, at The Avalon during SF Tech Week."
 const socialImage = {
   url: "/agentic-zero-sf-tech-week-2026.png",
   width: 5760,
@@ -18,7 +18,10 @@ const socialImage = {
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/speakers" },
+  alternates: {
+    canonical: "/speakers",
+    types: { "text/plain": "/llms.txt" },
+  },
   openGraph: {
     title,
     description,

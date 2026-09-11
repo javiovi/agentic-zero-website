@@ -251,18 +251,30 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 10)
+assert.equal(cardLinks.length, 11)
+const speakerSummary = llmsBody.match(/^- Announced 2026 speakers and companies: (.+)$/m)?.[1]
+assert.ok(speakerSummary, 'llms.txt must summarize the current speakers and companies')
+assert.deepEqual(
+  speakerSummary.split('; '),
+  event.performer.map((speaker) => `${speaker.name} (${speaker.affiliation.name})`)
+)
 assert.equal(event.performer[2].name, 'Manuel Beaudroit')
 const mac = event.performer.find((speaker) => speaker.name === 'Mac')
 assert.equal(mac?.url, 'https://x.com/asyncmac')
 assert.equal(mac?.jobTitle, 'Technical Lead')
 assert.equal(mac?.affiliation.name, 'vAPI Network')
 assert.equal(mac?.image, 'https://agenticzero.xyz/images/speakers/mac.jpeg')
+const michael = event.performer.find((speaker) => speaker.name === 'Michael Dressler')
+assert.equal(michael?.url, 'https://x.com/mdressler24')
+assert.equal(michael?.jobTitle, 'Head of Success')
+assert.equal(michael?.affiliation.name, '0G')
+assert.equal(michael?.image, 'https://agenticzero.xyz/images/speakers/michael-dressler.png')
 
 // The dedicated page must describe the same current lineup as the homepage.
 const speakersResponse = await request('/speakers')
 assert.equal(speakersResponse.status, 200)
 const speakersBody = await speakersResponse.text()
+assert.match(speakersBody, /<link rel="alternate" type="text\/plain" href="https:\/\/agenticzero\.xyz\/llms\.txt"/)
 assert.match(speakersBody, /<link rel="canonical" href="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /More speakers to be announced soon\./)
 const speakersBlocks = [...speakersBody.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
@@ -300,7 +312,14 @@ for (const sponsor of event.sponsor) {
   assert.ok(llmsBody.includes(`[${sponsor.name}](${sponsor.url})`))
   assert.equal((await request(new URL(sponsor.logo).pathname)).status, 200)
 }
-assert.equal(event.sponsor.length, 6)
+assert.equal(event.sponsor.length, 7)
+const sponsorSummary = llmsBody.match(/^- Confirmed 2026 sponsors: (.+)$/m)?.[1]
+assert.ok(sponsorSummary, 'llms.txt must summarize every confirmed sponsor')
+assert.deepEqual(
+  sponsorSummary.replace(/, and /g, ', ').split(', ').sort(),
+  event.sponsor.map((sponsor) => sponsor.name).sort()
+)
+assert.equal(event.sponsor.find((sponsor) => sponsor.name === 'vAPI Network')?.url, 'https://vapinetwork.ai/')
 assert.equal(event.sponsor.find((sponsor) => sponsor.name === 'RZLT')?.url, 'https://www.rzlt.io/')
 assert.equal(event.contributor.length, 2)
 for (const [index, [name, url]] of [
@@ -326,7 +345,7 @@ assert.deepEqual(
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
 assert.equal(event.performer[2].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
 assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /ten announced speakers/)
+assert.match(llmsBody, /eleven announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)

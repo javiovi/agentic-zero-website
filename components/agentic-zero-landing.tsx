@@ -1,6 +1,6 @@
 // Server-rendered structure and content for the Agentic Zero homepage.
 import { Tweet } from "react-tweet"
-import { SPONSORS_2026, PARTNERS_2026, MEDIA_PARTNERS_2026 } from "@/lib/partners"
+import { MARQUEE_SPONSORS_2026, PARTNERS_2026, MEDIA_PARTNERS_2026 } from "@/lib/partners"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
@@ -67,7 +67,7 @@ const LoadingScreenLogoSVG = ({ className }: { className?: string }) => (
 
 
 export default function AgenticZeroLanding() {
-  const sponsors = SPONSORS_2026
+  const sponsors = MARQUEE_SPONSORS_2026
   const partners = PARTNERS_2026
   const featuredTweets = [
     {

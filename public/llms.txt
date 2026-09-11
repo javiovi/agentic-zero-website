@@ -16,8 +16,8 @@ Current event facts:
 - Venue: The Avalon, 1244 Sutter Street, San Francisco
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
-- Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, Belo, and RZLT
-- Announced 2026 speakers: Sam Green, Brad Holden, Manuel Beaudroit, Chandler Fang, Nicolás Montone, Shaw Walters, Kevin Jones, Gianluca Minoprio, Sandi Fatic, and Mac
+- Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, Belo, RZLT, and vAPI Network
+- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Brad Holden (PL Capital); Manuel Beaudroit (Belo); Chandler Fang (t54 Labs); Nicolás Montone (Vercel); Shaw Walters (Eliza Labs); Kevin Jones (1Claw); Gianluca Minoprio (Daimo); Sandi Fatic (Calimero Network); Mac (vAPI Network); Michael Dressler (0G)
 - 2026 media partners: ETH Daily (https://ethdaily.io), UGLY TALK (https://uglytalk.com/)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
@@ -64,7 +64,7 @@ How agents should retrieve and use this site:
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
 - [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
 - [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
-- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the ten announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
+- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the eleven announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
 - [2026 sponsors and media partners](https://agenticzero.xyz/#partners): Current sponsors and media partners ETH Daily and UGLY TALK, listed separately.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
@@ -85,6 +85,7 @@ The [second-edition Speakers page](https://agenticzero.xyz/speakers) is the cano
 - [Gianluca Minoprio](https://x.com/gminoprio): Head of Growth, Daimo.
 - [Sandi Fatic](https://x.com/chefsale): CEO, Calimero Network.
 - [Mac](https://x.com/asyncmac): Technical Lead, vAPI Network.
+- [Michael Dressler](https://x.com/mdressler24): Head of Success, 0G.
 
 More speakers to be announced soon. Session assignments and times are not yet published.
 
@@ -98,6 +99,7 @@ More speakers to be announced soon. Session assignments and times are not yet pu
 - [QuickNode](https://www.quicknode.com/)
 - [Cambrian Network](https://cambrian.org/)
 - [RZLT](https://www.rzlt.io/)
+- [vAPI Network](https://vapinetwork.ai/)
 
 ### Media Partners
 

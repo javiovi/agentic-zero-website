@@ -30,9 +30,24 @@ export const SPONSORS_2026 = [
     logo: "/images/logos/RZLT.svg",
     website: "https://www.rzlt.io/",
   },
+  {
+    name: "vAPI Network",
+    logo: "/images/logos/vapi-network-white.svg",
+    website: "https://vapinetwork.ai/",
+  },
 ]
 
-export const PARTNERS_2026 = ["Solana", "Belo", "Calimero", "QuickNode", "Cambrian Network", "RZLT"].map(
+export const MARQUEE_SPONSORS_2026 = [
+  SPONSORS_2026.find((sponsor) => sponsor.name === "Calimero")!,
+  SPONSORS_2026.find((sponsor) => sponsor.name === "RZLT")!,
+  SPONSORS_2026.find((sponsor) => sponsor.name === "Solana")!,
+  SPONSORS_2026.find((sponsor) => sponsor.name === "QuickNode")!,
+  SPONSORS_2026.find((sponsor) => sponsor.name === "Cambrian Network")!,
+  SPONSORS_2026.find((sponsor) => sponsor.name === "vAPI Network")!,
+  SPONSORS_2026.find((sponsor) => sponsor.name === "Belo")!,
+]
+
+export const PARTNERS_2026 = ["Solana", "Belo", "Calimero", "QuickNode", "Cambrian Network", "RZLT", "vAPI Network"].map(
   (name) => SPONSORS_2026.find((sponsor) => sponsor.name === name)!
 )
 

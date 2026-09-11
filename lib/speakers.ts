@@ -110,6 +110,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/asyncmac',
   },
   {
+    slug: 'michael-dressler',
+    name: 'Michael Dressler',
+    role: 'Head of Success',
+    company: '0G',
+    image: '/images/speakers/michael-dressler.png',
+    alt: 'Michael Dressler',
+    profileUrl: 'https://x.com/mdressler24',
+  },
+  {
     slug: 'kevin-leffew',
     published: false,
     name: 'Kevin Leffew',
