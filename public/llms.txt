@@ -17,7 +17,7 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, Belo, RZLT, and vAPI Network
-- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Manuel Beaudroit (Belo); Chandler Fang (t54 Labs); Nicolás Montone (Vercel); Shaw Walters (Eliza Labs); Kevin Jones (1Claw); Brad Holden (PL Capital); Mac (vAPI Network); Sandi Fatic (Calimero Network); Michael Dressler (0G); Gianluca Minoprio (Daimo)
+- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Manuel Beaudroit (Belo); Chandler Fang (t54 Labs); Danny Organ (Circle); Nicolás Montone (Vercel); Shaw Walters (Eliza Labs); Kevin Jones (1Claw); Brad Holden (PL Capital); Mac (vAPI Network); Sandi Fatic (Calimero Network); Michael Dressler (0G); Gianluca Minoprio (Daimo)
 - 2026 media partners: ETH Daily (https://ethdaily.io), UGLY TALK (https://uglytalk.com/)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
@@ -64,7 +64,7 @@ How agents should retrieve and use this site:
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
 - [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
 - [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
-- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the twelve announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
+- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the thirteen announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
 - [2026 sponsors and media partners](https://agenticzero.xyz/#partners): Current sponsors and media partners ETH Daily and UGLY TALK, listed separately.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
@@ -79,6 +79,7 @@ The [second-edition Speakers page](https://agenticzero.xyz/speakers) is the cano
 - [Rishin Sharma](https://x.com/_rishinsharma): AI Lead, Solana Foundation.
 - [Manuel Beaudroit](https://x.com/mbeaudroit): Co-founder & CEO, Belo.
 - [Chandler Fang](https://x.com/chandler_agi): Founder, t54 Labs.
+- [Danny Organ](https://x.com/organ_danny): Product Marketing Lead for Agentic Products, Circle.
 - [Nicolás Montone](https://x.com/montonenico): Software Engineer, Vercel.
 - [Shaw Walters](https://x.com/shawmakesmagic): Founder, Eliza Labs.
 - [Kevin Jones](https://x.com/DevSecOpz): Founder and CEO, 1Claw.

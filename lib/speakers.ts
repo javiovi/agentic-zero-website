@@ -56,6 +56,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/chandler_agi',
   },
   {
+    slug: 'danny-organ',
+    name: 'Danny Organ',
+    role: 'Product Marketing Lead for Agentic Products',
+    company: 'Circle',
+    image: '/images/speakers/danny-organ.png',
+    alt: 'Danny Organ',
+    profileUrl: 'https://x.com/organ_danny',
+  },
+  {
     slug: 'nicolas-montone',
     name: 'Nicolás Montone',
     role: 'Software Engineer',
