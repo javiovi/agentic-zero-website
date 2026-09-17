@@ -11,7 +11,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: '/tickets' },
+  alternates: { canonical: '/tickets', types: { 'text/plain': '/llms.txt' } },
   openGraph: {
     title,
     description,

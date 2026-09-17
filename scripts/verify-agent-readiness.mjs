@@ -170,6 +170,7 @@ for (const path of publicUrls) {
   assert.equal(new URL(canonical).href, new URL(path, 'https://agenticzero.xyz').href, `${path}: canonical`)
   assert.equal(new URL(metaContent(body, 'og:url')).href, new URL(path, 'https://agenticzero.xyz').href, `${path}: og:url`)
   assert.ok(metaContent(body, 'description'), `${path}: missing description`)
+  assert.match(body, /<link rel="alternate" type="text\/plain" href="https:\/\/agenticzero\.xyz\/llms\.txt"/, `${path}: missing llms.txt discovery link`)
   for (const name of ['og:title', 'twitter:title']) {
     const title = metaContent(body, name)
     assert.ok(title, `${path}: missing ${name}`)
@@ -251,14 +252,14 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 13)
-const danny = event.performer[4]
+assert.equal(cardLinks.length, 16)
+const danny = event.performer[2]
 assert.equal(danny.name, 'Danny Organ')
 assert.equal(danny.url, 'https://x.com/organ_danny')
 assert.equal(danny.jobTitle, 'Product Marketing Lead for Agentic Products')
 assert.equal(danny.affiliation.name, 'Circle')
 assert.equal(danny.image, 'https://agenticzero.xyz/images/speakers/danny-organ.png')
-assert.deepEqual(event.performer.map((speaker) => speaker.name), ['Sam Green', 'Rishin Sharma', 'Manuel Beaudroit', 'Chandler Fang', 'Danny Organ', 'Nicolás Montone', 'Shaw Walters', 'Kevin Jones', 'Brad Holden', 'Mac', 'Sandi Fatic', 'Michael Dressler', 'Gianluca Minoprio'])
+assert.deepEqual(event.performer.map((speaker) => speaker.name), ['Sam Green', 'Rishin Sharma', 'Danny Organ', 'Shaw Walters', 'Manuel Beaudroit', 'Chris Johnson', 'Chandler Fang', 'Brad Holden', 'Mickey Negus', 'Sandi Fatic', 'Kevin Jones', 'Nicolás Montone', 'Ian Dilick', 'Michael Dressler', 'Mac', 'Gianluca Minoprio'])
 const rishin = event.performer[1]
 assert.equal(rishin.url, 'https://x.com/_rishinsharma')
 assert.equal(rishin.jobTitle, 'AI Lead')
@@ -270,7 +271,7 @@ assert.deepEqual(
   speakerSummary.split('; '),
   event.performer.map((speaker) => `${speaker.name} (${speaker.affiliation.name})`)
 )
-assert.equal(event.performer[2].name, 'Manuel Beaudroit')
+assert.equal(event.performer[4].name, 'Manuel Beaudroit')
 const mac = event.performer.find((speaker) => speaker.name === 'Mac')
 assert.equal(mac?.url, 'https://x.com/asyncmac')
 assert.equal(mac?.jobTitle, 'Technical Lead')
@@ -355,9 +356,9 @@ assert.deepEqual(
   cardLinks
 )
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
-assert.equal(event.performer[2].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
+assert.equal(event.performer[4].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
 assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /thirteen announced speakers/)
+assert.match(llmsBody, /sixteen announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)

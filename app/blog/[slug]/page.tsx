@@ -32,7 +32,7 @@ export async function generateMetadata(props: {
     keywords: post.keywords,
     alternates: {
       canonical,
-      types: { 'text/markdown': canonical },
+      types: { 'text/plain': '/llms.txt', 'text/markdown': canonical },
     },
     robots: { index: true, follow: true },
     openGraph: {

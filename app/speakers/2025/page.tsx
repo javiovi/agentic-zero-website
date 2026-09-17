@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'First Edition Speakers | Agentic Zero',
   description:
     'The complete 28-speaker lineup from the first edition of Agentic Zero in Buenos Aires.',
-  alternates: { canonical: '/speakers/2025' },
+  alternates: { canonical: '/speakers/2025', types: { 'text/plain': '/llms.txt' } },
   openGraph: {
     title: 'First Edition Speakers | Agentic Zero',
     description:
