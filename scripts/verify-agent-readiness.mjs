@@ -14,6 +14,14 @@ function visibleText(html) {
     .trim()
 }
 
+// Keep metadata and JSON-LD, but exclude hydration payloads whose internal
+// references (for example $69:props) are not published ticket prices.
+function publishedContent(body) {
+  return body.replace(/<script\b([^>]*)>[\s\S]*?<\/script>/gi, (script, attributes) =>
+    /\btype=["']application\/ld\+json["']/i.test(attributes) ? script : ''
+  )
+}
+
 async function request(path, accept) {
   return fetch(`${baseUrl}${path}`, {
     headers: accept ? { Accept: accept } : undefined,
@@ -159,6 +167,7 @@ function metaContent(body, name) {
   return tag?.match(/content="([^"]*)"/)?.[1]
 }
 
+const pageSchemas = new Map()
 for (const path of publicUrls) {
   const response = await request(path)
   const body = await response.text()
@@ -181,6 +190,8 @@ for (const path of publicUrls) {
   for (const block of body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     assert.doesNotThrow(() => JSON.parse(block[1]), `${path}: malformed JSON-LD`)
   }
+  pageSchemas.set(path, [...body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1])))
   if (path.startsWith('/first-edition/')) {
     assert.equal(new URL(metaContent(body, 'og:image')).pathname, '/Card.png', `${path}: wrong edition artwork`)
     assert.equal(new URL(metaContent(body, 'twitter:image')).pathname, '/Card.png', `${path}: wrong edition Twitter artwork`)
@@ -225,7 +236,7 @@ for (const [path, accept] of [
   const body = await response.text()
   assert.equal(response.status, 200)
   assert.match(body, /Admission is free/)
-  assert.doesNotMatch(body, staleTicketLanguage, `${path} (${accept}) has stale ticket copy`)
+  assert.doesNotMatch(publishedContent(body), staleTicketLanguage, `${path} (${accept}) has stale ticket copy`)
   if (accept === 'text/html') {
     const blocks = [...body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((match) => JSON.parse(match[1]))
@@ -235,7 +246,7 @@ for (const [path, accept] of [
   }
 }
 for (const [name, body] of Object.entries({ homepage: html, tickets: ticketsBody, contact: contactBody, privacy: privacyBody, llms: llmsBody, markdown })) {
-  assert.doesNotMatch(body, staleTicketLanguage, `${name} has stale ticket copy`)
+  assert.doesNotMatch(publishedContent(body), staleTicketLanguage, `${name} has stale ticket copy`)
 }
 assert.match(llmsBody, /Admission is free/)
 assert.match(markdown, /Admission is free/)
@@ -243,6 +254,16 @@ assert.doesNotMatch(html, /2092277067677311310/)
 const event = jsonLdBlocks.find((block) => block['@type'] === 'Event')
 assert.equal(event?.isAccessibleForFree, true)
 assert.equal(event?.offers, undefined)
+// Each current-edition entry point must carry the same event and a complete organizer.
+for (const path of ['/', '/speakers', '/tickets', '/agenda']) {
+  const blocks = pageSchemas.get(path) ?? []
+  const events = blocks.filter((block) => block['@id'] === event['@id'])
+  assert.equal(events.length, 1, `${path}: expected one current-edition Event`)
+  assert.deepEqual(events[0], event, `${path}: event facts or speaker lineup differ`)
+  const organizers = blocks.filter((block) => block['@id'] === event.organizer['@id'])
+  assert.equal(organizers.length, 1, `${path}: expected one complete organizer`)
+  assert.deepEqual(organizers[0], organization, `${path}: organizer identity differs`)
+}
 const faq = jsonLdBlocks.find((block) => block['@type'] === 'FAQPage')
 assert.match(faq?.mainEntity.find((item) => item.name === 'How can I get tickets?')?.acceptedAnswer.text ?? '', /Admission is free/)
 
@@ -252,14 +273,14 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 16)
+assert.equal(cardLinks.length, 17)
 const danny = event.performer[2]
 assert.equal(danny.name, 'Danny Organ')
 assert.equal(danny.url, 'https://x.com/organ_danny')
 assert.equal(danny.jobTitle, 'Product Marketing Lead for Agentic Products')
 assert.equal(danny.affiliation.name, 'Circle')
 assert.equal(danny.image, 'https://agenticzero.xyz/images/speakers/danny-organ.png')
-assert.deepEqual(event.performer.map((speaker) => speaker.name), ['Sam Green', 'Rishin Sharma', 'Danny Organ', 'Shaw Walters', 'Manuel Beaudroit', 'Chris Johnson', 'Chandler Fang', 'Brad Holden', 'Mickey Negus', 'Sandi Fatic', 'Kevin Jones', 'Nicolás Montone', 'Ian Dilick', 'Michael Dressler', 'Mac', 'Gianluca Minoprio'])
+assert.deepEqual(event.performer.map((speaker) => speaker.name), ['Sam Green', 'Rishin Sharma', 'Danny Organ', 'Shaw Walters', 'Manuel Beaudroit', 'Chris Johnson', 'Chandler Fang', 'Brad Holden', 'Mickey Negus', 'Sandi Fatic', 'Kevin Jones', 'Nicolás Montone', 'Ian Dilick', 'Michael Dressler', 'Mac', 'Gianluca Minoprio', 'Edwin Rager'])
 const rishin = event.performer[1]
 assert.equal(rishin.url, 'https://x.com/_rishinsharma')
 assert.equal(rishin.jobTitle, 'AI Lead')
@@ -277,6 +298,11 @@ assert.equal(mac?.url, 'https://x.com/asyncmac')
 assert.equal(mac?.jobTitle, 'Technical Lead')
 assert.equal(mac?.affiliation.name, 'vAPI Network')
 assert.equal(mac?.image, 'https://agenticzero.xyz/images/speakers/mac.jpeg')
+const edwin = event.performer.find((speaker) => speaker.name === 'Edwin Rager')
+assert.equal(edwin?.url, 'https://x.com/locosombrero')
+assert.equal(edwin?.jobTitle, 'Co-founder and CMO')
+assert.equal(edwin?.affiliation.name, 'belo')
+assert.equal(edwin?.image, 'https://agenticzero.xyz/images/speakers/edwin-rager.jpeg')
 const michael = event.performer.find((speaker) => speaker.name === 'Michael Dressler')
 assert.equal(michael?.url, 'https://x.com/mdressler24')
 assert.equal(michael?.jobTitle, 'Head of Success')
@@ -358,7 +384,7 @@ assert.deepEqual(
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
 assert.equal(event.performer[4].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
 assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /sixteen announced speakers/)
+assert.match(llmsBody, /seventeen announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)

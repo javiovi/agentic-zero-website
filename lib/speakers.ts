@@ -164,6 +164,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/gminoprio',
   },
   {
+    slug: 'edwin-rager',
+    name: 'Edwin Rager',
+    role: 'Co-founder and CMO',
+    company: 'belo',
+    image: '/images/speakers/edwin-rager.jpeg',
+    alt: 'Edwin Rager',
+    profileUrl: 'https://x.com/locosombrero',
+  },
+  {
     slug: 'kevin-leffew',
     published: false,
     name: 'Kevin Leffew',

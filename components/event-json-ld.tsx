@@ -1,4 +1,5 @@
 import { speakerEntities } from '@/lib/speaker-json-ld'
+import { OrganizationJsonLd } from '@/components/organization-json-ld'
 import { SPONSORS_2026, MEDIA_PARTNERS_2026 } from '@/lib/partners'
 
 // Schema.org Event markup for the second edition.
@@ -74,9 +75,12 @@ function safeJsonLd(value: unknown) {
 
 export function EventJsonLd() {
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: safeJsonLd(secondEdition) }}
-    />
+    <>
+      <OrganizationJsonLd />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(secondEdition) }}
+      />
+    </>
   )
 }

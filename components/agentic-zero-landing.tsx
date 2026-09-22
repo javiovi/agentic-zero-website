@@ -5,7 +5,6 @@ import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { EventJsonLd } from "@/components/event-json-ld"
 import { FaqJsonLd } from "@/components/faq-json-ld"
-import { OrganizationJsonLd } from "@/components/organization-json-ld"
 import { FAQS } from "@/lib/faq"
 import { TICKET_URL } from "@/lib/tickets"
 import { FAQItem, HeroLogo, NotifyForm } from "@/components/homepage-interactions"
@@ -190,7 +189,6 @@ export default function AgenticZeroLanding() {
     <>
       <EventJsonLd />
       <FaqJsonLd />
-      <OrganizationJsonLd />
       <div className="page-container az-v2-page fade-in-site">
         <SiteNav />
 

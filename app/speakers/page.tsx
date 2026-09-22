@@ -7,7 +7,7 @@ import { SpeakerGrid } from "@/components/speaker-grid"
 
 const title = "Speakers | Agentic Zero"
 const description =
-  "Meet the sixteen announced speakers for Agentic Zero, including Manuel Beaudroit of Belo. October 7, 2026, at The Avalon during SF Tech Week."
+  "Meet the seventeen announced speakers for Agentic Zero, including Manuel Beaudroit of Belo. October 7, 2026, at The Avalon during SF Tech Week."
 const socialImage = {
   url: "/agentic-zero-sf-tech-week-2026.png",
   width: 5760,
