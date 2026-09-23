@@ -110,6 +110,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/chefsale',
   },
   {
+    slug: 'ken-priyadarshi',
+    name: 'Ken Priyadarshi',
+    role: 'Global Prompt Engineering Lead',
+    company: 'EY',
+    image: '/images/speakers/ken-priyadarshi.webp',
+    alt: 'Ken Priyadarshi',
+    profileUrl: 'https://www.linkedin.com/in/kenpriyadarshi/',
+  },
+  {
     slug: 'kevin-jones',
     name: 'Kevin Jones',
     role: 'Founder and CEO',
@@ -359,5 +368,5 @@ export const FIRST_EDITION_SPEAKERS: FirstEditionSpeaker[] = [
 ]
 
 export function speakerDisplayRole(speaker: Speaker2026) {
-  return `${speaker.role}, ${speaker.company}`
+  return [speaker.role, speaker.company].filter(Boolean).join(", ")
 }

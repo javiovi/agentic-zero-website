@@ -1345,6 +1345,14 @@ p {
   border-color: #f97316;
 }
 
+.az-v2-speaker-portrait {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
 .az-v2-speaker-card img {
   display: block;
   flex-shrink: 0;

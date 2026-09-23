@@ -12,12 +12,14 @@ export function SpeakerGrid() {
           rel="noopener noreferrer"
           aria-label={`View ${speaker.name}'s profile`}
         >
-          <img
-            src={speaker.image}
-            alt={speaker.alt}
-            loading="lazy"
-            style={speaker.slug === "brad-holden" ? { objectPosition: "50% 20%" } : speaker.slug === "mac" ? { objectPosition: "50% 0%" } : undefined}
-          />
+          <span className="az-v2-speaker-portrait">
+            <img
+              src={speaker.image}
+              alt={speaker.alt}
+              loading="lazy"
+              style={speaker.slug === "brad-holden" ? { objectPosition: "50% 20%" } : speaker.slug === "mac" ? { objectPosition: "50% 0%" } : speaker.slug === "ken-priyadarshi" ? { transform: "scale(1.5)", transformOrigin: "50% 35%" } : undefined}
+            />
+          </span>
           <div>
             <h4>{speaker.name}</h4>
             <p>{speakerDisplayRole(speaker)}</p>

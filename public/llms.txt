@@ -17,7 +17,7 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, Belo, RZLT, and vAPI Network
-- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Danny Organ (Circle); Shaw Walters (Eliza Labs); Manuel Beaudroit (Belo); Chris Johnson (Virtuals Protocol); Chandler Fang (t54 Labs); Brad Holden (PL Capital); Mickey Negus (TRM Labs); Sandi Fatic (Calimero Network); Kevin Jones (1Claw); Nicolás Montone (Vercel); Ian Dilick (World Foundation); Michael Dressler (0G); Mac (vAPI Network); Gianluca Minoprio (Daimo); Edwin Rager (belo)
+- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Danny Organ (Circle); Shaw Walters (Eliza Labs); Manuel Beaudroit (Belo); Chris Johnson (Virtuals Protocol); Chandler Fang (t54 Labs); Brad Holden (PL Capital); Mickey Negus (TRM Labs); Sandi Fatic (Calimero Network); Ken Priyadarshi (EY); Kevin Jones (1Claw); Nicolás Montone (Vercel); Ian Dilick (World Foundation); Michael Dressler (0G); Mac (vAPI Network); Gianluca Minoprio (Daimo); Edwin Rager (belo)
 - 2026 media partners: ETH Daily (https://ethdaily.io), UGLY TALK (https://uglytalk.com/)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
@@ -64,7 +64,7 @@ How agents should retrieve and use this site:
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
 - [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
 - [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
-- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the seventeen announced speakers, their roles, affiliations, portraits, and X profiles. The homepage shows the same lineup. More speakers to be announced soon.
+- [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the eighteen announced speakers, their roles, affiliations, portraits, and social profiles. The homepage shows the same lineup. More speakers to be announced soon.
 - [2026 sponsors and media partners](https://agenticzero.xyz/#partners): Current sponsors and media partners ETH Daily and UGLY TALK, listed separately.
 - [Programme updates](https://agenticzero.xyz/#notify): Join the email list for Agentic Zero programme announcements.
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
@@ -85,6 +85,7 @@ The [second-edition Speakers page](https://agenticzero.xyz/speakers) is the cano
 - [Brad Holden](https://x.com/bholden): Managing Partner, PL Capital.
 - [Mickey Negus](https://x.com/mickeynegus): Senior BD Director, Private Sector (US), TRM Labs.
 - [Sandi Fatic](https://x.com/chefsale): CEO, Calimero Network.
+- [Ken Priyadarshi](https://www.linkedin.com/in/kenpriyadarshi/): Global Prompt Engineering Lead, EY.
 - [Kevin Jones](https://x.com/DevSecOpz): Founder and CEO, 1Claw.
 - [Nicolás Montone](https://x.com/montonenico): Software Engineer, Vercel.
 - [Ian Dilick](https://x.com/iamdilick): Developer Relations, World Foundation.
