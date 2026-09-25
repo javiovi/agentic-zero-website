@@ -9,6 +9,7 @@
 // and the first edition is always described in the past tense.
 
 import { MPP_POST_BODY } from './mpp-post'
+import { SPEAKERS_POST_BODY } from './speakers-post'
 
 export type BlogInline =
   | string
@@ -52,6 +53,20 @@ export type BlogPost = {
 }
 
 export const POSTS: BlogPost[] = [
+  {
+    slug: 'meet-the-speakers-agentic-zero-sf-tech-week-2026',
+    title: 'Meet the speakers joining Agentic Zero at SF Tech Week',
+    description:
+      'Meet the speakers connecting AI agents, payments, and financial institutions at Agentic Zero on October 7, 2026, in San Francisco.',
+    date: '2026-09-25',
+    section: 'Speakers',
+    keywords: ['Agentic Zero', 'agentic finance', 'SF Tech Week', 'AI agents', 'speakers'],
+    about: [
+      { name: 'Agentic Zero', url: 'https://agenticzero.xyz/' },
+      { name: 'agentic finance', url: 'https://agenticzero.xyz/what-is-agentic-finance' },
+    ],
+    body: SPEAKERS_POST_BODY,
+  },
   {
     slug: 'mpp-what-machine-payments-look-like-before-they-become-a-market',
     title: 'MPP: What Early Machine Payments Look Like',

@@ -92,6 +92,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/bholden',
   },
   {
+    slug: 'julian-love',
+    name: 'Julian Love',
+    role: 'Managing Principal & Portfolio Manager',
+    company: 'Franklin Templeton',
+    image: '/images/speakers/julian-love.png',
+    alt: 'Julian Love',
+    profileUrl: 'https://www.linkedin.com/in/julian-love-6041ab28',
+  },
+  {
     slug: 'mickey-negus',
     name: 'Mickey Negus',
     role: 'Senior BD Director, Private Sector (US)',

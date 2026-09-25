@@ -72,12 +72,6 @@ export const FAQS: Faq[] = [
       " with your sponsorship interests.",
     ],
   },
-  {
-    question: "Will talks be recorded?",
-    answer: [
-      "Yes, all main stage talks will be recorded and published on our YouTube channel after the event.",
-    ],
-  },
 ]
 
 // Plain-text form of an answer, for the schema. Drops the anchors and keeps
