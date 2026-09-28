@@ -191,6 +191,15 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/locosombrero',
   },
   {
+    slug: 'adam-zion',
+    name: 'Adam Zion',
+    role: 'Head of Product',
+    company: 'Fireblocks Dynamic',
+    image: '/images/speakers/adam-zion-headshot.jpeg',
+    alt: 'Adam Zion',
+    profileUrl: 'https://x.com/AdamGregZ',
+  },
+  {
     slug: 'kevin-leffew',
     published: false,
     name: 'Kevin Leffew',
