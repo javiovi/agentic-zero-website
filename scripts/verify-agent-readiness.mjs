@@ -4,6 +4,11 @@ const baseUrl = process.env.AGENT_READINESS_BASE_URL ?? 'http://127.0.0.1:3000'
 const mppArticlePath =
   '/blog/mpp-what-machine-payments-look-like-before-they-become-a-market'
 
+function speakerCompany(speaker) {
+  return (Array.isArray(speaker.affiliation) ? speaker.affiliation : [speaker.affiliation])
+    .map((organization) => organization.name).join(' and ')
+}
+
 function visibleText(html) {
   return html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
@@ -281,7 +286,7 @@ assert.ok(speakerSection.length > 0, 'speaker section must precede partners')
 const cardLinks = [...speakerSection.matchAll(/<a\b(?=[^>]*class="az-v2-speaker-card")(?=[^>]*href="([^"]+)")[^>]*>/g)]
   .map((match) => match[1])
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 20)
+assert.equal(cardLinks.length, 21)
 const ken = event.performer.find((speaker) => speaker.name === 'Ken Priyadarshi')
 assert.equal(ken.name, 'Ken Priyadarshi')
 assert.equal(ken.url, 'https://www.linkedin.com/in/kenpriyadarshi/')
@@ -294,12 +299,21 @@ assert.equal(danny.url, 'https://x.com/organ_danny')
 assert.equal(danny.jobTitle, 'Product Marketing Lead for Agentic Products')
 assert.equal(danny.affiliation.name, 'Circle')
 assert.equal(danny.image, 'https://agenticzero.xyz/images/speakers/danny-organ.png')
-assert.deepEqual(event.performer.map((speaker) => speaker.name), ["Sam Green", "Rishin Sharma", "Danny Organ", "Shaw Walters", "Manuel Beaudroit", "Chris Johnson", "Chandler Fang", "Ken Priyadarshi", "Sandi Fatic", "Julian Love", "Mickey Negus", "Sarthak Basak", "Adam Zion", "Kevin Jones", "Nicolás Montone", "Brad Holden", "Mac", "Gianluca Minoprio", "Michael Dressler", "Edwin Rager"])
+assert.deepEqual(event.performer.map((speaker) => speaker.name), ["Sam Green", "Rishin Sharma", "Danny Organ", "Shaw Walters", "Manuel Beaudroit", "Chris Johnson", "Chandler Fang", "Ken Priyadarshi", "Sandi Fatic", "Julian Love", "Mickey Negus", "Sarthak Basak", "Adam Zion", "Kevin Jones", "Nicolás Montone", "Brad Holden", "Mac", "Gianluca Minoprio", "Michael Dressler", "Edwin Rager", "Manuel Alzuru"])
 const sarthak = event.performer.find((speaker) => speaker.name === 'Sarthak Basak')
 assert.equal(sarthak?.jobTitle, 'Senior Director, Growth Products & Partnership')
 assert.equal(sarthak?.affiliation.name, 'Visa')
 assert.equal(sarthak?.url, 'https://www.linkedin.com/in/sarthakbasak/')
 assert.equal(sarthak?.image, 'https://agenticzero.xyz/images/speakers/sarthak-basak.jpeg')
+const manuelAlzuru = event.performer.at(-1)
+assert.equal(manuelAlzuru.name, 'Manuel Alzuru')
+assert.equal(manuelAlzuru.jobTitle, 'Founder')
+assert.equal(manuelAlzuru.url, 'https://x.com/ManuAlzuru')
+assert.equal(manuelAlzuru.image, 'https://agenticzero.xyz/images/speakers/manuel-alzuru.jpeg')
+assert.deepEqual(manuelAlzuru.affiliation, [
+  { '@type': 'Organization', name: 'ETHBarcelona' },
+  { '@type': 'Organization', name: 'Blockravers' },
+])
 const rishin = event.performer[1]
 assert.equal(rishin.url, 'https://x.com/_rishinsharma')
 assert.equal(rishin.jobTitle, 'AI Lead')
@@ -309,7 +323,7 @@ const speakerSummary = llmsBody.match(/^- Announced 2026 speakers and companies:
 assert.ok(speakerSummary, 'llms.txt must summarize the current speakers and companies')
 assert.deepEqual(
   speakerSummary.split('; '),
-  event.performer.map((speaker) => `${speaker.name} (${speaker.affiliation.name})`)
+  event.performer.map((speaker) => `${speaker.name} (${speakerCompany(speaker)})`)
 )
 assert.equal(event.performer[4].name, 'Manuel Beaudroit')
 const mac = event.performer.find((speaker) => speaker.name === 'Mac')
@@ -352,7 +366,7 @@ assert.doesNotMatch(llmsBody, /lineup is currently listed on the homepage only/)
 
 for (const speaker of event.performer) {
   assert.ok(visibleText(speakerSection).includes(speaker.name), `missing visible speaker ${speaker.name}`)
-  assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${[speaker.jobTitle, speaker.affiliation.name].filter(Boolean).join(", ")}.`))
+  assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${[speaker.jobTitle, speakerCompany(speaker)].filter(Boolean).join(", ")}.`))
   assert.deepEqual(speaker.sameAs, [speaker.url])
   assert.equal(new URL(speaker.url).hostname, ['Ken Priyadarshi', 'Julian Love', 'Sarthak Basak'].includes(speaker.name) ? 'www.linkedin.com' : 'x.com')
   assert.equal((await request(new URL(speaker.image).pathname)).status, 200, `missing photo for ${speaker.name}`)
@@ -403,7 +417,7 @@ assert.deepEqual(
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
 assert.equal(event.performer[4].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
 assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /twenty announced speakers/)
+assert.match(llmsBody, /twenty-one announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)

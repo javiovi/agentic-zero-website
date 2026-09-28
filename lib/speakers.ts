@@ -3,6 +3,7 @@ export type Speaker2026 = {
   name: string
   role: string
   company: string
+  organizations?: string[]
   image: string
   alt: string
   profileUrl: string
@@ -198,6 +199,16 @@ export const SPEAKERS_2026: Speaker2026[] = [
     image: '/images/speakers/edwin-rager.jpeg',
     alt: 'Edwin Rager',
     profileUrl: 'https://x.com/locosombrero',
+  },
+  {
+    slug: 'manuel-alzuru',
+    name: 'Manuel Alzuru',
+    role: 'Founder',
+    company: 'ETHBarcelona and Blockravers',
+    organizations: ['ETHBarcelona', 'Blockravers'],
+    image: '/images/speakers/manuel-alzuru.jpeg',
+    alt: 'Manuel Alzuru',
+    profileUrl: 'https://x.com/ManuAlzuru',
   },
   {
     slug: 'ian-dilick',
