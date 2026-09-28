@@ -27,7 +27,6 @@ export default function AgendaPage() {
             Francisco, during SF Tech Week by a16z.
           </p>
           <p>
-            More speakers to be announced soon.{" "}
             <a href="/speakers">Meet the announced speakers.</a>
           </p>
           <p>Registration is open. Register through the official Partiful page.</p>

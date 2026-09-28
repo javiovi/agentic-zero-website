@@ -334,9 +334,6 @@ export default function AgenticZeroLanding() {
                 <h3>Speakers</h3>
               </div>
               <SpeakerGrid />
-              <p className="az-v2-speaker-rail-link">
-                <span>More speakers to be announced soon.</span>
-              </p>
             </div>
           </div>
         </section>

@@ -133,7 +133,7 @@ export const SPEAKERS_POST_BODY: BlogBlock[] = [
         "href": "https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F",
         "external": true
       },
-      ". Admission is free, and more speakers will be announced."
+      ". Admission is free."
     ]
   }
 ]

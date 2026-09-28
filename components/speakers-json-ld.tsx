@@ -6,7 +6,7 @@ const speakersPage = {
   '@id': 'https://agenticzero.xyz/speakers#webpage',
   url: 'https://agenticzero.xyz/speakers',
   name: 'Agentic Zero second edition speakers',
-  description: 'Meet the announced speakers for the second edition of Agentic Zero. More speakers to be announced soon.',
+  description: 'Meet the announced speakers for the second edition of Agentic Zero.',
   about: { '@id': 'https://agenticzero.xyz/#event-2026' },
   mainEntity: {
     '@type': 'ItemList',

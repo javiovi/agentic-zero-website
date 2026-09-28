@@ -51,7 +51,6 @@ export default function SpeakersPage() {
               <span>Second edition</span>
               <h1>Speakers</h1>
             </div>
-            <p>More speakers to be announced soon.</p>
           </header>
           <SpeakerGrid />
         </main>

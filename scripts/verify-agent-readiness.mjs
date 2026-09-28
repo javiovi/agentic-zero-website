@@ -134,6 +134,7 @@ const llms = await request('/llms.txt')
 assert.equal(llms.status, 200)
 const llmsBody = await llms.text()
 assert.match(llmsBody, /## When to use Agentic Zero/)
+assert.doesNotMatch(llmsBody, /more speakers (?:to be|will be) announced/i)
 assert.match(llmsBody, /MPP: What Early Machine Payments Look Like/)
 assert.match(llmsBody, new RegExp(mppArticlePath))
 assert.doesNotMatch(llmsBody, /Early Bird/)
@@ -190,6 +191,7 @@ for (const path of publicUrls) {
   for (const block of body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     assert.doesNotThrow(() => JSON.parse(block[1]), `${path}: malformed JSON-LD`)
   }
+  assert.doesNotMatch(publishedContent(body), /more speakers (?:to be|will be) announced/i, `${path}: stale speaker announcement promise`)
   pageSchemas.set(path, [...body.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map((match) => JSON.parse(match[1])))
   if (path.startsWith('/first-edition/')) {
@@ -254,6 +256,12 @@ assert.doesNotMatch(html, /2092277067677311310/)
 const event = jsonLdBlocks.find((block) => block['@type'] === 'Event')
 assert.equal(event?.isAccessibleForFree, true)
 assert.equal(event?.offers, undefined)
+assert.equal(event.startDate, '2026-10-07')
+assert.equal(event.location.name, 'The Avalon')
+assert.equal(event.location.address.streetAddress, '1244 Sutter Street')
+assert.equal(event.location.address.addressLocality, 'San Francisco')
+assert.equal(event.location.address.addressCountry, 'US')
+assert.equal(event.endDate, undefined, 'Do not invent unpublished event times')
 // Each current-edition entry point must carry the same event and a complete organizer.
 for (const path of ['/', '/speakers', '/tickets', '/agenda']) {
   const blocks = pageSchemas.get(path) ?? []
@@ -286,7 +294,12 @@ assert.equal(danny.url, 'https://x.com/organ_danny')
 assert.equal(danny.jobTitle, 'Product Marketing Lead for Agentic Products')
 assert.equal(danny.affiliation.name, 'Circle')
 assert.equal(danny.image, 'https://agenticzero.xyz/images/speakers/danny-organ.png')
-assert.deepEqual(event.performer.map((speaker) => speaker.name), ['Sam Green', 'Rishin Sharma', 'Danny Organ', 'Shaw Walters', 'Manuel Beaudroit', 'Chris Johnson', 'Chandler Fang', 'Brad Holden', 'Julian Love', 'Mickey Negus', 'Sandi Fatic', 'Ken Priyadarshi', 'Kevin Jones', 'Nicolás Montone', 'Ian Dilick', 'Michael Dressler', 'Mac', 'Gianluca Minoprio', 'Edwin Rager', 'Adam Zion'])
+assert.deepEqual(event.performer.map((speaker) => speaker.name), ["Sam Green", "Rishin Sharma", "Danny Organ", "Shaw Walters", "Manuel Beaudroit", "Chris Johnson", "Chandler Fang", "Ken Priyadarshi", "Sandi Fatic", "Julian Love", "Mickey Negus", "Sarthak Basak", "Adam Zion", "Kevin Jones", "Nicolás Montone", "Brad Holden", "Mac", "Gianluca Minoprio", "Michael Dressler", "Edwin Rager"])
+const sarthak = event.performer.find((speaker) => speaker.name === 'Sarthak Basak')
+assert.equal(sarthak?.jobTitle, 'Senior Director, Growth Products & Partnership')
+assert.equal(sarthak?.affiliation.name, 'Visa')
+assert.equal(sarthak?.url, 'https://www.linkedin.com/in/sarthakbasak/')
+assert.equal(sarthak?.image, 'https://agenticzero.xyz/images/speakers/sarthak-basak.jpeg')
 const rishin = event.performer[1]
 assert.equal(rishin.url, 'https://x.com/_rishinsharma')
 assert.equal(rishin.jobTitle, 'AI Lead')
@@ -321,7 +334,7 @@ assert.equal(speakersResponse.status, 200)
 const speakersBody = await speakersResponse.text()
 assert.match(speakersBody, /<link rel="alternate" type="text\/plain" href="https:\/\/agenticzero\.xyz\/llms\.txt"/)
 assert.match(speakersBody, /<link rel="canonical" href="https:\/\/agenticzero\.xyz\/speakers"/)
-assert.match(speakersBody, /More speakers to be announced soon\./)
+assert.doesNotMatch(speakersBody, /More speakers to be announced soon\./)
 const speakersBlocks = [...speakersBody.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
   .map((match) => JSON.parse(match[1]))
 const speakersPage = speakersBlocks.find((block) => block['@type'] === 'CollectionPage')
@@ -341,10 +354,10 @@ for (const speaker of event.performer) {
   assert.ok(visibleText(speakerSection).includes(speaker.name), `missing visible speaker ${speaker.name}`)
   assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${[speaker.jobTitle, speaker.affiliation.name].filter(Boolean).join(", ")}.`))
   assert.deepEqual(speaker.sameAs, [speaker.url])
-  assert.equal(new URL(speaker.url).hostname, ['Ken Priyadarshi', 'Julian Love'].includes(speaker.name) ? 'www.linkedin.com' : 'x.com')
+  assert.equal(new URL(speaker.url).hostname, ['Ken Priyadarshi', 'Julian Love', 'Sarthak Basak'].includes(speaker.name) ? 'www.linkedin.com' : 'x.com')
   assert.equal((await request(new URL(speaker.image).pathname)).status, 200, `missing photo for ${speaker.name}`)
 }
-for (const hidden of ['Kevin Leffew']) {
+for (const hidden of ['Kevin Leffew', 'Ian Dilick']) {
   assert.ok(!visibleText(speakerSection).includes(hidden))
   assert.ok(!event.performer.some((speaker) => speaker.name === hidden))
   assert.ok(!llmsBody.includes(hidden))
@@ -399,4 +412,40 @@ for (const body of [html, speakersBody, ticketsBody, mppArticleHtml, llmsBody]) 
   assert.ok(!body.includes('/agentic-zero-sf-tech-week-2026-sponsors.png'))
 }
 assert.match(sitemapBody, /<loc>https:\/\/agenticzero\.xyz\/speakers<\/loc>/)
-console.log('Agent-readiness endpoint verification passed.')
+// Ignore HTML entity encoding and spacing around inline links when comparing prose.
+function comparableProse(value) {
+  return visibleText(value.replace(/&#x27;|&#39;|&apos;/g, "'"))
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+}
+
+// Check every published FAQ answer against server-rendered text.
+for (const question of faq.mainEntity) {
+  assert.ok(comparableProse(html).includes(comparableProse(question.name)), `Missing visible FAQ: ${question.name}`)
+  assert.ok(comparableProse(html).includes(comparableProse(question.acceptedAnswer.text)), `FAQ schema differs: ${question.name}`)
+}
+
+// Removed speakers must not leak through any current-edition event surface.
+for (const path of ['/', '/speakers', '/tickets', '/agenda']) {
+  const body = await (await request(path, 'text/html')).text()
+  for (const removed of ['Ian Dilick', 'iamdilick', 'ian-dilick', 'Kevin Leffew', 'kleffew94']) {
+    assert.ok(!body.includes(removed), `${path}: exposes removed speaker ${removed}`)
+  }
+}
+
+// Answer engines and search crawlers must receive the same approved facts.
+for (const userAgent of ['ChatGPT-User/1.0', 'Claude-User/1.0', 'PerplexityBot/1.0', 'Googlebot/2.1']) {
+  for (const [path, accept, expectedBody] of [
+    ['/', 'text/markdown', llmsBody],
+    ['/llms.txt', 'text/plain', llmsBody],
+    ['/llms.md', 'text/markdown', llmsBody],
+  ]) {
+    const response = await fetch(`${baseUrl}${path}`, {
+      headers: { 'User-Agent': userAgent, Accept: accept },
+      redirect: 'manual',
+    })
+    assert.equal(response.status, 200, `${userAgent}: ${path} unavailable`)
+    assert.equal(await response.text(), expectedBody, `${userAgent}: ${path} returns different facts`)
+  }
+}
+console.log(`Agent-readiness passed: ${publicUrls.length} sitemap URLs, ${cardLinks.length} speakers, event/FAQ/organization/article schemas, Markdown aliases, and four crawler identities.`)
