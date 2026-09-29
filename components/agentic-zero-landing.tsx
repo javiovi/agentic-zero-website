@@ -357,7 +357,7 @@ export default function AgenticZeroLanding() {
                     src={sponsor.logo}
                     alt={sponsor.name}
                     className={sponsor.name === "QuickNode" || sponsor.name === "Solana" ? "az-v2-sponsor-grid-wide" : undefined}
-                    loading="lazy"
+                    loading={sponsor.name === "Belo" ? "eager" : "lazy"}
                   />
                 </a>
               ))}
