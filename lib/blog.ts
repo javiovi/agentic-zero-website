@@ -59,7 +59,7 @@ export const POSTS: BlogPost[] = [
     description:
       'Meet the speakers connecting AI agents, payments, and financial institutions at Agentic Zero on October 7, 2026, in San Francisco.',
     date: '2026-09-25',
-    updated: '2026-09-28',
+    updated: '2026-09-29',
     section: 'Speakers',
     keywords: ['Agentic Zero', 'agentic finance', 'SF Tech Week', 'AI agents', 'speakers'],
     about: [

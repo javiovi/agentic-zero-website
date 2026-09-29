@@ -45,7 +45,7 @@ export const SPEAKERS_POST_BODY: BlogBlock[] = [
   {
     "type": "paragraph",
     "content": [
-      "Shaw Walters, Founder of Eliza Labs, and Chris Johnson, Head of Business Development at Virtuals Protocol, bring perspectives from building the platforms and connections for agents to interact with capital and transactions that require complex coordination. The ",
+      "Shaw Walters, Founder of Eliza Research Corporation, and Chris Johnson, Head of Business Development at Virtuals Protocol, bring perspectives from building the platforms and connections for agents to interact with capital and transactions that require complex coordination. The ",
       {
         "text": "open-source Eliza framework",
         "href": "https://arxiv.org/abs/2501.06781",

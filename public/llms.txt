@@ -17,7 +17,7 @@ Current event facts:
 - Format: One-day summit
 - Focus: agentic finance, covering AI agents, payment and financial infrastructure, and the institutions adapting to them
 - Confirmed 2026 sponsors: Cambrian Network, Calimero, Solana, QuickNode, Belo, RZLT, and vAPI Network
-- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Danny Organ (Circle); Shaw Walters (Eliza Labs); Manuel Beaudroit (Belo); Chris Johnson (Virtuals Protocol); Chandler Fang (t54 Labs); Ken Priyadarshi (EY); Sandi Fatic (Calimero Network); Julian Love (Franklin Templeton); Mickey Negus (TRM Labs); Sarthak Basak (Visa); Adam Zion (Fireblocks Dynamic); Kevin Jones (1Claw); Nicolás Montone (Vercel); Brad Holden (PL Capital); Mac (vAPI Network); Gianluca Minoprio (Daimo); Michael Dressler (0G); Edwin Rager (belo); Manuel Alzuru (ETHBarcelona and Blockravers)
+- Announced 2026 speakers and companies: Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Danny Organ (Circle); Shaw Walters (Eliza Research Corporation); Manuel Beaudroit (Belo); Chris Johnson (Virtuals Protocol); Chandler Fang (t54 Labs); Ken Priyadarshi (EY); Sandi Fatic (Calimero Network); Julian Love (Franklin Templeton); Mickey Negus (TRM Labs); Sarthak Basak (Visa); Adam Zion (Fireblocks Dynamic); Kevin Jones (1Claw); Nicolás Montone (Vercel); Brad Holden (PL Capital); Mac (vAPI Network); Gianluca Minoprio (Daimo); Michael Dressler (0G); Edwin Rager (belo); Manuel Alzuru (ETHBarcelona and Blockravers)
 - 2026 media partners: ETH Daily (https://ethdaily.io), UGLY TALK (https://uglytalk.com/)
 - Tickets: Admission is free. Register through the official Partiful page
 - Ticket availability: Partiful is the source of truth for current availability and registration details
@@ -88,7 +88,7 @@ The [second-edition Speakers page](https://agenticzero.xyz/speakers) is the cano
 - [Sam Green](https://x.com/0xsamgreen): Founder & CEO, Cambrian Network.
 - [Rishin Sharma](https://x.com/_rishinsharma): AI Lead, Solana Foundation.
 - [Danny Organ](https://x.com/organ_danny): Product Marketing Lead for Agentic Products, Circle.
-- [Shaw Walters](https://x.com/shawmakesmagic): Founder, Eliza Labs.
+- [Shaw Walters](https://x.com/shawmakesmagic): Founder, Eliza Research Corporation.
 - [Manuel Beaudroit](https://x.com/mbeaudroit): Co-founder & CEO, Belo.
 - [Chris Johnson](https://x.com/DonJohnsonSays): Head of Business Development, Virtuals Protocol.
 - [Chandler Fang](https://x.com/chandler_agi): Founder, t54 Labs.
@@ -107,7 +107,7 @@ The [second-edition Speakers page](https://agenticzero.xyz/speakers) is the cano
 - [Edwin Rager](https://x.com/locosombrero): Co-founder and CMO, belo.
 - [Manuel Alzuru](https://x.com/ManuAlzuru): Founder, ETHBarcelona and Blockravers.
 
-Session assignments and times are not yet published.
+Session assignments and times are listed in the [2026 agenda](https://agenticzero.xyz/agenda). The programme also includes Aden Yu, Founding Member & Head of Product Marketing & Partnerships at Vishwa.
 
 ## 2026 Partners
 
@@ -132,9 +132,26 @@ Session assignments and times are not yet published.
 
 ## Programme
 
-- [Agenda](https://agenticzero.xyz/agenda): Programme page for the second edition on October 7, 2026. The full programme will be announced in late September. The session list is not published yet.
+- [Agenda](https://agenticzero.xyz/agenda): Programme for October 7, 2026, at The Avalon in San Francisco. Registration and snacks start at 9:00 AM. Panels run from 10:00 AM to 12:55 PM; lunch is 1:00–2:00 PM; keynotes and demos run from 2:00 PM to 3:55 PM. All times Pacific Time. See the agenda for session descriptions, participants, and details still to be announced.
 - [First Edition Speakers](https://agenticzero.xyz/speakers/2025): Complete 28-speaker lineup from the first edition in Buenos Aires on November 20, 2025.
 - [First Edition Agenda](https://agenticzero.xyz/first-edition/agenda): Archived full programme from the first edition in Buenos Aires on November 20, 2025, covering 28 speakers across 16 sessions in running order. An individual page exists beneath this path for each session, carrying its speakers, a written account of what was said, and the recording where one exists.
+
+### October 7, 2026 schedule
+
+All times are Pacific Daylight Time (America/Los_Angeles, UTC−07:00).
+
+- 09:00 AM — [Registration & Snacks](https://agenticzero.xyz/agenda#registration) (Arrival).
+- 10:00 AM–10:30 AM — [The Evolution of Digital Assets & The Onchain Economy](https://agenticzero.xyz/agenda#onchain-economy) (Panel). Mickey Negus (TRM Labs); Brad Holden (PL Capital); Danny Organ (Circle); Adam Zion (Fireblocks Dynamic; moderator). As AI agents become fundamental economic actors, digital assets like RWAs, stablecoins, and tokenized stocks are playing a crucial role. In this panel, we will discuss how the onchain economy is evolving and how agentic systems are shaping capital management.
+- 10:35 AM–11:05 AM — [Building for Autonomous Capital](https://agenticzero.xyz/agenda#autonomous-capital) (Panel). Chris Johnson (Virtuals Protocol); Aden Yu (Vishwa); Michael Dressler (0G); Manuel Alzuru (ETHBarcelona and Blockravers; moderator). What does infrastructure look like when capital can move, allocate, and act on its own? This panel explores the systems, protocols, and primitives being built for a world of autonomous capital.
+- 11:10 AM–11:45 AM — [The Rise of Agentic Finance](https://agenticzero.xyz/agenda#agentic-finance) (Panel). Julian Love (Franklin Templeton); Sam Green (Cambrian Network); Rishin Sharma (Solana Foundation); Ken Priyadarshi (EY); Kevin Jones (1Claw; moderator). This panel explores how agents are starting to transact, invest, manage risk & interact with financial markets, plus what this means for the future of finance.
+- 11:50 AM–12:20 PM — [Rebuilding the Rails of Money](https://agenticzero.xyz/agenda#rails-of-money) (Panel). Gianluca Minoprio (Daimo); Sarthak Basak (Visa); Manuel Beaudroit (Belo). Agentic commerce is projected to reach $3–$5 trillion by 2030. But today’s financial infrastructure was built for humans, not machines. This panel explores the new payment rails, stablecoins, and financial primitives being built for an agent-driven economy.
+- 12:25 PM–12:55 PM — [Next generation infrastructure for agents](https://agenticzero.xyz/agenda#agent-infrastructure) (Panel). Nicolás Montone (Vercel); Chandler Fang (t54 Labs); Edwin Rager (belo; moderator).
+- 01:00 PM–02:00 PM — [Lunch](https://agenticzero.xyz/agenda#lunch) (Break).
+- 02:00 PM–02:20 PM — [The future of agentic operating systems](https://agenticzero.xyz/agenda#agentic-operating-systems) (Keynote). Shaw Walters (Eliza Research Corporation). Shaw will talk about the qualities and properties of a future agent OS, why you would want it and what the world looks like in a post-Apple world.
+- 02:25 PM–02:45 PM — [Building the Agentic Banking Layer for Latin America](https://agenticzero.xyz/agenda#agentic-banking) (Keynote + demo). Manuel Beaudroit (Belo). After five years building crypto-powered financial products for 3.58M registered users and US$7.1B in total flows, belo is unveiling the agentic banking layer for Latin America’s 600M+ people that will enable humans and AI agents to operate accounts, payments, cards, treasury and crypto through one programmable financial layer.
+- 02:50 PM–03:10 PM — [Title to be announced](https://agenticzero.xyz/agenda#calimero-keynote) (Keynote). Sandi Fatic (Calimero Network).
+- 03:10 PM–03:30 PM — [vAPI demo](https://agenticzero.xyz/agenda#vapi-demo) (Demo). Mac (vAPI Network). vAPI Network is an onchain marketplace where agents and humans buy and sell work, with agreed task terms and funds held in escrow until review.
+- 03:35 PM–03:55 PM — [1Claw demo](https://agenticzero.xyz/agenda#1claw-demo) (Demo). Kevin Jones (1Claw). 1Claw lets AI agents use credentials, sign transactions and call APIs without holding the underlying keys.
 
 ## Writing
 

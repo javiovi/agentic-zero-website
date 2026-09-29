@@ -1,3 +1,4 @@
+import { AGENDA_2026 } from '@/lib/agenda-2026'
 import { speakerEntities } from '@/lib/speaker-json-ld'
 import { OrganizationJsonLd } from '@/components/organization-json-ld'
 import { SPONSORS_2026, MEDIA_PARTNERS_2026 } from '@/lib/partners'
@@ -6,7 +7,7 @@ import { SPONSORS_2026, MEDIA_PARTNERS_2026 } from '@/lib/partners'
 //
 // Every field below is sourced from content already published on the site.
 // Deliberately omitted because the site does not state them:
-//   endDate    — the site says "one-day summit" but publishes no start/end times
+//   endDate    — the last session has an end time, but event closing is not stated
 //   postalCode — the published address stops at "1244 Sutter Street, San Francisco"
 const secondEdition = {
   "@context": "https://schema.org",
@@ -23,12 +24,13 @@ const secondEdition = {
     url: "https://agenticzero.xyz/speakers",
     name: "Agentic Zero second edition speakers",
   },
-  startDate: "2026-10-07",
+  startDate: `2026-10-07T${AGENDA_2026[0].start}:00-07:00`,
   isAccessibleForFree: true,
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
+    "@id": "https://agenticzero.xyz/#venue-2026",
     name: "The Avalon",
     address: {
       "@type": "PostalAddress",
@@ -64,6 +66,31 @@ const secondEdition = {
     url: "https://www.tech-week.com/",
   },
   performer: speakerEntities,
+  subEvent: AGENDA_2026.map((session) => ({
+    '@type': 'Event',
+    '@id': `https://agenticzero.xyz/agenda#${session.id}`,
+    url: `https://agenticzero.xyz/agenda#${session.id}`,
+    name: session.title,
+    ...(session.description ? { description: session.description } : {}),
+    startDate: `2026-10-07T${session.start}:00-07:00`,
+    ...(session.end ? { endDate: `2026-10-07T${session.end}:00-07:00` } : {}),
+    superEvent: { '@id': 'https://agenticzero.xyz/#event-2026' },
+    location: { '@id': 'https://agenticzero.xyz/#venue-2026' },
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    performer: session.participants.map(({ speaker, moderator }) => {
+      const person = speakerEntities.find((entry) => entry.name === speaker.name) ?? {
+        '@type': 'Person',
+        '@id': `https://agenticzero.xyz/agenda#speaker-${speaker.slug}`,
+        name: speaker.name,
+        jobTitle: speaker.role,
+        affiliation: { '@type': 'Organization', name: speaker.company },
+      }
+      return moderator
+        ? { '@type': 'Role', roleName: 'Moderator', performer: person }
+        : person
+    }),
+  })),
 }
 
 function safeJsonLd(value: unknown) {

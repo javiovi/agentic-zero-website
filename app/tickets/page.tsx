@@ -74,8 +74,8 @@ export default function TicketsPage() {
               <div>
                 <h3>What your ticket includes</h3>
                 <p>
-                  Admission to the one-day, in-person Agentic Zero summit at The Avalon. The full
-                  programme and schedule will be published on the{' '}
+                  Admission to the one-day, in-person Agentic Zero summit at The Avalon. See the
+                  programme and schedule on the{' '}
                   <a href="/agenda">2026 agenda</a>.
                 </p>
               </div>

@@ -51,7 +51,7 @@ export const SPEAKERS_2026: Speaker2026[] = [
     slug: 'shaw-walters',
     name: 'Shaw Walters',
     role: 'Founder',
-    company: 'Eliza Labs',
+    company: 'Eliza Research Corporation',
     image: '/images/speakers/shaw.jpg',
     alt: 'Shaw Walters',
     profileUrl: 'https://x.com/shawmakesmagic',

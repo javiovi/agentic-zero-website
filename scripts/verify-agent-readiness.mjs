@@ -283,7 +283,7 @@ assert.doesNotMatch(html, /2092277067677311310/)
 const event = jsonLdBlocks.find((block) => block['@type'] === 'Event')
 assert.equal(event?.isAccessibleForFree, true)
 assert.equal(event?.offers, undefined)
-assert.equal(event.startDate, '2026-10-07')
+assert.equal(event.startDate, '2026-10-07T09:00:00-07:00')
 assert.equal(event.location.name, 'The Avalon')
 assert.equal(event.location.address.streetAddress, '1244 Sutter Street')
 assert.equal(event.location.address.addressLocality, 'San Francisco')
@@ -469,6 +469,51 @@ for (const path of ['/', '/speakers', '/tickets', '/agenda']) {
   }
 }
 
+// Agenda schema, rendered sessions and the LLM schedule must describe the same programme.
+const agendaHtml = await (await request('/agenda', 'text/html')).text()
+const articles = [...agendaHtml.matchAll(/<article\b[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g)]
+assert.equal(event.subEvent.length, 12)
+assert.deepEqual(event.subEvent.map((session) => new URL(session.url).hash.slice(1)), articles.map((match) => match[1]))
+assert.doesNotMatch(llmsBody, /Session assignments and times are not yet published/)
+assert.doesNotMatch(ticketsBody, /schedule will be published/)
+for (const [index, session] of event.subEvent.entries()) {
+  const [, id, body] = articles[index]
+  assert.equal(session['@type'], 'Event')
+  assert.equal(session['@id'], session.url)
+  assert.equal(session.superEvent['@id'], event['@id'])
+  assert.equal(session.location['@id'], event.location['@id'])
+  const heading = body.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/)?.[1]
+  assert.equal(comparableProse(heading), comparableProse(session.name), `${id}: title differs`)
+  const dates = [...body.matchAll(/<time\b[^>]*dateTime="([^"]+)"/gi)].map((match) => match[1])
+  assert.deepEqual(dates, [session.startDate, ...(session.endDate ? [session.endDate] : [])], `${id}: times differ`)
+  assert.match(session.startDate, /^2026-10-07T\d{2}:\d{2}:00-07:00$/)
+  if (session.endDate) assert.ok(Date.parse(session.endDate) > Date.parse(session.startDate))
+  const llmLine = llmsBody.split('\n').find((line) => line.includes(`](${session.url})`))
+  assert.ok(llmLine, `${id}: missing from llms.txt`)
+  assert.ok(llmLine.includes(session.name))
+  for (const date of dates) {
+    const [hour, minute] = date.slice(11, 16).split(':')
+    const time = `${String(Number(hour) % 12 || 12).padStart(2, '0')}:${minute} ${Number(hour) < 12 ? 'AM' : 'PM'}`
+    assert.ok(llmLine.includes(time), `${id}: LLM time differs`)
+  }
+  if (session.description) {
+    assert.ok(comparableProse(body).includes(comparableProse(session.description)), `${id}: description differs`)
+    assert.ok(llmLine.includes(session.description), `${id}: LLM description differs`)
+  }
+  for (const entry of session.performer) {
+    const person = entry['@type'] === 'Role' ? entry.performer : entry
+    assert.ok(comparableProse(body).includes(comparableProse(person.name)), `${id}: missing performer`)
+    assert.ok(llmLine.includes(person.name), `${id}: missing LLM performer`)
+    if (entry['@type'] === 'Role') {
+      assert.equal(entry.roleName, 'Moderator')
+      assert.ok(llmLine.includes(`${person.name} (${speakerCompany(person)}; moderator)`))
+    }
+  }
+}
+assert.equal(event.subEvent.find((session) => session.name === 'Lunch').endDate, '2026-10-07T14:00:00-07:00')
+assert.equal(event.subEvent[0].endDate, undefined, 'Do not infer a registration end time')
+assert.equal(event.performer.find((person) => person.name === 'Shaw Walters').affiliation.name, 'Eliza Research Corporation')
+
 // Answer engines and search crawlers must receive the same approved facts.
 for (const userAgent of ['ChatGPT-User/1.0', 'Claude-User/1.0', 'PerplexityBot/1.0', 'Googlebot/2.1']) {
   for (const [path, accept, expectedBody] of [
@@ -484,4 +529,4 @@ for (const userAgent of ['ChatGPT-User/1.0', 'Claude-User/1.0', 'PerplexityBot/1
     assert.equal(await response.text(), expectedBody, `${userAgent}: ${path} returns different facts`)
   }
 }
-console.log(`Agent-readiness passed: ${publicUrls.length} sitemap URLs, ${cardLinks.length} speakers, event/FAQ/organization/article schemas, Markdown aliases, and four crawler identities.`)
+console.log(`Agent-readiness passed: ${publicUrls.length} sitemap URLs, ${cardLinks.length} speakers, 12 agenda sessions, event/FAQ/organization/article schemas, Markdown aliases, and four crawler identities.`)

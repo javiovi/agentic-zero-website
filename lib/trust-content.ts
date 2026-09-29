@@ -1,6 +1,6 @@
 export const CONTACT_PARAGRAPHS = [
   'Email contact@agenticzero.xyz with questions about the summit, accessibility, the venue, press, partnerships, or sponsorships. For ticket questions, check the ticket page first.',
-  'We have not published the programme for October 7, 2026.',
+  'See the agenda page for the programme for October 7, 2026, including panels, keynotes, demos, and details still to be announced. All session times are Pacific Time.',
   'Register through the Partiful page. If you need help with your registration, include the email address you used.',
   'Check the homepage, tickets page, agenda, FAQ, and llms.txt for current event facts. The next summit takes place at The Avalon in San Francisco on October 7, 2026. The Buenos Aires programme from November 20, 2025 is a past-edition archive.',
   'If the published pages do not answer your question, email us.',
