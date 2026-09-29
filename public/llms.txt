@@ -62,6 +62,7 @@ How agents should retrieve and use this site:
 ## Event
 
 - [Official website](https://agenticzero.xyz/): Current event positioning, first-edition proof, ticket access, programme updates, FAQs, and contact information.
+- [Attendee card](https://agenticzero.xyz/share): Create an “I’m attending Agentic Zero” card with an uploaded photo or public X profile and export a JPG.
 - [Tickets](https://agenticzero.xyz/tickets): What admission includes and the official registration link.
 - [Official Partiful registration](https://partiful.com/e/6vkA8cTvPI7tTb3NtV2F): Register for the summit and confirm current availability and registration details.
 - [2026 speakers](https://agenticzero.xyz/speakers): Dedicated second-edition page with the twenty-one announced speakers, their roles, affiliations, portraits, and social profiles. The homepage shows the same lineup.
@@ -70,6 +71,15 @@ How agents should retrieve and use this site:
 - [Frequently asked questions](https://agenticzero.xyz/#faqs): Date, venue, tickets, audience, sponsorship, and recording information.
 - [San Francisco Tech Week by a16z](https://www.tech-week.com/): Official Tech Week website.
 - [The Avalon on Google Maps](https://maps.app.goo.gl/qbvyVkT2y282uRNV8): Venue location for the October 7 event.
+
+## Attendee cards
+
+- Tool: https://agenticzero.xyz/share
+- Create a square “I’m attending Agentic Zero” card for the October 7, 2026 event at The Avalon, San Francisco.
+- Upload a JPG, PNG or WebP photo up to 10 MB, or enter a public X / Twitter handle to import the profile photo and name. Upload is available when profile lookup fails.
+- Edit the display name and optional handle, adjust the photo crop, and export a 1080 × 1080 JPG.
+- The generator requires a browser with JavaScript. Uploaded photos are processed locally in the visitor’s browser; public X profile lookup uses a third-party service.
+- Generating a card does not register the visitor for the event or publish a social post. Register separately through the official Partiful page.
 
 ## Announced 2026 Speakers
 

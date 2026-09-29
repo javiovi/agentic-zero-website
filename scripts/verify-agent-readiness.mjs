@@ -159,7 +159,7 @@ assert.match(await robots.text(), /Sitemap: https:\/\/agenticzero\.xyz\/sitemap\
 const sitemap = await request('/sitemap.xml')
 const sitemapBody = await sitemap.text()
 assert.equal(sitemap.status, 200)
-for (const path of ['/contact', '/privacy', '/llms.txt', mppArticlePath]) {
+for (const path of ['/contact', '/privacy', '/share', '/llms.txt', mppArticlePath]) {
   assert.match(sitemapBody, new RegExp(`<loc>https://agenticzero\\.xyz${path.replace('.', '\\.')}<\\/loc>`))
 }
 assert.doesNotMatch(sitemapBody, /<loc>https:\/\/agenticzero\.xyz\/about<\/loc>/)
@@ -211,6 +211,28 @@ for (const path of publicUrls) {
     assert.equal(md.headers.get('content-location'), path)
   }
 }
+
+// The attendee tool must be discoverable without running its client-side canvas.
+const shareResponse = await request('/share', 'text/html')
+const shareHtml = await shareResponse.text()
+assert.equal(shareResponse.status, 200)
+assert.match(shareHtml, /Make your attendee card/)
+assert.match(shareHtml, /Export JPG/)
+assert.match(shareHtml, /Footer navigation/)
+assert.doesNotMatch(visibleText(shareHtml), /OCTOBER 7, 2026 · SAN FRANCISCO/)
+assert.match(llmsBody, /https:\/\/agenticzero\.xyz\/share/)
+assert.match(llmsBody, /## Attendee cards/)
+assert.match(llmsBody, /1080 × 1080 JPG/)
+const shareSchemas = pageSchemas.get('/share') ?? []
+const sharePage = shareSchemas.find((block) => block['@type'] === 'WebPage')
+assert.equal(sharePage?.['@id'], 'https://agenticzero.xyz/share#webpage')
+assert.equal(sharePage?.url, 'https://agenticzero.xyz/share')
+assert.equal(sharePage?.about?.['@id'], 'https://agenticzero.xyz/#event-2026')
+assert.equal(sharePage?.publisher?.['@id'], 'https://agenticzero.xyz/#organization')
+assert.equal(sharePage?.mainEntity?.['@type'], 'WebApplication')
+assert.equal(sharePage?.mainEntity?.url, 'https://agenticzero.xyz/share')
+assert.ok(sharePage?.mainEntity?.featureList?.includes('Export a 1080 × 1080 JPG'))
+assert.ok(shareSchemas.some((block) => block['@type'] === 'Organization'))
 
 const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
   .map((match) => JSON.parse(match[1]))
