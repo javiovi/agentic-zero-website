@@ -54,7 +54,7 @@ export const AGENDA_2026: AgendaSession[] = [
     id: 'agent-infrastructure', start: '12:25', end: '12:55', format: 'Panel',
     title: 'Next generation infrastructure for agents',
     description: 'What infrastructure do agents need to operate reliably at scale? From deployment and developer tools to identity, trust, and payments, this panel explores the foundations that enable agents to interact with people, services, and each other.',
-    participants: [participant('nicolas-montone'), participant('chandler-fang'), participant('ian-dilick'), participant('edwin-rager', true)],
+    participants: [participant('nicolas-montone'), participant('chandler-fang'), participant('ian-dilick'), participant('manuel-beaudroit', true)],
   },
   { id: 'lunch', start: '13:00', end: '14:00', format: 'Break', title: 'Lunch', participants: [], break: true },
   {
