@@ -140,7 +140,7 @@ describe('agent-facing content', () => {
       PUBLIC_SPEAKERS_2026.map((speaker) => [speaker.name, speakerUrl(speaker)])
     )
     for (const speaker of PUBLIC_SPEAKERS_2026) {
-      expect(section).toContain(speakerDisplayRole(speaker))
+      expect(section).toContain(speaker.description ?? speakerDisplayRole(speaker))
     }
     for (const speaker of SPEAKERS_2026.filter((speaker) => speaker.published === false)) {
       expect(body).not.toContain(speaker.name)

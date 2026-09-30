@@ -48,7 +48,7 @@ export const AGENDA_2026: AgendaSession[] = [
     id: 'rails-of-money', start: '11:50', end: '12:20', format: 'Panel',
     title: 'Rebuilding the Rails of Money',
     description: 'Agentic commerce is projected to reach $3–$5 trillion by 2030. But today’s financial infrastructure was built for humans, not machines. This panel explores the new payment rails, stablecoins, and financial primitives being built for an agent-driven economy.',
-    participants: [participant('gianluca-minoprio'), participant('sarthak-basak'), participant('manuel-beaudroit')],
+    participants: [participant('gianluca-minoprio'), participant('sarthak-basak'), participant('manuel-beaudroit'), participant('francesco-renzi', true)],
   },
   {
     id: 'agent-infrastructure', start: '12:25', end: '12:55', format: 'Panel',

@@ -4,6 +4,7 @@ export type Speaker2026 = {
   role: string
   company: string
   organizations?: string[]
+  description?: string
   image: string
   alt: string
   profileUrl?: string
@@ -207,6 +208,16 @@ export const SPEAKERS_2026: Speaker2026[] = [
     image: '/images/speakers/michael-dressler.png',
     alt: 'Michael Dressler',
     profileUrl: 'https://x.com/mdressler24',
+  },
+  {
+    slug: 'francesco-renzi',
+    name: 'Francesco Renzi',
+    role: 'Founder & CEO',
+    company: 'Synclave',
+    description: 'Founder & CEO of Synclave (confidential infrastructure for apps and agents); co-founder and former CEO of Superfluid.',
+    image: '/images/speakers/francesco-renzi.jpeg',
+    alt: 'Francesco Renzi',
+    profileUrl: 'https://x.com/FrancescoRenziA',
   },
   {
     slug: 'edwin-rager',

@@ -315,7 +315,7 @@ function speakerCardLinks(body) {
 }
 const cardLinks = speakerCardLinks(speakerSection)
 assert.deepEqual(cardLinks, event.performer.map((speaker) => speaker.url))
-assert.equal(cardLinks.length, 23)
+assert.equal(cardLinks.length, 24)
 const ken = event.performer.find((speaker) => speaker.name === 'Ken Priyadarshi')
 assert.equal(ken.name, 'Ken Priyadarshi')
 assert.equal(ken.url, 'https://www.linkedin.com/in/kenpriyadarshi/')
@@ -328,7 +328,7 @@ assert.equal(danny.url, 'https://x.com/organ_danny')
 assert.equal(danny.jobTitle, 'Product Marketing Lead for Agentic Products')
 assert.equal(danny.affiliation.name, 'Circle')
 assert.equal(danny.image, 'https://agenticzero.xyz/images/speakers/danny-organ.png')
-assert.deepEqual(event.performer.map((speaker) => speaker.name), ["Sam Green", "Rishin Sharma", "Danny Organ", "Shaw Walters", "Manuel Beaudroit", "Chris Johnson", "Chandler Fang", "Ken Priyadarshi", "Sandi Fatic", "Julian Love", "Mickey Negus", "Sarthak Basak", "Adam Zion", "Kevin Jones", "Nicolás Montone", "Brad Holden", "Mac", "Gianluca Minoprio", "Ian Dilick", "Adan Yu", "Michael Dressler", "Edwin Rager", "Manuel Alzuru"])
+assert.deepEqual(event.performer.map((speaker) => speaker.name), ["Sam Green", "Rishin Sharma", "Danny Organ", "Shaw Walters", "Manuel Beaudroit", "Chris Johnson", "Chandler Fang", "Ken Priyadarshi", "Sandi Fatic", "Julian Love", "Mickey Negus", "Sarthak Basak", "Adam Zion", "Kevin Jones", "Nicolás Montone", "Brad Holden", "Mac", "Gianluca Minoprio", "Ian Dilick", "Adan Yu", "Michael Dressler", "Francesco Renzi", "Edwin Rager", "Manuel Alzuru"])
 const sarthak = event.performer.find((speaker) => speaker.name === 'Sarthak Basak')
 assert.equal(sarthak?.jobTitle, 'Senior Director, Growth Products & Partnership')
 assert.equal(sarthak?.affiliation.name, 'Visa')
@@ -394,8 +394,16 @@ assert.doesNotMatch(llmsBody, /lineup is currently listed on the homepage only/)
 
 for (const speaker of event.performer) {
   assert.ok(visibleText(speakerSection).includes(speaker.name), `missing visible speaker ${speaker.name}`)
-  assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${[speaker.jobTitle, speakerCompany(speaker)].filter(Boolean).join(", ")}.`))
-  if (speaker.name === 'Adan Yu') {
+  const speakerBio = speaker.description ?? `${[speaker.jobTitle, speakerCompany(speaker)].filter(Boolean).join(", ")}.`
+  assert.ok(llmsBody.includes(`[${speaker.name}](${speaker.url}): ${speakerBio}`))
+  if (speaker.description) assert.ok(llmsBody.includes(speaker.description))
+  if (speaker.name === 'Francesco Renzi') {
+    assert.equal(speaker.url, 'https://x.com/FrancescoRenziA')
+    assert.deepEqual(speaker.sameAs, ['https://x.com/FrancescoRenziA'])
+    assert.equal(speaker.jobTitle, 'Founder & CEO')
+    assert.equal(speakerCompany(speaker), 'Synclave')
+    assert.equal(speaker.description, 'Founder & CEO of Synclave (confidential infrastructure for apps and agents); co-founder and former CEO of Superfluid.')
+  } else if (speaker.name === 'Adan Yu') {
     assert.equal(speaker.url, 'https://agenticzero.xyz/speakers#adan-yu')
     assert.equal(speaker.sameAs, undefined, 'Do not invent an unconfirmed social profile')
     assert.equal(speaker.jobTitle, 'Founding Member & Head of Product Marketing & Partnerships')
@@ -458,7 +466,7 @@ assert.deepEqual(
 assert.equal(event.performer.find((speaker) => speaker.name === 'Sandi Fatic').image, 'https://agenticzero.xyz/images/speakers/sandi.jpeg')
 assert.equal(event.performer[4].image, 'https://agenticzero.xyz/images/speakers/manuel-beaudroit.jpg')
 assert.equal(event.contributor[0].contributor.logo, 'https://agenticzero.xyz/images/logos/ethdaily-wordmark.png')
-assert.match(llmsBody, /twenty-three announced speakers/)
+assert.match(llmsBody, /twenty-four announced speakers/)
 assert.match(speakersBody, /<meta property="og:url" content="https:\/\/agenticzero\.xyz\/speakers"/)
 assert.match(speakersBody, /<meta property="og:title" content="Speakers \| Agentic Zero"/)
 assert.match(speakersBody, /<meta name="twitter:title" content="Speakers \| Agentic Zero"/)
@@ -541,6 +549,7 @@ assert.equal(event.subEvent.find((session) => session.name === 'Lunch').endDate,
 assert.doesNotMatch(agendaHtml, /Aden Yu|aden-yu|>AY</)
 assert.ok(event.subEvent.find((session) => session.url.endsWith('#agent-infrastructure')).performer.some((person) => person.name === 'Ian Dilick' && person.affiliation.name === 'World Foundation'))
 assert.ok(event.subEvent.find((session) => session.url.endsWith('#autonomous-capital')).performer.some((person) => person.name === 'Adan Yu' && person.affiliation.name === 'Vishwa Lab'))
+assert.ok(event.subEvent.find((session) => session.url.endsWith('#rails-of-money')).performer.some((entry) => entry.roleName === 'Moderator' && entry.performer.name === 'Francesco Renzi'))
 assert.equal(event.subEvent[0].endDate, undefined, 'Do not infer a registration end time')
 assert.equal(event.performer.find((person) => person.name === 'Shaw Walters').affiliation.name, 'Eliza Research Corporation')
 

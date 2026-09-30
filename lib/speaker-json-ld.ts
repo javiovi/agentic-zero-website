@@ -4,6 +4,7 @@ export const speakerEntities = PUBLIC_SPEAKERS_2026.map((speaker) => ({
     "@type": "Person",
     "@id": speakerUrl(speaker),
     name: speaker.name,
+    ...(speaker.description ? { description: speaker.description } : {}),
     url: speakerUrl(speaker),
     image: new URL(speaker.image, "https://agenticzero.xyz").href,
     ...(speaker.role ? { jobTitle: speaker.role } : {}),
