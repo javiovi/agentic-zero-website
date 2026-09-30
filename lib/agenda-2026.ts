@@ -53,6 +53,7 @@ export const AGENDA_2026: AgendaSession[] = [
   {
     id: 'agent-infrastructure', start: '12:25', end: '12:55', format: 'Panel',
     title: 'Next generation infrastructure for agents',
+    description: 'What infrastructure do agents need to operate reliably at scale? From deployment and developer tools to identity, trust, and payments, this panel explores the foundations that enable agents to interact with people, services, and each other.',
     participants: [participant('nicolas-montone'), participant('chandler-fang'), participant('ian-dilick'), participant('edwin-rager', true)],
   },
   { id: 'lunch', start: '13:00', end: '14:00', format: 'Break', title: 'Lunch', participants: [], break: true },
@@ -70,7 +71,9 @@ export const AGENDA_2026: AgendaSession[] = [
   },
   {
     id: 'calimero-keynote', start: '14:50', end: '15:10', format: 'Keynote',
-    title: 'Title to be announced', participants: [participant('sandi-fatic')],
+    title: 'Calimero Keynote',
+    description: 'Calimero Network enables private, peer-to-peer applications where people and AI agents work with data that stays under its owners’ control.',
+    participants: [participant('sandi-fatic')],
   },
   {
     id: 'vapi-demo', start: '15:10', end: '15:30', format: 'Demo',
