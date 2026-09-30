@@ -71,8 +71,8 @@ export const AGENDA_2026: AgendaSession[] = [
   },
   {
     id: 'calimero-keynote', start: '14:50', end: '15:10', format: 'Keynote',
-    title: 'Calimero Keynote',
-    description: 'Calimero Network enables private, peer-to-peer applications where people and AI agents work with data that stays under its owners’ control.',
+    title: "The Cloud Knows Everything. Let's Build One That Can't.",
+    description: "Calimero is unveiling a cloud that can't look: an open-source platform that lets humans and AI agents share data, run apps and act on each other's behalf, on their own devices and on sealed hardware that even its operator can't read.",
     participants: [participant('sandi-fatic')],
   },
   {
