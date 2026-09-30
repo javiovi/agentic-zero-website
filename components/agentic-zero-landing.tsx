@@ -364,26 +364,29 @@ export default function AgenticZeroLanding() {
             </div>
           </div>
           <section id="media-partner" className="az-v2-media-partner-section" aria-labelledby="media-partner-title">
-            <h2 id="media-partner-title">Media Partners</h2>
+            <h2 id="media-partner-title">Media &amp; Community Partners</h2>
             <div className="az-v2-media-partner-logos">
-              {MEDIA_PARTNERS_2026.map((partner) => (
-                <a
-                  key={partner.name}
-                  className={`az-v2-media-partner-link${partner.name === "UGLY TALK" ? " az-v2-media-partner-ugly-talk" : ""}`}
-                  href={partner.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit ${partner.name}`}
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={partner.name === "UGLY TALK" ? 2000 : 968}
-                    height={partner.name === "UGLY TALK" ? 2000 : 359}
-                    loading="lazy"
-                  />
-                </a>
-              ))}
+              {MEDIA_PARTNERS_2026.map((partner) => {
+                const Partner = partner.website ? "a" : "div"
+                return (
+                  <Partner
+                    key={partner.name}
+                    className={`az-v2-media-partner-link${partner.name === "UGLY TALK" ? " az-v2-media-partner-ugly-talk" : ""}`}
+                    href={partner.website}
+                    target={partner.website ? "_blank" : undefined}
+                    rel={partner.website ? "noopener noreferrer" : undefined}
+                    aria-label={partner.website ? `Visit ${partner.name}` : undefined}
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={partner.name === "UGLY TALK" ? 2000 : partner.name === "The House" ? 264 : 968}
+                      height={partner.name === "UGLY TALK" ? 2000 : partner.name === "The House" ? 64 : 359}
+                      loading="lazy"
+                    />
+                  </Partner>
+                )
+              })}
             </div>
           </section>
         </section>

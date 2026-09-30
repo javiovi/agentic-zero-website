@@ -20,7 +20,7 @@ function Participant({ speaker, moderator }: AgendaParticipant) {
       <span className={styles.portraitLayer} aria-hidden="true" />
       <span className={styles.portrait}>
       {speaker.image ? <img src={speaker.image} alt="" width={240} height={300} loading="lazy"
-        style={speaker.slug === 'brad-holden' ? { objectPosition: '50% 20%' } : speaker.slug === 'mac' ? { objectPosition: '50% 0%' } : speaker.slug === 'ken-priyadarshi' ? { transform: 'scale(1.5)', transformOrigin: '50% 35%' } : undefined} />
+        style={speaker.slug === 'adan-yu' ? { objectPosition: '50% 30%', transform: 'scale(1.08)', transformOrigin: '50% 50%' } : speaker.slug === 'brad-holden' ? { objectPosition: '50% 20%' } : speaker.slug === 'mac' ? { objectPosition: '50% 0%' } : speaker.slug === 'ian-dilick' ? { objectPosition: '58% 50%', transform: 'scale(1.1)', transformOrigin: '50% 75%' } : speaker.slug === 'ken-priyadarshi' ? { transform: 'scale(1.5)', transformOrigin: '50% 35%' } : undefined} />
         : <span className={styles.initials} aria-label="Headshot to be announced">{speaker.name.split(' ').map(word => word[0]).join('')}</span>}
       {moderator && <span className={styles.moderator}>Moderator</span>}
       </span>

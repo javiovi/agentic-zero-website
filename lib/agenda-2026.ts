@@ -36,7 +36,7 @@ export const AGENDA_2026: AgendaSession[] = [
     id: 'autonomous-capital', start: '10:35', end: '11:05', format: 'Panel',
     title: 'Building for Autonomous Capital',
     description: 'What does infrastructure look like when capital can move, allocate, and act on its own? This panel explores the systems, protocols, and primitives being built for a world of autonomous capital.',
-    participants: [participant('chris-johnson'), { speaker: { slug: 'aden-yu', name: 'Aden Yu', role: 'Founding Member & Head of Product Marketing & Partnerships', company: 'Vishwa' } }, participant('michael-dressler'), participant('manuel-alzuru', true)],
+    participants: [participant('chris-johnson'), participant('adan-yu'), participant('michael-dressler'), participant('manuel-alzuru', true)],
   },
   {
     id: 'agentic-finance', start: '11:10', end: '11:45', format: 'Panel',
@@ -53,7 +53,7 @@ export const AGENDA_2026: AgendaSession[] = [
   {
     id: 'agent-infrastructure', start: '12:25', end: '12:55', format: 'Panel',
     title: 'Next generation infrastructure for agents',
-    participants: [participant('nicolas-montone'), participant('chandler-fang'), participant('edwin-rager', true)],
+    participants: [participant('nicolas-montone'), participant('chandler-fang'), participant('ian-dilick'), participant('edwin-rager', true)],
   },
   { id: 'lunch', start: '13:00', end: '14:00', format: 'Break', title: 'Lunch', participants: [], break: true },
   {

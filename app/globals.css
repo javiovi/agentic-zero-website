@@ -937,7 +937,7 @@ p {
 }
 
 .az-v2-partners-section .az-v2-media-partner-link.az-v2-media-partner-ugly-talk img {
-  width: 144px;
+  width: 120px;
   filter: none;
 }
 
@@ -953,10 +953,9 @@ p {
 
 @media (max-width: 600px) {
   .az-v2-media-partner-logos {
-    display: grid;
-    grid-template-columns: minmax(0, 170fr) minmax(0, 122fr);
-    width: min(100%, 342px);
-    gap: 24px;
+    display: flex;
+    width: 100%;
+    gap: 24px 32px;
   }
 
   .az-v2-partners-section .az-v2-media-partner-link {
@@ -964,7 +963,7 @@ p {
   }
 
   .az-v2-partners-section .az-v2-media-partner-link.az-v2-media-partner-ugly-talk img {
-    width: 122px;
+    width: 104px;
   }
 
   .az-v2-partners-section .az-v2-media-partner-link {

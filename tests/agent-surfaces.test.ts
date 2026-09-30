@@ -9,7 +9,7 @@ import {
   PRIVACY_PARAGRAPHS,
 } from '@/lib/trust-content'
 import AboutPage from '@/app/about/page'
-import { PUBLIC_SPEAKERS_2026, SPEAKERS_2026, speakerDisplayRole } from '@/lib/speakers'
+import { PUBLIC_SPEAKERS_2026, SPEAKERS_2026, speakerDisplayRole, speakerUrl } from '@/lib/speakers'
 import { SPONSORS_2026, MEDIA_PARTNERS_2026 } from '@/lib/partners'
 
 describe('agent-facing content', () => {
@@ -137,28 +137,28 @@ describe('agent-facing content', () => {
     const links = [...section.matchAll(/^- \[([^\]]+)\]\(([^)]+)\)/gm)]
 
     expect(links.map((match) => [match[1], match[2]])).toEqual(
-      PUBLIC_SPEAKERS_2026.map((speaker) => [speaker.name, speaker.profileUrl])
+      PUBLIC_SPEAKERS_2026.map((speaker) => [speaker.name, speakerUrl(speaker)])
     )
     for (const speaker of PUBLIC_SPEAKERS_2026) {
       expect(section).toContain(speakerDisplayRole(speaker))
     }
     for (const speaker of SPEAKERS_2026.filter((speaker) => speaker.published === false)) {
       expect(body).not.toContain(speaker.name)
-      expect(body).not.toContain(speaker.profileUrl)
+      if (speaker.profileUrl) expect(body).not.toContain(speaker.profileUrl)
     }
   })
 
   it('lists sponsors and the media partner separately with their current destinations', async () => {
     const body = await (await getMarkdown()).text()
     const partners = body.split('## 2026 Partners')[1].split('## Positioning')[0]
-    const [sponsors, media] = partners.split('### Media Partners')
+    const [sponsors, media] = partners.split('### Media & Community Partners')
 
     for (const sponsor of SPONSORS_2026) {
       expect(sponsors).toContain(`[${sponsor.name}](${sponsor.website})`)
     }
     for (const partner of MEDIA_PARTNERS_2026) {
       expect(sponsors).not.toContain(partner.name)
-      expect(media).toContain(`[${partner.name}](${partner.website})`)
+      expect(media).toContain(partner.website ? `[${partner.name}](${partner.website})` : `- ${partner.name}:`)
     }
     expect(body).toContain('https://agenticzero.xyz/speakers')
     expect(body).toContain('https://agenticzero.xyz/#partners')

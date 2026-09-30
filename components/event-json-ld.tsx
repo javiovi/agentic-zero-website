@@ -51,13 +51,13 @@ const secondEdition = {
   })),
   contributor: MEDIA_PARTNERS_2026.map((partner) => ({
     "@type": "Role",
-    roleName: "Media Partner",
+    roleName: "Media & Community Partner",
     contributor: {
       "@type": "Organization",
       name: partner.name,
-      url: partner.website,
+      ...(partner.website ? { url: partner.website } : {}),
       logo: `https://agenticzero.xyz${partner.logo}`,
-      ...('profileUrl' in partner ? { sameAs: [partner.profileUrl] } : {}),
+      ...(partner.profileUrl ? { sameAs: [partner.profileUrl] } : {}),
     },
   })),
   superEvent: {

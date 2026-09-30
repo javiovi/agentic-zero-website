@@ -6,7 +6,7 @@ export type Speaker2026 = {
   organizations?: string[]
   image: string
   alt: string
-  profileUrl: string
+  profileUrl?: string
   published?: boolean
 }
 
@@ -183,6 +183,23 @@ export const SPEAKERS_2026: Speaker2026[] = [
     profileUrl: 'https://x.com/gminoprio',
   },
   {
+    slug: 'ian-dilick',
+    name: 'Ian Dilick',
+    role: 'Developer Relations',
+    company: 'World Foundation',
+    image: '/images/speakers/ian-dilick.jpeg',
+    alt: 'Ian Dilick',
+    profileUrl: 'https://x.com/iamdilick',
+  },
+  {
+    slug: 'adan-yu',
+    name: 'Adan Yu',
+    role: 'Founding Member & Head of Product Marketing & Partnerships',
+    company: 'Vishwa Lab',
+    image: '/images/speakers/adan-yu.jpeg',
+    alt: 'Adan Yu',
+  },
+  {
     slug: 'michael-dressler',
     name: 'Michael Dressler',
     role: 'Head of Success',
@@ -209,16 +226,6 @@ export const SPEAKERS_2026: Speaker2026[] = [
     image: '/images/speakers/manuel-alzuru.jpeg',
     alt: 'Manuel Alzuru',
     profileUrl: 'https://x.com/ManuAlzuru',
-  },
-  {
-    slug: 'ian-dilick',
-    published: false,
-    name: 'Ian Dilick',
-    role: 'Developer Relations',
-    company: 'World Foundation',
-    image: '/images/speakers/ian-dilick.jpeg',
-    alt: 'Ian Dilick',
-    profileUrl: 'https://x.com/iamdilick',
   },
   {
     slug: 'kevin-leffew',
@@ -408,4 +415,8 @@ export const FIRST_EDITION_SPEAKERS: FirstEditionSpeaker[] = [
 
 export function speakerDisplayRole(speaker: Speaker2026) {
   return [speaker.role, speaker.company].filter(Boolean).join(", ")
+}
+
+export function speakerUrl(speaker: Speaker2026) {
+  return speaker.profileUrl ?? `https://agenticzero.xyz/speakers#${speaker.slug}`
 }
