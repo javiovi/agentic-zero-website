@@ -78,7 +78,7 @@ export const AGENDA_2026: AgendaSession[] = [
   {
     id: 'vapi-demo', start: '15:10', end: '15:30', format: 'Demo',
     title: 'vAPI demo',
-    description: 'vAPI Network is an onchain marketplace where agents and humans buy and sell work, with agreed task terms and funds held in escrow until review.',
+    description: 'vAPI Network is an onchain task market where agents and humans buy and sell work, with agreed task terms and funds held in escrow until review.',
     participants: [participant('mac')],
   },
   {
